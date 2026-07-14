@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "generated_at": "2026-07-14",
+  "cards": [
+    {
+      "id": "2026-07-14-agentic-ai-explained",
+      "format": "story",
+      "topic": "agentic-ai",
+      "accent": "coral",
+      "title": "MIT: what agentic AI actually is (and isn't)",
+      "source": { "name": "MIT News", "url": "https://news.mit.edu/2026/agentic-ai-and-what-do-we-want-it-be-0630" },
+      "panels": [
+        { "kicker": "AGENTIC AI · FUNDAMENTALS", "head": "\"AI that takes actions in the world.\"", "cmd": null, "sub": "MIT's Phillip Isola cuts through the buzzword: an agent doesn't just answer — it does." },
+        { "kicker": "THE NUMBERS", "head": "35% already deployed. 44% about to.", "cmd": null, "sub": "An MIT Sloan / BCG survey found over a third of businesses run AI agents today, with nearly half more planning to." },
+        { "kicker": "THE SHIFT", "head": "From chatbot to coworker.", "cmd": null, "sub": "The difference isn't intelligence — it's permission. Agents get tools, credentials and the authority to act." },
+        { "kicker": "THE CATCH", "head": "Authority needs accountability.", "cmd": null, "sub": "The open question is oversight: who reviews what an agent did, and who owns the mistake?" },
+        { "kicker": "PM LENS", "head": "Same question FOMI answers for inspection.", "cmd": null, "sub": "Auditable per-action records are what turn autonomous systems into deployable ones." }
+      ]
+    },
+    {
+      "id": "2026-07-14-vibe-coding-habits",
+      "format": "infographic",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "5 habits that separate vibe coders from the mess",
+      "source": { "name": "Nanonets", "url": "https://nanonets.com/blog/vibe-coding-best-practices-claude-code/" },
+      "kicker": "VIBE CODING · CRAFT",
+      "headline": "AI writes the code.",
+      "headline_accent": "You set the guardrails.",
+      "steps": [
+        { "n": "01", "label": "Feed it a CLAUDE.md", "cmd": null, "detail": "Every session starts cold. A project memory file with your stack, patterns and no-go zones fixes that." },
+        { "n": "02", "label": "Assign a role", "cmd": null, "detail": "\"Act as a senior engineer burned by untested payment code\" produces more defensive output than \"build this\"." },
+        { "n": "03", "label": "Build in layers", "cmd": null, "detail": "One prompt per layer, not one prompt for the whole integration. Tangled generations are where bugs hide." },
+        { "n": "04", "label": "Review like a PR", "cmd": null, "detail": "A scan of 5,600 vibe-coded apps found 400+ exposed secrets. Read diffs like they came from a junior dev." },
+        { "n": "05", "label": "List the off-limits", "cmd": null, "detail": "Auth, secrets and billing logic go in CLAUDE.md as explicitly untouchable — and get repeated in risky prompts." }
+      ]
+    },
+    {
+      "id": "2026-07-14-plan-mode-replay",
+      "format": "replay",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Plan Mode: the 20 seconds that save an hour",
+      "source": { "name": "roadmap.sh", "url": "https://roadmap.sh/vibe-coding/tutorial" },
+      "caption": "Plan first, approve, then build. Slower for the first minute, faster for the whole session.",
+      "terminal_title": "james@macbook — claude",
+      "script": [
+        { "type": "cmd", "text": "claude" },
+        { "type": "out", "text": "Welcome back. /help for commands." },
+        { "type": "cmd", "text": "> Enter Plan Mode: add offline caching to the feed app" },
+        { "type": "out", "text": "Exploring codebase… reading service worker setup…" },
+        { "type": "out", "text": "PLAN: 1) cache feed.json on fetch  2) stale-while-" },
+        { "type": "out", "text": "revalidate strategy  3) fallback card when offline" },
+        { "type": "out", "text": "Approve plan? (y/edit)" },
+        { "type": "cmd", "text": "> y" },
+        { "type": "out", "text": "✔ Executing step 1 of 3…" }
+      ]
+    },
+    {
+      "id": "2026-07-14-mit-cv-roundup",
+      "format": "infographic",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "3 CV papers worth 60 seconds this month",
+      "source": { "name": "MIT News", "url": "https://news.mit.edu/topic/computer-vision" },
+      "kicker": "COMPUTER VISION · RESEARCH",
+      "headline": "MIT's vision lab,",
+      "headline_accent": "condensed.",
+      "steps": [
+        { "n": "01", "label": "Spatial memory for robots", "cmd": null, "detail": "A system that efficiently remembers object details while a robot explores — persistent scene understanding, not frame-by-frame." },
+        { "n": "02", "label": "Sonar-MASt3R", "cmd": null, "detail": "Fuses sonar with visual data for real-time 3D maps in cloudy water. The pattern — fuse a second modality where optics fail — travels well." },
+        { "n": "03", "label": "ChartNet dataset", "cmd": null, "detail": "Training data aimed at making vision-language models actually read charts and figures correctly." }
+      ]
+    },
+    {
+      "id": "2026-07-14-edge-ai-agents",
+      "format": "story",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "Coding agents come to edge vision dev",
+      "source": { "name": "Edge AI and Vision Alliance", "url": "https://www.edge-ai-vision.com/2026/07/edge-ai-and-vision-insights-july-8-2026/" },
+      "panels": [
+        { "kicker": "EDGE AI · TOOLING", "head": "The agents are coming for embedded dev.", "cmd": null, "sub": "This week's Edge AI & Vision Alliance digest centres on edge-first coding agents that target real devices." },
+        { "kicker": "WHY IT'S HARD", "head": "Edge dev punishes iteration.", "cmd": null, "sub": "Cross-compiling, flashing hardware, camera quirks — the feedback loop that agents shortcut on the web barely exists here." },
+        { "kicker": "THE PROMISE", "head": "Agents that build for the device, not the browser.", "cmd": null, "sub": "Toolchains that let an agent compile, deploy and test against actual edge hardware close that loop." },
+        { "kicker": "PM LENS", "head": "Watch this for Jetson workflows.", "cmd": null, "sub": "If agent-assisted edge dev matures, small teams shipping camera systems get disproportionately faster." }
+      ]
+    },
+    {
+      "id": "2026-07-14-agent-gateways",
+      "format": "story",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "'Agent gateways' are becoming a category",
+      "source": { "name": "Forbes / agentic AI coverage", "url": "https://www.forbes.com/topics/agentic-ai/" },
+      "panels": [
+        { "kicker": "AI NEWS · INFRASTRUCTURE", "head": "The bottleneck moved.", "cmd": null, "sub": "Industry coverage this month argues the constraint is no longer raw compute — it's orchestrating and governing fleets of agents." },
+        { "kicker": "THE SIGNAL", "head": "Acquisitions and donations.", "cmd": null, "sub": "Palo Alto acquired Portkey; Solo.io handed its agentgateway project to the Linux Foundation. Consolidation means a category is forming." },
+        { "kicker": "WHAT A GATEWAY DOES", "head": "One choke point for every agent action.", "cmd": null, "sub": "Policy, cost attribution, credentials and audit for agent traffic — the same job API gateways did for microservices." },
+        { "kicker": "TAKEAWAY", "head": "Governance is where the money went.", "cmd": null, "sub": "When security vendors buy the plumbing, enterprises are past the pilot stage." }
+      ]
+    },
+    {
+      "id": "2026-07-14-agent-memory-audit",
+      "format": "story",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "Agent memory, now with receipts",
+      "source": { "name": "Agentic.ai news", "url": "https://agentic.ai/news" },
+      "panels": [
+        { "kicker": "AI NEWS · LAUNCH", "head": "Agents are getting long-term memory.", "cmd": null, "sub": "AgentPrizm launched AgentMemory on July 9 — a REST + MCP layer giving agents persistent memory across sessions." },
+        { "kicker": "THE HARD PART", "head": "Trust in what an agent remembers.", "cmd": null, "sub": "Persistent memory is easy to bolt on and hard to trust: what got stored, what got reused, what should be forgotten?" },
+        { "kicker": "THE INTERESTING BIT", "head": "An audit trail per memory decision.", "cmd": null, "sub": "Each remember/forget action can be shown back to the user, with right-to-forget controls built in." },
+        { "kicker": "TAKEAWAY", "head": "Auditability is the product now.", "cmd": null, "sub": "Across agents, memory and gateways, the same pattern: the feature enterprises pay for is the paper trail." }
+      ]
+    }
+  ]
+}
