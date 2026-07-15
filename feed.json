@@ -3,252 +3,134 @@
   "generated_at": "2026-07-15",
   "cards": [
     {
-      "id": "2026-07-14-uvx-github-actions-cache",
+      "id": "2025-01-30-yolo-litert-export",
       "format": "infographic",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Cache uvx tools in GitHub Actions with one env var",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "Export YOLO to LiteRT for Edge & Browser",
       "source": {
-        "name": "Simon Willison's TIL",
-        "url": "https://simonwillison.net/2026/Jul/14/uvx-github-actions-cache/#atom-everything"
+        "name": "Ultralytics Blog",
+        "url": "https://www.ultralytics.com/blog/export-ultralytics-yolo-with-litert-for-edge-and-browser-deployment"
       },
-      "kicker": "VIBE-CODING \u00b7 CI/CD",
-      "headline": "Stop re-downloading\nPyPI tools on every\nActions run",
-      "headline_accent": "Actions run",
+      "kicker": "COMPUTER VISION \u00b7 EDGE DEPLOYMENT",
+      "headline": "One export format,\nevery edge target \u2014\nmobile, embedded, browser",
+      "headline_accent": "mobile, embedded, browser",
       "steps": [
         {
           "n": "01",
-          "label": "Pin a cutoff date",
-          "cmd": "UV_EXCLUDE_NEWER: \"2026-07-12\"",
-          "detail": "Set this env var at the top of your workflow. Every uvx invocation will resolve to the newest package versions available as of that date, making resolution deterministic."
+          "label": "What LiteRT is",
+          "cmd": null,
+          "detail": "LiteRT (formerly TensorFlow Lite Runtime) is Google's unified inference runtime that runs the same model file on Android, iOS, microcontrollers, and WebAssembly targets without recompilation."
         },
         {
           "n": "02",
-          "label": "Use the date in your cache key",
-          "cmd": "key: uvx-${{ env.UV_EXCLUDE_NEWER }}-${{ hashFiles('...') }}",
-          "detail": "Tying the cache key to UV_EXCLUDE_NEWER means the cached wheel set is valid as long as the date stays the same \u2014 no stale hits, no surprise upgrades."
+          "label": "Install the dependency",
+          "cmd": "pip install ultralytics ai-edge-litert",
+          "detail": "The Ultralytics package now includes a LiteRT export path. The ai-edge-litert package provides the runtime and conversion utilities."
         },
         {
           "n": "03",
-          "label": "Bust cache by bumping the date",
-          "cmd": null,
-          "detail": "When you want newer tool versions, update UV_EXCLUDE_NEWER to today's date. The old cache is abandoned and a fresh one is populated on the next run."
+          "label": "Export the model",
+          "cmd": "yolo export model=yolo11n.pt format=litert",
+          "detail": "This produces a .tflite file optimised for the LiteRT runtime. Add imgsz=320 to shrink latency for constrained hardware; add int8=True for quantised weights."
         },
         {
           "n": "04",
-          "label": "Why this beats the default",
+          "label": "Run inference on-device",
+          "cmd": "yolo predict model=yolo11n.tflite source=0",
+          "detail": "The same Ultralytics predict API works with the exported file \u2014 no code changes required when switching from a PyTorch checkpoint to the LiteRT artefact."
+        },
+        {
+          "n": "05",
+          "label": "PM decision point",
           "cmd": null,
-          "detail": "Without this, every workflow run hits PyPI to fetch the latest tool and dependencies, adding latency and flakiness. The astral-sh/setup-uv repo has an open issue to make caching the default behaviour."
+          "detail": "A single .tflite artefact simplifies regulated-deployment audits: one model file, one hash, one validation suite covers all target platforms rather than maintaining separate ONNX, CoreML, and TFLite variants."
         }
       ]
     },
     {
-      "id": "2026-07-13-doomql",
-      "format": "replay",
+      "id": "2026-07-15-claude-web-fetch-exfiltration",
+      "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "DOOMQL: Doom clone where SQLite is the game engine",
+      "title": "Claude's web_fetch had a data-leak loophole",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/13/doomql/#atom-everything"
+        "url": "https://simonwillison.net/2026/Jul/15/claude-web-fetch-exfiltration/#atom-everything"
       },
-      "caption": "Peter Gostev used GPT-5.6 Sol to build a Doom-like game where SQLite handles movement, collision, enemies, combat, and every rendered pixel \u2014 via a recursive CTE ray tracer.",
-      "terminal_title": "doomql \u2014 zsh",
-      "script": [
+      "panels": [
         {
-          "type": "cmd",
-          "text": "cd /tmp && git clone https://github.com/petergpt/doomql && cd doomql"
+          "kicker": "THE ATTACK",
+          "head": "A honeypot site drained Claude's memory of your name, city, and employer",
+          "cmd": null,
+          "sub": "Researcher Ayush Paul crafted a malicious page that convinced Claude to walk through alphabetical profile URLs, letter by letter, smuggling private data out in the request path."
         },
         {
-          "type": "out",
-          "text": "Cloning into 'doomql'... done."
+          "kicker": "THE BACKSTORY",
+          "head": "Anthropic already blocked the obvious exfiltration move",
+          "cmd": null,
+          "sub": "web_fetch normally refuses to visit attacker-constructed URLs. It only follows links the user typed or that web_search returned \u2014 a deliberate guardrail against the 'lethal trifecta' of private data + web access + hostile instructions."
         },
         {
-          "type": "cmd",
-          "text": "uv run host/doomql.py"
+          "kicker": "THE LOOPHOLE",
+          "head": "Links inside fetched pages were treated as trusted",
+          "cmd": null,
+          "sub": "The rule only covered the first hop. Once Claude fetched an attacker-controlled page, any URLs embedded in that page's HTML were fair game to follow \u2014 opening a multi-hop exfiltration chain the guardrail never saw."
         },
         {
-          "type": "out",
-          "text": "[DOOMQL] SQLite engine initialised. Frame loop running..."
+          "kicker": "THE FIX",
+          "head": "Anthropic removed link-following from within fetched content entirely",
+          "cmd": null,
+          "sub": "web_fetch no longer navigates to secondary URLs discovered inside pages it retrieves. The attack was also fingerprinted: the malicious prompt was only shown to requests carrying a Claude-User agent string, making it hard to detect manually."
         },
         {
-          "type": "out",
-          "text": "[DOOMQL] DB: /tmp/doomql/.doomql/doomql.sqlite"
-        },
-        {
-          "type": "cmd",
-          "text": "uvx --prerelease=allow --with datasette-apps datasette \\\n  /tmp/doomql/.doomql/doomql.sqlite \\\n  -p 4444 --root --secret 1 --internal internal.db"
-        },
-        {
-          "type": "out",
-          "text": "INFO:     Uvicorn running on http://127.0.0.1:4444"
-        },
-        {
-          "type": "out",
-          "text": "[datasette-apps] Plugin loaded. Paste app code at /-/apps"
+          "kicker": "SO WHAT",
+          "head": "Any tool that reads external content and holds user context is a potential exfil channel",
+          "cmd": null,
+          "sub": "For PMs shipping agents with memory and web access, the lesson is layered: model-level rules alone aren't enough if the fetch chain itself can be hijacked. Audit every hop, not just the first URL."
         }
       ]
     },
     {
-      "id": "2026-07-08-microchip-free-mplab-ml-suite",
+      "id": "2026-07-10-ilt-pico-depth-sensing",
       "format": "story",
       "topic": "computer-vision",
       "accent": "teal",
-      "title": "Microchip makes MPLAB ML Dev Suite free for all",
+      "title": "MagikEye's ILT Pico brings low-power depth sensing to edge AI",
       "source": {
         "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/microchip-expands-developer-access-with-free-mplab-xc-compilers-and-mplab-machine-learning-development-suite/"
+        "url": "https://www.edge-ai-vision.com/2026/07/introducing-ilt-pico-compact-depth-sensing-for-physical-ai/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Microchip drops the paywall on its embedded ML toolchain",
+          "head": "Depth sensing without the power bill",
           "cmd": null,
-          "sub": "As of July 2026, the MPLAB XC Pro Compilers and MPLAB Machine Learning Development Suite are free \u2014 unlimited installs, no licence fees."
+          "sub": "Most structured-light or ToF depth cameras demand significant compute and power budgets \u2014 a real constraint when you're deploying at the edge or inside a consumer appliance."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "These tools sit between your model and the microcontroller",
+          "kicker": "THE TECH",
+          "head": "Invertible Light\u2122 encodes depth in a single capture",
           "cmd": null,
-          "sub": "The ML Development Suite handles the workflow from training data to optimised firmware, while the XC Pro compilers apply advanced code-size and speed optimisations that were previously paywalled."
+          "sub": "MagikEye's patented ILT approach projects a coded pattern that embeds depth information directly in the raw image, reducing the processing pipeline needed to extract a point cloud versus conventional multi-shot or phase-shift methods."
         },
         {
-          "kicker": "DETAIL",
-          "head": "Teams can now scale installs without per-seat cost",
+          "kicker": "THE PRODUCT",
+          "head": "ILT Pico is a compact developer board targeting robotics and smart appliances",
           "cmd": null,
-          "sub": "Unlimited installs means CI pipelines, shared lab benches, and contractor setups all get the same Pro-tier compiler performance that was previously restricted to paid seats."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Lower friction for ML at the edge of regulated hardware",
-          "cmd": null,
-          "sub": "For PMs shipping vision or sensor-fusion features on PIC or AVR MCUs \u2014 medical devices, industrial monitors, smart meters \u2014 the cost barrier to Pro-grade optimisation just disappeared."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Audit your embedded ML stack costs today",
-          "cmd": null,
-          "sub": "If your team is paying for MPLAB XC licences or deferring ML experiments because of toolchain cost, those constraints are now gone \u2014 worth a line item review this sprint."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-13-datasette-code-frequency",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Coding agents spike one dev's commit graph",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/13/datasette-code-frequency/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "One commit graph, one very visible inflection point",
-          "cmd": null,
-          "sub": "Simon Willison pulled GitHub's code-frequency chart for Datasette looking for a concrete signal of how much coding agents have changed his output. He found one."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Datasette is a long-running, well-maintained OSS project",
-          "cmd": null,
-          "sub": "Because the project has years of baseline commit history, any sudden change in velocity stands out clearly against the noise \u2014 making it a reasonable personal benchmark."
-        },
-        {
-          "kicker": "FINDING",
-          "head": "A sharp spike at the tail end of the chart",
-          "cmd": null,
-          "sub": "The surge in code-change frequency lines up with the arrival of Opus 4.8, GPT-5.5, Fable 5, and GPT-5.6 Sol \u2014 a cluster of frontier model releases that raised agentic coding capability noticeably."
+          "sub": "The platform is sized for embedded integration and ships as a dev kit, lowering the barrier for teams prototyping physical-AI applications without access to full sensor-lab infrastructure."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "Personal commit graphs are now productivity instruments",
+          "head": "Fewer compute cycles means viable depth on constrained edge hardware",
           "cmd": null,
-          "sub": "For a solo maintainer, a chart like this is a low-effort way to see whether a new model class is actually moving the needle \u2014 no benchmark suite required."
+          "sub": "If the compute reduction claim holds at production quality, ILT Pico could enable always-on depth perception on MCU-class or small-SoC devices where running a stereo or ToF pipeline would otherwise be impractical."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "Model generation matters more than marginal tuning",
+          "head": "Worth a bench evaluation if you're speccing depth for a battery-powered or cost-sensitive edge device",
           "cmd": null,
-          "sub": "The spike isn't gradual \u2014 it's abrupt, suggesting step-change model capability (not workflow tweaks) drove the output jump. PMs evaluating AI tooling upgrades should watch for similar discontinuities in their own teams' output metrics."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-12-dri-agents",
-      "format": "story",
-      "topic": "agentic-ai",
-      "accent": "coral",
-      "title": "AI agents should never be the DRI",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/12/directly-responsible-individuals/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "A 1979 IBM slide still settles the debate",
-          "cmd": null,
-          "sub": "\"A computer can never be held accountable, therefore a computer must never make a management decision.\" Forty-seven years later, LLM agents haven't changed that logic."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "What a DRI actually means",
-          "cmd": null,
-          "sub": "Directly Responsible Individual \u2014 a term Apple coined and GitLab codified \u2014 names the single human who is ultimately accountable when a project succeeds or fails. One name, full ownership."
-        },
-        {
-          "kicker": "ARGUMENT",
-          "head": "Accountability requires a person, not a process",
-          "cmd": null,
-          "sub": "Agents can execute tasks and make micro-decisions, but they cannot own consequences. When something goes wrong, there must be a human whose job, reputation, or freedom is on the line."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Org charts with agent DRIs are liability traps",
-          "cmd": null,
-          "sub": "In regulated domains \u2014 medical devices, autonomous vehicles, financial systems \u2014 assigning accountability to a model rather than a person creates an audit black hole and likely violates compliance requirements."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Design every agentic workflow with a named human DRI",
-          "cmd": null,
-          "sub": "Before deploying an agent, answer: who signs off on its outputs, who gets paged when it fails, and who explains the outcome to a regulator? If you can't name that person, the system isn't ready."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-12-shot-scraper-111",
-      "format": "infographic",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "shot-scraper 1.11: three small but useful upgrades",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/12/shot-scraper/#atom-everything"
-      },
-      "kicker": "VIBE-CODING \u00b7 CLI TOOLING",
-      "headline": "shot-scraper 1.11 makes\nscript-driven scraping\na little less brittle",
-      "headline_accent": "a little less brittle",
-      "steps": [
-        {
-          "n": "01",
-          "label": "Slower servers no longer break video/multi",
-          "cmd": null,
-          "detail": "The server: launch mechanism now polls for port availability for up to 30 seconds instead of assuming the server is ready after a fixed 1-second wait. Useful when your local dev server is slow to boot."
-        },
-        {
-          "n": "02",
-          "label": "Load JS from a file, stdin, or a GitHub Gist",
-          "cmd": "shot-scraper --js-file gh:username/script https://example.com",
-          "detail": "The shot-scraper, pdf, html, accessibility, and har commands all gain --js-file as an alternative to passing a raw --javascript string. The multi command gets the equivalent js_file: YAML key."
-        },
-        {
-          "n": "03",
-          "label": "--timeout added to javascript and html commands",
-          "cmd": "shot-scraper javascript --timeout 10000 https://example.com",
-          "detail": "These two commands previously lacked --timeout, breaking consistency with the rest of the CLI. Now all major sub-commands share the same option surface."
+          "sub": "Key unknowns to validate: depth accuracy at range, frame rate under real lighting conditions, and SDK maturity \u2014 none of which the announcement quantifies."
         }
       ]
     }
