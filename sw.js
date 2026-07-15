@@ -1,8 +1,8 @@
 /* Signal Feed service worker
    - App shell: cache-first (works offline)
    - feed.json: network-first with cache fallback (fresh when online, yesterday's feed when not) */
-const SHELL_CACHE = "signal-shell-v1";
-const FEED_CACHE = "signal-feed-v1";
+const SHELL_CACHE = "signal-shell-v2";
+const FEED_CACHE = "signal-feed-v2";
 const SHELL = ["./", "./index.html", "./app.jsx", "./manifest.json", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", (e) => {
