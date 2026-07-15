@@ -1,0 +1,40 @@
+name: Daily feed generation
+
+on:
+  schedule:
+    # 19:00 UTC = 7:00am NZST (winter). NZDT (summer) shifts this to 8am;
+    # change to '0 18 * * *' from late Sep to early Apr if you care.
+    - cron: '0 19 * * *'
+  workflow_dispatch: {}   # manual "Run workflow" button for testing
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install anthropic feedparser
+
+      - name: Generate feed
+        working-directory: pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python pipeline.py
+          cp feed.json ../feed.json
+
+      - name: Commit updated feed
+        run: |
+          git config user.name "feed-bot"
+          git config user.email "actions@github.com"
+          git add feed.json pipeline/seen_urls.json
+          git diff --cached --quiet || git commit -m "feed: $(date -u +%F)"
+          git push
