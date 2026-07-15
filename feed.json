@@ -3,340 +3,252 @@
   "generated_at": "2026-07-15",
   "cards": [
     {
-      "id": "2025-07-14-microsoft-flint-viz-language",
+      "id": "2026-07-14-uvx-github-actions-cache",
+      "format": "infographic",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Cache uvx tools in GitHub Actions with one env var",
+      "source": {
+        "name": "Simon Willison's TIL",
+        "url": "https://simonwillison.net/2026/Jul/14/uvx-github-actions-cache/#atom-everything"
+      },
+      "kicker": "VIBE-CODING \u00b7 CI/CD",
+      "headline": "Stop re-downloading\nPyPI tools on every\nActions run",
+      "headline_accent": "Actions run",
+      "steps": [
+        {
+          "n": "01",
+          "label": "Pin a cutoff date",
+          "cmd": "UV_EXCLUDE_NEWER: \"2026-07-12\"",
+          "detail": "Set this env var at the top of your workflow. Every uvx invocation will resolve to the newest package versions available as of that date, making resolution deterministic."
+        },
+        {
+          "n": "02",
+          "label": "Use the date in your cache key",
+          "cmd": "key: uvx-${{ env.UV_EXCLUDE_NEWER }}-${{ hashFiles('...') }}",
+          "detail": "Tying the cache key to UV_EXCLUDE_NEWER means the cached wheel set is valid as long as the date stays the same \u2014 no stale hits, no surprise upgrades."
+        },
+        {
+          "n": "03",
+          "label": "Bust cache by bumping the date",
+          "cmd": null,
+          "detail": "When you want newer tool versions, update UV_EXCLUDE_NEWER to today's date. The old cache is abandoned and a fresh one is populated on the next run."
+        },
+        {
+          "n": "04",
+          "label": "Why this beats the default",
+          "cmd": null,
+          "detail": "Without this, every workflow run hits PyPI to fetch the latest tool and dependencies, adding latency and flakiness. The astral-sh/setup-uv repo has an open issue to make caching the default behaviour."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-13-doomql",
+      "format": "replay",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "DOOMQL: Doom clone where SQLite is the game engine",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/13/doomql/#atom-everything"
+      },
+      "caption": "Peter Gostev used GPT-5.6 Sol to build a Doom-like game where SQLite handles movement, collision, enemies, combat, and every rendered pixel \u2014 via a recursive CTE ray tracer.",
+      "terminal_title": "doomql \u2014 zsh",
+      "script": [
+        {
+          "type": "cmd",
+          "text": "cd /tmp && git clone https://github.com/petergpt/doomql && cd doomql"
+        },
+        {
+          "type": "out",
+          "text": "Cloning into 'doomql'... done."
+        },
+        {
+          "type": "cmd",
+          "text": "uv run host/doomql.py"
+        },
+        {
+          "type": "out",
+          "text": "[DOOMQL] SQLite engine initialised. Frame loop running..."
+        },
+        {
+          "type": "out",
+          "text": "[DOOMQL] DB: /tmp/doomql/.doomql/doomql.sqlite"
+        },
+        {
+          "type": "cmd",
+          "text": "uvx --prerelease=allow --with datasette-apps datasette \\\n  /tmp/doomql/.doomql/doomql.sqlite \\\n  -p 4444 --root --secret 1 --internal internal.db"
+        },
+        {
+          "type": "out",
+          "text": "INFO:     Uvicorn running on http://127.0.0.1:4444"
+        },
+        {
+          "type": "out",
+          "text": "[datasette-apps] Plugin loaded. Paste app code at /-/apps"
+        }
+      ]
+    },
+    {
+      "id": "2026-07-08-microchip-free-mplab-ml-suite",
+      "format": "story",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "Microchip makes MPLAB ML Dev Suite free for all",
+      "source": {
+        "name": "Edge AI and Vision Alliance",
+        "url": "https://www.edge-ai-vision.com/2026/07/microchip-expands-developer-access-with-free-mplab-xc-compilers-and-mplab-machine-learning-development-suite/"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "Microchip drops the paywall on its embedded ML toolchain",
+          "cmd": null,
+          "sub": "As of July 2026, the MPLAB XC Pro Compilers and MPLAB Machine Learning Development Suite are free \u2014 unlimited installs, no licence fees."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "These tools sit between your model and the microcontroller",
+          "cmd": null,
+          "sub": "The ML Development Suite handles the workflow from training data to optimised firmware, while the XC Pro compilers apply advanced code-size and speed optimisations that were previously paywalled."
+        },
+        {
+          "kicker": "DETAIL",
+          "head": "Teams can now scale installs without per-seat cost",
+          "cmd": null,
+          "sub": "Unlimited installs means CI pipelines, shared lab benches, and contractor setups all get the same Pro-tier compiler performance that was previously restricted to paid seats."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Lower friction for ML at the edge of regulated hardware",
+          "cmd": null,
+          "sub": "For PMs shipping vision or sensor-fusion features on PIC or AVR MCUs \u2014 medical devices, industrial monitors, smart meters \u2014 the cost barrier to Pro-grade optimisation just disappeared."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Audit your embedded ML stack costs today",
+          "cmd": null,
+          "sub": "If your team is paying for MPLAB XC licences or deferring ML experiments because of toolchain cost, those constraints are now gone \u2014 worth a line item review this sprint."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-13-datasette-code-frequency",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Coding agents spike one dev's commit graph",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/13/datasette-code-frequency/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "One commit graph, one very visible inflection point",
+          "cmd": null,
+          "sub": "Simon Willison pulled GitHub's code-frequency chart for Datasette looking for a concrete signal of how much coding agents have changed his output. He found one."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Datasette is a long-running, well-maintained OSS project",
+          "cmd": null,
+          "sub": "Because the project has years of baseline commit history, any sudden change in velocity stands out clearly against the noise \u2014 making it a reasonable personal benchmark."
+        },
+        {
+          "kicker": "FINDING",
+          "head": "A sharp spike at the tail end of the chart",
+          "cmd": null,
+          "sub": "The surge in code-change frequency lines up with the arrival of Opus 4.8, GPT-5.5, Fable 5, and GPT-5.6 Sol \u2014 a cluster of frontier model releases that raised agentic coding capability noticeably."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Personal commit graphs are now productivity instruments",
+          "cmd": null,
+          "sub": "For a solo maintainer, a chart like this is a low-effort way to see whether a new model class is actually moving the needle \u2014 no benchmark suite required."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Model generation matters more than marginal tuning",
+          "cmd": null,
+          "sub": "The spike isn't gradual \u2014 it's abrupt, suggesting step-change model capability (not workflow tweaks) drove the output jump. PMs evaluating AI tooling upgrades should watch for similar discontinuities in their own teams' output metrics."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-12-dri-agents",
       "format": "story",
       "topic": "agentic-ai",
       "accent": "coral",
-      "title": "Microsoft's Flint fixes AI agents' chart quality problem",
+      "title": "AI agents should never be the DRI",
       "source": {
-        "name": "Microsoft / Hacker News",
-        "url": "https://microsoft.github.io/flint-chart/#/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "AI agents can write chart specs \u2014 but the charts still look bad",
-          "cmd": null,
-          "sub": "Simple specs rely on defaults and produce mediocre output. Detailed specs produce better charts but are so verbose that agents hallucinate or drop fields. Microsoft traced the root cause to the language, not the model."
-        },
-        {
-          "kicker": "THE INSIGHT",
-          "head": "Visualization languages are too low-level for agents to use reliably",
-          "cmd": null,
-          "sub": "Tools like Vega-Lite require authors to make dozens of explicit layout decisions \u2014 padding, axis scaling, colour mapping \u2014 that a good compiler should infer. Agents forced to fill in those gaps make mistakes."
-        },
-        {
-          "kicker": "THE SOLUTION",
-          "head": "Flint is an intermediate language that takes high-level intent and fills in the rest",
-          "cmd": null,
-          "sub": "An agent specifies chart type and semantic data types; Flint's layout optimisation engine derives the low-level details. The output is human-readable and editable, so a user can tweak what the agent generated."
-        },
-        {
-          "kicker": "HOW TO TRY IT",
-          "head": "Flint ships with an MCP server \u2014 drop it into any agent app today",
-          "cmd": null,
-          "sub": "Connect via the Model Context Protocol to give your agent Flint as a tool. It also powers Microsoft's open-source Data Formulator project at data-formulator.ai."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "A pattern worth borrowing: add a domain-specific compiler between agent and output",
-          "cmd": null,
-          "sub": "For PMs building agents that produce reports, dashboards, or structured docs, Flint's approach \u2014 let the agent stay high-level, let a compiler handle fidelity \u2014 is directly applicable beyond charts."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-offloading-thinking-to-ai",
-      "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "Are we outsourcing our thinking to AI?",
-      "source": {
-        "name": "Artfish Intelligence",
-        "url": "https://www.artfish.ai/p/offloading-thinking-to-ai"
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/12/directly-responsible-individuals/#atom-everything"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Using AI to think for you may cost you the ability to think at all",
+          "head": "A 1979 IBM slide still settles the debate",
           "cmd": null,
-          "sub": "Every time you skip the struggle and ask an AI, you potentially bypass the cognitive friction that builds durable understanding."
+          "sub": "\"A computer can never be held accountable, therefore a computer must never make a management decision.\" Forty-seven years later, LLM agents haven't changed that logic."
         },
         {
           "kicker": "CONTEXT",
-          "head": "Cognitive offloading isn't new \u2014 but the scale is",
+          "head": "What a DRI actually means",
           "cmd": null,
-          "sub": "Humans have always externalised memory (notebooks, calculators, GPS). What's different now is that AI handles reasoning itself, not just storage or arithmetic."
+          "sub": "Directly Responsible Individual \u2014 a term Apple coined and GitLab codified \u2014 names the single human who is ultimately accountable when a project succeeds or fails. One name, full ownership."
         },
         {
-          "kicker": "THE MECHANISM",
-          "head": "Effort is the signal that learning is happening",
+          "kicker": "ARGUMENT",
+          "head": "Accountability requires a person, not a process",
           "cmd": null,
-          "sub": "Cognitive science calls this 'desirable difficulty' \u2014 tasks that feel hard to complete are precisely the ones that encode knowledge. Smooth AI-assisted outputs remove that resistance entirely."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "PMs who skip the hard thinking become dependent on the tool that replaced it",
-          "cmd": null,
-          "sub": "If you route every ambiguous requirement, edge-case analysis, or tradeoff decision through an LLM, your own judgment atrophies \u2014 which matters most when the AI is wrong and you need to catch it."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Use AI to extend your thinking, not substitute for it",
-          "cmd": null,
-          "sub": "A practical split: let AI handle recall and formatting; keep synthesis, tradeoff evaluation, and final calls in your own head. Deliberate practice in hard thinking preserves the skill."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-14-microchip-vectorblox-3",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "Microchip's VectorBlox 3.0 brings sparse nets to PolarFire FPGAs",
-      "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/microchip-advances-neural-network-implementation-with-vectorblox-3-0-accelerator-sdk/"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "Running AI at the edge of a satellite or missile system leaves no room for a power spike",
-          "cmd": null,
-          "sub": "Aerospace and defense deployments demand inference that is fast, power-capped, and deterministic \u2014 a combination standard GPU-based stacks can't meet."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Microchip's VectorBlox SDK targets its own PolarFire FPGA and SoC family",
-          "cmd": null,
-          "sub": "PolarFire devices are already used in low-power, radiation-tolerant designs. VectorBlox layers an SDK on top so developers can deploy neural networks without writing RTL from scratch."
-        },
-        {
-          "kicker": "WHAT'S NEW",
-          "head": "Version 3.0 adds explicit support for sparse neural networks",
-          "cmd": null,
-          "sub": "Sparsity lets the accelerator skip zero-valued weights at runtime, cutting active compute and memory bandwidth proportionally \u2014 meaning the same FPGA fabric does more inference per milliwatt."
+          "sub": "Agents can execute tasks and make micro-decisions, but they cannot own consequences. When something goes wrong, there must be a human whose job, reputation, or freedom is on the line."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "Sparsity on FPGAs closes the gap with custom ASICs for constrained deployments",
+          "head": "Org charts with agent DRIs are liability traps",
           "cmd": null,
-          "sub": "Until now, structured sparsity gains were mostly available on datacenter GPUs (e.g. NVIDIA's 2:4 format). Bringing the technique to a radiation-tolerant FPGA is meaningful for space, avionics, and industrial vision systems where GPUs are disqualified."
+          "sub": "In regulated domains \u2014 medical devices, autonomous vehicles, financial systems \u2014 assigning accountability to a model rather than a person creates an audit black hole and likely violates compliance requirements."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "PMs evaluating edge CV hardware for regulated environments now have a software-first on-ramp",
+          "head": "Design every agentic workflow with a named human DRI",
           "cmd": null,
-          "sub": "VectorBlox 3.0 lets teams prototype a sparse model in standard ML frameworks and target PolarFire without FPGA expertise \u2014 worth tracking if your roadmap includes aerospace, defense, or harsh-environment vision."
+          "sub": "Before deploying an agent, answer: who signs off on its outputs, who gets paged when it fails, and who explains the outcome to a regulator? If you can't name that person, the system isn't ready."
         }
       ]
     },
     {
-      "id": "2026-07-14-pedalican",
-      "format": "story",
+      "id": "2026-07-12-shot-scraper-111",
+      "format": "infographic",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "GPT-5 built a sprite sheet pet from one prompt",
+      "title": "shot-scraper 1.11: three small but useful upgrades",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/14/pedalican/#atom-everything"
+        "url": "https://simonwillison.net/2026/Jul/12/shot-scraper/#atom-everything"
       },
-      "panels": [
+      "kicker": "VIBE-CODING \u00b7 CLI TOOLING",
+      "headline": "shot-scraper 1.11 makes\nscript-driven scraping\na little less brittle",
+      "headline_accent": "a little less brittle",
+      "steps": [
         {
-          "kicker": "HOOK",
-          "head": "A pelican on a bicycle now bounces around Simon Willison's desktop",
+          "n": "01",
+          "label": "Slower servers no longer break video/multi",
           "cmd": null,
-          "sub": "Codex Desktop supports animated 'pet' mascots \u2014 and you can generate a custom one by describing it in plain text."
+          "detail": "The server: launch mechanism now polls for port availability for up to 30 seconds instead of assuming the server is ready after a fixed 1-second wait. Useful when your local dev server is slow to boot."
         },
         {
-          "kicker": "HOW IT WORKS",
-          "head": "GPT-5 orchestrated the whole sprite pipeline autonomously",
-          "cmd": null,
-          "sub": "Willison typed what he wanted; GPT-5 Sol ran multiple gpt-image-2 calls, built character reference images, assembled sprite sheets, and exported per-animation GIFs \u2014 no manual Photoshop."
+          "n": "02",
+          "label": "Load JS from a file, stdin, or a GitHub Gist",
+          "cmd": "shot-scraper --js-file gh:username/script https://example.com",
+          "detail": "The shot-scraper, pdf, html, accessibility, and har commands all gain --js-file as an alternative to passing a raw --javascript string. The multi command gets the equivalent js_file: YAML key."
         },
         {
-          "kicker": "KEY DETAIL",
-          "head": "Chroma-key magenta (#FF00FF) is the trick that makes sprites game-ready",
-          "cmd": null,
-          "sub": "Each source image was generated on a flat #FF00FF background so frames can be composited cleanly \u2014 the same technique used in 2D game engines for decades."
-        },
-        {
-          "kicker": "OPEN SOURCE",
-          "head": "The two skills doing the heavy lifting are Apache 2.0 on GitHub",
-          "cmd": null,
-          "sub": "'hatch-pet' (openai/skills) and 'imagegen' (openai/codex) expose the full pipeline \u2014 useful as a reference if you want image-gen-to-sprite in your own tooling."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Image gen \u2192 sprite sheet is now a reusable pattern, not a one-off hack",
-          "cmd": null,
-          "sub": "For PMs building UI-heavy or edge-deployed tools, this shows that polished micro-assets (icons, status indicators, lightweight animations) can be generated on demand without a dedicated design loop."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-14-lobsters-sqlite-migration",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Lobste.rs ditches MariaDB for SQLite on one VPS",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/14/lobsters-sqlite/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "A real production Rails site just swapped MariaDB for SQLite \u2014 and halved its server bill",
-          "cmd": null,
-          "sub": "Lobste.rs, a busy link-aggregator community, completed the migration this weekend and called it stable enough to be permanent."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Eight years in the making, one weekend to land",
-          "cmd": null,
-          "sub": "The PostgreSQL migration plan sat open since 2018. Last year the team pivoted to SQLite instead, drawn by its simplicity and the maturity of Rails' SQLite support."
-        },
-        {
-          "kicker": "DETAIL",
-          "head": "Four separate SQLite files, one VPS, 3.8 GB of content",
-          "cmd": null,
-          "sub": "The site now uses a 3.8 GB primary DB, a 1.1 GB cache DB, a 218 MB job queue DB, and a 555 MB Rack::Attack rate-limiting DB \u2014 all on a single server. The migration touched 188 files across 30 commits."
-        },
-        {
-          "kicker": "RESULTS",
-          "head": "CPU down, memory down, latency down, cost halved",
-          "cmd": null,
-          "sub": "The team's own words: 'SQLite passed with flying colors.' The second VPS running MariaDB hasn't been decommissioned yet, so cost savings are still pending full realisation."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Single-server SQLite is a legitimate production architecture in 2026",
-          "cmd": null,
-          "sub": "If you're designing an internal AI tool, edge inference dashboard, or lightweight data pipeline, reach for SQLite before assuming you need a managed database service. The ops overhead you avoid is real."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-10-lattice-certuspro-nx-object-detection",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "Lattice FPGA runs object detection before the CPU wakes up",
-      "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/smart-sensor-demo-on-device-object-detection-with-lattice-certuspro-nx/"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "What if your CPU never had to touch raw sensor frames?",
-          "cmd": null,
-          "sub": "Lattice's CertusPro-NX demo shows exactly that: an FPGA intercepts the camera stream and ships only inferences to the host."
-        },
-        {
-          "kicker": "SETUP",
-          "head": "FPGA sits between image sensor and Raspberry Pi",
-          "cmd": null,
-          "sub": "The CertusPro-NX ingests 30 fps sensor output, handles pre-processing, and runs a local object detection model \u2014 all before a single byte reaches the Pi's CPU."
-        },
-        {
-          "kicker": "MODEL",
-          "head": "Eight automotive object classes, trained and deployed on-chip",
-          "cmd": null,
-          "sub": "The detection model is scoped to a specific domain (pedestrians, vehicles, signs, etc.), keeping compute requirements low enough to fit inside a mid-range FPGA fabric."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Offloading vision pre-processing cuts host CPU load and latency",
-          "cmd": null,
-          "sub": "For edge deployments \u2014 think roadside sensors, factory vision nodes, or in-cabin monitoring \u2014 this pattern reduces power draw and frees the SoC for higher-level decision logic."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "FPGA-as-smart-sensor is a viable edge architecture today",
-          "cmd": null,
-          "sub": "For PMs evaluating edge CV stacks in regulated environments (automotive, industrial), this demo validates splitting perception and reasoning across silicon rather than centralising both on the main processor."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-14-armin-ronacher-shared-language",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "The friction that taught you the codebase",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/14/armin-ronacher/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "A codebase's real spec is never written down",
-          "cmd": null,
-          "sub": "Armin Ronacher argues the true shared language of a software project lives in code reviews, arguments, and the act of explaining a change \u2014 not in docs or source files."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Friction used to be the sync protocol",
-          "cmd": null,
-          "sub": "Before coding agents, touching another team's storage layer meant reading their code, asking questions, and coordinating across boundaries. Slow, yes \u2014 but that slowness transferred understanding."
-        },
-        {
-          "kicker": "DETAIL",
-          "head": "Agents can skip the sync and still ship",
-          "cmd": null,
-          "sub": "An agent making the same change faces no social friction: no questions asked, no invariants negotiated, no one forced to verify that both parties still agree on how the system works."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Speed hides the erosion of shared mental models",
-          "cmd": null,
-          "sub": "For a PM governing AI-assisted teams in regulated settings, the risk isn't bad code \u2014 it's that nobody noticed the architectural assumption that quietly stopped being true."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Design deliberate sync points when agents do the work",
-          "cmd": null,
-          "sub": "If agents remove friction, teams need explicit substitutes: structured change reviews, invariant registries, or cross-team sign-off gates \u2014 not to slow things down, but to preserve the understanding friction used to force."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-14-datasette-1-0a37",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Datasette 1.0a37: Small Fix, Big Plugin Impact",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/14/datasette/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "INCIDENT",
-          "head": "One cosmetic API change broke nearly every Datasette plugin test suite",
-          "cmd": null,
-          "sub": "A seemingly harmless rename in the Datasette API propagated failures across the entire plugin ecosystem \u2014 a reminder that 'cosmetic' changes aren't always safe."
-        },
-        {
-          "kicker": "RESPONSE",
-          "head": "The change was reverted in the same alpha cycle",
-          "cmd": null,
-          "sub": "Simon Willison rolled back the rename in 1.0a37, prioritising ecosystem stability over internal tidiness while the project is still pre-1.0."
-        },
-        {
-          "kicker": "ALSO IN THIS RELEASE",
-          "head": "Permissions system gets a performance and docs pass",
-          "cmd": null,
-          "sub": "Alongside the revert, the release tightens permission-check performance and improves documentation clarity \u2014 useful for anyone building multi-tenant Datasette deployments."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Pre-1.0 doesn't mean low-stakes for downstream users",
-          "cmd": null,
-          "sub": "If you maintain a Datasette plugin, pin alpha versions explicitly in CI. Any alpha release can carry breaking surface area, even when the intent is cosmetic."
+          "n": "03",
+          "label": "--timeout added to javascript and html commands",
+          "cmd": "shot-scraper javascript --timeout 10000 https://example.com",
+          "detail": "These two commands previously lacked --timeout, breaking consistency with the rest of the CLI. Now all major sub-commands share the same option surface."
         }
       ]
     }
