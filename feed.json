@@ -1,136 +1,262 @@
 {
   "version": 1,
-  "generated_at": "2026-07-15",
+  "generated_at": "2026-07-16",
   "cards": [
     {
-      "id": "2025-01-30-yolo-litert-export",
-      "format": "infographic",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "Export YOLO to LiteRT for Edge & Browser",
-      "source": {
-        "name": "Ultralytics Blog",
-        "url": "https://www.ultralytics.com/blog/export-ultralytics-yolo-with-litert-for-edge-and-browser-deployment"
-      },
-      "kicker": "COMPUTER VISION \u00b7 EDGE DEPLOYMENT",
-      "headline": "One export format,\nevery edge target \u2014\nmobile, embedded, browser",
-      "headline_accent": "mobile, embedded, browser",
-      "steps": [
-        {
-          "n": "01",
-          "label": "What LiteRT is",
-          "cmd": null,
-          "detail": "LiteRT (formerly TensorFlow Lite Runtime) is Google's unified inference runtime that runs the same model file on Android, iOS, microcontrollers, and WebAssembly targets without recompilation."
-        },
-        {
-          "n": "02",
-          "label": "Install the dependency",
-          "cmd": "pip install ultralytics ai-edge-litert",
-          "detail": "The Ultralytics package now includes a LiteRT export path. The ai-edge-litert package provides the runtime and conversion utilities."
-        },
-        {
-          "n": "03",
-          "label": "Export the model",
-          "cmd": "yolo export model=yolo11n.pt format=litert",
-          "detail": "This produces a .tflite file optimised for the LiteRT runtime. Add imgsz=320 to shrink latency for constrained hardware; add int8=True for quantised weights."
-        },
-        {
-          "n": "04",
-          "label": "Run inference on-device",
-          "cmd": "yolo predict model=yolo11n.tflite source=0",
-          "detail": "The same Ultralytics predict API works with the exported file \u2014 no code changes required when switching from a PyTorch checkpoint to the LiteRT artefact."
-        },
-        {
-          "n": "05",
-          "label": "PM decision point",
-          "cmd": null,
-          "detail": "A single .tflite artefact simplifies regulated-deployment audits: one model file, one hash, one validation suite covers all target platforms rather than maintaining separate ONNX, CoreML, and TFLite variants."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-15-claude-web-fetch-exfiltration",
+      "id": "2026-07-16-grok-mermaid-wasm",
       "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "Claude's web_fetch had a data-leak loophole",
+      "title": "Grok's Mermaid renderer, ported to the browser",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/15/claude-web-fetch-exfiltration/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE ATTACK",
-          "head": "A honeypot site drained Claude's memory of your name, city, and employer",
-          "cmd": null,
-          "sub": "Researcher Ayush Paul crafted a malicious page that convinced Claude to walk through alphabetical profile URLs, letter by letter, smuggling private data out in the request path."
-        },
-        {
-          "kicker": "THE BACKSTORY",
-          "head": "Anthropic already blocked the obvious exfiltration move",
-          "cmd": null,
-          "sub": "web_fetch normally refuses to visit attacker-constructed URLs. It only follows links the user typed or that web_search returned \u2014 a deliberate guardrail against the 'lethal trifecta' of private data + web access + hostile instructions."
-        },
-        {
-          "kicker": "THE LOOPHOLE",
-          "head": "Links inside fetched pages were treated as trusted",
-          "cmd": null,
-          "sub": "The rule only covered the first hop. Once Claude fetched an attacker-controlled page, any URLs embedded in that page's HTML were fair game to follow \u2014 opening a multi-hop exfiltration chain the guardrail never saw."
-        },
-        {
-          "kicker": "THE FIX",
-          "head": "Anthropic removed link-following from within fetched content entirely",
-          "cmd": null,
-          "sub": "web_fetch no longer navigates to secondary URLs discovered inside pages it retrieves. The attack was also fingerprinted: the malicious prompt was only shown to requests carrying a Claude-User agent string, making it hard to detect manually."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Any tool that reads external content and holds user context is a potential exfil channel",
-          "cmd": null,
-          "sub": "For PMs shipping agents with memory and web access, the lesson is layered: model-level rules alone aren't enough if the fetch chain itself can be hijacked. Audit every hop, not just the first URL."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-10-ilt-pico-depth-sensing",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "MagikEye's ILT Pico brings low-power depth sensing to edge AI",
-      "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/introducing-ilt-pico-compact-depth-sensing-for-physical-ai/"
+        "url": "https://simonwillison.net/2026/Jul/16/grok-mermaid/#atom-everything"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Depth sensing without the power bill",
+          "head": "xAI open-sourced its CLI agent \u2014 and buried inside was a Rust diagram renderer",
           "cmd": null,
-          "sub": "Most structured-light or ToF depth cameras demand significant compute and power budgets \u2014 a real constraint when you're deploying at the edge or inside a consumer appliance."
+          "sub": "The Grok CLI codebase includes mermaid.rs: a self-contained terminal renderer that converts Mermaid diagram syntax into Unicode box art, no browser required."
         },
         {
-          "kicker": "THE TECH",
-          "head": "Invertible Light\u2122 encodes depth in a single capture",
+          "kicker": "CONTEXT",
+          "head": "Mermaid diagrams usually need a JS runtime to render",
           "cmd": null,
-          "sub": "MagikEye's patented ILT approach projects a coded pattern that embeds depth information directly in the raw image, reducing the processing pipeline needed to extract a point cloud versus conventional multi-shot or phase-shift methods."
+          "sub": "Most Mermaid tooling lives in JavaScript. A Rust implementation compiled to a single file is unusual \u2014 and portable."
         },
         {
-          "kicker": "THE PRODUCT",
-          "head": "ILT Pico is a compact developer board targeting robotics and smart appliances",
+          "kicker": "THE MOVE",
+          "head": "Simon Willison compiled it to WebAssembly via Claude Code (Fable 5)",
           "cmd": null,
-          "sub": "The platform is sized for embedded integration and ships as a dev kit, lowering the barrier for teams prototyping physical-AI applications without access to full sensor-lab infrastructure."
+          "sub": "One Claude Code prompt was enough to wrap the Rust crate in a WASM build and wire it to a browser UI \u2014 a clean example of vibe-coding an existing open-source component into a new context."
         },
         {
-          "kicker": "WHY IT MATTERS",
-          "head": "Fewer compute cycles means viable depth on constrained edge hardware",
+          "kicker": "SO WHAT",
+          "head": "Rust \u2192 WASM is a fast path for shipping terminal tools as web utilities",
           "cmd": null,
-          "sub": "If the compute reduction claim holds at production quality, ILT Pico could enable always-on depth perception on MCU-class or small-SoC devices where running a stereo or ToF pipeline would otherwise be impractical."
+          "sub": "If you have a Rust CLI tool \u2014 say, a diagram renderer, a diff engine, or a CV post-processing step \u2014 compiling it to WASM and prompting an agentic coding tool to scaffold the UI is now a realistic afternoon project."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "Worth a bench evaluation if you're speccing depth for a battery-powered or cost-sensitive edge device",
+          "head": "Open-sourced AI codebases are a parts bin worth raiding",
           "cmd": null,
-          "sub": "Key unknowns to validate: depth accuracy at range, frame rate under real lighting conditions, and SDK maturity \u2014 none of which the announcement quantifies."
+          "sub": "Beyond the headline model, the Grok CLI ships reusable components. Worth scanning newly open-sourced agent repos for rendering, parsing, or tooling code you can repurpose."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-slingshot-space-force-ai-training",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Space Force pays $69M for AI satellite-defense sims",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/space-force-awards-slingshot-69-million-for-ai-enabled-training-technology/"
+      },
+      "panels": [
+        {
+          "kicker": "CONTRACT",
+          "head": "$69M to train operators for satellite warfare",
+          "cmd": null,
+          "sub": "The U.S. Space Force has awarded Slingshot Aerospace a 4.5-year contract to build AI-driven simulation environments for satellite-defense training."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Space domain awareness is a growing force priority",
+          "cmd": null,
+          "sub": "As adversary counterspace capabilities mature, the Space Force needs operators who can recognize and respond to satellite threat scenarios \u2014 without waiting for a real-world incident to learn from."
+        },
+        {
+          "kicker": "WHAT SLINGSHOT BUILDS",
+          "head": "Simulated orbital environments, not just slide decks",
+          "cmd": null,
+          "sub": "Slingshot's platform models satellite conjunctions, jamming, spoofing, and proximity operations, letting operators rehearse responses inside a synthetic but realistic space picture."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "AI as the opposing force in training loops",
+          "cmd": null,
+          "sub": "Using AI to generate adversarial scenarios means training difficulty can scale automatically \u2014 closing the gap between rigid scripted exercises and unpredictable real threats."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Defense simulation is a durable AI wedge market",
+          "cmd": null,
+          "sub": "A 4.5-year, $69M award signals sustained budget commitment \u2014 and mirrors how aviation and ground-combat training evolved: physical hardware first, then high-fidelity simulation as the primary training venue."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-15-grok-build-open-source",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "xAI open-sources Grok Build after data scandal",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/15/grok-build/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "INCIDENT",
+          "head": "Grok CLI was quietly uploading entire home directories to xAI's GCS buckets",
+          "cmd": null,
+          "sub": "One beta user discovered it had exfiltrated SSH keys, a password manager database, photos, and videos. No prior warning, no explicit consent prompt."
+        },
+        {
+          "kicker": "RESPONSE",
+          "head": "xAI deleted all retained data and flipped retention off by default",
+          "cmd": null,
+          "sub": "Musk confirmed deletion publicly. xAI says data retention had been on by default for non-zero-data-retention users since the early beta \u2014 a decision reversed on July 12th."
+        },
+        {
+          "kicker": "TRUST PLAY",
+          "head": "The full codebase \u2014 844,530 lines of Rust \u2014 dropped under Apache 2.0",
+          "cmd": null,
+          "sub": "A single-commit release gives no git history, but auditors can now read the GCS upload logic in xai-grok-shell/src/upload/gcs.rs and confirm it's disabled. For comparison, OpenAI's Codex is 950k lines of Rust \u2014 terminal agents are genuinely complex."
+        },
+        {
+          "kicker": "WHAT'S INSIDE",
+          "head": "Tool implementations ported from Codex and OpenCode; system prompt is readable",
+          "cmd": null,
+          "sub": "xai-grok-tools borrows apply_patch, grep_files, bash, edit, and others from competing agents under compatible licenses. The main system prompt lives in xai-grok-agent/templates/prompt.md \u2014 fully visible, unlike the subagent prompt which instructs the model not to reveal itself."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Default-on telemetry in a CLI tool is a serious risk model for any enterprise deploying AI coding agents",
+          "cmd": null,
+          "sub": "Before rolling out any CLI-based coding agent \u2014 Grok Build, Codex, Claude Code \u2014 audit what data leaves the machine and under what defaults. Open-sourcing helps, but a single-commit drop without history limits full auditability."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-31-home-airflow-sim",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Which windows to open? Nobody's solved this.",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1ux1swb/home_airflow_simulation_and_cooling_optimization/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "\"Open a window\" is the advice. Nobody says which one.",
+          "cmd": null,
+          "sub": "Homeowners trying to cool rooms without AC are guessing \u2014 open front window, back door, hope for the best. A wrong configuration can actually pull hot air in."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Renters and homeowners in mild climates who resist running AC",
+          "cmd": null,
+          "sub": "Think coastal California, UK summers, Mediterranean apartments. These users already want passive cooling \u2014 they just lack the spatial reasoning to execute it daily as wind direction shifts."
+        },
+        {
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "Sketch your floor plan \u2192 get a daily \"open X, close Y\" instruction",
+          "cmd": null,
+          "sub": "User draws a rough room layout once. App pulls local wind forecast, runs a simplified CFD or ML-proxy simulation, and pushes a morning notification: \"Open north bedroom window and kitchen back door for cross-ventilation until 2 pm.\""
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Nothing consumer-grade exists at this intersection",
+          "cmd": null,
+          "sub": "Professional HVAC simulation tools (EnergyPlus, OpenFOAM) are engineer-facing and require CAD inputs. Weather apps give wind data but zero room-level advice. Smart-home platforms control motorised windows but don't model airflow."
+        },
+        {
+          "kicker": "CHEAP VALIDATION STEP",
+          "head": "Skip the simulation \u2014 test demand with a manual MVP first",
+          "cmd": null,
+          "sub": "Build a Typeform: user submits city, rough floor plan sketch, and window positions. You reply manually with a ventilation recommendation. Post it in r/ZeroWaste or r/passive_house. If 50 strangers submit in a week, the demand signal is real."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-23-immigration-anxiety-tracker",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Visa-specific policy alerts to cut immigration dread",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uwme5j/immigration_anxiety/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Every scary headline lands the same \u2014 regardless of whether it actually affects your visa",
+          "cmd": null,
+          "sub": "Immigrants on H-1B, F-1, green card timelines, and spousal visas each face different rules, yet they all doom-scroll the same undifferentiated news feed."
+        },
+        {
+          "kicker": "WHO & HOW OFTEN",
+          "head": "~50 million US immigrants, plus millions more globally, face this daily",
+          "cmd": null,
+          "sub": "Policy churn is near-constant \u2014 travel bans, DACA rulings, fee changes, processing delays. Without a filter, people self-research for hours after every news cycle."
+        },
+        {
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "A visa-profile-aware policy monitor that says 'this change does / doesn't affect you'",
+          "cmd": null,
+          "sub": "User inputs visa type, country of origin, and stage (pending, approved, renewal due). The app maps incoming policy updates to that profile and surfaces only what's relevant, with plain-English impact summaries."
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Immigration lawyers and generic news apps both fall short",
+          "cmd": null,
+          "sub": "Lawyers are expensive and reactive; Reddit threads are noisy and unvetted; USCIS.gov is accurate but impenetrable. No consumer tool filters by personal visa situation in real time."
+        },
+        {
+          "kicker": "CHEAP VALIDATION STEP",
+          "head": "Post a one-question poll in r/immigration before writing a line of code",
+          "cmd": null,
+          "sub": "Ask: 'How many hours did you spend researching the last major policy headline to check if it affected your case?' High numbers confirm the pain is real and quantifiable \u2014 exactly what you'd need to size willingness to pay."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-14-satellite-investment-h1-2026",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Satellite funding hits $8.1B in just six months",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/satellite-investment-sets-annual-record-halfway-through-2026/"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "$8.1B into satellites \u2014 and it's only July",
+          "cmd": null,
+          "sub": "The first half of 2026 has already outpaced every full-year total Space Capital has ever recorded for satellite company investment."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Previous annual records are now a half-year benchmark",
+          "cmd": null,
+          "sub": "Space Capital tracks early-stage through growth equity across the satellite value chain. Crossing the prior annual high before mid-year signals a structural shift in capital appetite, not just a single mega-round."
+        },
+        {
+          "kicker": "DETAIL",
+          "head": "The article doesn't break down where the $8.1B went",
+          "cmd": null,
+          "sub": "The source text is a brief summary; sector splits (comms constellations vs. earth observation vs. in-space services) and deal counts are not disclosed in the available excerpt. Treat the headline figure as a company-reported claim pending full report release."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Capital velocity reshapes the supply chain timeline",
+          "cmd": null,
+          "sub": "When funding compresses into fewer quarters, satellite operators and ground-segment suppliers face accelerated procurement cycles \u2014 edge compute and CV payloads for on-orbit processing are direct beneficiaries."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Watch for Space Capital's full H1 2026 report for sector breakdown",
+          "cmd": null,
+          "sub": "The figure alone is a useful signal for pricing and partnership conversations, but the distribution across verticals will show whether growth is concentrated in comms mega-constellations or spreading into newer segments like orbital compute and SSA."
         }
       ]
     }
