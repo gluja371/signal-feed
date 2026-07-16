@@ -4,7 +4,7 @@ const { useState, useEffect, useRef, useCallback, useMemo } = React;
 /* ---------- tokens ---------- */
 const T = {
   bg: "#08090C", card: "#101218", ink: "#F2F4F8", dim: "#8A93A6", line: "#232733",
-  accents: { coral: "#FF6B5E", gold: "#FFC24B", teal: "#39D0B8", indigo: "#6C7BFF" },
+  accents: { coral: "#FF6B5E", gold: "#FFC24B", teal: "#39D0B8", indigo: "#6C7BFF", lime: "#9BE15D", sky: "#5EC8F8" },
 };
 const disp = "'Space Grotesk', system-ui, sans-serif";
 const body = "'Inter', system-ui, sans-serif";
@@ -16,6 +16,8 @@ const TOPICS = [
   { id: "vibe-coding", label: "Vibe coding" },
   { id: "agentic-ai", label: "Agentic AI" },
   { id: "ai-news", label: "AI news" },
+  { id: "startup-ideas", label: "Startup ideas" },
+  { id: "aerospace", label: "Aerospace" },
 ];
 const FORMAT_LABEL = { infographic: "Infographic", story: "Story", replay: "Screen replay" };
 
@@ -101,23 +103,24 @@ function InfographicCard({ card, accent }) {
 
 function StoryCard({ card, accent, visible }) {
   const [idx, setIdx] = useState(0);
-  const DUR = 3800;
-  useEffect(() => {
-    if (!visible) { setIdx(0); return; }
-    const t = setInterval(() => setIdx((i) => (i + 1) % card.panels.length), DUR);
-    return () => clearInterval(t);
-  }, [visible, card.panels.length]);
+  const last = card.panels.length - 1;
+  /* manual navigation: tap left third = back, anywhere else = forward */
+  const handleTap = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    if (x < rect.width / 3) setIdx((i) => Math.max(i - 1, 0));
+    else setIdx((i) => Math.min(i + 1, last));
+  };
   const p = card.panels[idx];
   return (
-    <div style={{ ...shell, background: "#0B0D12", cursor: "pointer" }} onClick={() => setIdx((i) => (i + 1) % card.panels.length)}>
+    <div style={{ ...shell, background: "#0B0D12", cursor: "pointer" }} onClick={handleTap}>
       <div style={{ position: "absolute", inset: 0, transition: "background 600ms ease", background: `radial-gradient(130% 90% at 50% 115%, ${accent}2E, transparent 62%), #0B0D12` }} />
       <div style={{ position: "absolute", top: "calc(50px + env(safe-area-inset-top))", left: 14, right: 14, display: "flex", gap: 5, zIndex: 6 }}>
         {card.panels.map((_, i) => (
           <div key={i} style={{ flex: 1, height: 3, borderRadius: 2, background: "rgba(255,255,255,0.18)", overflow: "hidden" }}>
             <div style={{
               height: "100%", background: T.ink, borderRadius: 2,
-              width: i < idx ? "100%" : i > idx ? "0%" : undefined,
-              animation: i === idx && visible ? `fillbar ${DUR}ms linear forwards` : undefined,
+              width: i <= idx ? "100%" : "0%",
             }} />
           </div>
         ))}
@@ -127,7 +130,7 @@ function StoryCard({ card, accent, visible }) {
         <h2 style={{ fontFamily: disp, fontWeight: 700, fontSize: 29, lineHeight: 1.12, color: T.ink, margin: "12px 0 0" }}>{p.head}</h2>
         {p.cmd && <code style={{ fontFamily: mono, fontSize: 12, color: accent, background: "#07080B", border: `1px solid ${T.line}`, borderRadius: 8, padding: "10px 12px", marginTop: 16, overflowX: "auto", whiteSpace: "nowrap" }}>{p.cmd}</code>}
         <p style={{ fontFamily: body, fontSize: 14.5, lineHeight: 1.55, color: T.dim, marginTop: 14, maxWidth: 300 }}>{p.sub}</p>
-        <div style={{ fontFamily: body, fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 22 }}>tap to skip · {idx + 1}/{card.panels.length}</div>
+        <div style={{ fontFamily: body, fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 22 }}>tap to continue · tap left edge to go back · {idx + 1}/{card.panels.length}</div>
       </div>
     </div>
   );
