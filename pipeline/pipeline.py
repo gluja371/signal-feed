@@ -1,5 +1,5 @@
 """
-Feed content pipeline v0.1
+Feed content pipeline v0.2
 Fetches articles from RSS lanes -> generates cards via Claude API -> writes feed.json
 
 Run daily (GitHub Actions cron or manually):
@@ -35,14 +35,33 @@ LANES = {
     "ai-news": [
         "https://hnrss.org/frontpage?q=AI&points=150",
     ],
+    # People describing real problems and requests = startup idea ore.
+    # (X/Twitter has no free feed access; Reddit + Ask HN cover the same ground.)
+    "startup-ideas": [
+        "https://www.reddit.com/r/SomebodyMakeThis/.rss",
+        "https://www.reddit.com/r/startups/.rss",
+        "https://www.reddit.com/r/SaaS/.rss",
+        "https://www.reddit.com/r/Entrepreneur/.rss",
+        "https://hnrss.org/ask?points=50",
+    ],
+    # Rockets, launches, and the build-out of space infrastructure.
+    "aerospace": [
+        "https://spacenews.com/feed/",
+        "https://www.nasaspaceflight.com/feed/",
+        "https://spaceflightnow.com/feed/",
+        "https://feeds.arstechnica.com/arstechnica/space",
+    ],
 }
 
-CARDS_PER_DAY = 8          # finite feed: hard cap
+CARDS_PER_DAY = 10         # finite feed: hard cap (6 lanes now)
 MAX_AGE_DAYS = 7           # ignore stale items
 MODEL = "claude-sonnet-4-6"
 SEEN_FILE = "seen_urls.json"   # dedupe across days
 OUT_FILE = "feed.json"
 PROMPT_FILE = "generation-prompt.md"
+
+# Reddit rejects anonymous/default clients; a named user agent keeps it happy.
+USER_AGENT = "signal-feed/0.2 (personal single-user learning app)"
 
 # ---------------------------------------------------------------- fetch
 
@@ -53,9 +72,12 @@ def fetch_candidates():
     for topic, feeds in LANES.items():
         for feed_url in feeds:
             try:
-                parsed = feedparser.parse(feed_url)
+                parsed = feedparser.parse(feed_url, agent=USER_AGENT)
             except Exception as e:
                 print(f"  ! feed failed {feed_url}: {e}")
+                continue
+            if not parsed.entries:
+                print(f"  ! feed empty {feed_url}")
                 continue
             for entry in parsed.entries[:10]:
                 url = entry.get("link", "")
@@ -107,12 +129,11 @@ def main():
     by_topic = {}
     for c in candidates:
         by_topic.setdefault(c["topic"], []).append(c)
-    picked, i = [], 0
+    picked = []
     while len(picked) < CARDS_PER_DAY * 2 and any(by_topic.values()):
         for topic in list(by_topic):
             if by_topic[topic]:
                 picked.append(by_topic[topic].pop(0))
-        i += 1
 
     cards = []
     for item in picked:
