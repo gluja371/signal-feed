@@ -1,348 +1,434 @@
 {
   "version": 1,
-  "generated_at": "2026-07-16",
+  "generated_at": "2026-07-17",
   "cards": [
     {
-      "id": "2026-07-10-amd-versal-gen2-12x-isp",
+      "id": "2026-07-10-robostral-navigate",
       "format": "story",
       "topic": "computer-vision",
       "accent": "teal",
-      "title": "AMD's Edge SoC Handles 12 Camera Feeds in One Chip",
+      "title": "Mistral's 8B model navigates robots via one RGB camera",
       "source": {
         "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/amd-versal-ai-edge-series-gen-2hard-isp-featuring-12x-sensor-inputs/"
+        "url": "https://www.edge-ai-vision.com/2026/07/mistrals-8b-robostral-navigate-steers-robots-using-a-single-rgb-camera/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "12 cameras, 14 live streams, one adaptive SoC",
+          "head": "Robot navigation without LiDAR, depth sensors, or multi-camera rigs",
           "cmd": null,
-          "sub": "AMD's Versal AI Edge Gen 2 demo runs simultaneous raw video from a dozen CMOS sensors through a single 2VE3858 chip \u2014 no external ISP required."
+          "sub": "Mistral's Robostral Navigate steers a robot through unknown spaces using only natural-language instructions and a single RGB camera feed."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Hardened ISP blocks do the heavy lifting",
+          "kicker": "THE MODEL",
+          "head": "8B parameters, built for embodied nav",
           "cmd": null,
-          "sub": "Instead of offloading image signal processing to discrete hardware, the VEK385 evaluation board uses on-chip hardened ISP blocks, reducing board area, latency, and power draw."
+          "sub": "Robostral Navigate is a vision-language model purpose-built for navigation tasks \u2014 not a general-purpose VLM adapted post hoc. It processes instructions alongside monocular RGB frames to decide where to move next."
         },
         {
-          "kicker": "DETAIL",
-          "head": "Mixed-resolution sensors supported simultaneously",
+          "kicker": "BENCHMARK",
+          "head": "76.6% success rate on R2R-CE validation-unseen",
           "cmd": null,
-          "sub": "The demo ingests sensors of different resolutions concurrently \u2014 meaning a real deployment can pair high-res perception cameras with lower-res wide-angle or thermal feeds without re-architecting the pipeline."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Multi-sensor fusion at the edge just got cheaper to build",
-          "cmd": null,
-          "sub": "Systems like autonomous vehicles, smart intersections, and industrial inspection rigs typically chain multiple FPGAs or dedicated ISPs to hit this camera count. Consolidating onto one SoC cuts BOM cost and simplifies certification surface."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Worth watching for any CV pipeline above 4 cameras",
-          "cmd": null,
-          "sub": "If you're designing an edge deployment where sensor count is the bottleneck \u2014 factory floors, traffic nodes, multi-angle robotics \u2014 the VEK385 is now a concrete reference point to pressure-test against your current stack."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-16-codex-home-deletion-bug",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "GPT-5.6 Codex can silently delete your home dir",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/16/bad-codex-bug/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE BUG",
-          "head": "Codex deleted users' home directories \u2014 not maliciously, just badly",
-          "cmd": null,
-          "sub": "OpenAI confirmed reports of GPT-5.6 inside Codex wiping $HOME. The cause is mundane and that makes it worse."
-        },
-        {
-          "kicker": "HOW IT HAPPENS",
-          "head": "Model tries to set a temp dir, fumbles the env var, nukes $HOME",
-          "cmd": null,
-          "sub": "Codex attempts to override $HOME to point at a scratch directory. Through a logic error, it then runs a delete operation against the original $HOME path instead of the temp target."
-        },
-        {
-          "kicker": "TRIGGER CONDITIONS",
-          "head": "Three things must align: full-access mode, no sandbox, no auto-review",
-          "cmd": null,
-          "sub": "The deletion only manifests when all three safeguards are absent simultaneously. Any one of sandboxing, auto-review, or restricted access mode would have blocked it."
+          "sub": "R2R-CE (Room-to-Room Continuous Environments) tests navigation in spaces the model has never seen. A 76.6% success rate on unseen environments is the headline claim \u2014 though this is a company-reported figure pending independent replication."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "Agentic coding tools need layered guardrails, not optional ones",
+          "head": "Single-camera constraint unlocks cheaper, lighter hardware",
           "cmd": null,
-          "sub": "Users running Codex in CI pipelines or dev containers with broad permissions are the most exposed. The defaults matter enormously when the blast radius of a model mistake is an entire filesystem."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Until patched: always run Codex in a sandbox with auto-review on",
-          "cmd": null,
-          "sub": "Treat full-access mode as a privilege requiring explicit justification, not a convenience toggle. For production pipelines, mount only the directories the agent actually needs."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-23-ar-physics-sandbox-kids",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "AR sandbox teaching kids physics via plant sims",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uy3u7m/game_idea_the_magic_glass_cube_an_ar_physics/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Kids learn physics by memorising formulas they've never felt",
-          "cmd": null,
-          "sub": "Thermodynamics, fluid dynamics, and system thinking are abstract until adolescence \u2014 yet intuition about cause-and-effect forms much earlier, if there's something to poke."
-        },
-        {
-          "kicker": "WHO HAS IT",
-          "head": "EdTech is full of quiz apps; almost nothing lets kids break a simulation",
-          "cmd": null,
-          "sub": "Parents of 6\u201312 year-olds, STEM teachers, and homeschool co-ops actively search for tools that go beyond passive video. The 'open-ended science toy' shelf \u2014 think microscopes and circuit kits \u2014 is crowded at $30\u201380 but near-empty in AR."
-        },
-        {
-          "kicker": "THE HYPOTHESIS",
-          "head": "A tablet AR sandbox where a potted plant reacts to heat, water, and time you control",
-          "cmd": null,
-          "sub": "Layer toggling (moisture view, heat view, structural density) gives kids an instrument panel rather than a lesson. Scrubbing time forward and backward replaces 'watch the animation' with 'drive the animation'. Real ambient light from the room feeds the simulation \u2014 a genuine sensor hook for AR."
-        },
-        {
-          "kicker": "EXISTING GAPS",
-          "head": "Toca Boca and Merge Cube are close \u2014 but neither teaches physical systems",
-          "cmd": null,
-          "sub": "Toca Lab is open-ended but purely fantastical. Merge Cube overlays 3-D models without simulation depth. Khan Academy Kids stays 2-D and curriculum-locked. None let a child falsify a hypothesis by actually breaking something."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Post one Loom of a Unity prototype in r/ScienceBasedParenting and r/homeschool before writing a line of AR code",
-          "cmd": null,
-          "sub": "Ask one question: 'Would you pay $4.99 or a $2/month sub for this?' A 5% yes-rate from 200 views is a signal worth chasing. Separately, search 'AR science app kids' on the App Store \u2014 count reviews mentioning 'boring' or 'too guided' to size the frustration."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-16-inkling-open-weights",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Thinking Machines drops 975B open-weights model",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/16/inkling/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "Mira Murati's lab just put a 975B-parameter model in the open",
-          "cmd": null,
-          "sub": "Thinking Machines Lab released Inkling under Apache-2.0 \u2014 one of the largest open-weights multimodal models from a US lab to date."
-        },
-        {
-          "kicker": "ARCHITECTURE",
-          "head": "Mixture-of-Experts: big total, lean runtime",
-          "cmd": null,
-          "sub": "975B total parameters but only 41B are active per forward pass. A smaller Inkling-Small (276B total / 12B active) is in testing and weights drop when ready."
-        },
-        {
-          "kicker": "TRAINING DATA",
-          "head": "45 trillion tokens \u2014 and a notably thin data card",
-          "cmd": null,
-          "sub": "Trained on text, images, audio and video from the public internet plus undisclosed third-party datasets. The model card is shorter than any comparable US lab release and says almost nothing about data sourcing."
-        },
-        {
-          "kicker": "POSITIONING",
-          "head": "Explicitly not a frontier model \u2014 it's a fine-tuning base",
-          "cmd": "curl \"https://tinker.thinkingmachines.dev/services/tinker-prod/oai/api/v1/chat/completions\" -H \"Authorization: Bearer $TINKER_API_KEY\" -H \"Content-Type: application/json\" -d '{\"model\":\"thinkingmachines/Inkling\",\"messages\":[{\"role\":\"user\",\"content\":\"Generate an SVG of a pelican riding a bicycle\"}],\"stream\":false}'",
-          "sub": "Thinking Machines positions Inkling as the starting point for customisation via their Tinker platform \u2014 think NVIDIA Nemotron or Gemma 4, not GPT-4o. The API already speaks OpenAI-compatible JSON."
+          "sub": "Dropping LiDAR and depth sensors cuts both cost and weight \u2014 meaningful for indoor logistics robots, inspection drones, or any edge deployment where sensor payload is a constraint."
         },
         {
           "kicker": "SO WHAT",
-          "head": "A credible US open-weights entrant for domain fine-tuning",
+          "head": "Monocular nav at 8B is a deployable form factor",
           "cmd": null,
-          "sub": "Apache-2.0 means you can deploy it commercially without restrictions. For teams fine-tuning vision models on proprietary data \u2014 say, defect detection or edge inference \u2014 Inkling's multimodal base plus Tinker is worth a benchmark run before committing to a closed API."
+          "sub": "For PMs scoping warehouse or facility robots: a single-camera 8B model fits on mid-range edge GPUs. The open question is real-world robustness outside controlled benchmarks \u2014 pilot on a constrained indoor route before committing to fleet rollout."
         }
       ]
     },
     {
-      "id": "2025-01-31-location-locked-postcards",
+      "id": "2025-01-30-state-of-open-source-ai",
       "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Postcards you can only send from the spot",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "Open-source AI: where the field actually stands",
       "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uy7mqp/no_promotion_need_some_opinion_on_my_side_project/"
+        "name": "stateofopensource.ai",
+        "url": "https://stateofopensource.ai/"
       },
       "panels": [
         {
-          "kicker": "THE PROBLEM",
-          "head": "Real postcards die in your luggage",
+          "kicker": "THE LANDSCAPE",
+          "head": "Open-source AI has crossed a credibility threshold",
           "cmd": null,
-          "sub": "Travellers buy cards with genuine intent, but almost never mail them from the actual place. The card arrives weeks late from a home zip code \u2014 or never arrives at all."
+          "sub": "The gap between open and closed frontier models has narrowed enough that open weights are now a serious default choice for many production deployments, not a budget compromise."
         },
         {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone who's ever found unsent postcards in a coat pocket",
+          "kicker": "CONTEXT",
+          "head": "Licensing fragmentation is the real friction",
           "cmd": null,
-          "sub": "Frequent travellers, gap-year students, digital nomads, and gift-minded tourists \u2014 people who value the ritual but are defeated by logistics roughly every trip."
+          "sub": "Many 'open' models carry use-restriction clauses \u2014 commercial caps, derivative limits, or data-provenance gaps \u2014 that complicate enterprise adoption and create legal grey zones."
         },
         {
-          "kicker": "THE HYPOTHESIS",
-          "head": "Lock the send button to the GPS coordinate",
+          "kicker": "KEY FINDING",
+          "head": "Fine-tuning and inference tooling have matured faster than the models themselves",
           "cmd": null,
-          "sub": "A webapp that only lets you write when you're physically nearby. It stamps the card with real location, local time, and that day's weather \u2014 none of which can be spoofed after the fact. Delivery is delayed 3\u20135 days on purpose to preserve the anticipation. Recipient needs no account."
+          "sub": "The ecosystem around open weights \u2014 quantisation libraries, serving runtimes, LoRA toolchains \u2014 has standardised rapidly, making it easier to adapt a base model than to evaluate which base model to start with."
         },
         {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "Existing e-card apps strip out the constraint \u2014 which is the whole point",
+          "kicker": "WHY IT MATTERS",
+          "head": "Edge and regulated deployments are the clearest open-source win",
           "cmd": null,
-          "sub": "Services like Touchnote or Postsnap let you send from anywhere, anytime, which solves convenience but kills authenticity. A postcard's emotional value is tied to 'I was there, thinking of you.' Location-locking re-creates that signal digitally."
+          "sub": "Air-gapped systems, on-device inference, and data-residency requirements all push toward open weights. For a PM deploying computer vision or agentic pipelines in healthcare or industrial settings, open-source is often the only compliant path."
         },
         {
-          "kicker": "NEXT STEP",
-          "head": "Search r/travel and r/solotravel for 'postcard' posts from the last year",
+          "kicker": "TAKEAWAY",
+          "head": "Audit your model's licence before your architecture, not after",
           "cmd": null,
-          "sub": "Count how many people mention guilt about unsent cards or wanting a digital equivalent. If that pattern appears in 10+ threads unprompted, the problem is real enough to run a no-code landing page test before any further polish."
+          "sub": "Before committing to a model for a commercial product, map its specific licence terms against your use case. 'Open source' is a spectrum \u2014 treat it like a dependency audit, not a binary flag."
         }
       ]
     },
     {
-      "id": "2025-05-24-soap-wipes",
+      "id": "2025-05-30-instant-carbonation-tablet",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "Soap-infused wipes: bidet's missing last step",
+      "title": "A drop-in tablet that carbonates any drink",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uy45fa/soap_wipes/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uz7izq/a_portable_object_that_can_instantly_carbonate/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "A bidet gets you 80% clean. The last 20% needs soap.",
+          "head": "You want fizz \u2014 but not a SodaStream on your desk",
           "cmd": null,
-          "sub": "One user's complaint: water-only bidet + oversized body wipes still doesn't feel truly clean. Baby wipes are the right size but wrong formulation \u2014 and carry a stigma."
+          "sub": "Anyone who drinks still water, juice, wine, or spirits occasionally wants carbonation without hauling equipment or buying pre-carbonated bottles every time."
         },
         {
-          "kicker": "WHO HAS THIS",
-          "head": "Bidet adoption in the US has roughly tripled since 2020.",
+          "kicker": "WHO & HOW OFTEN",
+          "head": "Frequent travellers, restaurant diners, office workers \u2014 daily friction",
           "cmd": null,
-          "sub": "Millions of new bidet owners are now discovering the same gap. The ask: a baby-wipe-sized product with gentle cleansing soap built in \u2014 fragrance-free, sensitive-skin safe."
+          "sub": "Hotel minibar sparkling water costs $6. A restaurant upsell to sparkling is pure margin. Office workers buying sparkling cans weekly spend ~$500/year. The moment of want is immediate and recurring."
         },
         {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "A compact, soap-loaded cleansing wipe positioned as an adult hygiene essential.",
+          "kicker": "WHAT THE PRODUCT COULD BE",
+          "head": "A citric-acid + sodium-bicarbonate tablet, sized like an Alka-Seltzer",
           "cmd": null,
-          "sub": "Think individually wrapped, purse/pocket-sized wipes with a mild surfactant (pH-balanced, non-irritating) \u2014 marketed as the 'finishing step' for bidet users, not a baby product."
+          "sub": "Drop one in 250ml of liquid, it releases CO\u2082 via a controlled acid-base reaction. The challenge is hitting ~3\u20134 volumes of dissolved CO\u2082 (beer-level) without excess sodium, off-flavour, or foam overflow \u2014 food-grade encapsulation could pace the release."
         },
         {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "Baby wipes: wrong brand. Body wipes: wrong size. Flushable wipes: ingredient concerns.",
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "SodaStream needs a counter. Fizz drops exist but disappoint",
           "cmd": null,
-          "sub": "Existing wipes either target infants, are too large for on-the-go use, or contain ingredients (alcohol, fragrance) that irritate sensitive skin. No mainstream SKU owns this adult hygiene niche cleanly."
+          "sub": "Products like 'Fizz Drops' already exist on Amazon but reviews consistently cite weak carbonation and salty aftertaste \u2014 they solve the convenience half but not the sensory half. That gap is the real opportunity."
         },
         {
           "kicker": "VALIDATION STEP",
-          "head": "Before sourcing a single wipe, test demand in 48 hours.",
+          "head": "Search 'fizz drops review' on Amazon before building anything",
           "cmd": null,
-          "sub": "Post a waitlist landing page targeting bidet subreddits (r/bidet, r/ZeroWaste). Search those subs for 'wipes' to count duplicate complaints. If 50+ people sign up or 10+ duplicate threads exist, the pain is real."
+          "sub": "Read the 2- and 3-star reviews: they define exactly what a better product must fix. Then post a landing page ('Carbonation tablet \u2014 no equipment, no flavour change') and measure email sign-ups before touching formulation. Hypothesis only \u2014 not validated."
         }
       ]
     },
     {
-      "id": "2025-07-24-solar-robot-mower",
+      "id": "2026-07-17-llm-cliche-highlighter",
       "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Self-charging robot mower: hypothesis or real gap?",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Vibe-coded tool flags LLM writing clich\u00e9s live",
       "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uxrlet/robot_lawnmowers_that_charge_from_solar_panels_on/"
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/17/llm-cliche-highlighter/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "THE PROBLEM",
-          "head": "Robot mowers still need a wired charging dock \u2014 one more thing to install, hide, and maintain",
+          "kicker": "THE ITCH",
+          "head": "\"No fluff, no filler, no jargon\" is itself the fluff",
           "cmd": null,
-          "sub": "The dock requires a power run to the garden and a fixed parking spot. For renters, irregular lawns, or off-grid properties, that's often a dealbreaker."
+          "sub": "Simon Willison hit a wall reading AI-generated content so generic it became self-parody \u2014 then turned the frustration into a tool in one session."
         },
         {
-          "kicker": "WHO HAS THIS PROBLEM",
-          "head": "Anyone who wants autonomous lawn care but can't or won't run outdoor cable",
+          "kicker": "WHAT HE BUILT",
+          "head": "A browser app that highlights 10 LLM clich\u00e9 patterns inline",
           "cmd": null,
-          "sub": "Holiday-home owners, rural properties on solar setups, rental landlords wanting low-touch maintenance \u2014 all face the dock-wiring barrier. The global robotic mower market is projected at ~$3 B by 2028."
+          "sub": "Paste any text and the tool marks up the telltale phrases \u2014 hollow promises of brevity, filler transitions, over-hedged qualifiers \u2014 that signal machine-written prose."
         },
         {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "Panels on the robot's lid harvest enough sun to cover daily mowing cycles \u2014 no dock, no cable",
+          "kicker": "HOW IT WAS MADE",
+          "head": "Fable 5 vibe-coded the whole thing",
           "cmd": null,
-          "sub": "A 0.1 m\u00b2 panel at ~20% efficiency yields roughly 20 Wh on a sunny day. Entry robot mowers use 15\u201325 Wh per hour of mowing, so trickle-solar could realistically cover 1\u20132 short sessions if the robot parks in the open between runs."
+          "sub": "No hand-written JS logic: Willison described the problem conversationally and let the model scaffold the detection and highlighting UI from scratch."
         },
         {
-          "kicker": "WHY EXISTING OPTIONS FALL SHORT",
-          "head": "Current solar-assisted mowers route power through a fixed ground station, not the robot itself",
+          "kicker": "SO WHAT",
+          "head": "Clich\u00e9 detection is a fast, cheap editorial quality gate",
           "cmd": null,
-          "sub": "Husqvarna and Worx sell solar-charging dock accessories, but the robot is still tethered to that spot. No mainstream product puts the panels on the unit and lets it free-roam to a sunny patch autonomously."
+          "sub": "For teams shipping AI-assisted copy \u2014 docs, release notes, product comms \u2014 this pattern (rules-based highlight + human review) costs one afternoon to build and saves credibility every time."
         },
         {
-          "kicker": "CHEAP VALIDATION STEP",
-          "head": "Search r/lawnmowing and r/robotics for 'charging dock' complaints, then post a mock spec sheet",
+          "kicker": "TAKEAWAY",
+          "head": "A lint pass for language is as useful as one for code",
           "cmd": null,
-          "sub": "Hypothesis to test: do people want cordless autonomy enough to accept a slower, sun-dependent charge cycle? A one-page landing page with a pre-order waitlist ($0 ad spend, share in relevant subreddits) would signal real demand within two weeks."
+          "sub": "If your product outputs text, consider shipping a clich\u00e9 or tone linter alongside it \u2014 users notice hollow language even when they can't name it."
         }
       ]
     },
     {
-      "id": "2025-07-23-aipedia-structured-engineering-db",
+      "id": "2026-07-10-amd-igpu-vlm-rocm",
+      "format": "story",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "VLM Runs Real-Time on AMD Integrated GPU via ROCm",
+      "source": {
+        "name": "Edge AI and Vision Alliance",
+        "url": "https://www.edge-ai-vision.com/2026/07/real-time-vision-language-inference-on-amd-radeon-igpu-using-rocm/"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "A vision-language model answering questions about live video \u2014 on a laptop chip",
+          "cmd": null,
+          "sub": "AMD's Radeon integrated GPU, not a discrete AI accelerator, is running a multimodal VLM pipeline in real time using the open ROCm software stack."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Integrated GPUs are finally in the VLM conversation",
+          "cmd": null,
+          "sub": "Until recently, running a VLM at interactive frame rates required a discrete GPU or a dedicated NPU. iGPUs are power-constrained but ubiquitous \u2014 they ship in virtually every laptop and embedded x86 board."
+        },
+        {
+          "kicker": "DETAIL",
+          "head": "ROCm bridges the gap between desktop AI tooling and edge silicon",
+          "cmd": null,
+          "sub": "The pipeline takes live or recorded video, feeds frames to a lightweight VLM, and returns natural-language answers about scene content \u2014 all via ROCm's HIP runtime without requiring CUDA or a proprietary vendor SDK."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Cuts BOM cost for vision-AI deployments that need language grounding",
+          "cmd": null,
+          "sub": "Retail analytics, factory floor monitoring, and in-cabin sensing can now test VLM-based query interfaces on standard AMD hardware before committing to a discrete GPU or custom silicon. Regulatory documentation benefits too: natural-language scene descriptions are more auditable than raw class labels."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "The moat around NVIDIA for edge VLM is narrowing",
+          "cmd": null,
+          "sub": "If ROCm performance on iGPUs continues to close the gap, procurement decisions for low-power vision nodes should start including AMD APU options in the benchmark matrix alongside Jetson and Hailo."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-24-vacation-photo-film",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "Open structured DB for engineering objects",
+      "title": "AI turns 1,500 vacation photos into a travel doc",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uxqz8q/aipedia_is_a_digital_knowledge_ecosystem_for/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uyt8ax/would_you_use_an_aipowered_tool_that_turns_your/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "Engineering knowledge is still scattered across PDFs, forums, and proprietary CAD vaults",
+          "head": "1,500 photos. 14 days. Zero finished video.",
           "cmd": null,
-          "sub": "A manufacturer, repair tech, or AI agent trying to understand how a specific component works must stitch together datasheets, YouTube teardowns, and OEM docs \u2014 none of it machine-readable or interlinked."
+          "sub": "Most family trip media ends up rotting in Google Drive. The gap isn't storage \u2014 it's the hours of editing skill required to turn raw clips into something watchable."
         },
         {
           "kicker": "WHO FEELS THIS",
-          "head": "Hardware startups, repair shops, and AI teams training on technical data",
+          "head": "Anyone who shoots more than they edit \u2014 which is nearly everyone",
           "cmd": null,
-          "sub": "Anyone doing design-for-manufacturing, reverse engineering, or fine-tuning an LLM on domain-specific specs hits the same wall: no canonical, structured source for physical objects."
+          "sub": "Families, solo travellers, and group trips all hit the same wall: shooting is effortless, editing is a second job. The pain repeats every holiday season."
+        },
+        {
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "Bulk upload \u2192 AI-assembled 10\u201315 min travel documentary",
+          "cmd": null,
+          "sub": "The tool would deduplicate, sequence by timestamp and location, auto-select the best frames, animate stills, match music to pacing, and optionally add a narrated voiceover \u2014 no timeline dragging required."
+        },
+        {
+          "kicker": "WHY EXISTING TOOLS FALL SHORT",
+          "head": "Google Photos Memories and iMovie solve different problems",
+          "cmd": null,
+          "sub": "Auto-highlight reels are 60-second slideshows, not narrative films. iMovie and CapCut still demand manual editing. Neither handles 1,000+ photo batches with coherent story structure."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Before building: run a \u00a30 concierge test",
+          "cmd": null,
+          "sub": "Post in 2\u20133 travel subreddits asking people to DM you a Google Photos link. Manually produce one decent video using existing AI tools (Runway, ElevenLabs, Descript). If 10 strangers send albums unprompted, the pull is real."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-16-firefox-in-webassembly",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Puter ran Firefox inside Chrome via WebAssembly",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/16/firefox-in-webassembly/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "A full browser running inside another browser",
+          "cmd": null,
+          "sub": "Puter compiled Firefox's Gecko engine to WebAssembly, so you can load Firefox as a web app inside Chrome \u2014 nested browsing, fully functional."
+        },
+        {
+          "kicker": "HOW THEY PICKED THE TARGET",
+          "head": "Gecko was chosen for its single-process architecture",
+          "cmd": null,
+          "sub": "Most modern browsers are heavily multi-process, which makes WASM compilation a nightmare. Firefox's strong single-process mode made it the practical target."
+        },
+        {
+          "kicker": "THE AI ANGLE",
+          "head": "$25k in estimated LLM tokens \u2014 almost free on Claude Max",
+          "cmd": null,
+          "sub": "The team used Claude Opus and Fable extensively, racking up what would have been ~$25,000 in API costs, but the Claude Max subscription plan made actual spend far lower."
+        },
+        {
+          "kicker": "THE NETWORKING HACK",
+          "head": "All traffic proxied over WebSockets via the Wisp protocol",
+          "cmd": null,
+          "sub": "Browsers can't open raw TCP connections, so every network request from the inner Firefox tunnels through Puter's servers. The Hacker News traffic spike forced an emergency server scale-up. End-to-end encryption is preserved for HTTPS sites."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "WASM is becoming a universal runtime for whole applications, not just modules",
+          "cmd": null,
+          "sub": "If you can ship an entire browser engine as a WASM blob, sandboxed legacy desktop apps, edge-deployed CV inference runtimes, or isolated agentic tool environments become much more tractable \u2014 and LLM-assisted porting is what makes the effort economical."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-24-rizeai-wearable-actionability-gap",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Wearables give scores. Nobody tells you what to do next.",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uyuer6/i_need_your_honest_advice_on_this_innovative/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Your Oura ring says recovery is red. Now what?",
+          "cmd": null,
+          "sub": "Wearables have trained millions of people to check a score, feel anxious, and then proceed with zero behavioural change. The data exists; the actionable bridge doesn't."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Wearable owners who optimise for output, not just curiosity",
+          "cmd": null,
+          "sub": "Founders, athletes, shift workers, and knowledge workers who bought a WHOOP or Oura to perform better \u2014 not to collect metrics. This frustration surfaces constantly across r/whoop, r/ouraring, and r/QuantifiedSelf."
         },
         {
           "kicker": "THE HYPOTHESIS",
-          "head": "A Wikipedia-style open DB where each entry includes 3D models, BOMs, CNC files, and assembly specs",
+          "head": "Pull Apple Health data \u2192 generate a daily action plan, not a score",
           "cmd": null,
-          "sub": "Each 'object page' would carry a digital passport \u2014 structured enough for a CNC machine or AI agent to consume directly, not just a human to read. Think OSHWA meets Wikidata meets GrabCAD."
+          "sub": "RizeAI does this today: coffee timing, supplement windows, focus blocks, and hydration nudges adjusted for weather \u2014 each with a one-line rationale tied to your actual numbers. No per-person longitudinal learning yet; plans are built fresh daily from current metrics."
         },
         {
-          "kicker": "WHY EXISTING OPTIONS FALL SHORT",
-          "head": "GrabCAD, Thingiverse, and McMaster-Carr each solve one slice",
+          "kicker": "WHERE IT'S THIN",
+          "head": "Personalisation depth and trust are the real moat \u2014 neither is there yet",
           "cmd": null,
-          "sub": "GrabCAD has 3D files but no BOMs or process specs. Thingiverse is hobbyist-grade. McMaster-Carr is component-level, not system-level. None are structured for AI ingestion or cross-linked across the full product lifecycle."
+          "sub": "Generic chrono-nutrition rules applied to your HRV aren't deeply personalised; they're contextualised. The claimed moat ('no two plans are the same') is true but fragile \u2014 Whoop Coach and Apple Intelligence are converging on the same surface. Regulatory risk is real if recommendations edge toward clinical claims."
         },
         {
-          "kicker": "CHEAP VALIDATION STEP",
-          "head": "Find one niche \u2014 e.g. open-source CNC router parts \u2014 and build 10 complete object pages",
+          "kicker": "VALIDATION STEP",
+          "head": "Don't ask 'would you use it?' \u2014 ask 'did you change behaviour?'",
           "cmd": null,
-          "sub": "Post them in r/hobbycnc and r/opensourcehardware and measure whether makers actually reference them over existing sources. If they do, you have a content-market fit hypothesis worth testing at scale."
+          "sub": "Survey the existing trial users on one metric: 'Did you act on at least one recommendation today?' If fewer than 40% say yes, the action-bridge is still broken and the product problem is UX, not features. Run that before building longitudinal learning."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-sda-tranche1-transport-layer",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "SDA's Military Data Mesh Hits 50% in Orbit",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/spacex-launches-21-satellites-for-military-data-network/"
+      },
+      "panels": [
+        {
+          "kicker": "LAUNCH",
+          "head": "21 more military data satellites reach orbit",
+          "cmd": null,
+          "sub": "A Falcon 9 carried 21 York Space Systems satellites to low Earth orbit for the Space Development Agency, the latest batch in its Tranche 1 Transport Layer build-out."
+        },
+        {
+          "kicker": "MILESTONE",
+          "head": "Half of Tranche 1 Transport Layer is now flying",
+          "cmd": null,
+          "sub": "This launch puts SDA past the 50% mark of its planned Tranche 1 constellation \u2014 a mesh network designed to move tactical data between military assets in near-real time."
+        },
+        {
+          "kicker": "ARCHITECTURE",
+          "head": "York Space builds the buses; SpaceX flies them cheap",
+          "cmd": null,
+          "sub": "York Space produces small, standardised S-class satellite buses at volume. Routing launches through SpaceX's rideshare cadence keeps per-satellite delivery costs well below traditional procurement."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "A proliferated LEO data relay layer is becoming real",
+          "cmd": null,
+          "sub": "Once complete, Tranche 1 will provide persistent low-latency links for sensors, drones, and command nodes \u2014 the same connectivity pattern commercial edge-AI deployments need but in a hardened, sovereign form."
+        },
+        {
+          "kicker": "WATCH",
+          "head": "Tranche 2 will test whether the cadence holds",
+          "cmd": null,
+          "sub": "SDA's next tranche targets expanded capacity and resilience. Whether the agency can sustain this launch tempo \u2014 and integrate York's buses with other vendors \u2014 is the programme's key near-term risk."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-DD-jetson-thor",
+      "format": "story",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "NVIDIA Jetson Thor T3000 & T2000 Target Edge Robotics",
+      "source": {
+        "name": "Edge AI and Vision Alliance",
+        "url": "https://www.edge-ai-vision.com/2026/07/nvidia-introduces-new-jetson-thor-computers-to-advance-mainstream-robotics-and-edge-ai/"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "Blackwell comes to the edge \u2014 in a compact module",
+          "cmd": null,
+          "sub": "NVIDIA's Jetson Thor line gets two new entries, the T3000 and T2000, built on the same Blackwell GPU architecture powering its data-centre cards but shrunk for embedded deployment."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "The gap Jetson Thor is meant to close",
+          "cmd": null,
+          "sub": "High-capability robotics and visual AI workloads have historically demanded server-class hardware. Jetson Thor targets systems that need that compute in a power-constrained, space-constrained form factor."
+        },
+        {
+          "kicker": "DETAIL",
+          "head": "Two SKUs, plus software memory tricks and agent skills",
+          "cmd": null,
+          "sub": "The T3000 and T2000 are paired with new Jetson software that includes memory optimisation (squeezing larger models into on-module RAM) and pre-built 'agent skills' \u2014 reusable inference pipelines for common robotics tasks."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Mainstream pricing is the real unlock, not raw specs",
+          "cmd": null,
+          "sub": "NVIDIA framing this as 'mainstream robotics' signals a price and integration effort aimed at OEMs who couldn't justify previous Jetson Orin or AGX tiers \u2014 the ecosystem play matters as much as the silicon."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "For edge vision PMs: re-evaluate your hardware ceiling",
+          "cmd": null,
+          "sub": "If your computer-vision pipeline has been CPU-bottlenecked or required an Orin AGX to hit latency targets, the T2000/T3000 specs are worth benchmarking \u2014 particularly if you're deploying in regulated environments where a sealed, certified module is preferable to a discrete GPU board."
         }
       ]
     }
