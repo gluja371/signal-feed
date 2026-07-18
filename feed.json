@@ -1,434 +1,305 @@
 {
   "version": 1,
-  "generated_at": "2026-07-17",
+  "generated_at": "2026-07-18",
   "cards": [
     {
-      "id": "2026-07-10-robostral-navigate",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "Mistral's 8B model navigates robots via one RGB camera",
-      "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/mistrals-8b-robostral-navigate-steers-robots-using-a-single-rgb-camera/"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "Robot navigation without LiDAR, depth sensors, or multi-camera rigs",
-          "cmd": null,
-          "sub": "Mistral's Robostral Navigate steers a robot through unknown spaces using only natural-language instructions and a single RGB camera feed."
-        },
-        {
-          "kicker": "THE MODEL",
-          "head": "8B parameters, built for embodied nav",
-          "cmd": null,
-          "sub": "Robostral Navigate is a vision-language model purpose-built for navigation tasks \u2014 not a general-purpose VLM adapted post hoc. It processes instructions alongside monocular RGB frames to decide where to move next."
-        },
-        {
-          "kicker": "BENCHMARK",
-          "head": "76.6% success rate on R2R-CE validation-unseen",
-          "cmd": null,
-          "sub": "R2R-CE (Room-to-Room Continuous Environments) tests navigation in spaces the model has never seen. A 76.6% success rate on unseen environments is the headline claim \u2014 though this is a company-reported figure pending independent replication."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Single-camera constraint unlocks cheaper, lighter hardware",
-          "cmd": null,
-          "sub": "Dropping LiDAR and depth sensors cuts both cost and weight \u2014 meaningful for indoor logistics robots, inspection drones, or any edge deployment where sensor payload is a constraint."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Monocular nav at 8B is a deployable form factor",
-          "cmd": null,
-          "sub": "For PMs scoping warehouse or facility robots: a single-camera 8B model fits on mid-range edge GPUs. The open question is real-world robustness outside controlled benchmarks \u2014 pilot on a constrained indoor route before committing to fleet rollout."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-state-of-open-source-ai",
+      "id": "2026-07-18-claude-fable-5-permanent",
       "format": "story",
       "topic": "ai-news",
       "accent": "gold",
-      "title": "Open-source AI: where the field actually stands",
-      "source": {
-        "name": "stateofopensource.ai",
-        "url": "https://stateofopensource.ai/"
-      },
-      "panels": [
-        {
-          "kicker": "THE LANDSCAPE",
-          "head": "Open-source AI has crossed a credibility threshold",
-          "cmd": null,
-          "sub": "The gap between open and closed frontier models has narrowed enough that open weights are now a serious default choice for many production deployments, not a budget compromise."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Licensing fragmentation is the real friction",
-          "cmd": null,
-          "sub": "Many 'open' models carry use-restriction clauses \u2014 commercial caps, derivative limits, or data-provenance gaps \u2014 that complicate enterprise adoption and create legal grey zones."
-        },
-        {
-          "kicker": "KEY FINDING",
-          "head": "Fine-tuning and inference tooling have matured faster than the models themselves",
-          "cmd": null,
-          "sub": "The ecosystem around open weights \u2014 quantisation libraries, serving runtimes, LoRA toolchains \u2014 has standardised rapidly, making it easier to adapt a base model than to evaluate which base model to start with."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Edge and regulated deployments are the clearest open-source win",
-          "cmd": null,
-          "sub": "Air-gapped systems, on-device inference, and data-residency requirements all push toward open weights. For a PM deploying computer vision or agentic pipelines in healthcare or industrial settings, open-source is often the only compliant path."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Audit your model's licence before your architecture, not after",
-          "cmd": null,
-          "sub": "Before committing to a model for a commercial product, map its specific licence terms against your use case. 'Open source' is a spectrum \u2014 treat it like a dependency audit, not a binary flag."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-30-instant-carbonation-tablet",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "A drop-in tablet that carbonates any drink",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uz7izq/a_portable_object_that_can_instantly_carbonate/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "You want fizz \u2014 but not a SodaStream on your desk",
-          "cmd": null,
-          "sub": "Anyone who drinks still water, juice, wine, or spirits occasionally wants carbonation without hauling equipment or buying pre-carbonated bottles every time."
-        },
-        {
-          "kicker": "WHO & HOW OFTEN",
-          "head": "Frequent travellers, restaurant diners, office workers \u2014 daily friction",
-          "cmd": null,
-          "sub": "Hotel minibar sparkling water costs $6. A restaurant upsell to sparkling is pure margin. Office workers buying sparkling cans weekly spend ~$500/year. The moment of want is immediate and recurring."
-        },
-        {
-          "kicker": "WHAT THE PRODUCT COULD BE",
-          "head": "A citric-acid + sodium-bicarbonate tablet, sized like an Alka-Seltzer",
-          "cmd": null,
-          "sub": "Drop one in 250ml of liquid, it releases CO\u2082 via a controlled acid-base reaction. The challenge is hitting ~3\u20134 volumes of dissolved CO\u2082 (beer-level) without excess sodium, off-flavour, or foam overflow \u2014 food-grade encapsulation could pace the release."
-        },
-        {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "SodaStream needs a counter. Fizz drops exist but disappoint",
-          "cmd": null,
-          "sub": "Products like 'Fizz Drops' already exist on Amazon but reviews consistently cite weak carbonation and salty aftertaste \u2014 they solve the convenience half but not the sensory half. That gap is the real opportunity."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Search 'fizz drops review' on Amazon before building anything",
-          "cmd": null,
-          "sub": "Read the 2- and 3-star reviews: they define exactly what a better product must fix. Then post a landing page ('Carbonation tablet \u2014 no equipment, no flavour change') and measure email sign-ups before touching formulation. Hypothesis only \u2014 not validated."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-17-llm-cliche-highlighter",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Vibe-coded tool flags LLM writing clich\u00e9s live",
+      "title": "Claude Fable 5 stays in Max subscriptions",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/17/llm-cliche-highlighter/#atom-everything"
+        "url": "https://simonwillison.net/2026/Jul/18/claude-make-fable-5-permanent/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "THE ITCH",
-          "head": "\"No fluff, no filler, no jargon\" is itself the fluff",
+          "kicker": "REVERSAL",
+          "head": "Anthropic keeps Fable 5 in paid plans \u2014 competitive pressure wins",
           "cmd": null,
-          "sub": "Simon Willison hit a wall reading AI-generated content so generic it became self-parody \u2014 then turned the frustration into a tool in one session."
+          "sub": "Starting July 20, Fable 5 is permanently included in Max and Team Premium subscriptions at 50% of usage limits, reversing the earlier plan to pull it behind API-only pricing."
         },
         {
-          "kicker": "WHAT HE BUILT",
-          "head": "A browser app that highlights 10 LLM clich\u00e9 patterns inline",
+          "kicker": "WHAT CHANGED",
+          "head": "GPT-5.6 Sol made the original plan untenable",
           "cmd": null,
-          "sub": "Paste any text and the tool marks up the telltale phrases \u2014 hollow promises of brevity, filler transitions, over-hedged qualifiers \u2014 that signal machine-written prose."
+          "sub": "Anthropic had intended to reserve Fable 5 for API customers \u2014 but competing flagship models staying in rival subscriptions made a $100\u2013$200/month plan without Anthropic's best model a hard sell."
         },
         {
-          "kicker": "HOW IT WAS MADE",
-          "head": "Fable 5 vibe-coded the whole thing",
+          "kicker": "WHO GETS WHAT",
+          "head": "Tier breakdown matters: $20/month is still excluded",
           "cmd": null,
-          "sub": "No hand-written JS logic: Willison described the problem conversationally and let the model scaffold the detection and highlighting UI from scratch."
+          "sub": "Max plans ($100 and $200/month) get Fable 5 at 50% limits. Pro and Team Standard users keep access via usage credits and receive a one-time $100 credit. The base $20/month Pro plan does not include Fable 5."
+        },
+        {
+          "kicker": "OPEN QUESTION",
+          "head": "Compute capacity was the original constraint \u2014 it still is",
+          "cmd": null,
+          "sub": "Anthropic's initial removal plan was driven by GPU scarcity. Keeping Fable 5 in subscriptions may require pulling back training compute to free capacity for inference \u2014 a real operational tradeoff to watch."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Clich\u00e9 detection is a fast, cheap editorial quality gate",
+          "head": "If you're budgeting AI tooling, the tier gap just got wider",
           "cmd": null,
-          "sub": "For teams shipping AI-assisted copy \u2014 docs, release notes, product comms \u2014 this pattern (rules-based highlight + human review) costs one afternoon to build and saves credibility every time."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "A lint pass for language is as useful as one for code",
-          "cmd": null,
-          "sub": "If your product outputs text, consider shipping a clich\u00e9 or tone linter alongside it \u2014 users notice hollow language even when they can't name it."
+          "sub": "For teams using Fable 5 in production workflows, the 50%-of-limits cap on Max plans is the constraint to stress-test. If your workload hits that ceiling, API pricing \u2014 not subscription \u2014 may still be the right route."
         }
       ]
     },
     {
-      "id": "2026-07-10-amd-igpu-vlm-rocm",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "VLM Runs Real-Time on AMD Integrated GPU via ROCm",
-      "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/real-time-vision-language-inference-on-amd-radeon-igpu-using-rocm/"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "A vision-language model answering questions about live video \u2014 on a laptop chip",
-          "cmd": null,
-          "sub": "AMD's Radeon integrated GPU, not a discrete AI accelerator, is running a multimodal VLM pipeline in real time using the open ROCm software stack."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Integrated GPUs are finally in the VLM conversation",
-          "cmd": null,
-          "sub": "Until recently, running a VLM at interactive frame rates required a discrete GPU or a dedicated NPU. iGPUs are power-constrained but ubiquitous \u2014 they ship in virtually every laptop and embedded x86 board."
-        },
-        {
-          "kicker": "DETAIL",
-          "head": "ROCm bridges the gap between desktop AI tooling and edge silicon",
-          "cmd": null,
-          "sub": "The pipeline takes live or recorded video, feeds frames to a lightweight VLM, and returns natural-language answers about scene content \u2014 all via ROCm's HIP runtime without requiring CUDA or a proprietary vendor SDK."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Cuts BOM cost for vision-AI deployments that need language grounding",
-          "cmd": null,
-          "sub": "Retail analytics, factory floor monitoring, and in-cabin sensing can now test VLM-based query interfaces on standard AMD hardware before committing to a discrete GPU or custom silicon. Regulatory documentation benefits too: natural-language scene descriptions are more auditable than raw class labels."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "The moat around NVIDIA for edge VLM is narrowing",
-          "cmd": null,
-          "sub": "If ROCm performance on iGPUs continues to close the gap, procurement decisions for low-power vision nodes should start including AMD APU options in the benchmark matrix alongside Jetson and Hailo."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-24-vacation-photo-film",
+      "id": "2025-01-30-private-health-social-listening-ai",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "AI turns 1,500 vacation photos into a travel doc",
+      "title": "AI health confidant backed by real social data",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uyt8ax/would_you_use_an_aipowered_tool_that_turns_your/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v04yzx/health_app_idea_is_it_original_would_people_use_it/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "1,500 photos. 14 days. Zero finished video.",
+          "head": "Health anxiety lives in a gap nobody owns",
           "cmd": null,
-          "sub": "Most family trip media ends up rotting in Google Drive. The gap isn't storage \u2014 it's the hours of editing skill required to turn raw clips into something watchable."
+          "sub": "Millions of people Google symptoms, lurk on health subreddits, or say nothing at all \u2014 because asking a friend feels embarrassing and booking a doctor feels premature. That silent middle ground is the product opportunity."
         },
         {
           "kicker": "WHO FEELS THIS",
-          "head": "Anyone who shoots more than they edit \u2014 which is nearly everyone",
+          "head": "Anxious adults who self-censor before self-advocating",
           "cmd": null,
-          "sub": "Families, solo travellers, and group trips all hit the same wall: shooting is effortless, editing is a second job. The pain repeats every holiday season."
+          "sub": "People who are uninsured, underinsured, or navigating a new diagnosis are most likely to delay care out of shame or confusion. They're already talking to AI chatbots \u2014 they just have no private, structured place to do it."
         },
         {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "Bulk upload \u2192 AI-assembled 10\u201315 min travel documentary",
+          "kicker": "THE CONCEPT",
+          "head": "Pick your confidant; get crowd-sourced context privately",
           "cmd": null,
-          "sub": "The tool would deduplicate, sequence by timestamp and location, auto-select the best frames, animate stills, match music to pacing, and optionally add a narrated voiceover \u2014 no timeline dragging required."
+          "sub": "The user describes a persona \u2014 'sympathetic GP', 'older sibling who's a nurse' \u2014 and an AI adopts that voice. Behind the scenes, real social posts (Reddit, health forums via API) are retrieved to ground responses in what actual patients have experienced, without the user ever posting publicly."
         },
         {
-          "kicker": "WHY EXISTING TOOLS FALL SHORT",
-          "head": "Google Photos Memories and iMovie solve different problems",
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "ChatGPT is generic; Reddit requires exposure",
           "cmd": null,
-          "sub": "Auto-highlight reels are 60-second slideshows, not narrative films. iMovie and CapCut still demand manual editing. Neither handles 1,000+ photo batches with coherent story structure."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building: run a \u00a30 concierge test",
-          "cmd": null,
-          "sub": "Post in 2\u20133 travel subreddits asking people to DM you a Google Photos link. Manually produce one decent video using existing AI tools (Runway, ElevenLabs, Descript). If 10 strangers send albums unprompted, the pull is real."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-16-firefox-in-webassembly",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Puter ran Firefox inside Chrome via WebAssembly",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/16/firefox-in-webassembly/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "A full browser running inside another browser",
-          "cmd": null,
-          "sub": "Puter compiled Firefox's Gecko engine to WebAssembly, so you can load Firefox as a web app inside Chrome \u2014 nested browsing, fully functional."
-        },
-        {
-          "kicker": "HOW THEY PICKED THE TARGET",
-          "head": "Gecko was chosen for its single-process architecture",
-          "cmd": null,
-          "sub": "Most modern browsers are heavily multi-process, which makes WASM compilation a nightmare. Firefox's strong single-process mode made it the practical target."
-        },
-        {
-          "kicker": "THE AI ANGLE",
-          "head": "$25k in estimated LLM tokens \u2014 almost free on Claude Max",
-          "cmd": null,
-          "sub": "The team used Claude Opus and Fable extensively, racking up what would have been ~$25,000 in API costs, but the Claude Max subscription plan made actual spend far lower."
-        },
-        {
-          "kicker": "THE NETWORKING HACK",
-          "head": "All traffic proxied over WebSockets via the Wisp protocol",
-          "cmd": null,
-          "sub": "Browsers can't open raw TCP connections, so every network request from the inner Firefox tunnels through Puter's servers. The Hacker News traffic spike forced an emergency server scale-up. End-to-end encryption is preserved for HTTPS sites."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "WASM is becoming a universal runtime for whole applications, not just modules",
-          "cmd": null,
-          "sub": "If you can ship an entire browser engine as a WASM blob, sandboxed legacy desktop apps, edge-deployed CV inference runtimes, or isolated agentic tool environments become much more tractable \u2014 and LLM-assisted porting is what makes the effort economical."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-24-rizeai-wearable-actionability-gap",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Wearables give scores. Nobody tells you what to do next.",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1uyuer6/i_need_your_honest_advice_on_this_innovative/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Your Oura ring says recovery is red. Now what?",
-          "cmd": null,
-          "sub": "Wearables have trained millions of people to check a score, feel anxious, and then proceed with zero behavioural change. The data exists; the actionable bridge doesn't."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Wearable owners who optimise for output, not just curiosity",
-          "cmd": null,
-          "sub": "Founders, athletes, shift workers, and knowledge workers who bought a WHOOP or Oura to perform better \u2014 not to collect metrics. This frustration surfaces constantly across r/whoop, r/ouraring, and r/QuantifiedSelf."
-        },
-        {
-          "kicker": "THE HYPOTHESIS",
-          "head": "Pull Apple Health data \u2192 generate a daily action plan, not a score",
-          "cmd": null,
-          "sub": "RizeAI does this today: coffee timing, supplement windows, focus blocks, and hydration nudges adjusted for weather \u2014 each with a one-line rationale tied to your actual numbers. No per-person longitudinal learning yet; plans are built fresh daily from current metrics."
-        },
-        {
-          "kicker": "WHERE IT'S THIN",
-          "head": "Personalisation depth and trust are the real moat \u2014 neither is there yet",
-          "cmd": null,
-          "sub": "Generic chrono-nutrition rules applied to your HRV aren't deeply personalised; they're contextualised. The claimed moat ('no two plans are the same') is true but fragile \u2014 Whoop Coach and Apple Intelligence are converging on the same surface. Regulatory risk is real if recommendations edge toward clinical claims."
+          "sub": "General LLMs lack the social-data grounding that makes advice feel relatable. Public forums require posting, which many people refuse. Telehealth bots are clinical and insurance-gated. None combine persona customisation, social listening, and full privacy."
         },
         {
           "kicker": "VALIDATION STEP",
-          "head": "Don't ask 'would you use it?' \u2014 ask 'did you change behaviour?'",
+          "head": "Hypothesis, not a product \u2014 test the shame signal first",
           "cmd": null,
-          "sub": "Survey the existing trial users on one metric: 'Did you act on at least one recommendation today?' If fewer than 40% say yes, the action-bridge is still broken and the product problem is UX, not features. Run that before building longitudinal learning."
+          "sub": "Search r/HealthAnxiety and r/AskDocs for posts that say 'I didn't want to ask anyone but\u2026' \u2014 count how many appear in the last 90 days and what condition categories dominate. That frequency and topic map is your early ICP and MVP scope, before writing a line of code."
         }
       ]
     },
     {
-      "id": "2025-01-30-sda-tranche1-transport-layer",
+      "id": "2025-01-30-space-force-nssl-lane1-ceiling",
       "format": "story",
       "topic": "aerospace",
       "accent": "sky",
-      "title": "SDA's Military Data Mesh Hits 50% in Orbit",
+      "title": "Space Force triples NSSL launch contract ceiling",
       "source": {
         "name": "SpaceNews",
-        "url": "https://spacenews.com/spacex-launches-21-satellites-for-military-data-network/"
-      },
-      "panels": [
-        {
-          "kicker": "LAUNCH",
-          "head": "21 more military data satellites reach orbit",
-          "cmd": null,
-          "sub": "A Falcon 9 carried 21 York Space Systems satellites to low Earth orbit for the Space Development Agency, the latest batch in its Tranche 1 Transport Layer build-out."
-        },
-        {
-          "kicker": "MILESTONE",
-          "head": "Half of Tranche 1 Transport Layer is now flying",
-          "cmd": null,
-          "sub": "This launch puts SDA past the 50% mark of its planned Tranche 1 constellation \u2014 a mesh network designed to move tactical data between military assets in near-real time."
-        },
-        {
-          "kicker": "ARCHITECTURE",
-          "head": "York Space builds the buses; SpaceX flies them cheap",
-          "cmd": null,
-          "sub": "York Space produces small, standardised S-class satellite buses at volume. Routing launches through SpaceX's rideshare cadence keeps per-satellite delivery costs well below traditional procurement."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "A proliferated LEO data relay layer is becoming real",
-          "cmd": null,
-          "sub": "Once complete, Tranche 1 will provide persistent low-latency links for sensors, drones, and command nodes \u2014 the same connectivity pattern commercial edge-AI deployments need but in a hardened, sovereign form."
-        },
-        {
-          "kicker": "WATCH",
-          "head": "Tranche 2 will test whether the cadence holds",
-          "cmd": null,
-          "sub": "SDA's next tranche targets expanded capacity and resilience. Whether the agency can sustain this launch tempo \u2014 and integrate York's buses with other vendors \u2014 is the programme's key near-term risk."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-DD-jetson-thor",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "NVIDIA Jetson Thor T3000 & T2000 Target Edge Robotics",
-      "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/nvidia-introduces-new-jetson-thor-computers-to-advance-mainstream-robotics-and-edge-ai/"
+        "url": "https://spacenews.com/space-force-triples-launch-contract-ceiling-amid-rising-demand/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Blackwell comes to the edge \u2014 in a compact module",
+          "head": "The U.S. national security launch budget just got 3\u00d7 bigger",
           "cmd": null,
-          "sub": "NVIDIA's Jetson Thor line gets two new entries, the T3000 and T2000, built on the same Blackwell GPU architecture powering its data-centre cards but shrunk for embedded deployment."
+          "sub": "The ceiling on the National Security Space Launch Phase 3 Lane 1 contract jumped from $5.6 billion to $17 billion \u2014 a $11.4B expansion in a single amendment."
         },
         {
           "kicker": "CONTEXT",
-          "head": "The gap Jetson Thor is meant to close",
+          "head": "Lane 1 is the competitive, high-volume tier of NSSL",
           "cmd": null,
-          "sub": "High-capability robotics and visual AI workloads have historically demanded server-class hardware. Jetson Thor targets systems that need that compute in a power-constrained, space-constrained form factor."
+          "sub": "NSSL Phase 3 splits launch work into two lanes: Lane 1 for competed, recurring missions and Lane 2 for sole-source sensitive payloads. ULA and SpaceX currently hold Lane 1 awards."
         },
         {
           "kicker": "DETAIL",
-          "head": "Two SKUs, plus software memory tricks and agent skills",
+          "head": "Demand is outpacing what the original ceiling anticipated",
           "cmd": null,
-          "sub": "The T3000 and T2000 are paired with new Jetson software that includes memory optimisation (squeezing larger models into on-module RAM) and pre-built 'agent skills' \u2014 reusable inference pipelines for common robotics tasks."
+          "sub": "Space Force raised the ceiling rather than re-compete the contract, signalling that classified and dual-use launch manifest growth is accelerating faster than planners projected circa 2022."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "Mainstream pricing is the real unlock, not raw specs",
+          "head": "More headroom means more national-security payloads reaching orbit",
           "cmd": null,
-          "sub": "NVIDIA framing this as 'mainstream robotics' signals a price and integration effort aimed at OEMs who couldn't justify previous Jetson Orin or AGX tiers \u2014 the ecosystem play matters as much as the silicon."
+          "sub": "A higher ceiling unlocks additional task orders without a new procurement cycle, compressing timelines for constellation replenishment, ISR upgrades, and resilient comms \u2014 all areas where edge compute and onboard AI are increasingly embedded."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "For edge vision PMs: re-evaluate your hardware ceiling",
+          "head": "$17B ceiling signals a sustained, not cyclical, surge",
           "cmd": null,
-          "sub": "If your computer-vision pipeline has been CPU-bottlenecked or required an Orin AGX to hit latency targets, the T2000/T3000 specs are worth benchmarking \u2014 particularly if you're deploying in regulated environments where a sealed, certified module is preferable to a discrete GPU board."
+          "sub": "For launch providers and payload integrators alike, this is a policy signal: the U.S. government expects its national-security manifest to keep growing, not plateau \u2014 which supports multi-year investment in launch rate capacity."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-16-kimi-k3-pelican",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Kimi K3: 2.8T params, $15/M output tokens",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/16/kimi-k3/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "ANNOUNCEMENT",
+          "head": "Moonshot AI ships the largest open-weight model yet",
+          "cmd": null,
+          "sub": "Kimi K3 has 2.8 trillion parameters \u2014 more than double DeepSeek's 1.6T V4 Pro \u2014 with weights dropping by July 27, 2026."
+        },
+        {
+          "kicker": "PERFORMANCE",
+          "head": "Beats GPT-5.5 and Opus 4.8, trails Claude Fable 5",
+          "cmd": null,
+          "sub": "On Artificial Analysis's long-horizon eval, K3 scores Elo 1547, up 732 points from K2.6. It's also top of Arena.ai's Frontend Code leaderboard, above Fable 5."
+        },
+        {
+          "kicker": "PRICING",
+          "head": "$3 in, $15 out \u2014 Chinese lab prices like a Western frontier model",
+          "cmd": null,
+          "sub": "That's roughly half the cost of Opus 4.8 ($1.80/task vs $0.94) but a 15\u00d7 increase over Kimi K2.6's output price. K3 also uses 21% fewer output tokens than its predecessor, softening the bill."
+        },
+        {
+          "kicker": "BENCHMARK HONESTY",
+          "head": "The pelican test taught something: it's now broken",
+          "cmd": "llm -m openrouter/moonshotai/kimi-k3 'Generate an SVG of a pelican riding a bicycle'",
+          "sub": "For 21 months, generating a pelican-on-bicycle SVG correlated well with model quality. It no longer does \u2014 GLM-5.2 now beats Fable 5 on it. The test never touched agentic tool-calling, which is what actually differentiates today's frontier models."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Benchmark your evals, not just your models",
+          "cmd": null,
+          "sub": "A proxy metric that worked can quietly stop working. For agentic or multi-step CV pipelines, validate that your internal evals still correlate with real task success \u2014 don't let them become pelicans."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-31-pentagon-cover-glass-satellites",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Pentagon pays to onshore satellite cover glass",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/pentagon-awards-7-1-million-to-expand-u-s-production-of-cover-glass-for-satellites/"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "Satellites run on glass you've probably never heard of",
+          "cmd": null,
+          "sub": "Every solar array on a spacecraft is protected by thin radiation-resistant cover glass. Without it, the cells degrade fast in the harsh radiation environment of orbit."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "The U.S. can't make enough of it domestically",
+          "cmd": null,
+          "sub": "The Pentagon used Defense Production Act authority \u2014 the same lever pulled for steel and semiconductors \u2014 to fund expanded domestic supply, signalling the material is considered a strategic vulnerability."
+        },
+        {
+          "kicker": "DEVELOPMENT",
+          "head": "$7.1 M to Martin Materials Solutions",
+          "cmd": null,
+          "sub": "The small business is a specialist manufacturer of cover glass used on both solar arrays and thermal-control systems. The DPA award is designed to scale its production capacity, not fund R&D."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Supply chain fragility reaches deep into the satellite stack",
+          "cmd": null,
+          "sub": "Constellation operators and defence primes face lead-time and sourcing risk on a component that sounds mundane but is flight-critical. A domestic capacity gap here can bottleneck entire launch manifests."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Niche materials are the hidden chokepoint in the space build-out",
+          "cmd": null,
+          "sub": "For anyone designing spacecraft programmes or sourcing components: cover glass joins rad-hard electronics and specialty adhesives as items where single-source foreign supply is now a policy-level concern."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-16-mermaid-ascii-wasm",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Mermaid diagrams \u2192 ASCII art via WebAssembly",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/16/mermaid-ascii/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "THE TRICK",
+          "head": "Turn Mermaid diagrams into ASCII art \u2014 right in the browser",
+          "cmd": null,
+          "sub": "Two separate tools now render Mermaid flowcharts as plain-text ASCII, with no server required. Both run entirely client-side via WebAssembly."
+        },
+        {
+          "kicker": "BACKSTORY",
+          "head": "It started with a Grok-generated Rust library",
+          "cmd": null,
+          "sub": "Simon Willison first built a Mermaid-to-ASCII converter by compiling Rust code (originally produced by Grok Build) to WebAssembly. That worked \u2014 but wasn't the whole picture."
+        },
+        {
+          "kicker": "DISCOVERY",
+          "head": "A more capable Go library already existed",
+          "cmd": null,
+          "sub": "AlexanderGrooff/mermaid-ascii is a Go implementation with broader feature support, including colour output. Willison used Claude to compile it to WebAssembly too, making both tools runnable side-by-side for comparison."
+        },
+        {
+          "kicker": "THE PATTERN",
+          "head": "LLM-assisted WASM compilation as a rapid porting technique",
+          "cmd": null,
+          "sub": "Neither Rust nor Go library was browser-native. Claude handled the WASM build pipeline in both cases \u2014 the pattern: find a capable CLI tool, ask an LLM to wire up the WASM compilation, ship it as a zero-backend web utility."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Any Go or Rust CLI tool is now a candidate for instant browser deployment",
+          "cmd": null,
+          "sub": "If you have a diagram, parsing, or data-processing tool written in either language, the friction to turn it into a shareable browser demo is now mostly prompting, not plumbing. Worth keeping in mind the next time you reach for a Python web server."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-18-skyroot-vikram1-orbit",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "India's first commercial rocket reaches orbit",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/skyroot-aerospace-reaches-orbit-on-first-vikram-1-launch/"
+      },
+      "panels": [
+        {
+          "kicker": "MILESTONE",
+          "head": "A private Indian rocket just made orbit",
+          "cmd": null,
+          "sub": "Skyroot Aerospace's Vikram-1 lifted off on July 18 and successfully reached orbit on its very first attempt \u2014 a result many first-generation launchers fail to achieve."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "First commercial orbital launch from India",
+          "cmd": null,
+          "sub": "Until now, orbital launch from India was the exclusive domain of ISRO. Vikram-1 is the first privately developed and operated Indian rocket to cross that threshold."
+        },
+        {
+          "kicker": "THE VEHICLE",
+          "head": "Vikram-1 is a small solid-fuelled launcher",
+          "cmd": null,
+          "sub": "Skyroot has positioned Vikram-1 as a dedicated small-sat launcher. The article does not confirm payload mass or exact orbit parameters from this flight; those figures are worth tracking in Skyroot's follow-up releases."
+        },
+        {
+          "kicker": "MARKET SIGNAL",
+          "head": "India's commercial launch sector just got a credible second actor",
+          "cmd": null,
+          "sub": "With ISRO's commercial arm (NewSpace India) and now Skyroot both offering orbital rides, international small-sat operators gain a third geography \u2014 alongside US and NZ/AU \u2014 for competitive launch pricing."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Watch for payload pricing and cadence targets",
+          "cmd": null,
+          "sub": "A successful debut flight is a data point, not a business. The questions that matter next: What does Skyroot charge per kg? How many launches per year are they targeting? And can they hold that cadence against ISRO's own SSLV?"
         }
       ]
     }
