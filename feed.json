@@ -1,305 +1,428 @@
 {
   "version": 1,
-  "generated_at": "2026-07-18",
+  "generated_at": "2026-07-19",
   "cards": [
     {
-      "id": "2026-07-18-claude-fable-5-permanent",
+      "id": "2026-07-19-ai-mania-decision-making",
       "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "Claude Fable 5 stays in Max subscriptions",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "AI Hype Is Warping Executive Decision-Making",
       "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/18/claude-make-fable-5-permanent/#atom-everything"
+        "name": "Simon Willison / Nik Suresh",
+        "url": "https://simonwillison.net/2026/Jul/19/ai-mania/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "REVERSAL",
-          "head": "Anthropic keeps Fable 5 in paid plans \u2014 competitive pressure wins",
+          "kicker": "HOOK",
+          "head": "A $2B-revenue company built its entire AI strategy around a tool its executive had never once opened.",
           "cmd": null,
-          "sub": "Starting July 20, Fable 5 is permanently included in Max and Team Premium subscriptions at 50% of usage limits, reversing the earlier plan to pull it behind API-only pricing."
+          "sub": "Consultant Nik Suresh collected a set of anonymous field reports from large enterprise engagements. They're uncomfortable reading."
         },
         {
-          "kicker": "WHAT CHANGED",
-          "head": "GPT-5.6 Sol made the original plan untenable",
+          "kicker": "THE TOKEN LEADERBOARD PROBLEM",
+          "head": "Engineers are gaming AI-usage metrics, not shipping better software.",
           "cmd": null,
-          "sub": "Anthropic had intended to reserve Fable 5 for API customers \u2014 but competing flagship models staying in rival subscriptions made a $100\u2013$200/month plan without Anthropic's best model a hard sell."
+          "sub": "One engineer described checking out a fresh repo copy and instructing an AI to rewrite it in a different language \u2014 just to rack up tokens and hold onto their job. Output quality is irrelevant; the number is the goal."
         },
         {
-          "kicker": "WHO GETS WHAT",
-          "head": "Tier breakdown matters: $20/month is still excluded",
+          "kicker": "WHY VENDORS WON'T PUSH BACK",
+          "head": "Calling out a 100x productivity claim risks cancelling the enterprise contract.",
           "cmd": null,
-          "sub": "Max plans ($100 and $200/month) get Fable 5 at 50% limits. Pro and Team Standard users keep access via usage credits and receive a one-time $100 credit. The base $20/month Pro plan does not include Fable 5."
-        },
-        {
-          "kicker": "OPEN QUESTION",
-          "head": "Compute capacity was the original constraint \u2014 it still is",
-          "cmd": null,
-          "sub": "Anthropic's initial removal plan was driven by GPU scarcity. Keeping Fable 5 in subscriptions may require pulling back training compute to free capacity for inference \u2014 a real operational tradeoff to watch."
+          "sub": "Vendor executives privately doubt the numbers but stay silent: contradicting a customer's executive is treated as heresy and a direct threat to the deal. So the fiction compounds on both sides of the table."
         },
         {
           "kicker": "SO WHAT",
-          "head": "If you're budgeting AI tooling, the tier gap just got wider",
+          "head": "Decision loops are severed from ground truth \u2014 and engineers are the first to notice.",
           "cmd": null,
-          "sub": "For teams using Fable 5 in production workflows, the 50%-of-limits cap on Max plans is the constraint to stress-test. If your workload hits that ceiling, API pricing \u2014 not subscription \u2014 may still be the right route."
+          "sub": "For a PM building AI into real workflows, this is the threat model: pressure to show AI activity rather than AI value. Instrument outcomes (latency, error rate, review cycles), not token counts or 'AI features shipped'."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Measure what the AI changes, not that the AI was used.",
+          "cmd": null,
+          "sub": "When your reporting metric is gameable, it will be gamed. Define success criteria before the mandate arrives, or you'll inherit someone else's vanity KPI."
         }
       ]
     },
     {
-      "id": "2025-01-30-private-health-social-listening-ai",
+      "id": "2026-07-16-starship-flight-13-abort",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Starship Flight 13 aborts at pad on engine anomaly",
+      "source": {
+        "name": "Spaceflight Now",
+        "url": "https://spaceflightnow.com/2026/07/16/live-coverage-spacex-to-deploy-first-starlink-v3-satellites-on-suborbital-starship-super-heavy-flight/"
+      },
+      "panels": [
+        {
+          "kicker": "ABORT",
+          "head": "Starship Flight 13 cut short at the moment of ignition",
+          "cmd": null,
+          "sub": "The vehicle lit its engines at Pad 2, Starbase, Texas, then triggered an automatic abort before liftoff due to an engine-related anomaly."
+        },
+        {
+          "kicker": "THE MISSION",
+          "head": "First Starlink v3 satellites were riding in the payload bay",
+          "cmd": null,
+          "sub": "Flight 13 was planned as a suborbital hop designed to deploy SpaceX's next-generation Starlink v3 constellation hardware for the first time."
+        },
+        {
+          "kicker": "REUSABILITY TEST",
+          "head": "Several full-reuse upgrades were also on the docket",
+          "cmd": null,
+          "sub": "Beyond the payload, the flight was meant to validate a set of hardware improvements pushing Starship closer to rapid, full-stack reusability \u2014 both Ship and Booster."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Post-ignition aborts are rare but not unprecedented for Starship",
+          "cmd": null,
+          "sub": "SpaceX's automated flight termination systems caught the anomaly before any significant thrust built up, keeping the pad and vehicle intact. Root cause has not yet been disclosed publicly."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Delay ripples into Starlink v3 rollout timeline",
+          "cmd": null,
+          "sub": "Starlink v3 promises higher throughput per satellite; every scrub pushes back the constellation density SpaceX needs to defend market share against emerging LEO broadband rivals. Watch for an engine inspection turnaround estimate in the next 48\u201372 hours."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-19-claude-code-bun-rust",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Claude Code quietly ships Bun rewritten in Rust",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "HIDDEN UPGRADE",
+          "head": "Claude Code v2.1.181 quietly swapped in a Rust-rewritten Bun runtime",
+          "cmd": null,
+          "sub": "Released June 17th, the change shipped to millions of devices with zero fanfare and almost no one noticed \u2014 which was entirely the point."
+        },
+        {
+          "kicker": "THE EVIDENCE",
+          "head": "Two shell commands confirm Rust .rs source paths inside the binary",
+          "cmd": "strings ~/.local/bin/claude | grep -Eo 'src/[[:alnum:]_./-]+\\.rs'",
+          "sub": "Running strings against the Claude binary surfaces 563 .rs filenames from Bun's Rust source tree, plus a bundled Bun v1.4.0 \u2014 a version ahead of the latest public GitHub release (v1.3.14)."
+        },
+        {
+          "kicker": "WHAT CHANGED",
+          "head": "Linux startup is 10% faster; macOS and Windows are roughly unchanged",
+          "cmd": null,
+          "sub": "The Rust port is a near-complete rewrite of Bun's core runtime. The Linux win comes from faster process init in Rust; other platforms saw negligible delta."
+        },
+        {
+          "kicker": "CANARY CHANNEL",
+          "head": "The same Rust Bun is now available to everyone via bun upgrade --canary",
+          "cmd": "bun upgrade --canary",
+          "sub": "Anthropic effectively used Claude Code's install base as a large-scale canary deployment before the Rust build reached an official Bun tagged release."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "\"Boring\" silent infra upgrades are the new benchmark for mature tooling",
+          "cmd": null,
+          "sub": "For PMs shipping CLI tools or edge runtimes: a migration that 'barely anyone noticed' across millions of devices is the success metric, not the rewrite announcement. Validate by instrumenting startup latency before you ship, not after."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-06-camera-first-troubleshooting-assistant",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "AI health confidant backed by real social data",
+      "title": "Point camera at broken thing, get fix",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v04yzx/health_app_idea_is_it_original_would_people_use_it/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v09lif/roast_talkfixai_an_iphone_troubleshooting/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "Health anxiety lives in a gap nobody owns",
+          "head": "Your router is blinking red. Google returns 47 forum threads.",
           "cmd": null,
-          "sub": "Millions of people Google symptoms, lurk on health subreddits, or say nothing at all \u2014 because asking a friend feels embarrassing and booking a doctor feels premature. That silent middle ground is the product opportunity."
+          "sub": "Renters, first-time homeowners, and DIY beginners hit the same wall: too many results, too much assumed knowledge, no triage. They either over-Google or call a technician they didn't need."
         },
         {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anxious adults who self-censor before self-advocating",
+          "kicker": "WHO HURTS MOST",
+          "head": "Non-technical homeowners facing unfamiliar hardware",
           "cmd": null,
-          "sub": "People who are uninsured, underinsured, or navigating a new diagnosis are most likely to delay care out of shame or confusion. They're already talking to AI chatbots \u2014 they just have no private, structured place to do it."
+          "sub": "The acute moment is 'something broke, I don't know what it is, and I don't want to describe it in text.' Camera-first input removes the naming problem \u2014 point at the thing, say what it's doing wrong."
         },
         {
-          "kicker": "THE CONCEPT",
-          "head": "Pick your confidant; get crowd-sourced context privately",
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "One-step-at-a-time diagnosis, on-device, no cloud upload of your home",
           "cmd": null,
-          "sub": "The user describes a persona \u2014 'sympathetic GP', 'older sibling who's a nurse' \u2014 and an AI adopts that voice. Behind the scenes, real social posts (Reddit, health forums via API) are retrieved to ground responses in what actual patients have experienced, without the user ever posting publicly."
+          "sub": "An on-device vision-language model identifies the device, surfaces the most likely failure mode, and walks the user through one action before asking what happened next. Privacy is a secondary benefit, not the core pitch."
         },
         {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "ChatGPT is generic; Reddit requires exposure",
+          "kicker": "WHY EXISTING TOOLS FALL SHORT",
+          "head": "Google and YouTube assume you already know what to search",
           "cmd": null,
-          "sub": "General LLMs lack the social-data grounding that makes advice feel relatable. Public forums require posting, which many people refuse. Telehealth bots are clinical and insurance-gated. None combine persona customisation, social listening, and full privacy."
+          "sub": "ChatGPT and Gemini give multi-step walls of text. YouTube requires scrubbing to find the relevant 30 seconds. None of them gate on safety \u2014 they'll happily describe how to open a gas valve. A dedicated product can enforce hard stops before hazardous steps."
         },
         {
-          "kicker": "VALIDATION STEP",
-          "head": "Hypothesis, not a product \u2014 test the shame signal first",
+          "kicker": "CHEAP VALIDATION STEP",
+          "head": "Search r/HomeImprovement and r/techsupport for 'I don't know where to start'",
           "cmd": null,
-          "sub": "Search r/HealthAnxiety and r/AskDocs for posts that say 'I didn't want to ask anyone but\u2026' \u2014 count how many appear in the last 90 days and what condition categories dominate. That frequency and topic map is your early ICP and MVP scope, before writing a line of code."
+          "sub": "Count posts where the person couldn't name the device or problem clearly \u2014 that's your addressable frustration. Then run a 5-user test: hand someone a broken appliance photo and ask them to describe it to Google vs. your concept flow. Measure time-to-first-useful-action."
         }
       ]
     },
     {
-      "id": "2025-01-30-space-force-nssl-lane1-ceiling",
+      "id": "2026-07-16-sda-t1tl-e-launch",
       "format": "story",
       "topic": "aerospace",
       "accent": "sky",
-      "title": "Space Force triples NSSL launch contract ceiling",
+      "title": "SpaceX delivers 21 SDA satellites in third PWSA batch",
       "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/space-force-triples-launch-contract-ceiling-amid-rising-demand/"
+        "name": "Spaceflight Now",
+        "url": "https://spaceflightnow.com/2026/07/16/live-coverage-spacex-to-launch-21-communications-satellites-for-the-space-development-agency/"
       },
       "panels": [
         {
-          "kicker": "HOOK",
-          "head": "The U.S. national security launch budget just got 3\u00d7 bigger",
+          "kicker": "LAUNCH",
+          "head": "21 military comms satellites in orbit",
           "cmd": null,
-          "sub": "The ceiling on the National Security Space Launch Phase 3 Lane 1 contract jumped from $5.6 billion to $17 billion \u2014 a $11.4B expansion in a single amendment."
+          "sub": "A Falcon 9 lifted off from Vandenberg SFB pad 4E at 1:32 p.m. PDT on July 16, carrying the T1TL-E batch for the Space Development Agency."
         },
         {
           "kicker": "CONTEXT",
-          "head": "Lane 1 is the competitive, high-volume tier of NSSL",
+          "head": "Third operational tranche for the PWSA mesh",
           "cmd": null,
-          "sub": "NSSL Phase 3 splits launch work into two lanes: Lane 1 for competed, recurring missions and Lane 2 for sole-source sensitive payloads. ULA and SpaceX currently hold Lane 1 awards."
+          "sub": "The Proliferated Warfighter Space Architecture is the Pentagon's low-Earth-orbit comms and data-relay network. T1TL-E is the third operational satellite batch added to its Transport Layer."
         },
         {
-          "kicker": "DETAIL",
-          "head": "Demand is outpacing what the original ceiling anticipated",
+          "kicker": "ARCHITECTURE",
+          "head": "Transport Layer = the data backbone",
           "cmd": null,
-          "sub": "Space Force raised the ceiling rather than re-compete the contract, signalling that classified and dual-use launch manifest growth is accelerating faster than planners projected circa 2022."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "More headroom means more national-security payloads reaching orbit",
-          "cmd": null,
-          "sub": "A higher ceiling unlocks additional task orders without a new procurement cycle, compressing timelines for constellation replenishment, ISR upgrades, and resilient comms \u2014 all areas where edge compute and onboard AI are increasingly embedded."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "$17B ceiling signals a sustained, not cyclical, surge",
-          "cmd": null,
-          "sub": "For launch providers and payload integrators alike, this is a policy signal: the U.S. government expects its national-security manifest to keep growing, not plateau \u2014 which supports multi-year investment in launch rate capacity."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-16-kimi-k3-pelican",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Kimi K3: 2.8T params, $15/M output tokens",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/16/kimi-k3/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "ANNOUNCEMENT",
-          "head": "Moonshot AI ships the largest open-weight model yet",
-          "cmd": null,
-          "sub": "Kimi K3 has 2.8 trillion parameters \u2014 more than double DeepSeek's 1.6T V4 Pro \u2014 with weights dropping by July 27, 2026."
-        },
-        {
-          "kicker": "PERFORMANCE",
-          "head": "Beats GPT-5.5 and Opus 4.8, trails Claude Fable 5",
-          "cmd": null,
-          "sub": "On Artificial Analysis's long-horizon eval, K3 scores Elo 1547, up 732 points from K2.6. It's also top of Arena.ai's Frontend Code leaderboard, above Fable 5."
-        },
-        {
-          "kicker": "PRICING",
-          "head": "$3 in, $15 out \u2014 Chinese lab prices like a Western frontier model",
-          "cmd": null,
-          "sub": "That's roughly half the cost of Opus 4.8 ($1.80/task vs $0.94) but a 15\u00d7 increase over Kimi K2.6's output price. K3 also uses 21% fewer output tokens than its predecessor, softening the bill."
-        },
-        {
-          "kicker": "BENCHMARK HONESTY",
-          "head": "The pelican test taught something: it's now broken",
-          "cmd": "llm -m openrouter/moonshotai/kimi-k3 'Generate an SVG of a pelican riding a bicycle'",
-          "sub": "For 21 months, generating a pelican-on-bicycle SVG correlated well with model quality. It no longer does \u2014 GLM-5.2 now beats Fable 5 on it. The test never touched agentic tool-calling, which is what actually differentiates today's frontier models."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Benchmark your evals, not just your models",
-          "cmd": null,
-          "sub": "A proxy metric that worked can quietly stop working. For agentic or multi-step CV pipelines, validate that your internal evals still correlate with real task success \u2014 don't let them become pelicans."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-31-pentagon-cover-glass-satellites",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Pentagon pays to onshore satellite cover glass",
-      "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/pentagon-awards-7-1-million-to-expand-u-s-production-of-cover-glass-for-satellites/"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "Satellites run on glass you've probably never heard of",
-          "cmd": null,
-          "sub": "Every solar array on a spacecraft is protected by thin radiation-resistant cover glass. Without it, the cells degrade fast in the harsh radiation environment of orbit."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "The U.S. can't make enough of it domestically",
-          "cmd": null,
-          "sub": "The Pentagon used Defense Production Act authority \u2014 the same lever pulled for steel and semiconductors \u2014 to fund expanded domestic supply, signalling the material is considered a strategic vulnerability."
-        },
-        {
-          "kicker": "DEVELOPMENT",
-          "head": "$7.1 M to Martin Materials Solutions",
-          "cmd": null,
-          "sub": "The small business is a specialist manufacturer of cover glass used on both solar arrays and thermal-control systems. The DPA award is designed to scale its production capacity, not fund R&D."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Supply chain fragility reaches deep into the satellite stack",
-          "cmd": null,
-          "sub": "Constellation operators and defence primes face lead-time and sourcing risk on a component that sounds mundane but is flight-critical. A domestic capacity gap here can bottleneck entire launch manifests."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Niche materials are the hidden chokepoint in the space build-out",
-          "cmd": null,
-          "sub": "For anyone designing spacecraft programmes or sourcing components: cover glass joins rad-hard electronics and specialty adhesives as items where single-source foreign supply is now a policy-level concern."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-16-mermaid-ascii-wasm",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Mermaid diagrams \u2192 ASCII art via WebAssembly",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/16/mermaid-ascii/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE TRICK",
-          "head": "Turn Mermaid diagrams into ASCII art \u2014 right in the browser",
-          "cmd": null,
-          "sub": "Two separate tools now render Mermaid flowcharts as plain-text ASCII, with no server required. Both run entirely client-side via WebAssembly."
-        },
-        {
-          "kicker": "BACKSTORY",
-          "head": "It started with a Grok-generated Rust library",
-          "cmd": null,
-          "sub": "Simon Willison first built a Mermaid-to-ASCII converter by compiling Rust code (originally produced by Grok Build) to WebAssembly. That worked \u2014 but wasn't the whole picture."
-        },
-        {
-          "kicker": "DISCOVERY",
-          "head": "A more capable Go library already existed",
-          "cmd": null,
-          "sub": "AlexanderGrooff/mermaid-ascii is a Go implementation with broader feature support, including colour output. Willison used Claude to compile it to WebAssembly too, making both tools runnable side-by-side for comparison."
-        },
-        {
-          "kicker": "THE PATTERN",
-          "head": "LLM-assisted WASM compilation as a rapid porting technique",
-          "cmd": null,
-          "sub": "Neither Rust nor Go library was browser-native. Claude handled the WASM build pipeline in both cases \u2014 the pattern: find a capable CLI tool, ask an LLM to wire up the WASM compilation, ship it as a zero-backend web utility."
+          "sub": "The Transport Layer provides optical inter-satellite links and ground downlinks for warfighter data. Each tranche adds redundancy and coverage density across the constellation."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Any Go or Rust CLI tool is now a candidate for instant browser deployment",
+          "head": "PWSA is becoming a real operational network",
           "cmd": null,
-          "sub": "If you have a diagram, parsing, or data-processing tool written in either language, the friction to turn it into a shareable browser demo is now mostly prompting, not plumbing. Worth keeping in mind the next time you reach for a Python web server."
+          "sub": "Three tranches in, the SDA is moving from demonstration to fielded capability \u2014 relevant context for anyone building edge AI or sensor-fusion systems that could eventually connect to government LEO infrastructure."
         }
       ]
     },
     {
-      "id": "2025-07-18-skyroot-vikram1-orbit",
+      "id": "2026-07-18-sqlite-query-explainer",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Vibe-coded SQLite EXPLAIN tool runs in-browser",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/18/sqlite-query-explainer/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "RELATABLE PAIN",
+          "head": "Nobody actually reads SQLite query plans",
+          "cmd": null,
+          "sub": "Julia Evans admitted she never learned to parse EXPLAIN output. Simon Willison felt the same \u2014 so instead of studying, he built a tool."
+        },
+        {
+          "kicker": "THE BUILD",
+          "head": "Claude (Fable) wrote the whole thing",
+          "cmd": null,
+          "sub": "Willison used Claude's Fable/Mythos interface to generate an interactive explainer without writing the core logic himself \u2014 classic vibe-coding: describe the intent, ship the result."
+        },
+        {
+          "kicker": "STACK",
+          "head": "SQLite \u2192 Python \u2192 Pyodide \u2192 Wasm \u2192 browser",
+          "cmd": null,
+          "sub": "The tool runs SQLite inside Python, compiled to WebAssembly via Pyodide, entirely client-side. No backend, no server costs, no data leaves the browser."
+        },
+        {
+          "kicker": "WHAT IT DOES",
+          "head": "Plain-language layer on top of EXPLAIN and EXPLAIN QUERY PLAN",
+          "cmd": null,
+          "sub": "Paste a query, get both the raw SQLite plan output and a human-readable interpretation of what the planner is actually doing \u2014 scans, index usage, sort steps."
+        },
+        {
+          "kicker": "CAVEAT + TAKEAWAY",
+          "head": "Willison shipped it with an honest disclaimer",
+          "cmd": null,
+          "sub": "He notes he can't fully verify the AI-generated explanations himself. For PMs and devs who need a quick read on query performance without becoming SQLite internals experts, it's a useful starting point \u2014 just cross-check on anything critical."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-13-spacex-600th-booster-flight",
       "format": "story",
       "topic": "aerospace",
       "accent": "sky",
-      "title": "India's first commercial rocket reaches orbit",
+      "title": "SpaceX flies a Falcon booster for the 600th time",
       "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/skyroot-aerospace-reaches-orbit-on-first-vikram-1-launch/"
+        "name": "Spaceflight Now",
+        "url": "https://spaceflightnow.com/2026/07/13/live-coverage-spacex-to-launch-a-flight-proven-falcon-booster-for-600th-time/"
       },
       "panels": [
         {
           "kicker": "MILESTONE",
-          "head": "A private Indian rocket just made orbit",
+          "head": "600 flights on reused Falcon boosters",
           "cmd": null,
-          "sub": "Skyroot Aerospace's Vikram-1 lifted off on July 18 and successfully reached orbit on its very first attempt \u2014 a result many first-generation launchers fail to achieve."
+          "sub": "SpaceX crossed the 600-flight mark for flight-proven Falcon boosters with the Starlink 10-45 mission, lifting off from Pad 40 at Cape Canaveral at 5:10 a.m. EDT on July 13, 2026."
+        },
+        {
+          "kicker": "THE MISSION",
+          "head": "29 more Starlink sats in low Earth orbit",
+          "cmd": null,
+          "sub": "The payload was a standard batch of 29 broadband satellites, continuing the steady cadence of Starlink constellation expansion."
         },
         {
           "kicker": "CONTEXT",
-          "head": "First commercial orbital launch from India",
+          "head": "Reuse went from experiment to backbone",
           "cmd": null,
-          "sub": "Until now, orbital launch from India was the exclusive domain of ISRO. Vikram-1 is the first privately developed and operated Indian rocket to cross that threshold."
-        },
-        {
-          "kicker": "THE VEHICLE",
-          "head": "Vikram-1 is a small solid-fuelled launcher",
-          "cmd": null,
-          "sub": "Skyroot has positioned Vikram-1 as a dedicated small-sat launcher. The article does not confirm payload mass or exact orbit parameters from this flight; those figures are worth tracking in Skyroot's follow-up releases."
-        },
-        {
-          "kicker": "MARKET SIGNAL",
-          "head": "India's commercial launch sector just got a credible second actor",
-          "cmd": null,
-          "sub": "With ISRO's commercial arm (NewSpace India) and now Skyroot both offering orbital rides, international small-sat operators gain a third geography \u2014 alongside US and NZ/AU \u2014 for competitive launch pricing."
+          "sub": "Falcon 9's first reuse flew in 2017; reaching 600 reflights in under a decade shows that refurbishment and re-launch have become the default operating mode rather than a one-off stunt."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Watch for payload pricing and cadence targets",
+          "head": "Reuse frequency sets the cost floor for LEO access",
           "cmd": null,
-          "sub": "A successful debut flight is a data point, not a business. The questions that matter next: What does Skyroot charge per kg? How many launches per year are they targeting? And can they hold that cadence against ISRO's own SSLV?"
+          "sub": "Each additional reflown booster lowers SpaceX's per-launch amortisation cost, compressing the price floor competitors must match \u2014 relevant context for any constellation or edge-compute-in-orbit business case."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "600 is a operations benchmark, not just a number",
+          "cmd": null,
+          "sub": "The figure signals that booster reuse is now a mature, high-volume supply chain \u2014 the kind of infrastructure reliability that lets downstream customers plan multi-year satellite or orbital compute deployments with confidence."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-30-smart-appliance-terms-watchdog",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Your fridge's ToS is worse than your bank's",
+      "source": {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=48958273"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Smart appliance ToS quietly strips you of rights you'd never voluntarily waive",
+          "cmd": null,
+          "sub": "One LG ThinQ user ran the app's terms through an LLM and found: no arbitration opt-out, perpetual commercial licence over submitted content, no privacy expectation for in-app voice, and a $100 liability cap for data breaches."
+        },
+        {
+          "kicker": "WHO HAS THIS PROBLEM",
+          "head": "Anyone who owns a connected appliance \u2014 and doesn't read 8,000-word legal documents",
+          "cmd": null,
+          "sub": "Smart home device ownership passed 300 million US households by 2024. Nearly every major appliance brand now requires an account and app to unlock basic remote features. Almost no one reads the ToS before tapping 'Accept'."
+        },
+        {
+          "kicker": "PRODUCT HYPOTHESIS",
+          "head": "A plain-language ToS scanner built specifically for IoT and smart-home products",
+          "cmd": null,
+          "sub": "Not another generic privacy tool \u2014 a service that tracks terms changes across appliance brands (LG, Samsung, GE, Ecobee, Ring), scores them on a consistent rubric (arbitration, data sharing, liability cap, AI training use), and alerts users when terms worsen after purchase."
+        },
+        {
+          "kicker": "WHY EXISTING TOOLS FALL SHORT",
+          "head": "ToSDR and similar tools cover SaaS; nobody owns the hardware-attached-software niche",
+          "cmd": null,
+          "sub": "Terms of Service Didn't Read (tosdr.org) focuses on web platforms. Smart appliance terms have unique clauses \u2014 OTA update rights, voice capture of third parties, appliance-usage data feeding AI models \u2014 that generic scanners don't flag or score."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Before building anything, find out if people would pay to know",
+          "cmd": null,
+          "sub": "Post a one-page summary comparison (LG vs. Samsung vs. Google Nest ToS) to r/homeautomation and r/privacy. Measure saves and DMs asking 'how do I check mine?' \u2014 that's your demand signal. A $5/mo alert subscription is the minimal monetisation hypothesis to test next."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-15-aws-phantom-billing",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "AWS Phantom Bill: $3B Wake-Up Call for Cloud Monitoring",
+      "source": {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=48945681"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Dormant AWS account. $3,000,000,000 invoice.",
+          "cmd": null,
+          "sub": "A user with no active AWS usage in over a year got a budget alert forecasting a $3B charge \u2014 perfectly uniform daily costs since July 1, strongly implying a metering or billing bug on AWS's side."
+        },
+        {
+          "kicker": "WHO HAS THIS PROBLEM",
+          "head": "Millions of developers have forgotten cloud accounts",
+          "cmd": null,
+          "sub": "Most SaaS builders, indie hackers, and ex-startup engineers have dormant AWS, GCP, or Azure accounts with stale IAM roles, forgotten Lambda functions, or misconfigured alerts. They have no real-time visibility until a bill lands."
+        },
+        {
+          "kicker": "THE GAP",
+          "head": "AWS Budgets caught it \u2014 but barely",
+          "cmd": null,
+          "sub": "Native cloud billing alerts are reactive, threshold-based, and slow to escalate. They don't detect anomalous patterns (e.g. suspiciously uniform daily charges) or auto-quarantine resources. The user had to manually nuke IAM roles themselves."
+        },
+        {
+          "kicker": "PRODUCT HYPOTHESIS",
+          "head": "A cloud bill watchdog that acts, not just alerts",
+          "cmd": null,
+          "sub": "A lightweight agent that monitors billing APIs across AWS/GCP/Azure, flags statistically abnormal cost patterns (uniform daily deltas are a red flag), and can auto-disable IAM roles or pause services below a defined spend floor \u2014 before the user wakes up to a billion-dollar surprise."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Search before building",
+          "cmd": null,
+          "sub": "Search HN, Reddit r/aws, and r/devops for 'billing spike' or 'unexpected AWS charge' \u2014 count how many posts show up in the last 12 months. If duplicates are plentiful and no tool is consistently recommended, that's your signal. A $0 landing page with a waitlist is the next step."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-23-aws-phantom-billion-dollar-bill",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "AWS Phantom $1.7B Bill Exposes a Real Monitoring Gap",
+      "source": {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=48945241"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "AWS showed some customers a $1.7 billion bill \u2014 for normal monthly usage",
+          "cmd": null,
+          "sub": "A billing data bug inflated estimated charges to absurd figures. Hundreds of engineers opened emergency tickets before realising it was a display error, not an actual charge."
+        },
+        {
+          "kicker": "WHO GETS HIT",
+          "head": "Any team relying solely on AWS's own billing dashboard for spend alerts",
+          "cmd": null,
+          "sub": "Startups, scale-ups, and enterprise cloud teams alike had no independent layer to sanity-check whether a spike was real or a platform artefact. The panic cost real engineering hours."
+        },
+        {
+          "kicker": "THE GAP",
+          "head": "Cloud cost monitoring still defaults to trusting the provider's own numbers",
+          "cmd": null,
+          "sub": "Tools like CloudHealth, Spot.io, and AWS Cost Anomaly Detection all ingest AWS billing data \u2014 so a bug upstream poisons every downstream alert simultaneously. There's no independent ground truth."
+        },
+        {
+          "kicker": "THE OPPORTUNITY",
+          "head": "A billing sanity layer that cross-references usage signals, not just cost APIs",
+          "cmd": null,
+          "sub": "Hypothesis: teams would pay for a lightweight watchdog that correlates actual resource-usage metrics (compute hours, data transfer, API calls) against billed amounts and flags statistically impossible deltas \u2014 independent of the cost API itself."
+        },
+        {
+          "kicker": "VALIDATE IT",
+          "head": "Search r/aws and r/devops for 'billing spike' posts from the last 12 months",
+          "cmd": null,
+          "sub": "Count how many describe false alarms vs. real overruns. If false-alarm panic appears regularly, run a 48-hour landing-page test targeting AWS-heavy engineering leads on LinkedIn."
         }
       ]
     }
