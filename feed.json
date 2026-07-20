@@ -1,428 +1,428 @@
 {
   "version": 1,
-  "generated_at": "2026-07-19",
+  "generated_at": "2026-07-20",
   "cards": [
     {
-      "id": "2026-07-19-ai-mania-decision-making",
+      "id": "2026-07-20-cheap-reverse-engineering",
       "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "AI Hype Is Warping Executive Decision-Making",
+      "title": "Coding agents make reverse-engineering worth it",
       "source": {
-        "name": "Simon Willison / Nik Suresh",
-        "url": "https://simonwillison.net/2026/Jul/19/ai-mania/#atom-everything"
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "THE SHIFT",
+          "head": "People are now reverse-engineering home devices just because they can",
+          "cmd": null,
+          "sub": "Coding agents have made hobbyist reverse-engineering common enough that anecdotes about it are circulating widely \u2014 something that rarely happened before."
+        },
+        {
+          "kicker": "OLD EQUATION",
+          "head": "The ROI on undocumented APIs was almost never positive",
+          "cmd": null,
+          "sub": "Writing your own integration for a device with a private, unstable API meant hours of upfront work plus an open-ended maintenance commitment every time the vendor pushed an update."
+        },
+        {
+          "kicker": "NEW EQUATION",
+          "head": "When code is cheap to write, it's also cheap to throw away",
+          "cmd": null,
+          "sub": "Agents slash both the time to get a first working script and the psychological cost of watching it break later. Rebuilding from scratch is no longer a deterrent."
+        },
+        {
+          "kicker": "BROADER PATTERN",
+          "head": "Reduced effort unlocks entire categories of automation that pencilled out badly before",
+          "cmd": null,
+          "sub": "It's not that the technical barrier disappeared \u2014 it's that the cost-of-failure collapsed, which changes which problems feel worth attempting at all."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "PMs building on vendor APIs should expect more unsanctioned integrations",
+          "cmd": null,
+          "sub": "Users will reverse-engineer device protocols and build their own thin automations rather than waiting for official support. That's both a signal about unmet needs and a new source of shadow IT to plan for."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-arxiv-ai-writing-measurement",
+      "format": "story",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "How (and where) AI writing on arXiv is measured",
+      "source": {
+        "name": "unslop.run",
+        "url": "https://unslop.run/blog/measuring-ai-writing-on-arxiv"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Counting AI-written text in research papers is harder than it sounds",
+          "cmd": null,
+          "sub": "Word-frequency signals that once flagged LLM output are now baked into how researchers write \u2014 making baseline comparisons unreliable over time."
+        },
+        {
+          "kicker": "THE METHOD",
+          "head": "Track word-rate shifts in arXiv abstracts pre- and post-ChatGPT",
+          "cmd": null,
+          "sub": "The team measured the rise of LLM-favoured words ('crucial', 'intricate', 'commendable') as a proxy for AI involvement, comparing millions of abstracts across submission dates."
+        },
+        {
+          "kicker": "WHERE IT BREAKS",
+          "head": "The signal degrades as human writers adopt AI vocabulary",
+          "cmd": null,
+          "sub": "Once flagged words enter the general scientific lexicon \u2014 through editing, style imitation, or reviewer pressure \u2014 the detector can no longer distinguish AI-assisted from human-written text."
+        },
+        {
+          "kicker": "DEEPER ISSUE",
+          "head": "No clean counterfactual exists for 'what researchers would have written without AI'",
+          "cmd": null,
+          "sub": "Any measurement of AI writing prevalence is really a measurement of vocabulary drift, and the two are increasingly entangled \u2014 making trend lines look flatter than reality."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Audit teams relying on word-frequency detectors should treat outputs as lower bounds",
+          "cmd": null,
+          "sub": "For PMs governing AI use in documentation or research pipelines, this suggests vocabulary-based detection is a weak control \u2014 behavioural or provenance-based signals will be more durable."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-31-sms-todo-bot",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "A todo list that lives in your SMS thread",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v1skjj/smsimessage_todo_list/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "People are texting a random number just to manage their tasks",
+          "cmd": null,
+          "sub": "The Messages app already feels natural and always-open. Dedicated todo apps require a context switch that kills the habit."
+        },
+        {
+          "kicker": "WHO & HOW OFTEN",
+          "head": "Anyone who lives in their phone's message thread",
+          "cmd": null,
+          "sub": "Non-power-users, ADHD folks, and people who've already abandoned Todoist/Things three times. The behaviour (texting yourself) exists without a product \u2014 that's a strong signal."
+        },
+        {
+          "kicker": "WHAT IT COULD BE",
+          "head": "A phone number you text in plain English to add, check off, and recall tasks",
+          "cmd": null,
+          "sub": "\"Add milk\" \u2192 stored. \"What's on my list?\" \u2192 reply with current items. \"Done: milk\" \u2192 crossed off. No app install, no account screen \u2014 just a thread."
+        },
+        {
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "Existing SMS bots are clunky; todo apps aren't in Messages",
+          "cmd": null,
+          "sub": "Twilio-based reminder tools use rigid command syntax. Full apps like Reminders require leaving the conversation UI entirely. Neither meets the user where they already are."
+        },
+        {
+          "kicker": "CHEAP VALIDATION STEP",
+          "head": "Search r/SomebodyMakeThis and r/productivity for duplicate requests, then post a Twilio number",
+          "cmd": null,
+          "sub": "Stand up a Twilio + GPT function-calling prototype in an afternoon and share the number publicly. Count opt-in texts in 48 hours \u2014 that's your demand signal before writing a line of product code."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-10-microchip-edge-ai-liveness",
+      "format": "story",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "Microchip: Liveness Detection on One RGB Camera",
+      "source": {
+        "name": "Edge AI and Vision Alliance",
+        "url": "https://www.edge-ai-vision.com/2026/07/microchip-demonstrates-secure-edge-ai-facial-recognition-with-single-camera-liveness-detection/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "A $2B-revenue company built its entire AI strategy around a tool its executive had never once opened.",
+          "head": "Spoof-proof face ID \u2014 no depth sensor required",
           "cmd": null,
-          "sub": "Consultant Nik Suresh collected a set of anonymous field reports from large enterprise engagements. They're uncomfortable reading."
-        },
-        {
-          "kicker": "THE TOKEN LEADERBOARD PROBLEM",
-          "head": "Engineers are gaming AI-usage metrics, not shipping better software.",
-          "cmd": null,
-          "sub": "One engineer described checking out a fresh repo copy and instructing an AI to rewrite it in a different language \u2014 just to rack up tokens and hold onto their job. Output quality is irrelevant; the number is the goal."
-        },
-        {
-          "kicker": "WHY VENDORS WON'T PUSH BACK",
-          "head": "Calling out a 100x productivity claim risks cancelling the enterprise contract.",
-          "cmd": null,
-          "sub": "Vendor executives privately doubt the numbers but stay silent: contradicting a customer's executive is treated as heresy and a direct threat to the deal. So the fiction compounds on both sides of the table."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Decision loops are severed from ground truth \u2014 and engineers are the first to notice.",
-          "cmd": null,
-          "sub": "For a PM building AI into real workflows, this is the threat model: pressure to show AI activity rather than AI value. Instrument outcomes (latency, error rate, review cycles), not token counts or 'AI features shipped'."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Measure what the AI changes, not that the AI was used.",
-          "cmd": null,
-          "sub": "When your reporting metric is gameable, it will be gamed. Define success criteria before the mandate arrives, or you'll inherit someone else's vanity KPI."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-16-starship-flight-13-abort",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Starship Flight 13 aborts at pad on engine anomaly",
-      "source": {
-        "name": "Spaceflight Now",
-        "url": "https://spaceflightnow.com/2026/07/16/live-coverage-spacex-to-deploy-first-starlink-v3-satellites-on-suborbital-starship-super-heavy-flight/"
-      },
-      "panels": [
-        {
-          "kicker": "ABORT",
-          "head": "Starship Flight 13 cut short at the moment of ignition",
-          "cmd": null,
-          "sub": "The vehicle lit its engines at Pad 2, Starbase, Texas, then triggered an automatic abort before liftoff due to an engine-related anomaly."
-        },
-        {
-          "kicker": "THE MISSION",
-          "head": "First Starlink v3 satellites were riding in the payload bay",
-          "cmd": null,
-          "sub": "Flight 13 was planned as a suborbital hop designed to deploy SpaceX's next-generation Starlink v3 constellation hardware for the first time."
-        },
-        {
-          "kicker": "REUSABILITY TEST",
-          "head": "Several full-reuse upgrades were also on the docket",
-          "cmd": null,
-          "sub": "Beyond the payload, the flight was meant to validate a set of hardware improvements pushing Starship closer to rapid, full-stack reusability \u2014 both Ship and Booster."
+          "sub": "Microchip demoed a facial recognition + liveness detection pipeline at the 2026 Embedded Vision Summit that runs entirely on a single standard RGB camera."
         },
         {
           "kicker": "CONTEXT",
-          "head": "Post-ignition aborts are rare but not unprecedented for Starship",
+          "head": "Liveness detection is the hard part of edge face ID",
           "cmd": null,
-          "sub": "SpaceX's automated flight termination systems caught the anomaly before any significant thrust built up, keeping the pad and vehicle intact. Root cause has not yet been disclosed publicly."
+          "sub": "Most production-grade anti-spoofing systems lean on IR or structured-light sensors. Removing that hardware dependency cuts BOM cost and simplifies enclosure design \u2014 critical for access control and kiosks at scale."
         },
         {
-          "kicker": "SO WHAT",
-          "head": "Delay ripples into Starlink v3 rollout timeline",
+          "kicker": "DETAIL",
+          "head": "Everything infers on-device, in real time",
           "cmd": null,
-          "sub": "Starlink v3 promises higher throughput per satellite; every scrub pushes back the constellation density SpaceX needs to defend market share against emerging LEO broadband rivals. Watch for an engine inspection turnaround estimate in the next 48\u201372 hours."
+          "sub": "The solution runs facial recognition and liveness classification together on Microchip's own edge AI silicon \u2014 no cloud round-trip, no raw biometric data leaving the device. Exact chip family and inference latency figures were not disclosed in the summit summary."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Compliance pressure is pushing biometrics on-prem fast",
+          "cmd": null,
+          "sub": "Regulations in the EU (AI Act) and US state laws increasingly restrict cloud processing of biometric data. On-device liveness detection sidesteps that exposure while still meeting spoofing thresholds \u2014 a genuine differentiator for physical-access deployments."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Watch the BOM trade-off, not just the demo",
+          "cmd": null,
+          "sub": "Before designing this in, confirm false-accept and false-reject rates under your lighting conditions \u2014 single-camera liveness can degrade significantly with side-lit or low-lux environments. Request Microchip's evaluation kit to benchmark against your specific enclosure geometry."
         }
       ]
     },
     {
-      "id": "2026-07-19-claude-code-bun-rust",
+      "id": "2026-07-20-afraid-of-chinese-models",
       "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Claude Code quietly ships Bun rewritten in Rust",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "Fair Use + No Distillation Bans: A US AI Policy Bet",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/#atom-everything"
+        "url": "https://simonwillison.net/2026/Jul/20/afraid-of-chinese-models/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "HIDDEN UPGRADE",
-          "head": "Claude Code v2.1.181 quietly swapped in a Rust-rewritten Bun runtime",
+          "kicker": "THE TENSION",
+          "head": "Labs ban distillation while training on unlicensed data",
           "cmd": null,
-          "sub": "Released June 17th, the change shipped to millions of devices with zero fanfare and almost no one noticed \u2014 which was entirely the point."
+          "sub": "US AI labs prohibit others from querying their APIs to train new models \u2014 yet those same labs built their models on data they never licensed. Ben Thompson calls this hypocrisy worth fixing."
         },
         {
-          "kicker": "THE EVIDENCE",
-          "head": "Two shell commands confirm Rust .rs source paths inside the binary",
-          "cmd": "strings ~/.local/bin/claude | grep -Eo 'src/[[:alnum:]_./-]+\\.rs'",
-          "sub": "Running strings against the Claude binary surfaces 563 .rs filenames from Bun's Rust source tree, plus a bundled Bun v1.4.0 \u2014 a version ahead of the latest public GitHub release (v1.3.14)."
-        },
-        {
-          "kicker": "WHAT CHANGED",
-          "head": "Linux startup is 10% faster; macOS and Windows are roughly unchanged",
+          "kicker": "THE PROPOSAL",
+          "head": "Codify fair use for training; kill anti-distillation clauses",
           "cmd": null,
-          "sub": "The Rust port is a near-complete rewrite of Bun's core runtime. The Linux win comes from faster process init in Rust; other platforms saw negligible delta."
+          "sub": "Thompson argues the US should pass a law doing two things: explicitly make training-data collection fair use, and bar terms of service that forbid distillation \u2014 at least for US companies."
         },
         {
-          "kicker": "CANARY CHANNEL",
-          "head": "The same Rust Bun is now available to everyone via bun upgrade --canary",
-          "cmd": "bun upgrade --canary",
-          "sub": "Anthropic effectively used Claude Code's install base as a large-scale canary deployment before the Rust build reached an official Bun tagged release."
+          "kicker": "THE COMPETITIVE ANGLE",
+          "head": "Open weights from China are accelerating anyway",
+          "cmd": null,
+          "sub": "Alibaba reversed course and released Qwen 3.8 Max as open weights after initially withholding them \u2014 possibly spurred by Xi Jinping publicly calling for 'open source, openness, collaboration and sharing.' Blocking distillation isn't slowing Chinese labs."
+        },
+        {
+          "kicker": "THE LOGIC",
+          "head": "Leaning into distillation could compound the US lead",
+          "cmd": null,
+          "sub": "If distillation via API queries is effectively unenforceable anyway, locking it down only hurts US startups building on top of frontier models \u2014 while Chinese open models remain freely distillable."
         },
         {
           "kicker": "SO WHAT",
-          "head": "\"Boring\" silent infra upgrades are the new benchmark for mature tooling",
+          "head": "Policy shift would reshape which models you can build on",
           "cmd": null,
-          "sub": "For PMs shipping CLI tools or edge runtimes: a migration that 'barely anyone noticed' across millions of devices is the success metric, not the rewrite announcement. Validate by instrumenting startup latency before you ship, not after."
+          "sub": "For teams deploying fine-tuned or distilled models in production (edge, regulated verticals), a legal safe harbour for distillation would reduce IP risk overnight. Watch this legislative thread \u2014 it could change your model-selection calculus."
         }
       ]
     },
     {
-      "id": "2025-05-06-camera-first-troubleshooting-assistant",
+      "id": "2025-01-30-china-open-weights-winning",
+      "format": "story",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "China's open-weights bet is outpacing US closed models",
+      "source": {
+        "name": "werd.io",
+        "url": "https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/"
+      },
+      "panels": [
+        {
+          "kicker": "THE SHIFT",
+          "head": "Chinese labs are releasing weights. US labs are not.",
+          "cmd": null,
+          "sub": "While OpenAI, Anthropic, and Google keep model weights proprietary, Chinese labs like DeepSeek are publishing them \u2014 and developers worldwide are choosing accordingly."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Open weights = instant global distribution",
+          "cmd": null,
+          "sub": "Any developer can fine-tune, self-host, and ship a product without API lock-in or usage caps. That frictionless path turns a model release into an ecosystem overnight."
+        },
+        {
+          "kicker": "THE DYNAMIC",
+          "head": "US export controls accelerated the problem they meant to solve",
+          "cmd": null,
+          "sub": "Chip restrictions pushed Chinese labs to train leaner, more efficient models. DeepSeek R1 matched GPT-4-class benchmarks at a fraction of the reported compute cost \u2014 then gave the weights away."
+        },
+        {
+          "kicker": "COMPETITIVE SIGNAL",
+          "head": "Open-source mindshare compounds over time",
+          "cmd": null,
+          "sub": "Hugging Face download rankings, GitHub stars, and community fine-tunes all favour open models. The developer cohort shaping enterprise tooling in 2026 is forming habits right now."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "For AI product teams: treat open-weights models as a first-class option",
+          "cmd": null,
+          "sub": "In regulated or edge-deployed settings, self-hostable weights remove data-residency and latency blockers that closed APIs can't. The calculus for 'build on API vs. run your own' just shifted."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-31-battery-boosted-kettle",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "Point camera at broken thing, get fix",
+      "title": "A kettle that doesn't need a wall outlet",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v09lif/roast_talkfixai_an_iphone_troubleshooting/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v12r35/why_doesnt_a_batteryboosted_electric_kettle_exist/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "Your router is blinking red. Google returns 47 forum threads.",
+          "head": "Boiling water away from a plug takes forever \u2014 or needs a gas stove",
           "cmd": null,
-          "sub": "Renters, first-time homeowners, and DIY beginners hit the same wall: too many results, too much assumed knowledge, no triage. They either over-Google or call a technician they didn't need."
+          "sub": "Camping, van life, office kitchens with no nearby outlet, and hotel rooms with weak kettle sockets all share the same frustration: getting hot water fast without mains power."
         },
         {
-          "kicker": "WHO HURTS MOST",
-          "head": "Non-technical homeowners facing unfamiliar hardware",
+          "kicker": "WHO HAS IT & HOW OFTEN",
+          "head": "~5 M van-lifers and campers in the US alone, plus daily office workers",
           "cmd": null,
-          "sub": "The acute moment is 'something broke, I don't know what it is, and I don't want to describe it in text.' Camera-first input removes the naming problem \u2014 point at the thing, say what it's doing wrong."
+          "sub": "Anyone in a mobile or under-powered setting wants boiling water at least once a day. Hotel guests and remote workers hit this wall multiple times a week."
         },
         {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "One-step-at-a-time diagnosis, on-device, no cloud upload of your home",
+          "kicker": "WHAT THE PRODUCT COULD BE",
+          "head": "An insulated kettle with a built-in LiFePO4 cell and fast-discharge heating element",
           "cmd": null,
-          "sub": "An on-device vision-language model identifies the device, surfaces the most likely failure mode, and walks the user through one action before asking what happened next. Privacy is a secondary benefit, not the core pitch."
+          "sub": "A 100\u2013150 Wh battery (similar to a mid-size power bank) paired with a 800\u20131000 W element could boil 500 ml in under 3 minutes and recharge from USB-C PD between uses."
         },
         {
-          "kicker": "WHY EXISTING TOOLS FALL SHORT",
-          "head": "Google and YouTube assume you already know what to search",
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "Portable power stations work, but cost $200\u2013$600 and aren't kettle-shaped",
           "cmd": null,
-          "sub": "ChatGPT and Gemini give multi-step walls of text. YouTube requires scrubbing to find the relevant 30 seconds. None of them gate on safety \u2014 they'll happily describe how to open a gas valve. A dedicated product can enforce hard stops before hazardous steps."
+          "sub": "Current options are 12V travel kettles (slow, ~30 min boil), gas camping stoves (open flame, bulk), or lugging a Jackery alongside a normal kettle \u2014 none are a single, purpose-built appliance."
         },
         {
-          "kicker": "CHEAP VALIDATION STEP",
-          "head": "Search r/HomeImprovement and r/techsupport for 'I don't know where to start'",
+          "kicker": "VALIDATION STEP",
+          "head": "Hypothesis, not a business \u2014 test before building",
           "cmd": null,
-          "sub": "Count posts where the person couldn't name the device or problem clearly \u2014 that's your addressable frustration. Then run a 5-user test: hand someone a broken appliance photo and ask them to describe it to Google vs. your concept flow. Measure time-to-first-useful-action."
+          "sub": "Search r/vandwellers, r/CampingandHiking, and r/digitalnomad for 'kettle' complaints, then post a single-question poll: 'Would you pay $89 for a cordless kettle that boils in 3 min?' A 10% yes-rate across 200 responses is worth a landing-page test."
         }
       ]
     },
     {
-      "id": "2026-07-16-sda-t1tl-e-launch",
+      "id": "2025-05-06-intent-engine-product-fit",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Intent engine built, but what's the right product?",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v1777j/title_i_built_an_intent_engine_what_would_you/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Buyers signal intent publicly \u2014 most sales teams miss it entirely",
+          "cmd": null,
+          "sub": "Someone asking 'which tool does X?' in a niche Slack or Reddit thread is a warm lead. No form was filled. No demo was booked. The signal evaporates unread."
+        },
+        {
+          "kicker": "WHO HAS THIS PAIN",
+          "head": "SDRs and growth PMs at B2B SaaS companies doing outbound",
+          "cmd": null,
+          "sub": "They pay for Bombora or G2 intent data today \u2014 broad, expensive, and lagged by weeks. The frustration is loudest in communities where ICP buyers are technically savvy enough to discuss problems in public before ever Googling vendors."
+        },
+        {
+          "kicker": "WHAT THE PRODUCT COULD BE",
+          "head": "A 'pre-pipeline' alert layer, not another CRM integration",
+          "cmd": null,
+          "sub": "Ingest Reddit, LinkedIn, Slack communities, and niche forums. Classify posts by job-to-be-done and buying stage. Push a daily digest of 5\u201310 high-confidence signals with the source thread and a suggested first-touch message \u2014 no dashboard required."
+        },
+        {
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "Existing intent tools trade in aggregated scores, not raw moments",
+          "cmd": null,
+          "sub": "Bombora sells account-level topic surges derived from content consumption \u2014 no conversation context, no direct quote, no timing precision. Trigify and Clay surface LinkedIn signals but miss long-tail communities where early adopters actually talk."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Run the engine for one vertical for one week \u2014 then sell the output manually",
+          "cmd": null,
+          "sub": "Pick a tight ICP (e.g. devtools sales teams). Collect 50 real signals. DM five SDRs on LinkedIn with a sample report and ask if they'd pay $200/month for a weekly version. A reply rate above 20% is a meaningful green light before writing a single line of product UI."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-13-peer-to-peer-rental-marketplace",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Rent your neighbour's drill, not a hardware store",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v0g11u/lendedit_iwn_it_rent_it/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "You buy a $200 drill for one shelf. It collects dust for five years.",
+          "cmd": null,
+          "sub": "Low-frequency, high-cost items clog garages everywhere. The buyer overpays; the asset sits idle. Neither side wins."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Anyone who's ever Googled 'rent a tile saw near me' and given up",
+          "cmd": null,
+          "sub": "Renters (occasional DIYers, campers, event hosts) and owners of idle gear (trailers, pressure washers, party tents) are both underserved by current options."
+        },
+        {
+          "kicker": "THE CONCEPT",
+          "head": "Airbnb logic applied to any physical asset, hyperlocal",
+          "cmd": null,
+          "sub": "A peer-to-peer rental layer for tools, camping gear, trailers, driveways, and workshop spaces. Trust, insurance, and handoff logistics are the hard parts \u2014 not the listing UX."
+        },
+        {
+          "kicker": "WHY IT'S HARD",
+          "head": "Fat Camp, Sparetoolz, and Fat Llama have tried this before",
+          "cmd": null,
+          "sub": "Fat Llama raised $10M+ and pivoted. The recurring killers: insurance liability gaps, no-shows, item damage disputes, and the cold-start problem in each new city. 'Listing everything' is a feature that fights focus."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Pick one category, one postcode, zero code",
+          "cmd": null,
+          "sub": "Hypothesis: people in a single suburb will pay to rent a neighbour's trailer this month. Post in one local Facebook group or Nextdoor offering to broker exactly that. If five transactions happen manually, the demand is real \u2014 then build."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-20-falcon9-abort-starlink",
       "format": "story",
       "topic": "aerospace",
       "accent": "sky",
-      "title": "SpaceX delivers 21 SDA satellites in third PWSA batch",
+      "title": "Falcon 9 scrubs at T-0 on Starlink 17-39",
       "source": {
         "name": "Spaceflight Now",
-        "url": "https://spaceflightnow.com/2026/07/16/live-coverage-spacex-to-launch-21-communications-satellites-for-the-space-development-agency/"
+        "url": "https://spaceflightnow.com/2026/07/20/live-coverage-spacex-to-launch-24-starlink-satellites-on-falcon-9-rocket-from-vandenberg-sfb-11/"
       },
       "panels": [
         {
-          "kicker": "LAUNCH",
-          "head": "21 military comms satellites in orbit",
+          "kicker": "LAUNCH ABORT",
+          "head": "Falcon 9 shuts down at the last second",
           "cmd": null,
-          "sub": "A Falcon 9 lifted off from Vandenberg SFB pad 4E at 1:32 p.m. PDT on July 16, carrying the T1TL-E batch for the Space Development Agency."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Third operational tranche for the PWSA mesh",
-          "cmd": null,
-          "sub": "The Proliferated Warfighter Space Architecture is the Pentagon's low-Earth-orbit comms and data-relay network. T1TL-E is the third operational satellite batch added to its Transport Layer."
-        },
-        {
-          "kicker": "ARCHITECTURE",
-          "head": "Transport Layer = the data backbone",
-          "cmd": null,
-          "sub": "The Transport Layer provides optical inter-satellite links and ground downlinks for warfighter data. Each tranche adds redundancy and coverage density across the constellation."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "PWSA is becoming a real operational network",
-          "cmd": null,
-          "sub": "Three tranches in, the SDA is moving from demonstration to fielded capability \u2014 relevant context for anyone building edge AI or sensor-fusion systems that could eventually connect to government LEO infrastructure."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-18-sqlite-query-explainer",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Vibe-coded SQLite EXPLAIN tool runs in-browser",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/18/sqlite-query-explainer/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "RELATABLE PAIN",
-          "head": "Nobody actually reads SQLite query plans",
-          "cmd": null,
-          "sub": "Julia Evans admitted she never learned to parse EXPLAIN output. Simon Willison felt the same \u2014 so instead of studying, he built a tool."
-        },
-        {
-          "kicker": "THE BUILD",
-          "head": "Claude (Fable) wrote the whole thing",
-          "cmd": null,
-          "sub": "Willison used Claude's Fable/Mythos interface to generate an interactive explainer without writing the core logic himself \u2014 classic vibe-coding: describe the intent, ship the result."
-        },
-        {
-          "kicker": "STACK",
-          "head": "SQLite \u2192 Python \u2192 Pyodide \u2192 Wasm \u2192 browser",
-          "cmd": null,
-          "sub": "The tool runs SQLite inside Python, compiled to WebAssembly via Pyodide, entirely client-side. No backend, no server costs, no data leaves the browser."
-        },
-        {
-          "kicker": "WHAT IT DOES",
-          "head": "Plain-language layer on top of EXPLAIN and EXPLAIN QUERY PLAN",
-          "cmd": null,
-          "sub": "Paste a query, get both the raw SQLite plan output and a human-readable interpretation of what the planner is actually doing \u2014 scans, index usage, sort steps."
-        },
-        {
-          "kicker": "CAVEAT + TAKEAWAY",
-          "head": "Willison shipped it with an honest disclaimer",
-          "cmd": null,
-          "sub": "He notes he can't fully verify the AI-generated explanations himself. For PMs and devs who need a quick read on query performance without becoming SQLite internals experts, it's a useful starting point \u2014 just cross-check on anything critical."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-13-spacex-600th-booster-flight",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "SpaceX flies a Falcon booster for the 600th time",
-      "source": {
-        "name": "Spaceflight Now",
-        "url": "https://spaceflightnow.com/2026/07/13/live-coverage-spacex-to-launch-a-flight-proven-falcon-booster-for-600th-time/"
-      },
-      "panels": [
-        {
-          "kicker": "MILESTONE",
-          "head": "600 flights on reused Falcon boosters",
-          "cmd": null,
-          "sub": "SpaceX crossed the 600-flight mark for flight-proven Falcon boosters with the Starlink 10-45 mission, lifting off from Pad 40 at Cape Canaveral at 5:10 a.m. EDT on July 13, 2026."
+          "sub": "A rare hold triggered at T-0 scrubbed the Starlink 17-39 mission from pad 4E at Vandenberg Space Force Base, halting ignition before liftoff."
         },
         {
           "kicker": "THE MISSION",
-          "head": "29 more Starlink sats in low Earth orbit",
+          "head": "24 Starlink satellites, 85th Falcon 9 launch of 2026",
           "cmd": null,
-          "sub": "The payload was a standard batch of 29 broadband satellites, continuing the steady cadence of Starlink constellation expansion."
+          "sub": "The flight was set for 7:49 a.m. PDT carrying another batch of flat-panel broadband satellites to low Earth orbit \u2014 part of SpaceX's relentless cadence this year."
         },
         {
           "kicker": "CONTEXT",
-          "head": "Reuse went from experiment to backbone",
+          "head": "T-0 aborts are uncommon but not catastrophic",
           "cmd": null,
-          "sub": "Falcon 9's first reuse flew in 2017; reaching 600 reflights in under a decade shows that refurbishment and re-launch have become the default operating mode rather than a one-off stunt."
+          "sub": "Falcon 9's automated flight-termination and health-check systems are designed to catch anomalies right at ignition. The vehicle stays on the pad intact, and a recycle attempt typically follows within days once engineers clear the root cause."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Reuse frequency sets the cost floor for LEO access",
+          "head": "85 launches a year leaves little margin for slip",
           "cmd": null,
-          "sub": "Each additional reflown booster lowers SpaceX's per-launch amortisation cost, compressing the price floor competitors must match \u2014 relevant context for any constellation or edge-compute-in-orbit business case."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "600 is a operations benchmark, not just a number",
-          "cmd": null,
-          "sub": "The figure signals that booster reuse is now a mature, high-volume supply chain \u2014 the kind of infrastructure reliability that lets downstream customers plan multi-year satellite or orbital compute deployments with confidence."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-30-smart-appliance-terms-watchdog",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Your fridge's ToS is worse than your bank's",
-      "source": {
-        "name": "Hacker News",
-        "url": "https://news.ycombinator.com/item?id=48958273"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Smart appliance ToS quietly strips you of rights you'd never voluntarily waive",
-          "cmd": null,
-          "sub": "One LG ThinQ user ran the app's terms through an LLM and found: no arbitration opt-out, perpetual commercial licence over submitted content, no privacy expectation for in-app voice, and a $100 liability cap for data breaches."
-        },
-        {
-          "kicker": "WHO HAS THIS PROBLEM",
-          "head": "Anyone who owns a connected appliance \u2014 and doesn't read 8,000-word legal documents",
-          "cmd": null,
-          "sub": "Smart home device ownership passed 300 million US households by 2024. Nearly every major appliance brand now requires an account and app to unlock basic remote features. Almost no one reads the ToS before tapping 'Accept'."
-        },
-        {
-          "kicker": "PRODUCT HYPOTHESIS",
-          "head": "A plain-language ToS scanner built specifically for IoT and smart-home products",
-          "cmd": null,
-          "sub": "Not another generic privacy tool \u2014 a service that tracks terms changes across appliance brands (LG, Samsung, GE, Ecobee, Ring), scores them on a consistent rubric (arbitration, data sharing, liability cap, AI training use), and alerts users when terms worsen after purchase."
-        },
-        {
-          "kicker": "WHY EXISTING TOOLS FALL SHORT",
-          "head": "ToSDR and similar tools cover SaaS; nobody owns the hardware-attached-software niche",
-          "cmd": null,
-          "sub": "Terms of Service Didn't Read (tosdr.org) focuses on web platforms. Smart appliance terms have unique clauses \u2014 OTA update rights, voice capture of third parties, appliance-usage data feeding AI models \u2014 that generic scanners don't flag or score."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building anything, find out if people would pay to know",
-          "cmd": null,
-          "sub": "Post a one-page summary comparison (LG vs. Samsung vs. Google Nest ToS) to r/homeautomation and r/privacy. Measure saves and DMs asking 'how do I check mine?' \u2014 that's your demand signal. A $5/mo alert subscription is the minimal monetisation hypothesis to test next."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-15-aws-phantom-billing",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "AWS Phantom Bill: $3B Wake-Up Call for Cloud Monitoring",
-      "source": {
-        "name": "Hacker News",
-        "url": "https://news.ycombinator.com/item?id=48945681"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Dormant AWS account. $3,000,000,000 invoice.",
-          "cmd": null,
-          "sub": "A user with no active AWS usage in over a year got a budget alert forecasting a $3B charge \u2014 perfectly uniform daily costs since July 1, strongly implying a metering or billing bug on AWS's side."
-        },
-        {
-          "kicker": "WHO HAS THIS PROBLEM",
-          "head": "Millions of developers have forgotten cloud accounts",
-          "cmd": null,
-          "sub": "Most SaaS builders, indie hackers, and ex-startup engineers have dormant AWS, GCP, or Azure accounts with stale IAM roles, forgotten Lambda functions, or misconfigured alerts. They have no real-time visibility until a bill lands."
-        },
-        {
-          "kicker": "THE GAP",
-          "head": "AWS Budgets caught it \u2014 but barely",
-          "cmd": null,
-          "sub": "Native cloud billing alerts are reactive, threshold-based, and slow to escalate. They don't detect anomalous patterns (e.g. suspiciously uniform daily charges) or auto-quarantine resources. The user had to manually nuke IAM roles themselves."
-        },
-        {
-          "kicker": "PRODUCT HYPOTHESIS",
-          "head": "A cloud bill watchdog that acts, not just alerts",
-          "cmd": null,
-          "sub": "A lightweight agent that monitors billing APIs across AWS/GCP/Azure, flags statistically abnormal cost patterns (uniform daily deltas are a red flag), and can auto-disable IAM roles or pause services below a defined spend floor \u2014 before the user wakes up to a billion-dollar surprise."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Search before building",
-          "cmd": null,
-          "sub": "Search HN, Reddit r/aws, and r/devops for 'billing spike' or 'unexpected AWS charge' \u2014 count how many posts show up in the last 12 months. If duplicates are plentiful and no tool is consistently recommended, that's your signal. A $0 landing page with a waitlist is the next step."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-23-aws-phantom-billion-dollar-bill",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "AWS Phantom $1.7B Bill Exposes a Real Monitoring Gap",
-      "source": {
-        "name": "Hacker News",
-        "url": "https://news.ycombinator.com/item?id=48945241"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "AWS showed some customers a $1.7 billion bill \u2014 for normal monthly usage",
-          "cmd": null,
-          "sub": "A billing data bug inflated estimated charges to absurd figures. Hundreds of engineers opened emergency tickets before realising it was a display error, not an actual charge."
-        },
-        {
-          "kicker": "WHO GETS HIT",
-          "head": "Any team relying solely on AWS's own billing dashboard for spend alerts",
-          "cmd": null,
-          "sub": "Startups, scale-ups, and enterprise cloud teams alike had no independent layer to sanity-check whether a spike was real or a platform artefact. The panic cost real engineering hours."
-        },
-        {
-          "kicker": "THE GAP",
-          "head": "Cloud cost monitoring still defaults to trusting the provider's own numbers",
-          "cmd": null,
-          "sub": "Tools like CloudHealth, Spot.io, and AWS Cost Anomaly Detection all ingest AWS billing data \u2014 so a bug upstream poisons every downstream alert simultaneously. There's no independent ground truth."
-        },
-        {
-          "kicker": "THE OPPORTUNITY",
-          "head": "A billing sanity layer that cross-references usage signals, not just cost APIs",
-          "cmd": null,
-          "sub": "Hypothesis: teams would pay for a lightweight watchdog that correlates actual resource-usage metrics (compute hours, data transfer, API calls) against billed amounts and flags statistically impossible deltas \u2014 independent of the cost API itself."
-        },
-        {
-          "kicker": "VALIDATE IT",
-          "head": "Search r/aws and r/devops for 'billing spike' posts from the last 12 months",
-          "cmd": null,
-          "sub": "Count how many describe false alarms vs. real overruns. If false-alarm panic appears regularly, run a 48-hour landing-page test targeting AWS-heavy engineering leads on LinkedIn."
+          "sub": "At roughly one Falcon 9 flight every four days, even a brief pad hold ripples into downstream launch slots. Watch for how quickly SpaceX recycles this vehicle \u2014 it's a proxy for how much schedule buffer actually exists at this cadence."
         }
       ]
     }
