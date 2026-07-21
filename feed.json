@@ -1,428 +1,176 @@
 {
   "version": 1,
-  "generated_at": "2026-07-20",
+  "generated_at": "2026-07-21",
   "cards": [
     {
-      "id": "2026-07-20-cheap-reverse-engineering",
+      "id": "2026-07-21-nativ-local-mac-ai",
       "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "Coding agents make reverse-engineering worth it",
+      "title": "Nativ Wraps MLX in a Native Mac AI Desktop App",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE SHIFT",
-          "head": "People are now reverse-engineering home devices just because they can",
-          "cmd": null,
-          "sub": "Coding agents have made hobbyist reverse-engineering common enough that anecdotes about it are circulating widely \u2014 something that rarely happened before."
-        },
-        {
-          "kicker": "OLD EQUATION",
-          "head": "The ROI on undocumented APIs was almost never positive",
-          "cmd": null,
-          "sub": "Writing your own integration for a device with a private, unstable API meant hours of upfront work plus an open-ended maintenance commitment every time the vendor pushed an update."
-        },
-        {
-          "kicker": "NEW EQUATION",
-          "head": "When code is cheap to write, it's also cheap to throw away",
-          "cmd": null,
-          "sub": "Agents slash both the time to get a first working script and the psychological cost of watching it break later. Rebuilding from scratch is no longer a deterrent."
-        },
-        {
-          "kicker": "BROADER PATTERN",
-          "head": "Reduced effort unlocks entire categories of automation that pencilled out badly before",
-          "cmd": null,
-          "sub": "It's not that the technical barrier disappeared \u2014 it's that the cost-of-failure collapsed, which changes which problems feel worth attempting at all."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "PMs building on vendor APIs should expect more unsanctioned integrations",
-          "cmd": null,
-          "sub": "Users will reverse-engineer device protocols and build their own thin automations rather than waiting for official support. That's both a signal about unmet needs and a new source of shadow IT to plan for."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-arxiv-ai-writing-measurement",
-      "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "How (and where) AI writing on arXiv is measured",
-      "source": {
-        "name": "unslop.run",
-        "url": "https://unslop.run/blog/measuring-ai-writing-on-arxiv"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Counting AI-written text in research papers is harder than it sounds",
-          "cmd": null,
-          "sub": "Word-frequency signals that once flagged LLM output are now baked into how researchers write \u2014 making baseline comparisons unreliable over time."
-        },
-        {
-          "kicker": "THE METHOD",
-          "head": "Track word-rate shifts in arXiv abstracts pre- and post-ChatGPT",
-          "cmd": null,
-          "sub": "The team measured the rise of LLM-favoured words ('crucial', 'intricate', 'commendable') as a proxy for AI involvement, comparing millions of abstracts across submission dates."
-        },
-        {
-          "kicker": "WHERE IT BREAKS",
-          "head": "The signal degrades as human writers adopt AI vocabulary",
-          "cmd": null,
-          "sub": "Once flagged words enter the general scientific lexicon \u2014 through editing, style imitation, or reviewer pressure \u2014 the detector can no longer distinguish AI-assisted from human-written text."
-        },
-        {
-          "kicker": "DEEPER ISSUE",
-          "head": "No clean counterfactual exists for 'what researchers would have written without AI'",
-          "cmd": null,
-          "sub": "Any measurement of AI writing prevalence is really a measurement of vocabulary drift, and the two are increasingly entangled \u2014 making trend lines look flatter than reality."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Audit teams relying on word-frequency detectors should treat outputs as lower bounds",
-          "cmd": null,
-          "sub": "For PMs governing AI use in documentation or research pipelines, this suggests vocabulary-based detection is a weak control \u2014 behavioural or provenance-based signals will be more durable."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-31-sms-todo-bot",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "A todo list that lives in your SMS thread",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v1skjj/smsimessage_todo_list/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "People are texting a random number just to manage their tasks",
-          "cmd": null,
-          "sub": "The Messages app already feels natural and always-open. Dedicated todo apps require a context switch that kills the habit."
-        },
-        {
-          "kicker": "WHO & HOW OFTEN",
-          "head": "Anyone who lives in their phone's message thread",
-          "cmd": null,
-          "sub": "Non-power-users, ADHD folks, and people who've already abandoned Todoist/Things three times. The behaviour (texting yourself) exists without a product \u2014 that's a strong signal."
-        },
-        {
-          "kicker": "WHAT IT COULD BE",
-          "head": "A phone number you text in plain English to add, check off, and recall tasks",
-          "cmd": null,
-          "sub": "\"Add milk\" \u2192 stored. \"What's on my list?\" \u2192 reply with current items. \"Done: milk\" \u2192 crossed off. No app install, no account screen \u2014 just a thread."
-        },
-        {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "Existing SMS bots are clunky; todo apps aren't in Messages",
-          "cmd": null,
-          "sub": "Twilio-based reminder tools use rigid command syntax. Full apps like Reminders require leaving the conversation UI entirely. Neither meets the user where they already are."
-        },
-        {
-          "kicker": "CHEAP VALIDATION STEP",
-          "head": "Search r/SomebodyMakeThis and r/productivity for duplicate requests, then post a Twilio number",
-          "cmd": null,
-          "sub": "Stand up a Twilio + GPT function-calling prototype in an afternoon and share the number publicly. Count opt-in texts in 48 hours \u2014 that's your demand signal before writing a line of product code."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-10-microchip-edge-ai-liveness",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "Microchip: Liveness Detection on One RGB Camera",
-      "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/07/microchip-demonstrates-secure-edge-ai-facial-recognition-with-single-camera-liveness-detection/"
+        "url": "https://simonwillison.net/2026/Jul/21/nativ/#atom-everything"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Spoof-proof face ID \u2014 no depth sensor required",
+          "head": "LM Studio has a new Mac-native rival",
           "cmd": null,
-          "sub": "Microchip demoed a facial recognition + liveness detection pipeline at the 2026 Embedded Vision Summit that runs entirely on a single standard RGB camera."
+          "sub": "Nativ is a macOS desktop app that runs AI models locally via Apple's MLX framework \u2014 no cloud, no API keys, no latency tax."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Liveness detection is the hard part of edge face ID",
+          "kicker": "WHO BUILT IT",
+          "head": "From MLX-VLM to a full desktop shell",
           "cmd": null,
-          "sub": "Most production-grade anti-spoofing systems lean on IR or structured-light sensors. Removing that hardware dependency cuts BOM cost and simplifies enclosure design \u2014 critical for access control and kiosks at scale."
+          "sub": "Prince Canuma, author of the MLX-VLM Python library for vision-LLMs on Apple Silicon, wrapped that same stack into a native GUI app."
         },
         {
-          "kicker": "DETAIL",
-          "head": "Everything infers on-device, in real time",
+          "kicker": "WHAT IT DOES",
+          "head": "Chat UI + localhost API server, out of the box",
           "cmd": null,
-          "sub": "The solution runs facial recognition and liveness classification together on Microchip's own edge AI silicon \u2014 no cloud round-trip, no raw biometric data leaving the device. Exact chip family and inference latency figures were not disclosed in the summit summary."
+          "sub": "Like LM Studio, Nativ ships both a conversational interface and a local API endpoint \u2014 drop-in compatible with tools that already speak OpenAI-style HTTP."
         },
         {
-          "kicker": "WHY IT MATTERS",
-          "head": "Compliance pressure is pushing biometrics on-prem fast",
+          "kicker": "NICE DETAIL",
+          "head": "Auto-discovers models already in your Hugging Face cache",
           "cmd": null,
-          "sub": "Regulations in the EU (AI Act) and US state laws increasingly restrict cloud processing of biometric data. On-device liveness detection sidesteps that exposure while still meeting spoofing thresholds \u2014 a genuine differentiator for physical-access deployments."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Watch the BOM trade-off, not just the demo",
-          "cmd": null,
-          "sub": "Before designing this in, confirm false-accept and false-reject rates under your lighting conditions \u2014 single-camera liveness can degrade significantly with side-lit or low-lux environments. Request Microchip's evaluation kit to benchmark against your specific enclosure geometry."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-20-afraid-of-chinese-models",
-      "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "Fair Use + No Distillation Bans: A US AI Policy Bet",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/20/afraid-of-chinese-models/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE TENSION",
-          "head": "Labs ban distillation while training on unlicensed data",
-          "cmd": null,
-          "sub": "US AI labs prohibit others from querying their APIs to train new models \u2014 yet those same labs built their models on data they never licensed. Ben Thompson calls this hypocrisy worth fixing."
-        },
-        {
-          "kicker": "THE PROPOSAL",
-          "head": "Codify fair use for training; kill anti-distillation clauses",
-          "cmd": null,
-          "sub": "Thompson argues the US should pass a law doing two things: explicitly make training-data collection fair use, and bar terms of service that forbid distillation \u2014 at least for US companies."
-        },
-        {
-          "kicker": "THE COMPETITIVE ANGLE",
-          "head": "Open weights from China are accelerating anyway",
-          "cmd": null,
-          "sub": "Alibaba reversed course and released Qwen 3.8 Max as open weights after initially withholding them \u2014 possibly spurred by Xi Jinping publicly calling for 'open source, openness, collaboration and sharing.' Blocking distillation isn't slowing Chinese labs."
-        },
-        {
-          "kicker": "THE LOGIC",
-          "head": "Leaning into distillation could compound the US lead",
-          "cmd": null,
-          "sub": "If distillation via API queries is effectively unenforceable anyway, locking it down only hurts US startups building on top of frontier models \u2014 while Chinese open models remain freely distillable."
+          "sub": "If you've previously pulled MLX models via the HF CLI, Nativ finds them without any manual import step \u2014 zero friction to get running."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Policy shift would reshape which models you can build on",
+          "head": "A faster on-ramp for offline, air-gapped AI prototyping",
           "cmd": null,
-          "sub": "For teams deploying fine-tuned or distilled models in production (edge, regulated verticals), a legal safe harbour for distillation would reduce IP risk overnight. Watch this legislative thread \u2014 it could change your model-selection calculus."
+          "sub": "For PMs building AI features in regulated or bandwidth-constrained environments, a local API server on a MacBook is a cheap way to prototype and demo without touching production infrastructure."
         }
       ]
     },
     {
-      "id": "2025-01-30-china-open-weights-winning",
-      "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "China's open-weights bet is outpacing US closed models",
-      "source": {
-        "name": "werd.io",
-        "url": "https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/"
-      },
-      "panels": [
-        {
-          "kicker": "THE SHIFT",
-          "head": "Chinese labs are releasing weights. US labs are not.",
-          "cmd": null,
-          "sub": "While OpenAI, Anthropic, and Google keep model weights proprietary, Chinese labs like DeepSeek are publishing them \u2014 and developers worldwide are choosing accordingly."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Open weights = instant global distribution",
-          "cmd": null,
-          "sub": "Any developer can fine-tune, self-host, and ship a product without API lock-in or usage caps. That frictionless path turns a model release into an ecosystem overnight."
-        },
-        {
-          "kicker": "THE DYNAMIC",
-          "head": "US export controls accelerated the problem they meant to solve",
-          "cmd": null,
-          "sub": "Chip restrictions pushed Chinese labs to train leaner, more efficient models. DeepSeek R1 matched GPT-4-class benchmarks at a fraction of the reported compute cost \u2014 then gave the weights away."
-        },
-        {
-          "kicker": "COMPETITIVE SIGNAL",
-          "head": "Open-source mindshare compounds over time",
-          "cmd": null,
-          "sub": "Hugging Face download rankings, GitHub stars, and community fine-tunes all favour open models. The developer cohort shaping enterprise tooling in 2026 is forming habits right now."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "For AI product teams: treat open-weights models as a first-class option",
-          "cmd": null,
-          "sub": "In regulated or edge-deployed settings, self-hostable weights remove data-residency and latency blockers that closed APIs can't. The calculus for 'build on API vs. run your own' just shifted."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-31-battery-boosted-kettle",
+      "id": "2025-05-06-gift-memory-assistant",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "A kettle that doesn't need a wall outlet",
+      "title": "One app that remembers who likes what",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v12r35/why_doesnt_a_batteryboosted_electric_kettle_exist/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v2gmzm/alguien_sabe_de_una_app_para_ayuda_con_regalos/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "Boiling water away from a plug takes forever \u2014 or needs a gas stove",
+          "head": "Remembering what 30 people like is a part-time job",
           "cmd": null,
-          "sub": "Camping, van life, office kitchens with no nearby outlet, and hotel rooms with weak kettle sockets all share the same frustration: getting hot water fast without mains power."
-        },
-        {
-          "kicker": "WHO HAS IT & HOW OFTEN",
-          "head": "~5 M van-lifers and campers in the US alone, plus daily office workers",
-          "cmd": null,
-          "sub": "Anyone in a mobile or under-powered setting wants boiling water at least once a day. Hotel guests and remote workers hit this wall multiple times a week."
-        },
-        {
-          "kicker": "WHAT THE PRODUCT COULD BE",
-          "head": "An insulated kettle with a built-in LiFePO4 cell and fast-discharge heating element",
-          "cmd": null,
-          "sub": "A 100\u2013150 Wh battery (similar to a mid-size power bank) paired with a 800\u20131000 W element could boil 500 ml in under 3 minutes and recharge from USB-C PD between uses."
-        },
-        {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "Portable power stations work, but cost $200\u2013$600 and aren't kettle-shaped",
-          "cmd": null,
-          "sub": "Current options are 12V travel kettles (slow, ~30 min boil), gas camping stoves (open flame, bulk), or lugging a Jackery alongside a normal kettle \u2014 none are a single, purpose-built appliance."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Hypothesis, not a business \u2014 test before building",
-          "cmd": null,
-          "sub": "Search r/vandwellers, r/CampingandHiking, and r/digitalnomad for 'kettle' complaints, then post a single-question poll: 'Would you pay $89 for a cordless kettle that boils in 3 min?' A 10% yes-rate across 200 responses is worth a landing-page test."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-06-intent-engine-product-fit",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Intent engine built, but what's the right product?",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v1777j/title_i_built_an_intent_engine_what_would_you/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Buyers signal intent publicly \u2014 most sales teams miss it entirely",
-          "cmd": null,
-          "sub": "Someone asking 'which tool does X?' in a niche Slack or Reddit thread is a warm lead. No form was filled. No demo was booked. The signal evaporates unread."
-        },
-        {
-          "kicker": "WHO HAS THIS PAIN",
-          "head": "SDRs and growth PMs at B2B SaaS companies doing outbound",
-          "cmd": null,
-          "sub": "They pay for Bombora or G2 intent data today \u2014 broad, expensive, and lagged by weeks. The frustration is loudest in communities where ICP buyers are technically savvy enough to discuss problems in public before ever Googling vendors."
-        },
-        {
-          "kicker": "WHAT THE PRODUCT COULD BE",
-          "head": "A 'pre-pipeline' alert layer, not another CRM integration",
-          "cmd": null,
-          "sub": "Ingest Reddit, LinkedIn, Slack communities, and niche forums. Classify posts by job-to-be-done and buying stage. Push a daily digest of 5\u201310 high-confidence signals with the source thread and a suggested first-touch message \u2014 no dashboard required."
-        },
-        {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "Existing intent tools trade in aggregated scores, not raw moments",
-          "cmd": null,
-          "sub": "Bombora sells account-level topic surges derived from content consumption \u2014 no conversation context, no direct quote, no timing precision. Trigify and Clay surface LinkedIn signals but miss long-tail communities where early adopters actually talk."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Run the engine for one vertical for one week \u2014 then sell the output manually",
-          "cmd": null,
-          "sub": "Pick a tight ICP (e.g. devtools sales teams). Collect 50 real signals. DM five SDRs on LinkedIn with a sample report and ask if they'd pay $200/month for a weekly version. A reply rate above 20% is a meaningful green light before writing a single line of product UI."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-13-peer-to-peer-rental-marketplace",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Rent your neighbour's drill, not a hardware store",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v0g11u/lendedit_iwn_it_rent_it/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "You buy a $200 drill for one shelf. It collects dust for five years.",
-          "cmd": null,
-          "sub": "Low-frequency, high-cost items clog garages everywhere. The buyer overpays; the asset sits idle. Neither side wins."
+          "sub": "Birthdays, preferences, past gifts \u2014 it all lives in your head until it doesn't. The result: generic gifts, last-minute panic, or nothing at all."
         },
         {
           "kicker": "WHO FEELS THIS",
-          "head": "Anyone who's ever Googled 'rent a tile saw near me' and given up",
+          "head": "Anyone with a large social or family graph",
           "cmd": null,
-          "sub": "Renters (occasional DIYers, campers, event hosts) and owners of idle gear (trailers, pressure washers, party tents) are both underserved by current options."
+          "sub": "Particularly acute for people in large extended families or tight friend groups where gifting is a social norm. Recurs 5\u201315 times a year per person."
         },
         {
-          "kicker": "THE CONCEPT",
-          "head": "Airbnb logic applied to any physical asset, hyperlocal",
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "A persistent people-CRM built around gift occasions",
           "cmd": null,
-          "sub": "A peer-to-peer rental layer for tools, camping gear, trailers, driveways, and workshop spaces. Trust, insurance, and handoff logistics are the hard parts \u2014 not the listing UX."
+          "sub": "You enter each person once: birthday, interests, size, price range. The app surfaces timely nudges and generates ranked gift links \u2014 no re-entry, no cross-app juggling."
         },
         {
-          "kicker": "WHY IT'S HARD",
-          "head": "Fat Camp, Sparetoolz, and Fat Llama have tried this before",
+          "kicker": "WHY EXISTING APPS FALL SHORT",
+          "head": "Finder and Giftster are catalogues, not assistants",
           "cmd": null,
-          "sub": "Fat Llama raised $10M+ and pivoted. The recurring killers: insurance liability gaps, no-shows, item damage disputes, and the cold-start problem in each new city. 'Listing everything' is a feature that fights focus."
+          "sub": "They require repeated manual input per occasion and offer generic suggestions. Neither maintains a living profile per person that improves over time."
         },
         {
-          "kicker": "VALIDATION STEP",
-          "head": "Pick one category, one postcode, zero code",
+          "kicker": "CHEAP VALIDATION STEP",
+          "head": "Search r/SomebodyMakeThis and r/GiftIdeas for duplicate posts",
           "cmd": null,
-          "sub": "Hypothesis: people in a single suburb will pay to rent a neighbour's trailer this month. Post in one local Facebook group or Nextdoor offering to broker exactly that. If five transactions happen manually, the demand is real \u2014 then build."
+          "sub": "Estimate post frequency and upvote counts as a proxy for demand. If the pattern repeats monthly, build a waitlist landing page with one onboarding question: 'How many people do you buy gifts for each year?'"
         }
       ]
     },
     {
-      "id": "2026-07-20-falcon9-abort-starlink",
+      "id": "2026-07-21-claude-code-fireside-chat",
       "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Falcon 9 scrubs at T-0 on Starlink 17-39",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Inside Claude Code: 65% of PRs, 80% Smaller Prompts",
       "source": {
-        "name": "Spaceflight Now",
-        "url": "https://spaceflightnow.com/2026/07/20/live-coverage-spacex-to-launch-24-starlink-satellites-on-falcon-9-rocket-from-vandenberg-sfb-11/"
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/21/cat-and-thariq/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "LAUNCH ABORT",
-          "head": "Falcon 9 shuts down at the last second",
+          "kicker": "HOOK",
+          "head": "Claude Tag closes 65% of PRs for its own dev team",
           "cmd": null,
-          "sub": "A rare hold triggered at T-0 scrubbed the Starlink 17-39 mission from pad 4E at Vandenberg Space Force Base, halting ignition before liftoff."
-        },
-        {
-          "kicker": "THE MISSION",
-          "head": "24 Starlink satellites, 85th Falcon 9 launch of 2026",
-          "cmd": null,
-          "sub": "The flight was set for 7:49 a.m. PDT carrying another batch of flat-panel broadband satellites to low Earth orbit \u2014 part of SpaceX's relentless cadence this year."
+          "sub": "Anthropic's Slack-native coding agent is now the primary code contributor for the Claude Code product team \u2014 eating its own homework at scale."
         },
         {
           "kicker": "CONTEXT",
-          "head": "T-0 aborts are uncommon but not catastrophic",
+          "head": "Claude Code ships to Anthropic employees first",
           "cmd": null,
-          "sub": "Falcon 9's automated flight-termination and health-check systems are designed to catch anomalies right at ignition. The vehicle stays on the pad intact, and a recycle attempt typically follows within days once engineers clear the root cause."
+          "sub": "Features only reach external users if they show measurable retention with the internal cohort \u2014 a tight dogfooding loop Anthropic calls 'ant fooding'."
+        },
+        {
+          "kicker": "DETAIL",
+          "head": "The Claude Code system prompt shrank by 80%",
+          "cmd": null,
+          "sub": "Packed examples and 'don't do X' lists were best practice for older models, but actively hurt quality on Fable 5 and Opus 4.8. Leaner prompts now outperform exhaustive ones."
+        },
+        {
+          "kicker": "SHIFT",
+          "head": "Auto mode changed the human role, not just the output",
+          "cmd": null,
+          "sub": "The team went from approving every file touch to delegating full implementation and redirecting their attention to product experience decisions. One-shotting full features with Fable is now routine."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "The right response to agent productivity isn't doing more of the same",
+          "cmd": null,
+          "sub": "The Claude Code team's advice: raise the quality bar, not just the throughput. If an agent can implement it in hours, the PM's job is to set more ambitious targets \u2014 not to ship the same work faster."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-oris-laser-power-beaming",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Italian startup ORiS bets on laser power-beaming",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/italian-startup-oris-raises-funding-for-laser-power-beaming-technology/"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "What if you could refuel a satellite with a laser?",
+          "cmd": null,
+          "sub": "ORiS, an Italian startup, is building wireless power-beaming tech that transmits energy to spacecraft using focused laser light \u2014 no physical contact required."
+        },
+        {
+          "kicker": "FUNDING",
+          "head": "\u20ac5 million seed round closed",
+          "cmd": null,
+          "sub": "The \u20ac5M (~$5.7M) raise gives ORiS runway to advance its laser power-beaming system from concept toward hardware demonstration. Round size is modest, suggesting early TRL."
+        },
+        {
+          "kicker": "THE TECH",
+          "head": "Lasers as power lines in orbit",
+          "cmd": null,
+          "sub": "Power-beaming converts electricity to a laser beam, transmits it across space, and converts it back on the receiving spacecraft. It could extend satellite lifetimes or enable low-battery edge-orbit assets to receive top-ups from a dedicated beaming platform."
+        },
+        {
+          "kicker": "MARKET CONTEXT",
+          "head": "In-space power is a crowded but early race",
+          "cmd": null,
+          "sub": "Competitors include Virtus Solis, Solaren, and JAXA's long-running SBSP programme. Laser-based beaming competes with microwave approaches \u2014 lasers offer tighter beams but are more sensitive to pointing accuracy and atmospheric interference for ground applications."
         },
         {
           "kicker": "SO WHAT",
-          "head": "85 launches a year leaves little margin for slip",
+          "head": "Watch for a hardware milestone, not the raise",
           "cmd": null,
-          "sub": "At roughly one Falcon 9 flight every four days, even a brief pad hold ripples into downstream launch slots. Watch for how quickly SpaceX recycles this vehicle \u2014 it's a proxy for how much schedule buffer actually exists at this cadence."
+          "sub": "At \u20ac5M, ORiS is pre-demonstration. The signal that matters will be an in-orbit power-transfer test \u2014 that's when the technology moves from company target to demonstrated result."
         }
       ]
     }
