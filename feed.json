@@ -1,176 +1,170 @@
 {
   "version": 1,
-  "generated_at": "2026-07-21",
+  "generated_at": "2026-07-22",
   "cards": [
     {
-      "id": "2026-07-21-nativ-local-mac-ai",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Nativ Wraps MLX in a Native Mac AI Desktop App",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/21/nativ/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "LM Studio has a new Mac-native rival",
-          "cmd": null,
-          "sub": "Nativ is a macOS desktop app that runs AI models locally via Apple's MLX framework \u2014 no cloud, no API keys, no latency tax."
-        },
-        {
-          "kicker": "WHO BUILT IT",
-          "head": "From MLX-VLM to a full desktop shell",
-          "cmd": null,
-          "sub": "Prince Canuma, author of the MLX-VLM Python library for vision-LLMs on Apple Silicon, wrapped that same stack into a native GUI app."
-        },
-        {
-          "kicker": "WHAT IT DOES",
-          "head": "Chat UI + localhost API server, out of the box",
-          "cmd": null,
-          "sub": "Like LM Studio, Nativ ships both a conversational interface and a local API endpoint \u2014 drop-in compatible with tools that already speak OpenAI-style HTTP."
-        },
-        {
-          "kicker": "NICE DETAIL",
-          "head": "Auto-discovers models already in your Hugging Face cache",
-          "cmd": null,
-          "sub": "If you've previously pulled MLX models via the HF CLI, Nativ finds them without any manual import step \u2014 zero friction to get running."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "A faster on-ramp for offline, air-gapped AI prototyping",
-          "cmd": null,
-          "sub": "For PMs building AI features in regulated or bandwidth-constrained environments, a local API server on a MacBook is a cheap way to prototype and demo without touching production infrastructure."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-06-gift-memory-assistant",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "One app that remembers who likes what",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v2gmzm/alguien_sabe_de_una_app_para_ayuda_con_regalos/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Remembering what 30 people like is a part-time job",
-          "cmd": null,
-          "sub": "Birthdays, preferences, past gifts \u2014 it all lives in your head until it doesn't. The result: generic gifts, last-minute panic, or nothing at all."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone with a large social or family graph",
-          "cmd": null,
-          "sub": "Particularly acute for people in large extended families or tight friend groups where gifting is a social norm. Recurs 5\u201315 times a year per person."
-        },
-        {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "A persistent people-CRM built around gift occasions",
-          "cmd": null,
-          "sub": "You enter each person once: birthday, interests, size, price range. The app surfaces timely nudges and generates ranked gift links \u2014 no re-entry, no cross-app juggling."
-        },
-        {
-          "kicker": "WHY EXISTING APPS FALL SHORT",
-          "head": "Finder and Giftster are catalogues, not assistants",
-          "cmd": null,
-          "sub": "They require repeated manual input per occasion and offer generic suggestions. Neither maintains a living profile per person that improves over time."
-        },
-        {
-          "kicker": "CHEAP VALIDATION STEP",
-          "head": "Search r/SomebodyMakeThis and r/GiftIdeas for duplicate posts",
-          "cmd": null,
-          "sub": "Estimate post frequency and upvote counts as a proxy for demand. If the pattern repeats monthly, build a waitlist landing page with one onboarding question: 'How many people do you buy gifts for each year?'"
-        }
-      ]
-    },
-    {
-      "id": "2026-07-21-claude-code-fireside-chat",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Inside Claude Code: 65% of PRs, 80% Smaller Prompts",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/21/cat-and-thariq/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "Claude Tag closes 65% of PRs for its own dev team",
-          "cmd": null,
-          "sub": "Anthropic's Slack-native coding agent is now the primary code contributor for the Claude Code product team \u2014 eating its own homework at scale."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Claude Code ships to Anthropic employees first",
-          "cmd": null,
-          "sub": "Features only reach external users if they show measurable retention with the internal cohort \u2014 a tight dogfooding loop Anthropic calls 'ant fooding'."
-        },
-        {
-          "kicker": "DETAIL",
-          "head": "The Claude Code system prompt shrank by 80%",
-          "cmd": null,
-          "sub": "Packed examples and 'don't do X' lists were best practice for older models, but actively hurt quality on Fable 5 and Opus 4.8. Leaner prompts now outperform exhaustive ones."
-        },
-        {
-          "kicker": "SHIFT",
-          "head": "Auto mode changed the human role, not just the output",
-          "cmd": null,
-          "sub": "The team went from approving every file touch to delegating full implementation and redirecting their attention to product experience decisions. One-shotting full features with Fable is now routine."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "The right response to agent productivity isn't doing more of the same",
-          "cmd": null,
-          "sub": "The Claude Code team's advice: raise the quality bar, not just the throughput. If an agent can implement it in hours, the PM's job is to set more ambitious targets \u2014 not to ship the same work faster."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-oris-laser-power-beaming",
+      "id": "2025-01-01-gravity-1-sea-launch",
       "format": "story",
       "topic": "aerospace",
       "accent": "sky",
-      "title": "Italian startup ORiS bets on laser power-beaming",
+      "title": "Orienspace Gravity-1 puts 9 sats into orbit",
       "source": {
         "name": "SpaceNews",
-        "url": "https://spacenews.com/italian-startup-oris-raises-funding-for-laser-power-beaming-technology/"
+        "url": "https://spacenews.com/gravity-1-sea-launch-off-shanghai-puts-9-satellites-into-orbit/"
+      },
+      "panels": [
+        {
+          "kicker": "LAUNCH",
+          "head": "China's third Gravity-1 sea launch succeeds off Shanghai",
+          "cmd": null,
+          "sub": "Orienspace's 30-metre solid rocket lifted off from a maritime platform in waters near Shanghai, deploying nine satellites into orbit."
+        },
+        {
+          "kicker": "VEHICLE",
+          "head": "Gravity-1 is a large solid-fuelled sea-launch rocket",
+          "cmd": null,
+          "sub": "At 30 m long, Gravity-1 sits in a class of solid rockets designed for rapid, flexible deployment \u2014 sea basing lets it launch from international waters and reach a wider range of orbital inclinations than fixed inland pads allow."
+        },
+        {
+          "kicker": "CADENCE",
+          "head": "Third flight marks a maturing cadence for Orienspace",
+          "cmd": null,
+          "sub": "Three successful Gravity-1 missions establishes Orienspace as a repeat operator in China's crowded commercial launch market, competing alongside Landspace, iSpace, and CAS Space."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Sea launch is becoming a competitive differentiator in China",
+          "cmd": null,
+          "sub": "Multiple Chinese firms are pursuing maritime launch to sidestep the geographic constraints of inland sites and serve small-sat constellation customers needing precise orbital slots."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "More launch options compress small-sat deployment costs",
+          "cmd": null,
+          "sub": "A growing pool of solid-rocket sea-launch providers increases schedule competition \u2014 relevant for any constellation or edge-compute satellite programme evaluating non-SpaceX ride-share alternatives."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-northrop-sat-life-extension",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Northrop launches DARPA-backed satellite life-extension mission",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/spacex-launches-northrop-mission-to-extend-the-life-of-aging-satellites/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "What if you could refuel a satellite with a laser?",
+          "head": "GEO satellites don't have to die when their fuel runs out",
           "cmd": null,
-          "sub": "ORiS, an Italian startup, is building wireless power-beaming tech that transmits energy to spacecraft using focused laser light \u2014 no physical contact required."
+          "sub": "A Falcon 9 just lofted a Northrop Grumman vehicle designed to physically dock with aging geostationary birds and bolt on fresh propulsion \u2014 extending their commercial lives by years."
         },
         {
-          "kicker": "FUNDING",
-          "head": "\u20ac5 million seed round closed",
+          "kicker": "THE MISSION",
+          "head": "Three satellites, one servicing vehicle",
           "cmd": null,
-          "sub": "The \u20ac5M (~$5.7M) raise gives ORiS runway to advance its laser power-beaming system from concept toward hardware demonstration. Round size is modest, suggesting early TRL."
+          "sub": "The spacecraft will rendezvous with three commercial GEO satellites and attach external propulsion pods to each, restoring station-keeping and manoeuvring capability without replacing the host spacecraft."
         },
         {
-          "kicker": "THE TECH",
-          "head": "Lasers as power lines in orbit",
+          "kicker": "BACKING",
+          "head": "DARPA funded the technology development",
           "cmd": null,
-          "sub": "Power-beaming converts electricity to a laser beam, transmits it across space, and converts it back on the receiving spacecraft. It could extend satellite lifetimes or enable low-battery edge-orbit assets to receive top-ups from a dedicated beaming platform."
+          "sub": "The programme sits within DARPA's broader on-orbit servicing push, signalling that the US government sees satellite life-extension as strategically important \u2014 not just a commercial convenience."
         },
         {
-          "kicker": "MARKET CONTEXT",
-          "head": "In-space power is a crowded but early race",
+          "kicker": "WHY IT MATTERS",
+          "head": "A GEO slot is worth more than the satellite sitting in it",
           "cmd": null,
-          "sub": "Competitors include Virtus Solis, Solaren, and JAXA's long-running SBSP programme. Laser-based beaming competes with microwave approaches \u2014 lasers offer tighter beams but are more sensitive to pointing accuracy and atmospheric interference for ground applications."
+          "sub": "Replacing a GEO comms satellite costs $200\u2013400 M and takes 3\u20135 years. Servicing it for a fraction of that cost reframes satellite operators' capex calculus and opens a new commercial services layer in orbit."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "On-orbit servicing is moving from demo to repeatable business",
+          "cmd": null,
+          "sub": "Watch whether Northrop prices propulsion pods as a product line: if this mission succeeds, fleet operators with aging GEO assets become an addressable market, and insurance underwriters will have to update total-loss assumptions."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-21-rsgs-launch",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "DARPA's GEO Repair Robot Heads to Orbit",
+      "source": {
+        "name": "Spaceflight Now",
+        "url": "https://spaceflightnow.com/2026/07/21/live-coverage-spacex-to-launch-novel-geosynchronous-robotic-servicing-satellite-on-decade-long-mission/"
+      },
+      "panels": [
+        {
+          "kicker": "LAUNCH",
+          "head": "A robot mechanic just launched to the GEO belt \u2014 for a decade",
+          "cmd": null,
+          "sub": "SpaceX lifted Northrop Grumman's Mission Robotic Vehicle (MRV) from Cape Canaveral pad 40, opening a new chapter in on-orbit servicing of high-value satellites."
+        },
+        {
+          "kicker": "WHAT IT IS",
+          "head": "MRV carries a DARPA/NRL robotic servicing payload",
+          "cmd": null,
+          "sub": "The Robotic Servicing of Geosynchronous Satellites (RSGS) payload \u2014 developed jointly by DARPA and the U.S. Naval Research Laboratory \u2014 gives MRV the arms and tools to inspect, repair, and upgrade other satellites in geosynchronous orbit."
+        },
+        {
+          "kicker": "MISSION SCOPE",
+          "head": "GEO is the target: 35,786 km up, decade-long operations",
+          "cmd": null,
+          "sub": "Geosynchronous satellites are too expensive to throw away yet too far for crewed servicing. MRV is designed to operate there for roughly ten years, visiting multiple client spacecraft over its life \u2014 company targets, not yet demonstrated results."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Life extension and in-orbit upgrades become a real market",
+          "cmd": null,
+          "sub": "A single GEO comms or intelligence satellite can cost $300\u2013500M. Robotic servicing could defer replacement by years, reshape satellite procurement economics, and create a secondary market for hosted payload swaps."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Watch for a hardware milestone, not the raise",
+          "head": "On-orbit servicing validates the 'infrastructure, not hardware' model",
           "cmd": null,
-          "sub": "At \u20ac5M, ORiS is pre-demonstration. The signal that matters will be an in-orbit power-transfer test \u2014 that's when the technology moves from company target to demonstrated result."
+          "sub": "If MRV proves out, operators may spec satellites for serviceability rather than redundancy \u2014 think modular payloads, standardised docking ports, and software-upgradeable buses. Worth tracking for anyone building GEO-adjacent hardware or services."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-21-starlink-17-39-launch",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "SpaceX hits 85 Falcon 9 launches in 2026",
+      "source": {
+        "name": "Spaceflight Now",
+        "url": "https://spaceflightnow.com/2026/07/21/live-coverage-spacex-tries-again-to-launch-starlink-mission-from-california-following-abort/"
+      },
+      "panels": [
+        {
+          "kicker": "LAUNCH 85",
+          "head": "85 Falcon 9s in under 203 days",
+          "cmd": null,
+          "sub": "Starlink 17-39 lifted off from Vandenberg SFB pad 4E at 07:49 PDT on July 21 \u2014 SpaceX's 85th Falcon 9 launch of 2026, roughly one every 2.4 days."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "A last-second abort pushed the attempt to day two",
+          "cmd": null,
+          "sub": "The mission had been called off at the final seconds of the countdown the previous day before the launch team recycled and successfully flew 24 hours later."
+        },
+        {
+          "kicker": "CADENCE",
+          "head": "Vandenberg handles the high-inclination load",
+          "cmd": null,
+          "sub": "Pad 4E at Vandenberg serves polar and high-inclination Starlink shells that can't be reached from Cape Canaveral, making it a critical second launch site for constellation buildout."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Launch rate is now the constraint, not hardware",
+          "cmd": null,
+          "sub": "At 85 flights in ~7 months, SpaceX's bottleneck has shifted to pad availability and airspace clearance rather than rocket production \u2014 a meaningful signal for anyone pricing rideshare slots or constellation timelines."
         }
       ]
     }
