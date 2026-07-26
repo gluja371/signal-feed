@@ -1,428 +1,262 @@
 {
   "version": 1,
-  "generated_at": "2026-07-25",
+  "generated_at": "2026-07-26",
   "cards": [
     {
-      "id": "2026-07-25-open-weight-ai-kubernetes-moment",
+      "id": "2026-07-26-relay-market-token-fraud",
       "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "Open-weight AI is having its Kubernetes moment",
-      "source": {
-        "name": "tobi.knaup.me",
-        "url": "https://tobi.knaup.me/2026-07-25-open-weight-ai-is-having-its-kubernetes-moment/"
-      },
-      "panels": [
-        {
-          "kicker": "PATTERN RECOGNITION",
-          "head": "Open-weight AI is following the Kubernetes playbook",
-          "cmd": null,
-          "sub": "Kubernetes started as an internal Google tool, felt overly complex, then quietly became the default substrate for cloud-native software. Open-weight models are on the same trajectory."
-        },
-        {
-          "kicker": "HISTORICAL PARALLEL",
-          "head": "Kubernetes won by becoming boring infrastructure",
-          "cmd": null,
-          "sub": "Early adopters endured real pain \u2014 YAML sprawl, steep ops burden \u2014 but enterprises kept choosing it because control and portability outweighed the friction. The same trade-off is now in play for self-hosted LLMs."
-        },
-        {
-          "kicker": "WHERE OPEN-WEIGHT STANDS TODAY",
-          "head": "Capable enough to replace closed APIs for many workloads",
-          "cmd": null,
-          "sub": "Models like Llama and Mistral families have closed the capability gap on a wide class of tasks. Cost per token on owned hardware and data-residency requirements are turning this from a hobbyist choice into a procurement decision."
-        },
-        {
-          "kicker": "THE KUBERNETES LESSON",
-          "head": "Standardisation \u2014 not raw performance \u2014 tips the market",
-          "cmd": null,
-          "sub": "Kubernetes didn't win on benchmark scores; it won because tooling, training, and hiring all coalesced around one standard. Whoever provides the open-weight equivalent of 'managed Kubernetes' \u2014 simple ops, reliable inference, ecosystem glue \u2014 captures that same lock-in."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Start treating open-weight as a procurement default, not a fallback",
-          "cmd": null,
-          "sub": "For PMs in regulated or air-gapped environments, now is the time to build internal serving capability before closed-API dependency calcifies. The window to own your model stack without heroic effort is open \u2014 probably not for long."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-24-starship-flight-13",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Starship Flight 13 deploys first functioning satellites",
-      "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/spacex-conducts-13th-starship-test-flight/"
-      },
-      "panels": [
-        {
-          "kicker": "MILESTONE",
-          "head": "Starship deploys real satellites for the first time",
-          "cmd": null,
-          "sub": "Flight 13, launched July 24, marks the first time the Starship upper stage released functioning payloads \u2014 a meaningful step beyond pure vehicle testing."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "13 flights in, the cadence is accelerating",
-          "cmd": null,
-          "sub": "SpaceX has been flying Starship on suborbital test profiles, iterating on hardware and software between each attempt. Flight 12 surfaced issues that Flight 13 reportedly addressed."
-        },
-        {
-          "kicker": "DETAIL",
-          "head": "Prior flight problems corrected this round",
-          "cmd": null,
-          "sub": "SpaceX identified and fixed anomalies from the previous test, though the article does not specify which subsystems were affected \u2014 treat exact fixes as company-reported, not independently verified."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Payload deployment is the gateway to commercial ops",
-          "cmd": null,
-          "sub": "Releasing functional satellites \u2014 even on a suborbital arc \u2014 proves the dispenser interface and fairing-equivalent systems work, a prerequisite before Starship can carry paying customers' hardware."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Watch for orbit-class payload manifests next",
-          "cmd": null,
-          "sub": "The logical next gates are a full orbital insertion and the first recovery of the Ship booster. Once those land, Starship's cost-per-kg claims move from targets to testable numbers."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-24-claude-opus-5-launch",
-      "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "Claude Opus 5: Frontier intelligence at half Fable 5's price",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "The underground market reselling stolen LLM tokens",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/#atom-everything"
+        "url": "https://simonwillison.net/2026/Jul/26/relay-market/#atom-everything"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Opus 5 tops the Artificial Analysis leaderboard \u2014 above even Claude Fable 5",
+          "head": "Someone is selling access to GPT-4 cheaper than OpenAI does \u2014 and making a business of it",
           "cmd": null,
-          "sub": "Anthropic's new flagship sits at the top of a competitive benchmark ranking, priced identically to its predecessor Opus 4.8, with a fast mode available at 2\u00d7 the base cost."
+          "sub": "A thriving reseller market, largely operating out of China, offers discounted LLM API access by pooling credentials from dozens of sources."
         },
         {
-          "kicker": "CAPABILITY",
-          "head": "It bootstrapped its own computer vision pipeline mid-task",
+          "kicker": "HOW IT WORKS",
+          "head": "Abused trials, hijacked support bots, stolen cards",
           "cmd": null,
-          "sub": "Given a machine-part drawing but no image-viewing tool, Opus 5 wrote a CV pipeline to extract geometry from raw pixels and reconstructed a full 3D FreeCAD model \u2014 unprompted."
+          "sub": "Resellers aggregate API keys obtained via exploited free trials, unguarded vendor chatbots acting as open proxies, and fraudulent card chargebacks \u2014 then resell that capacity at a margin."
         },
         {
-          "kicker": "SAFETY TRADEOFF",
-          "head": "Strong at finding vulns; deliberately weak at exploiting them",
+          "kicker": "THE STACK",
+          "head": "Open-source proxy software makes this trivially easy to operate",
           "cmd": null,
-          "sub": "Anthropic withheld cyber-exploitation training again. Opus 5 approaches Mythos 5 on vulnerability discovery but lags substantially on turning those findings into active threats."
+          "sub": "Tools like one-api and its fork new-api are legitimate load-balancing proxies. Fraudsters repurpose them to pool stolen credentials and serve paying customers behind a single endpoint."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Anthropic calls it 'thoughtful and proactive' \u2014 the benchmark backs that up",
+          "kicker": "WHO'S BUYING",
+          "head": "Cheap tokens, geo-bypass, and training data in one purchase",
           "cmd": null,
-          "sub": "The machine-part anecdote illustrates a model that reaches for missing tools rather than stopping. A new prompting guide and a context-engineering post from Thariq Shihipar are already live."
+          "sub": "Buyers include developers cutting costs, users sidestepping geo-restrictions, and teams harvesting model outputs for distillation \u2014 three very different motivations using the same black-market pipe."
         },
         {
           "kicker": "SO WHAT",
-          "head": "For AI product teams: proactivity cuts both ways",
+          "head": "Every public LLM endpoint is now a target with a profit motive attached",
           "cmd": null,
-          "sub": "A model that invents its own workarounds is powerful in agentic pipelines but harder to constrain in regulated settings. Test boundary cases before deploying Opus 5 in any workflow where tool scope matters."
+          "sub": "If you ship an LLM-backed product without hard spend caps, this ecosystem will find it. Push your API provider for strict per-key dollar limits; until then, gate public endpoints behind auth and rate limiting from day one."
         }
       ]
     },
     {
-      "id": "2025-01-30-api-approval-broker",
+      "id": "2025-01-30-image-discovery-social",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "API approval is a gatekeeping nightmare",
+      "title": "Social media where you explore, not post",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6dd1r/a_service_that_will_sign_up_for_api_on_clients/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6zhos/image_discovery_based_social_media_where_users/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "Getting API access from Meta, Google, or Pinterest can kill a sprint",
+          "head": "Every feed rewards creators. What about people who just want to find things?",
           "cmd": null,
-          "sub": "Approval queues drag on for weeks, rejection reasons are vague, and a single denied app can block an entire product launch."
+          "sub": "Social media defaults to 'look what I made.' But curiosity and curation are equally valid drives \u2014 and largely unserved by current platforms."
         },
         {
-          "kicker": "WHO FEELS THIS",
-          "head": "Indie devs and small agencies hit this wall constantly",
+          "kicker": "THE IDEA",
+          "head": "Generative addresses replace uploads",
           "cmd": null,
-          "sub": "Any team building social integrations, analytics dashboards, or automation tools that depend on third-party platform APIs faces this repeatedly \u2014 not just once."
+          "sub": "A seed or coordinate always renders the same AI-generated image. Users don't post \u2014 they navigate a latent space and bookmark what they find. Discovery is the content."
         },
         {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "An API access broker: you pay, they navigate the paperwork",
+          "kicker": "THE FILTER PROBLEM",
+          "head": "Raw random generation produces 99.9% noise",
           "cmd": null,
-          "sub": "The service submits applications on a client's behalf, handles follow-up with platform trust-and-safety teams, and resells access via a thin middleware layer once approved. Revenue model: flat fee plus a monthly routing fee."
+          "sub": "The post acknowledges this: you'd need an AI pre-filter (coherence, structure) plus a human 'interesting vs noise' vote layer before anything surfaces in feeds. That two-stage funnel is the core technical bet."
         },
         {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Workarounds today are fragile or expensive",
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "Pinterest curates existing images; Midjourney rewards prompt skill",
           "cmd": null,
-          "sub": "Unofficial SDKs get deprecated without warning. Scraping violates ToS and invites bans. Hiring a platform-specialist consultant is costly and still not guaranteed. No clean brokerage layer exists."
+          "sub": "Neither gives a user credit for being the first to surface something. Discovery-as-identity \u2014 'I found this before anyone' \u2014 is the differentiator, but no mainstream platform has tried to own it."
         },
         {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building anything, price-test the pain",
+          "kicker": "VALIDATE THIS WEEK",
+          "head": "Hypothesis: people will compete to discover, not just consume",
           "cmd": null,
-          "sub": "Post a Typeform in r/webdev and relevant Slack communities asking: 'Would you pay $199 one-time to have someone else handle your Meta API approval?' If 5% of respondents say yes and leave an email, the demand signal is real."
+          "sub": "Build a dead-simple test: generate 500 images from random SDXL seeds, post a daily 'explorer leaderboard' in a Discord or Telegram group, and see if users return unprompted to claim discoveries. Engagement rate and return visits will tell you if the identity loop holds."
         }
       ]
     },
     {
-      "id": "2025-01-30-local-hangout-matchmaking",
+      "id": "2026-07-25-ruff-v0160",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Ruff v0.16 turns on 354 extra lint rules by default",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/25/ruff/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "BREAKING CHANGE",
+          "head": "Unpinned Ruff just broke your CI",
+          "cmd": null,
+          "sub": "Astral shipped Ruff v0.16 on July 23rd. Default enabled rules jumped from 59 to 413 overnight \u2014 any project running an unpinned 'ruff' dependency now fails on hundreds of new checks."
+        },
+        {
+          "kicker": "WHAT CHANGED",
+          "head": "413 rules on by default, zero config needed",
+          "cmd": "uvx ruff@latest check .",
+          "sub": "The total rule count grew from 708 to 968 since v0.1.0. New defaults catch things like bare 'except Exception', timezone-naive datetime.now() calls, and useless attribute reads \u2014 real bugs, not just style."
+        },
+        {
+          "kicker": "SCALE",
+          "head": "sqlite-utils: 1,618 errors, 1,538 auto-fixed",
+          "cmd": "uvx ruff@latest check . --fix --unsafe-fixes",
+          "sub": "Simon Willison ran the upgrade across Datasette, sqlite-utils, and LLM. The bulk of fixes applied automatically; the 80 remaining in sqlite-utils required human (or agent) judgment."
+        },
+        {
+          "kicker": "AGENT HANDOFF",
+          "head": "Ruff's output is structured for coding agents",
+          "cmd": null,
+          "sub": "Each error includes file path, line number, rule ID, and a plain-English fix hint \u2014 exactly the context an LLM agent needs. Willison handed the remainder to Codex (GPT-5.6) and Claude Code (Opus 5) to finish the job."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Pin Ruff in CI; upgrade deliberately",
+          "cmd": null,
+          "sub": "Add 'ruff==x.y.z' to your dev dependencies and treat minor-version bumps as a planned task. The auto-fix flag handles the mechanical work; the residual errors are worth reviewing \u2014 they often flag real latent bugs."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-01-dating-literacy-app",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "Tinder for solo travellers seeking local company",
+      "title": "An app that teaches dating literacy",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6b2a1/an_app_for_when_you_visit_a_new_citycountry/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6w2ox/project_to_help_people_understand_how_to_treat/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "You're in a new city for two days. You want company, not a tour guide.",
+          "head": "Online dating is hurting people \u2014 and most offenders don't know they're the problem",
           "cmd": null,
-          "sub": "Business travellers and solo tourists frequently have unstructured free time in unfamiliar places but no low-friction way to spend it with someone local."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Road-warriors, conference attendees, solo backpackers",
-          "cmd": null,
-          "sub": "Anyone who travels alone for work or leisure more than a few times a year hits this scenario. Frequency is high enough that a habit-forming product is plausible."
-        },
-        {
-          "kicker": "WHAT IT COULD BE",
-          "head": "A time-boxed, activity-anchored match between visitor and local",
-          "cmd": null,
-          "sub": "User sets a city, a date window, and a preferred activity (coffee, a hike, museum). Locals opt in as hosts. Match on interests, not romance \u2014 think Meetup crossed with Airbnb Experiences but without a paid itinerary."
-        },
-        {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Couchsurfing Hangouts, Meetup, Bumble BFF \u2014 all fall short",
-          "cmd": null,
-          "sub": "Couchsurfing's Hangouts tab is largely abandoned and trust-eroded. Meetup requires joining a pre-scheduled group event. Bumble BFF skews residential, not transient. None are designed around 'I'm here Tuesday only.'"
-        },
-        {
-          "kicker": "VALIDATE FIRST",
-          "head": "Hypothesis: business travellers will message a stranger for low-stakes local company if trust signals are clear",
-          "cmd": null,
-          "sub": "Run a no-code test: post in r/solotravel and r/digitalnomad asking how people currently find local company on work trips. Count replies describing a real workaround \u2014 that's your demand signal. Then check if 'local hangout app' searches trend on Product Hunt or App Store."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-14-domain-registrar-account-takeover",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Registrars hand over accounts to anyone who asks nicely",
-      "source": {
-        "name": "Hacker News",
-        "url": "https://news.ycombinator.com/item?id=49028037"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "A phone call was enough to steal a 13-year-old Namecheap account",
-          "cmd": null,
-          "sub": "A stranger called support, said the domain was 'really theirs', and got the password and recovery email changed \u2014 no ID, no ticket, no verification. The actual owner had already flagged a suspicious reset attempt and was ignored."
+          "sub": "Ghosting, intent-misrepresentation, and passive aggression are endemic on dating apps. The poster argues these aren't personality flaws but literacy gaps \u2014 behaviours people simply were never taught to avoid."
         },
         {
           "kicker": "WHO HAS THIS PROBLEM",
-          "head": "Anyone who holds domains on behalf of others \u2014 or just owns critical ones",
+          "head": "Anyone who's been burned by a mismatch of expectations on a dating app",
           "cmd": null,
-          "sub": "Freelancers managing client domains, nonprofit volunteers, small-business owners, and indie hackers with revenue-generating domains all share this exposure. Domain loss can mean instant revenue-zero for an online business."
+          "sub": "That's a large addressable pool: Pew Research found 57% of online daters describe their experience as negative. The flip side \u2014 people behaving poorly who don't realise it \u2014 is the under-served audience."
         },
         {
-          "kicker": "THE GAP",
-          "head": "Registrar support staff are the weakest link, and there's no tooling around them",
+          "kicker": "PRODUCT HYPOTHESIS",
+          "head": "Short-form video scenarios showing the right and wrong move \u2014 with a reason why",
           "cmd": null,
-          "sub": "Registrars offer 2FA for web logins but their phone support can bypass it entirely. There's no product that monitors for account-level changes (email swap, password reset, nameserver edit) and alerts the verified owner in real time with a mandatory confirmation step."
+          "sub": "Think two-actor skits: one panel shows a common bad behaviour (e.g. sudden ghosting after three good dates), the other shows the minimal-effort alternative (a brief, honest text). Context-setting beats moralising \u2014 the 'why it hurts' is the hook."
         },
         {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Registry locks exist \u2014 but cost $200\u2013$500/year per domain and only cover transfers, not account takeovers",
+          "kicker": "WHY EXISTING OPTIONS FALL SHORT",
+          "head": "Instagram relationship advice is either preachy or vague; therapy is expensive",
           "cmd": null,
-          "sub": "Tools like UptimeRobot catch DNS propagation changes after the fact. Nothing sits between a rogue support call and an account mutation. Cloudflare's registrar is more locked-down but migration is a manual lift."
+          "sub": "Existing content skews toward already-motivated self-improvers. A dedicated platform with a searchable scenario library (e.g. 'what to do when you're losing interest') could serve people at the decision moment \u2014 not retrospectively."
         },
         {
           "kicker": "VALIDATION STEP",
-          "head": "Hypothesis: domain owners will pay for a real-time account-change watchdog",
+          "head": "Post three scenario videos on TikTok this week and measure save rate",
           "cmd": null,
-          "sub": "Search HN and r/webhosting for 'domain stolen', 'registrar social engineering', 'account hijacked'. Count posts from the last 24 months. If >50 unique incidents surface, build a $9/mo monitoring service that webhooks or texts the verified owner the moment any account field changes \u2014 before it takes effect."
+          "sub": "Saves (not likes) signal intent to return to the content \u2014 a proxy for 'I needed this'. If save rate exceeds 5% on 3+ videos, the format has legs before you build anything."
         }
       ]
     },
     {
-      "id": "2026-07-25-falcon9-starlink-west-coast",
+      "id": "2025-01-31-solid-metal-corner-handle",
       "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Falcon 9 lofts 24 Starlink sats from Vandenberg",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "The metal corner handle that doesn't exist yet",
       "source": {
-        "name": "Spaceflight Now",
-        "url": "https://spaceflightnow.com/2026/07/25/live-coverage-spacex-falcon-9-to-launch-starlink-satellites-from-west-coast/"
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6oyg8/weirdly_lucrative_item_that_might_not_exist/"
       },
       "panels": [
         {
-          "kicker": "LAUNCH",
-          "head": "24 more Starlinks in orbit",
+          "kicker": "THE PROBLEM",
+          "head": "A heavy planter. No metal handle that wraps corners. Nowhere.",
           "cmd": null,
-          "sub": "A Falcon 9 lifted off from Vandenberg Space Force Base at 8:51 a.m. PDT on 25 July 2026, adding another batch of Starlink satellites to the growing constellation."
+          "sub": "A DIYer searched Amazon, major retailers, niche hardware sites, and luggage suppliers for a solid metal corner-wrap handle \u2014 two mounting points, no plastic, no centre cavity. Found nothing."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "West Coast pad keeps polar lanes filled",
+          "kicker": "WHO HAS THIS PROBLEM",
+          "head": "Anyone moving heavy wooden boxes \u2014 planters, crates, tool chests, speaker cabs",
           "cmd": null,
-          "sub": "Vandenberg's higher-inclination launch azimuth places satellites into orbits that cover higher latitudes than Cape Canaveral shots, filling coverage gaps over polar and sub-polar regions."
+          "sub": "Loads above 150 lbs stress single-point handles and risk splitting soft wood. Corner-wrap distributes force across two faces. The use case spans serious gardeners, woodworkers, AV riggers, and workshop builders."
         },
         {
-          "kicker": "CONSTELLATION MATH",
-          "head": "24 sats \u00d7 relentless cadence = blanket coverage",
+          "kicker": "WHAT THE PRODUCT LOOKS LIKE",
+          "head": "Cast or bent steel bracket: L-shaped body, flat mounting flanges, integrated pull bar",
           "cmd": null,
-          "sub": "SpaceX has been averaging multiple Starlink launches per month; each batch of 24 incrementally increases capacity and redundancy for the global broadband network."
+          "sub": "Two screw-down flanges on perpendicular faces; a D-ring or bar spanning the corner. Powder-coated or stainless variants. Unit cost in cast zinc or bent 3mm steel is likely under $4 at volume \u2014 retail at $18\u201328 per pair is plausible."
         },
         {
-          "kicker": "SO WHAT",
-          "head": "Denser constellation = lower latency for edge deployments",
+          "kicker": "WHY ALTERNATIVES FAIL",
+          "head": "Luggage handles need a routed notch. Nylon cracks under load. Flat strap handles pull on one face only.",
           "cmd": null,
-          "sub": "As satellite count grows, the probability of an overhead node drops latency for ground-based edge compute and computer-vision inference pipelines that rely on Starlink backhaul in remote or regulated environments."
+          "sub": "Every close substitute either requires destructive wood modification or is rated for suitcase loads (under 50 lbs), not 400 lb planters. The gap is real."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Hypothesis, not a proven market \u2014 test before tooling",
+          "cmd": null,
+          "sub": "Post a sketch and a Google Form on r/woodworking, r/homeimprovement, and r/Tools asking 'would you pay $25 for a pair?' Aim for 50 responses before spending anything on prototypes or a Shopify page."
         }
       ]
     },
     {
-      "id": "2026-07-25-starship-flight-test",
+      "id": "2025-05-06-social-calendar-friend-groups",
       "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Starship clears another mostly successful test flight",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Event plans lost in group chat noise",
       "source": {
-        "name": "Spaceflight Now",
-        "url": "https://spaceflightnow.com/2026/07/25/super-heavy-starship-rocket-chalks-up-mostly-successful-test-flight/"
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6muc2/social_calendar_app_for_friend_groups/"
       },
       "panels": [
         {
-          "kicker": "LAUNCH",
-          "head": "407 feet of rocket, 16 million pounds of thrust",
+          "kicker": "THE PROBLEM",
+          "head": "Great plans die in group chats",
           "cmd": null,
-          "sub": "Super Heavy / Starship lifted off from Starbase, Texas at 5:51 p.m. EDT, powered by 33 methane-fueled Raptor engines on the booster stage alone."
+          "sub": "Someone floats a dinner idea, 40 off-topic messages bury it, and two weeks later nobody knows who actually committed. The event never happens."
         },
         {
-          "kicker": "PROPULSION",
-          "head": "Raptor's methane advantage isn't just about reusability",
+          "kicker": "WHO FEELS THIS",
+          "head": "Any active social group relying on WhatsApp or Messenger",
           "cmd": null,
-          "sub": "Liquid methane can be synthesised from CO\u2082 and water \u2014 a property SpaceX wants to exploit for in-situ propellant production on Mars, making the fuel choice a long-range architecture decision."
+          "sub": "Friend circles, sports teams, neighbourhood groups \u2014 anyone coordinating recurring casual plans over chat. Pain scales with group size and message volume."
         },
         {
-          "kicker": "RESULT",
-          "head": "\"Mostly successful\" \u2014 not a full clean sheet",
+          "kicker": "PRODUCT HYPOTHESIS",
+          "head": "A lightweight RSVP layer bolted onto existing group chats",
           "cmd": null,
-          "sub": "The qualifying word matters: the flight met primary objectives but encountered at least one anomaly. SpaceX typically publishes a post-flight review identifying which Raptor or vehicle system fell short before the next test."
+          "sub": "Post an event from inside WhatsApp or Messenger; members tap Yes / No / Maybe in one reply; confirmed plans auto-populate a shared group calendar that syncs to Google or Apple Calendar."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Each flight advances the reuse cadence SpaceX is chasing",
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "Doodle, Calendly, and Facebook Events all require leaving the chat",
           "cmd": null,
-          "sub": "Starship's commercial viability hinges on rapid booster recovery and turnaround. Every test, partial or not, feeds data into refining the mechazilla catch system and heat-shield performance \u2014 the two biggest remaining engineering bets."
+          "sub": "Context-switching kills adoption. When the coordination tool isn't embedded where the conversation already lives, most people don't bother \u2014 especially for casual plans."
         },
         {
-          "kicker": "SO WHAT",
-          "head": "Watch the anomaly disclosure, not the launch footage",
+          "kicker": "VALIDATION STEP",
+          "head": "Before building: run a no-code smoke test",
           "cmd": null,
-          "sub": "For anyone tracking launch infrastructure or large-payload pricing, the post-flight report will signal how close SpaceX is to a cadence that can undercut current heavy-lift market rates \u2014 the real commercial inflection point."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-24-madrid-dsn-wildfire",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Wildfire forces evacuation of NASA deep space antenna site",
-      "source": {
-        "name": "Spaceflight Now",
-        "url": "https://spaceflightnow.com/2026/07/24/critical-nasa-deep-space-ground-station-in-spain-evacuated-due-to-wildfires/"
-      },
-      "panels": [
-        {
-          "kicker": "BREAKING",
-          "head": "NASA's Madrid deep space station evacuated mid-wildfire",
-          "cmd": null,
-          "sub": "Staff at the Madrid Deep Space Communications Complex in Spain were forced to evacuate as wildfires swept the surrounding area, taking one of humanity's three deep space relay nodes offline."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Three stations, no redundancy to spare",
-          "cmd": null,
-          "sub": "NASA's Deep Space Network relies on exactly three complexes \u2014 Madrid, Goldstone (California), and Canberra (Australia) \u2014 spaced ~120\u00b0 apart to give continuous coverage as Earth rotates. Losing any one site creates blind spots for active interplanetary missions."
-        },
-        {
-          "kicker": "STAKES",
-          "head": "Dozens of spacecraft depend on this link",
-          "cmd": null,
-          "sub": "The DSN carries telemetry and commands for missions ranging from Voyager 1 (the most distant human-made object) to Mars orbiters and the Artemis programme. Even a brief outage forces mission teams to reschedule contact windows or accept data gaps."
-        },
-        {
-          "kicker": "RISK FACTOR",
-          "head": "Climate events are a new ops variable for space infrastructure",
-          "cmd": null,
-          "sub": "Ground stations are fixed assets in increasingly fire- and flood-prone regions. Madrid sits in central Spain, which has seen severe wildfire seasons since the early 2020s. Physical resilience of terrestrial infrastructure is becoming a mission-assurance concern alongside hardware and software."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Single points of failure on the ground are as dangerous as in orbit",
-          "cmd": null,
-          "sub": "For PMs building on DSN-dependent data pipelines (planetary science, deep space comms research), this is a prompt to review contingency plans: which missions can tolerate a 24\u201372 h contact gap, and which cannot? The answer shapes both mission design and ground-segment investment decisions."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-23-starship-flight-13-preview",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Starship Flight 13 targets July 24 after storm delay",
-      "source": {
-        "name": "Spaceflight Now",
-        "url": "https://spaceflightnow.com/2026/07/23/live-coverage-spacex-ready-for-2nd-attempt-to-launch-starship-flight-13-following-post-abort-engine-work/"
-      },
-      "panels": [
-        {
-          "kicker": "LAUNCH ALERT",
-          "head": "Starship Flight 13 gets a new launch window: July 24 at 5:45 p.m. CDT",
-          "cmd": null,
-          "sub": "The 90-minute window opens at 2245 UTC. This is the second attempt after an earlier abort triggered engine inspections and repairs."
-        },
-        {
-          "kicker": "WHAT CAUSED THE SLIP",
-          "head": "Two obstacles: an engine abort and Tropical Storm Bertha",
-          "cmd": null,
-          "sub": "The first attempt was scrubbed after a post-abort engine issue required hands-on work. Bertha's landfall near Texas then pushed the rescheduled attempt back a further 24 hours."
-        },
-        {
-          "kicker": "ENGINE WORK",
-          "head": "Post-abort engine servicing completed before the new attempt",
-          "cmd": null,
-          "sub": "SpaceX has not publicly detailed the specific engine fault, but clearing it was a prerequisite for standing down the abort and returning to the pad. Company targets, not independently verified."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Each Starship flight is a system-level test of reusable heavy-lift at scale",
-          "cmd": null,
-          "sub": "Flight 13 data \u2014 particularly on engine reliability and any new catch or reuse attempts \u2014 feeds directly into SpaceX's cadence for Starlink mass deployment and eventual Artemis HLS commitments."
-        },
-        {
-          "kicker": "WATCH FOR",
-          "head": "Key things to track during the window",
-          "cmd": null,
-          "sub": "Engine ignition sequence completion, booster catch attempt at Mechazilla, and upper-stage reentry profile \u2014 these are the milestones that signal progress toward operational flight rate."
+          "sub": "Set up a Typeform or Luma landing page, drop it in 5 active WhatsApp groups you're in, and count how many people sign up for early access in 72 hours. Also search r/SomebodyMakeThis and r/nosurf for duplicate requests to gauge organic demand."
         }
       ]
     }
