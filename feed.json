@@ -1,262 +1,90 @@
 {
   "version": 1,
-  "generated_at": "2026-07-26",
+  "generated_at": "2026-07-27",
   "cards": [
     {
-      "id": "2026-07-26-relay-market-token-fraud",
+      "id": "2025-01-30-amazon-d2d-constellation",
       "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "The underground market reselling stolen LLM tokens",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Amazon files 5,100-sat direct-to-device constellation",
       "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/26/relay-market/#atom-everything"
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/amazon-files-application-for-direct-to-device-satellite-constellation/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Someone is selling access to GPT-4 cheaper than OpenAI does \u2014 and making a business of it",
+          "head": "Amazon wants to beam satellite connectivity straight to your phone",
           "cmd": null,
-          "sub": "A thriving reseller market, largely operating out of China, offers discounted LLM API access by pooling credentials from dozens of sources."
+          "sub": "A new FCC filing reveals plans for a 5,100+ satellite constellation targeting direct-to-device (D2D) service \u2014 no special hardware required on the ground."
         },
         {
-          "kicker": "HOW IT WORKS",
-          "head": "Abused trials, hijacked support bots, stolen cards",
+          "kicker": "CONTEXT",
+          "head": "Globalstar spectrum is the key ingredient",
           "cmd": null,
-          "sub": "Resellers aggregate API keys obtained via exploited free trials, unguarded vendor chatbots acting as open proxies, and fraudulent card chargebacks \u2014 then resell that capacity at a margin."
+          "sub": "Amazon's application leans on Globalstar's licensed spectrum bands, signalling a spectrum-access strategy rather than building a new frequency allocation from scratch."
         },
         {
-          "kicker": "THE STACK",
-          "head": "Open-source proxy software makes this trivially easy to operate",
+          "kicker": "DETAIL",
+          "head": "5,100+ satellites is a serious orbital commitment",
           "cmd": null,
-          "sub": "Tools like one-api and its fork new-api are legitimate load-balancing proxies. Fraudsters repurpose them to pool stolen credentials and serve paying customers behind a single endpoint."
+          "sub": "That count would place the constellation in the same league as Starlink's current deployment. Amazon already has its Kuiper broadband constellation in progress, so this would be a separate D2D layer \u2014 though the filing details remain thin at this stage."
         },
         {
-          "kicker": "WHO'S BUYING",
-          "head": "Cheap tokens, geo-bypass, and training data in one purchase",
+          "kicker": "LANDSCAPE",
+          "head": "D2D is getting crowded fast",
           "cmd": null,
-          "sub": "Buyers include developers cutting costs, users sidestepping geo-restrictions, and teams harvesting model outputs for distillation \u2014 three very different motivations using the same black-market pipe."
+          "sub": "SpaceX's Starlink D2D (via T-Mobile) and AST SpaceMobile are already in early commercial operation. Apple-backed Globalstar supplies the SOS link on iPhones. Amazon entering sharpens a race where spectrum rights, not just satellite count, will decide winners."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Every public LLM endpoint is now a target with a profit motive attached",
+          "head": "Watch for the Kuiper + D2D bundling play",
           "cmd": null,
-          "sub": "If you ship an LLM-backed product without hard spend caps, this ecosystem will find it. Push your API provider for strict per-key dollar limits; until then, gate public endpoints behind auth and rate limiting from day one."
+          "sub": "If Amazon pairs broadband Kuiper with a D2D layer, it could offer end-to-end connectivity for edge devices and remote assets \u2014 relevant for logistics, field operations, and IoT deployments that today rely on patchy terrestrial coverage. FCC approval timeline is the next milestone to track."
         }
       ]
     },
     {
-      "id": "2025-01-30-image-discovery-social",
+      "id": "2025-01-30-rocketlab-alaska-spaceforce",
       "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Social media where you explore, not post",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Rocket Lab Opens Alaska Site in $266M Space Force Deal",
       "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6zhos/image_discovery_based_social_media_where_users/"
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/rocket-lab-to-open-alaska-launch-site-under-266-million-space-force-deal/"
       },
       "panels": [
         {
-          "kicker": "THE PROBLEM",
-          "head": "Every feed rewards creators. What about people who just want to find things?",
+          "kicker": "HOOK",
+          "head": "$266M to launch from Kodiak",
           "cmd": null,
-          "sub": "Social media defaults to 'look what I made.' But curiosity and curation are equally valid drives \u2014 and largely unserved by current platforms."
+          "sub": "Space Force is paying Rocket Lab to open a new launch facility in Alaska, one of its largest single contracts to date."
         },
         {
-          "kicker": "THE IDEA",
-          "head": "Generative addresses replace uploads",
+          "kicker": "CONTEXT",
+          "head": "Why Alaska?",
           "cmd": null,
-          "sub": "A seed or coordinate always renders the same AI-generated image. Users don't post \u2014 they navigate a latent space and bookmark what they find. Discovery is the content."
+          "sub": "Kodiak's high-latitude location enables polar and sun-synchronous orbits not easily accessible from Rocket Lab's existing New Zealand and Virginia pads \u2014 useful for surveillance and reconnaissance payloads."
         },
         {
-          "kicker": "THE FILTER PROBLEM",
-          "head": "Raw random generation produces 99.9% noise",
+          "kicker": "DETAIL",
+          "head": "Up to 18 suborbital missions on the manifest",
           "cmd": null,
-          "sub": "The post acknowledges this: you'd need an AI pre-filter (coherence, structure) plus a human 'interesting vs noise' vote layer before anything surfaces in feeds. That two-stage funnel is the core technical bet."
+          "sub": "The contract covers suborbital test missions supporting military hypersonics and other defense R&D programs, not orbital satellite delivery. Cadence and timeline beyond that were not disclosed."
         },
         {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "Pinterest curates existing images; Midjourney rewards prompt skill",
+          "kicker": "WHY IT MATTERS",
+          "head": "Rocket Lab diversifying beyond commercial smallsat launches",
           "cmd": null,
-          "sub": "Neither gives a user credit for being the first to surface something. Discovery-as-identity \u2014 'I found this before anyone' \u2014 is the differentiator, but no mainstream platform has tried to own it."
-        },
-        {
-          "kicker": "VALIDATE THIS WEEK",
-          "head": "Hypothesis: people will compete to discover, not just consume",
-          "cmd": null,
-          "sub": "Build a dead-simple test: generate 500 images from random SDXL seeds, post a daily 'explorer leaderboard' in a Discord or Telegram group, and see if users return unprompted to claim discoveries. Engagement rate and return visits will tell you if the identity loop holds."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-25-ruff-v0160",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Ruff v0.16 turns on 354 extra lint rules by default",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/25/ruff/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "BREAKING CHANGE",
-          "head": "Unpinned Ruff just broke your CI",
-          "cmd": null,
-          "sub": "Astral shipped Ruff v0.16 on July 23rd. Default enabled rules jumped from 59 to 413 overnight \u2014 any project running an unpinned 'ruff' dependency now fails on hundreds of new checks."
-        },
-        {
-          "kicker": "WHAT CHANGED",
-          "head": "413 rules on by default, zero config needed",
-          "cmd": "uvx ruff@latest check .",
-          "sub": "The total rule count grew from 708 to 968 since v0.1.0. New defaults catch things like bare 'except Exception', timezone-naive datetime.now() calls, and useless attribute reads \u2014 real bugs, not just style."
-        },
-        {
-          "kicker": "SCALE",
-          "head": "sqlite-utils: 1,618 errors, 1,538 auto-fixed",
-          "cmd": "uvx ruff@latest check . --fix --unsafe-fixes",
-          "sub": "Simon Willison ran the upgrade across Datasette, sqlite-utils, and LLM. The bulk of fixes applied automatically; the 80 remaining in sqlite-utils required human (or agent) judgment."
-        },
-        {
-          "kicker": "AGENT HANDOFF",
-          "head": "Ruff's output is structured for coding agents",
-          "cmd": null,
-          "sub": "Each error includes file path, line number, rule ID, and a plain-English fix hint \u2014 exactly the context an LLM agent needs. Willison handed the remainder to Codex (GPT-5.6) and Claude Code (Opus 5) to finish the job."
+          "sub": "Defense contracts now sit alongside commercial Electron missions and the coming Neutron rocket \u2014 reducing revenue concentration risk while funding infrastructure Rocket Lab couldn't justify on commercial demand alone."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "Pin Ruff in CI; upgrade deliberately",
+          "head": "A template for dual-use launch economics",
           "cmd": null,
-          "sub": "Add 'ruff==x.y.z' to your dev dependencies and treat minor-version bumps as a planned task. The auto-fix flag handles the mechanical work; the residual errors are worth reviewing \u2014 they often flag real latent bugs."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-01-dating-literacy-app",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "An app that teaches dating literacy",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6w2ox/project_to_help_people_understand_how_to_treat/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Online dating is hurting people \u2014 and most offenders don't know they're the problem",
-          "cmd": null,
-          "sub": "Ghosting, intent-misrepresentation, and passive aggression are endemic on dating apps. The poster argues these aren't personality flaws but literacy gaps \u2014 behaviours people simply were never taught to avoid."
-        },
-        {
-          "kicker": "WHO HAS THIS PROBLEM",
-          "head": "Anyone who's been burned by a mismatch of expectations on a dating app",
-          "cmd": null,
-          "sub": "That's a large addressable pool: Pew Research found 57% of online daters describe their experience as negative. The flip side \u2014 people behaving poorly who don't realise it \u2014 is the under-served audience."
-        },
-        {
-          "kicker": "PRODUCT HYPOTHESIS",
-          "head": "Short-form video scenarios showing the right and wrong move \u2014 with a reason why",
-          "cmd": null,
-          "sub": "Think two-actor skits: one panel shows a common bad behaviour (e.g. sudden ghosting after three good dates), the other shows the minimal-effort alternative (a brief, honest text). Context-setting beats moralising \u2014 the 'why it hurts' is the hook."
-        },
-        {
-          "kicker": "WHY EXISTING OPTIONS FALL SHORT",
-          "head": "Instagram relationship advice is either preachy or vague; therapy is expensive",
-          "cmd": null,
-          "sub": "Existing content skews toward already-motivated self-improvers. A dedicated platform with a searchable scenario library (e.g. 'what to do when you're losing interest') could serve people at the decision moment \u2014 not retrospectively."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Post three scenario videos on TikTok this week and measure save rate",
-          "cmd": null,
-          "sub": "Saves (not likes) signal intent to return to the content \u2014 a proxy for 'I needed this'. If save rate exceeds 5% on 3+ videos, the format has legs before you build anything."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-31-solid-metal-corner-handle",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "The metal corner handle that doesn't exist yet",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6oyg8/weirdly_lucrative_item_that_might_not_exist/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "A heavy planter. No metal handle that wraps corners. Nowhere.",
-          "cmd": null,
-          "sub": "A DIYer searched Amazon, major retailers, niche hardware sites, and luggage suppliers for a solid metal corner-wrap handle \u2014 two mounting points, no plastic, no centre cavity. Found nothing."
-        },
-        {
-          "kicker": "WHO HAS THIS PROBLEM",
-          "head": "Anyone moving heavy wooden boxes \u2014 planters, crates, tool chests, speaker cabs",
-          "cmd": null,
-          "sub": "Loads above 150 lbs stress single-point handles and risk splitting soft wood. Corner-wrap distributes force across two faces. The use case spans serious gardeners, woodworkers, AV riggers, and workshop builders."
-        },
-        {
-          "kicker": "WHAT THE PRODUCT LOOKS LIKE",
-          "head": "Cast or bent steel bracket: L-shaped body, flat mounting flanges, integrated pull bar",
-          "cmd": null,
-          "sub": "Two screw-down flanges on perpendicular faces; a D-ring or bar spanning the corner. Powder-coated or stainless variants. Unit cost in cast zinc or bent 3mm steel is likely under $4 at volume \u2014 retail at $18\u201328 per pair is plausible."
-        },
-        {
-          "kicker": "WHY ALTERNATIVES FAIL",
-          "head": "Luggage handles need a routed notch. Nylon cracks under load. Flat strap handles pull on one face only.",
-          "cmd": null,
-          "sub": "Every close substitute either requires destructive wood modification or is rated for suitcase loads (under 50 lbs), not 400 lb planters. The gap is real."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Hypothesis, not a proven market \u2014 test before tooling",
-          "cmd": null,
-          "sub": "Post a sketch and a Google Form on r/woodworking, r/homeimprovement, and r/Tools asking 'would you pay $25 for a pair?' Aim for 50 responses before spending anything on prototypes or a Shopify page."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-06-social-calendar-friend-groups",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Event plans lost in group chat noise",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v6muc2/social_calendar_app_for_friend_groups/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Great plans die in group chats",
-          "cmd": null,
-          "sub": "Someone floats a dinner idea, 40 off-topic messages bury it, and two weeks later nobody knows who actually committed. The event never happens."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Any active social group relying on WhatsApp or Messenger",
-          "cmd": null,
-          "sub": "Friend circles, sports teams, neighbourhood groups \u2014 anyone coordinating recurring casual plans over chat. Pain scales with group size and message volume."
-        },
-        {
-          "kicker": "PRODUCT HYPOTHESIS",
-          "head": "A lightweight RSVP layer bolted onto existing group chats",
-          "cmd": null,
-          "sub": "Post an event from inside WhatsApp or Messenger; members tap Yes / No / Maybe in one reply; confirmed plans auto-populate a shared group calendar that syncs to Google or Apple Calendar."
-        },
-        {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "Doodle, Calendly, and Facebook Events all require leaving the chat",
-          "cmd": null,
-          "sub": "Context-switching kills adoption. When the coordination tool isn't embedded where the conversation already lives, most people don't bother \u2014 especially for casual plans."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building: run a no-code smoke test",
-          "cmd": null,
-          "sub": "Set up a Typeform or Luma landing page, drop it in 5 active WhatsApp groups you're in, and count how many people sign up for early access in 72 hours. Also search r/SomebodyMakeThis and r/nosurf for duplicate requests to gauge organic demand."
+          "sub": "Government anchor tenants funding new pads mirrors how early AWS contracts underwrote cloud infrastructure. Watch whether Kodiak gets opened to commercial polar-orbit customers once the military manifest is established."
         }
       ]
     }
