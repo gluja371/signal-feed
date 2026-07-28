@@ -1,90 +1,434 @@
 {
   "version": 1,
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-07-28",
   "cards": [
     {
-      "id": "2025-01-30-amazon-d2d-constellation",
+      "id": "2026-07-27-kimi-k3-weights",
       "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Amazon files 5,100-sat direct-to-device constellation",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Kimi K3's 2.8T weights land \u2014 with a catch",
       "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/amazon-files-application-for-direct-to-device-satellite-constellation/"
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/2026/Jul/27/kimi-k3/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "HOOK",
-          "head": "Amazon wants to beam satellite connectivity straight to your phone",
+          "kicker": "RELEASE",
+          "head": "Moonshot drops 2.8 trillion parameter Kimi K3 weights",
           "cmd": null,
-          "sub": "A new FCC filing reveals plans for a 5,100+ satellite constellation targeting direct-to-device (D2D) service \u2014 no special hardware required on the ground."
+          "sub": "The full model is now on Hugging Face at 1.56 TB. For context, that's not a quantised convenience release \u2014 it's the real thing, and it requires serious infrastructure to run locally."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Globalstar spectrum is the key ingredient",
+          "kicker": "LICENSING SHIFT",
+          "head": "K2 bent MIT; K3 drops the pretence entirely",
           "cmd": null,
-          "sub": "Amazon's application leans on Globalstar's licensed spectrum bands, signalling a spectrum-access strategy rather than building a new frequency allocation from scratch."
+          "sub": "K2 added an attribution clause for companies over 100M MAU or $20M/month revenue. K3 goes further: any Model-as-a-Service business crossing $20M in annual revenue must sign a separate deal with Moonshot before any commercial use."
         },
         {
-          "kicker": "DETAIL",
-          "head": "5,100+ satellites is a serious orbital commitment",
+          "kicker": "HONEST FRAMING",
+          "head": "Moonshot calls it 'open weight', not 'open source'",
           "cmd": null,
-          "sub": "That count would place the constellation in the same league as Starlink's current deployment. Amazon already has its Kuiper broadband constellation in progress, so this would be a separate D2D layer \u2014 though the filing details remain thin at this stage."
+          "sub": "That's a meaningful distinction: the weights are public but commercial rights are restricted above a revenue threshold. No OSI compliance is claimed, so there's no definitional fight to have."
         },
         {
-          "kicker": "LANDSCAPE",
-          "head": "D2D is getting crowded fast",
+          "kicker": "MARKET PRICING",
+          "head": "OpenRouter lists K3 from 7 providers at $3/$15 per million tokens",
           "cmd": null,
-          "sub": "SpaceX's Starlink D2D (via T-Mobile) and AST SpaceMobile are already in early commercial operation. Apple-backed Globalstar supplies the SOS link on iPhones. Amazon entering sharpens a race where spectrum rights, not just satellite count, will decide winners."
+          "sub": "Input at $3M and output at $15M tokens matches Moonshot's own API rate. Multiple providers competing at the same price suggests the floor is set by Moonshot's terms, not by compute cost alone."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Watch for the Kuiper + D2D bundling play",
+          "head": "The $20M revenue clause is the new OSS tripwire to audit",
           "cmd": null,
-          "sub": "If Amazon pairs broadband Kuiper with a D2D layer, it could offer end-to-end connectivity for edge devices and remote assets \u2014 relevant for logistics, field operations, and IoT deployments that today rely on patchy terrestrial coverage. FCC approval timeline is the next milestone to track."
+          "sub": "If you're building a product on K3 \u2014 fine at small scale, but model this threshold early. Any startup aiming at enterprise AI tooling could hit $20M ARR before the compliance cost is budgeted."
         }
       ]
     },
     {
-      "id": "2025-01-30-rocketlab-alaska-spaceforce",
+      "id": "2026-07-10-nvidia-pva-asip-designer",
       "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Rocket Lab Opens Alaska Site in $266M Space Force Deal",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "NVIDIA's PVA Runs Stereo Depth in Real Time on Jetson Orin NX",
       "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/rocket-lab-to-open-alaska-launch-site-under-266-million-space-force-deal/"
+        "name": "Edge AI and Vision Alliance",
+        "url": "https://www.edge-ai-vision.com/2026/07/custom-vision-accelerator-nvidia-pva-built-with-asip-designer-in-action/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "$266M to launch from Kodiak",
+          "head": "Stereo depth, real-time, without touching the GPU",
           "cmd": null,
-          "sub": "Space Force is paying Rocket Lab to open a new launch facility in Alaska, one of its largest single contracts to date."
+          "sub": "NVIDIA's Programmable Vision Accelerator (PVA) on Jetson Orin NX runs stereo depth estimation as a live demo \u2014 entirely on a dedicated low-power processor, leaving the GPU free for other tasks."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Why Alaska?",
+          "kicker": "WHAT IT IS",
+          "head": "PVA is a VLIW/SIMD core built instruction-by-instruction for vision",
           "cmd": null,
-          "sub": "Kodiak's high-latitude location enables polar and sun-synchronous orbits not easily accessible from Rocket Lab's existing New Zealand and Virginia pads \u2014 useful for surveillance and reconnaissance payloads."
+          "sub": "Using Synopsys ASIP Designer, engineers added custom instructions tuned specifically for image and vision workloads. The result is a programmable accelerator that isn't a generic DSP \u2014 it's shaped around the math vision pipelines actually use."
         },
         {
-          "kicker": "DETAIL",
-          "head": "Up to 18 suborbital missions on the manifest",
+          "kicker": "HOW IT FITS",
+          "head": "Heterogeneous compute means each chip does what it's best at",
           "cmd": null,
-          "sub": "The contract covers suborbital test missions supporting military hypersonics and other defense R&D programs, not orbital satellite delivery. Cadence and timeline beyond that were not disclosed."
+          "sub": "On Orin NX, the PVA handles pre-processing and structured vision tasks, the GPU handles deep learning inference, and the CPU orchestrates. Each stage stays in its power-efficient lane rather than bottlenecking on one compute block."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "Rocket Lab diversifying beyond commercial smallsat launches",
+          "head": "Low-power stereo depth is the unlock for always-on edge vision",
           "cmd": null,
-          "sub": "Defense contracts now sit alongside commercial Electron missions and the coming Neutron rocket \u2014 reducing revenue concentration risk while funding infrastructure Rocket Lab couldn't justify on commercial demand alone."
+          "sub": "Stereo depth on a power-frugal VLIW core means robots, AMRs, and smart cameras can run continuous spatial awareness without thermal or battery penalties \u2014 a hard constraint in sealed or battery-backed edge deployments."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "A template for dual-use launch economics",
+          "head": "When scoping a Jetson Orin design, PVA is an underused budget",
           "cmd": null,
-          "sub": "Government anchor tenants funding new pads mirrors how early AWS contracts underwrote cloud infrastructure. Watch whether Kodiak gets opened to commercial polar-orbit customers once the military manifest is established."
+          "sub": "Most teams default everything to the GPU. If your pipeline includes rectification, disparity, or optical flow, offloading those stages to PVA can free meaningful GPU headroom \u2014 worth profiling before locking the architecture."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-27-ai-agent-mode-guide",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Which AI agent mode actually does what",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Jul/27/an-opinionated-guide-to-which-ai-to-use-to-do-stuff/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "THE SHIFT",
+          "head": "AI guidance has moved from 'which chatbot' to 'which agent'",
+          "cmd": null,
+          "sub": "Ethan Mollick's annual model guide has flipped from comparing chat UIs to comparing agentic modes \u2014 systems capable of doing the equivalent of hours of human work in a single run."
+        },
+        {
+          "kicker": "THE CONFUSION",
+          "head": "Four modes, two companies, zero intuitive naming",
+          "cmd": null,
+          "sub": "ChatGPT has Work and Codex; Claude has Cowork and Code. Same names appear in both cloud and desktop contexts but behave differently in each \u2014 the names do not map onto each other in any useful way."
+        },
+        {
+          "kicker": "THE DETAIL",
+          "head": "Desktop vs. mobile Work mode are meaningfully different products",
+          "cmd": null,
+          "sub": "Flipping ChatGPT mobile to Work mode unlocks internet access inside Code Interpreter \u2014 something the default chat container blocks. The desktop Work mode is essentially a friendlier skin over Codex, with broader system access."
+        },
+        {
+          "kicker": "GOOGLE'S GAP",
+          "head": "Gemini dropped off the recommended list entirely",
+          "cmd": null,
+          "sub": "Google still has no established entry in the agentic coding/work category. Gemini Spark is in market but unproven \u2014 leaving the field to OpenAI and Anthropic for serious agentic workflows."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Pick the mode by where the compute lives, not by the name",
+          "cmd": null,
+          "sub": "Before handing an agent a task, confirm whether it's running in a sandboxed cloud container or on your local machine \u2014 that determines what files, APIs, and network it can reach, which matters far more than the mode label."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-iphone-lidar-tile-cutting",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "LiDAR-guided tile cutting for DIY renovators",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v8wtim/iphone_lidar_for_tile_cutting/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Cutting holes in tiles around outlets is fiddly, expensive, and easy to ruin",
+          "cmd": null,
+          "sub": "A DIYer tiling a bathroom must measure outlet positions manually, transfer those marks to tile, then cut \u2014 each step compounds error. One cracked tile can cost $20\u201380+ to replace."
+        },
+        {
+          "kicker": "WHO HAS THIS",
+          "head": "Tens of millions of DIY renovators, once a year on average",
+          "cmd": null,
+          "sub": "The US alone sees ~12M DIY bathroom or kitchen tile projects annually. The pain is acute but infrequent per person, so people tolerate bad tooling rather than seek software."
+        },
+        {
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "Point iPhone at the wall \u2192 get a cut template on the tile",
+          "cmd": null,
+          "sub": "iPhone 12 Pro+ LiDAR can capture a wall's geometry to ~1cm accuracy. An app could locate outlet boxes and pipe centers in 3D, then overlay a scaled cut guide (as an AR projection or printable template) onto the tile before you touch the grinder."
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Current options: cardboard templates, tile scribes, and prayer",
+          "cmd": null,
+          "sub": "Pro tools like laser levels cost $80\u2013300 and still require manual transfer. Apps like Magicplan scan rooms but aren't built for sub-centimeter tile work. No consumer app closes the loop from wall scan to cut guide."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Before building: search Reddit and count the pain",
+          "cmd": null,
+          "sub": "Search r/DIY and r/tilesetting for 'outlet tile cut' and 'tile hole measurement' \u2014 tally how many posts express frustration vs. ask for technique help. If >50 posts in 6 months describe ruined tiles, run a landing page offering a 'tile cut template generator' and measure sign-up intent before writing a line of ARKit code."
+        }
+      ]
+    },
+    {
+      "id": "2026-07-01-ship-40-catch-potential",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Starship Flight 13 sets up first Ship catch attempt",
+      "source": {
+        "name": "NASASpaceFlight.com",
+        "url": "https://www.nasaspaceflight.com/2026/07/ship-40-catch-potential/"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "Ship 40 flew a clean mission \u2014 now SpaceX wants to catch it",
+          "cmd": null,
+          "sub": "Starship Flight 13 completed its full mission profile and returned the upper stage intact, clearing the bar SpaceX set before attempting a mechazilla arm catch of Ship."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Catching Booster was step one; catching Ship is step two",
+          "cmd": null,
+          "sub": "SpaceX has already demonstrated tower arm catches of the Super Heavy booster. Extending that to Ship \u2014 a much hotter, faster-returning vehicle \u2014 is the remaining piece of full rapid reusability."
+        },
+        {
+          "kicker": "DETAIL",
+          "head": "A flawless flight is the prerequisite, not just a milestone",
+          "cmd": null,
+          "sub": "SpaceX's stated policy is that Ship must demonstrate a nominal reentry and splashdown before a catch is attempted. Flight 13 appears to have met that threshold, making the next mission a candidate for the first Ship catch."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Catching Ship collapses turnaround time from weeks to hours",
+          "cmd": null,
+          "sub": "Booster catch already removed ocean recovery from the stack's critical path. Ship catch would do the same for the upper stage \u2014 essential for the high-flight-rate cadence SpaceX needs to make Mars economics work. Note: catch attempt approval remains a company target, not a confirmed schedule."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Watch for Flight 14 catch confirmation in mission parameters",
+          "cmd": null,
+          "sub": "The signal to track is whether SpaceX publishes a Ship catch trajectory for Flight 14 rather than a splashdown zone \u2014 that filing, not any press release, will confirm the attempt is live."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-06-ergonomic-travel-backpack",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Big-capacity travel pack with zero back pain",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v968i6/a_alguien_le_llamar\u00eda_la_atenci\u00f3n_una_mochila_de/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "6 weeks of gear, constant back pain",
+          "cmd": null,
+          "sub": "A traveller fit everything they needed into one large pack \u2014 but carrying it, especially near the end of the trip when it was heaviest, caused persistent back pain. High capacity and spinal comfort felt mutually exclusive."
+        },
+        {
+          "kicker": "WHO HAS THIS PROBLEM",
+          "head": "Long-haul backpackers and carry-on-only travellers",
+          "cmd": null,
+          "sub": "Anyone doing multi-week trips without checked luggage trades off volume against ergonomics daily. Digital nomads, gap-year travellers, and frequent fliers who refuse to pay baggage fees all feel this."
+        },
+        {
+          "kicker": "PRODUCT HYPOTHESIS",
+          "head": "A 40\u201350 L pack engineered around load transfer, not just capacity",
+          "cmd": null,
+          "sub": "The insight isn't a new material \u2014 it's smarter weight distribution: a structured internal frame, a hip belt that shifts 70\u201380% of the load off shoulders, and a harness fit system adjustable per torso length. Think trekking-pack ergonomics in a travel-pack silhouette."
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Good options exist, but with real gaps",
+          "cmd": null,
+          "sub": "Osprey Farpoint and Nomatic packs come close, but reviewers consistently flag that hip belts tuck away (and go unused) because the packs look awkward in airports. The unsolved tension: people want the ergonomics of a hiking pack with the low-profile look of a travel bag."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Hypothesis, not product \u2014 test before building",
+          "cmd": null,
+          "sub": "Search r/onebag and r/travel for 'back pain backpack' \u2014 if the same complaint surfaces repeatedly with no accepted solution, post a 3-question survey there. A $29 Typedream landing page with a waitlist converts intent to signal in under a week."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-01-meal-decision-fatigue",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Daily Meal Decisions Are Draining People",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v8rbai/does_anyone_else_find_what_should_we_cook_today/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "\"What should we cook tonight?\" is the question nobody wants to answer",
+          "cmd": null,
+          "sub": "Deciding what to cook \u2014 daily, for a household with varying preferences, available ingredients, and time constraints \u2014 is a low-stakes but high-frequency drain. Decision fatigue from it is real."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Households cooking 5+ nights a week, which is most of them",
+          "cmd": null,
+          "sub": "Dual-income couples, parents of picky eaters, and anyone trying to reduce food waste all report the same friction: the decision overhead, not the cooking itself, kills motivation."
+        },
+        {
+          "kicker": "PRODUCT HYPOTHESIS",
+          "head": "A context-aware meal suggester that actually knows your fridge",
+          "cmd": null,
+          "sub": "Not a recipe app. A lightweight daily agent that cross-references what's in the fridge (manual input or receipt scan), household preferences, cook time available, and recent meal history \u2014 then surfaces one or two specific options, not a catalogue."
+        },
+        {
+          "kicker": "WHY EXISTING TOOLS FALL SHORT",
+          "head": "Recipe apps solve inspiration, not decisions",
+          "cmd": null,
+          "sub": "Yummly, Mealime, and similar tools require you to browse, filter, and still choose. They add steps rather than remove the decision. AI chat assistants can help but require prompting with context the user has to reconstruct each time."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Search before you build",
+          "cmd": null,
+          "sub": "Hypothesis: people want the decision made for them, not more options. Test: post a no-code Typeform that asks 'what's in your fridge right now?' and emails back one meal suggestion. Track whether users return tomorrow. If they do, the daily habit is real."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-06-ai-parent-checkin",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "The 'I'm Fine' Gap in Remote Elder Care",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1v8eqtu/i_kept_telling_myself_theyre_fine_i_finally_built/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "\"She's fine\" \u2014 until a relative mentions the knee she's been hiding for two weeks",
+          "cmd": null,
+          "sub": "Weekly calls with aging parents overseas follow a script: everyone says they're fine, no one wants to worry anyone. Real health signals leak out days later through third parties, if at all."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Diaspora adult children managing a six-hour time difference and a full calendar",
+          "cmd": null,
+          "sub": "The pattern is consistent across forums: cameras go unwatched, wearables go uncharged, nearby siblings still miss the slow accumulation of small things. The gap is informational, not geographic."
+        },
+        {
+          "kicker": "THE HYPOTHESIS",
+          "head": "An AI that calls your parent daily \u2014 in their language \u2014 and debriefs you in yours",
+          "cmd": null,
+          "sub": "Conversational check-in (what they cooked, how they slept, whether they took their meds) generates a short parent-facing call and a structured summary for the adult child. Escalation to a local contact triggers only on real signals \u2014 a fall, acute distress, a symptom cluster."
+        },
+        {
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "Every existing option requires behaviour change from the person least likely to change",
+          "cmd": null,
+          "sub": "Cameras need a watcher. Wearables need charging. Sibling proxies miss things and add friction. A phone call the parent already knows how to answer is the only zero-habit-change interface in the category."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Before building: test whether parents will actually pick up",
+          "cmd": null,
+          "sub": "Run a 30-call pilot with five families \u2014 use a human caller scripted to feel warm, not clinical. Measure pickup rate, call length, and whether summaries surface anything the adult child didn't already know. Pickup rate below 70% kills the model before a line of AI code is written."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-06-pre-mvp-experience",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "How do you fake the product before it exists?",
+      "source": {
+        "name": "r/startups",
+        "url": "https://www.reddit.com/r/startups/comments/1v8ti6h/how_do_you_let_users_experience_your_product/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "A waitlist proves curiosity, not intent",
+          "cmd": null,
+          "sub": "Founders keep learning that landing pages and signups answer 'is this interesting?' \u2014 not 'would someone actually use this?' Those are different questions with very different answers."
+        },
+        {
+          "kicker": "THE GAP",
+          "head": "Figma prototypes cost almost as much as building",
+          "cmd": null,
+          "sub": "Designing a full interactive flow in Figma can eat weeks. You've validated nothing but your willingness to push pixels \u2014 and you still haven't watched a real user try to complete a task."
+        },
+        {
+          "kicker": "THE OPPORTUNITY",
+          "head": "A tool that turns a product description into a clickable simulation in minutes",
+          "cmd": null,
+          "sub": "Not a design tool, not a no-code builder \u2014 something purpose-built for pre-MVP user testing: AI generates a rough interactive shell from a written spec, founder shares a link, watches session recordings. Exists in fragments across several tools; no one owns the complete workflow."
+        },
+        {
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "Existing options force a tradeoff between speed and fidelity",
+          "cmd": null,
+          "sub": "Typeform/Tally surveys = fast but no experience. Figma = high fidelity but slow. Bubble/Glide = real product, not a simulation. Maze and UserTesting require a prototype first \u2014 they don't help you make one."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Search 'prototype user testing' on r/startups and r/SaaS this week",
+          "cmd": null,
+          "sub": "Count how many posts ask the same question as this one. If you find 10+ in 30 days, the problem is recurring enough to warrant a landing page offering a manual 'done-for-you' version before automating anything."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-b2b-temp-feature-ownership",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "B2B Startups Bleed Slowly on Temporary Features",
+      "source": {
+        "name": "r/startups",
+        "url": "https://www.reddit.com/r/startups/comments/1v95bcz/do_you_ever_build_a_temporary_feature_just_to_buy/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "A big account needs 80% of a feature you haven't built yet",
+          "cmd": null,
+          "sub": "It's close enough that engineering agrees it belongs on the roadmap \u2014 but the clean version is six months out and the customer can't wait."
+        },
+        {
+          "kicker": "WHO HAS THIS",
+          "head": "Every B2B founder selling into mid-market or enterprise before product-market fit is locked",
+          "cmd": null,
+          "sub": "It surfaces at the worst moment: late in a sales cycle, when 'no' loses the deal and 'yes' mutates the roadmap."
+        },
+        {
+          "kicker": "THE TRAP",
+          "head": "Temporary features die slowly because no one owns them",
+          "cmd": null,
+          "sub": "Sales closes the deal. CS keeps the customer happy. Product avoids the half-baked branch. Engineering inherits the maintenance. The 'temp' label never comes off."
+        },
+        {
+          "kicker": "WHAT'S MISSING",
+          "head": "A lightweight internal contract for provisional features",
+          "cmd": null,
+          "sub": "A tool or process that time-boxes a temporary build: defined sunset date, designated owner, automatic usage-data review, and a binary go/kill decision baked in at creation \u2014 not retrofitted later."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Search your own support and Slack backlog first",
+          "cmd": null,
+          "sub": "Before building anything: count how many 'is this feature permanent?' threads exist internally. If you find more than three unresolved ones, you already have paying users to interview \u2014 and a stronger signal than any landing-page test."
         }
       ]
     }
