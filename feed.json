@@ -1,368 +1,219 @@
 {
   "version": 1,
-  "generated_at": "2026-08-01",
+  "generated_at": "2026-08-02",
   "cards": [
     {
-      "id": "2026-07-31-deepseek-v4-flash-0731",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "DeepSeek V4 Flash: 304B params, budget pricing",
-      "source": {
-        "name": "Simon Willison",
-        "url": "https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "NEW MODEL",
-          "head": "A 304B-parameter model that costs less than GPT-4o Mini",
-          "cmd": null,
-          "sub": "DeepSeek V4 Flash (0731) lands at $0.14/M input and $0.27/M output tokens \u2014 undercutting most frontier models while claiming top-tier intelligence scores."
-        },
-        {
-          "kicker": "BENCHMARK CONTEXT",
-          "head": "Beats MiniMax M3, a model 40% larger",
-          "cmd": null,
-          "sub": "Artificial Analysis ranks it above MiniMax M3 (428B parameters) on its Intelligence Index, meaning raw parameter count is a poor proxy for capability here."
-        },
-        {
-          "kicker": "GOTCHA",
-          "head": "Default reasoning level undersells it",
-          "cmd": "llm -m openrouter/deepseek/deepseek-v4-flash-0731 -o reasoning_effort high",
-          "sub": "At default reasoning effort the outputs can look mediocre. Switching to high reasoning effort via OpenRouter produced visibly stronger results in Simon Willison's tests."
-        },
-        {
-          "kicker": "AGENTIC ANGLE",
-          "head": "\"Substantially enhanced agentic capabilities\" is the headline feature",
-          "cmd": null,
-          "sub": "DeepSeek positions this as an agent-first model. At 167 GB it's self-hostable on a well-specced server, which matters for regulated deployments that can't route data through third-party APIs."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Best cost-per-intelligence ratio on the market right now",
-          "cmd": null,
-          "sub": "If you're running high-volume agentic workflows \u2014 document parsing, multi-step CV pipelines, edge-orchestration tasks \u2014 this is worth a bench run before committing to pricier alternatives. Always set reasoning_effort high in tests."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-marbleos-agent-gui",
-      "format": "story",
-      "topic": "agentic-ai",
-      "accent": "coral",
-      "title": "MarbleOS bets agents need GUIs, not chat boxes",
-      "source": {
-        "name": "Hacker News / MarbleOS",
-        "url": "https://marbleos.com/demo"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "AI agents are stuck at the command-line stage",
-          "cmd": null,
-          "sub": "Even in natural language, you still have to remember what an agent can do and how to ask for it \u2014 /skill-name [param1] [param2] is just a terminal flag with nicer syntax."
-        },
-        {
-          "kicker": "THE ANALOGY",
-          "head": "The 1984 Mac didn't add power \u2014 it made existing power visible",
-          "cmd": null,
-          "sub": "Xerox PARC's insight was that capabilities people can see get used far more than capabilities they must recall. MarbleOS is applying that same logic to agentic workflows."
-        },
-        {
-          "kicker": "THE PRODUCT",
-          "head": "Tasks become cards; tools appear before the job runs",
-          "cmd": null,
-          "sub": "Each delegated job sits on a kanban-style board. Marble surfaces which tools it plans to invoke before execution, and delivers a direct artifact \u2014 spreadsheet, deck, file \u2014 not a buried transcript."
-        },
-        {
-          "kicker": "EARLY SIGNAL",
-          "head": "Visible tooling prompts delegation people wouldn't attempt via chat",
-          "cmd": null,
-          "sub": "The team reports that when users can see available actions, they assign tasks they'd never have typed into a blank box \u2014 suggesting the interface itself shapes perceived agent utility."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "For PMs building agent products: discoverability is a design problem",
-          "cmd": null,
-          "sub": "If your agent's capabilities are invisible, adoption will track ChatGPT power-users only. MarbleOS is a live beta worth testing as a reference point for how surface-level tool visibility changes user behaviour."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-flint-visualization-language",
+      "id": "2026-08-02-open-letters-ai-dev",
       "format": "story",
       "topic": "ai-news",
       "accent": "gold",
-      "title": "Microsoft's Flint: charts from plain-language specs",
-      "source": {
-        "name": "Microsoft GitHub",
-        "url": "https://microsoft.github.io/flint-chart/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Charting libraries want code. Most insights live in prose.",
-          "cmd": null,
-          "sub": "Every time an analyst or PM wants a custom chart, they either wrangle D3/Vega configs or wait for an engineer. Flint bets there's a better interface layer."
-        },
-        {
-          "kicker": "WHAT IT IS",
-          "head": "Flint is a declarative visualization language designed to be written \u2014 or generated \u2014 by LLMs.",
-          "cmd": null,
-          "sub": "Instead of imperative chart code, you describe what you want in a structured natural-language-friendly spec. The renderer handles the rest."
-        },
-        {
-          "kicker": "HOW IT WORKS",
-          "head": "Specs map data fields to visual channels with minimal boilerplate.",
-          "cmd": null,
-          "sub": "Flint sits between 'just ask GPT' and a full grammar-of-graphics system \u2014 intentionally constrained so an LLM can produce correct output reliably rather than hallucinating chart configs."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "LLM-friendly grammars could replace brittle chart-generation prompts.",
-          "cmd": null,
-          "sub": "Current AI chart generation often outputs broken Vega-Lite or matplotlib. A purpose-built target grammar gives models a smaller, more predictable output space \u2014 higher first-pass correctness."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "If you're building agentic dashboards or report-gen pipelines, watch this spec.",
-          "cmd": null,
-          "sub": "A stable, LLM-writable chart language is the missing plumbing between natural-language data queries and rendered visuals in operator-facing tools. Flint is an early bet on that layer from Microsoft Research."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-31-stateless-mcp",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "MCP 2.0 drops session state \u2014 one request does it all",
+      "title": "Three AI letters, three competing visions for US policy",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE CHANGE",
-          "head": "MCP 2.0 cuts tool calls from two HTTP requests to one",
-          "cmd": null,
-          "sub": "The 2026-07-28 spec drops the session-init handshake entirely. Client metadata now travels in the single POST body, and a method header replaces the old Mcp-Session-Id dance."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Stateless design means no server-side session routing headaches",
-          "cmd": null,
-          "sub": "Legacy MCP required sticky sessions \u2014 every follow-up request had to hit the same backend instance. Stateless MCP servers are now trivially horizontally scalable and far easier to audit."
-        },
-        {
-          "kicker": "SMALLER MODELS WIN",
-          "head": "MCP tools are controllable enough for on-device models",
-          "cmd": null,
-          "sub": "Handing an agent a shell and curl is powerful but risky and demands a frontier model. Discrete, typed MCP tools are auditable, scope-limited, and workable for laptop-sized models \u2014 a real edge-compute angle."
-        },
-        {
-          "kicker": "NEW TOOLING",
-          "head": "mcp-explorer: a zero-install CLI for probing any MCP server",
-          "cmd": "uvx mcp-explorer list https://agentic-mermaid.dev/mcp",
-          "sub": "Built with Codex in a day, it lists and calls tools on any stateless MCP endpoint without a local install. A concrete example of how much easier the new spec makes client-side tooling."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Stateless MCP is the right primitive for controlled AI tooling in regulated environments",
-          "cmd": null,
-          "sub": "If you're deploying agents in settings where every tool call must be logged and scoped \u2014 medical imaging, industrial inspection, fintech \u2014 stateless MCP gives you an auditable, versioned interface without the orchestration overhead of a full shell agent."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-30-auto-journal-from-phone-data",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Your phone already wrote today's journal entry",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vcwjf3/journaling_app_that_turns_your_phones_data/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "A blank page killed journaling for you",
-          "cmd": null,
-          "sub": "Your phone tracked your route, photos, workouts, calendar, and music all day \u2014 but your journal app still opens to nothing. The data exists; nobody stitches it into prose."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone who opens their camera roll 6 months later and can't remember why they took the photo",
-          "cmd": null,
-          "sub": "The frustration is common enough to have spawned dozens of near-identical threads. It spikes around travel, new-parent milestones, and annual review season \u2014 high-emotion moments where people most want a record and least have energy to write one."
-        },
-        {
-          "kicker": "WHAT THE PRODUCT LOOKS LIKE",
-          "head": "A first draft is already waiting when you open the app",
-          "cmd": null,
-          "sub": "On-device LLM weaves GPS stops, photos, activity rings, and calendar events into a readable narrative. You confirm, trim, or add one or two things the data can't know. A 'trip mode' builds each day silently in the background and exports the whole journey as a printable book."
-        },
-        {
-          "kicker": "WHY EXISTING APPS FALL SHORT",
-          "head": "Apple Journal, Day One, Notion: all blank-page tools with attachment bolted on",
-          "cmd": null,
-          "sub": "They store your data but don't synthesise it. The closest competitors (Rewind, Saga) lean on cloud processing and broad data capture \u2014 exactly the privacy posture that makes a journal feel unsafe. An on-device-first approach is a genuine differentiator, not just a checkbox."
-        },
-        {
-          "kicker": "VALIDATION NEXT STEP",
-          "head": "Hypothesis: people will grant location + photo access if the output feels private",
-          "cmd": null,
-          "sub": "Test it cheap: post a 60-second demo of a GPT-4o prompt turning a fake day's metadata into a paragraph, add a waitlist link, and measure sign-ups. Search 'journaling app' on r/LifeProTips and r/SomebodyMakeThis for duplicate requests to size the demand before writing a line of code."
-        }
-      ]
-    },
-    {
-      "id": "2026-07-31-smevals-eval-framework",
-      "format": "replay",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "smevals: run model evals in four commands",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/31/smevals/#atom-everything"
-      },
-      "caption": "smevals separates run, grade, and serve into discrete steps \u2014 so you can re-grade old runs against new checks without re-hitting the API.",
-      "terminal_title": "smevals \u2014 eval workflow",
-      "script": [
-        {
-          "type": "cmd",
-          "text": "uvx smevals docs"
-        },
-        {
-          "type": "out",
-          "text": "# smevals \u2014 outputs full README to stdout for your coding agent to read"
-        },
-        {
-          "type": "cmd",
-          "text": "# Agent scaffolds eval/ directory with YAML task files"
-        },
-        {
-          "type": "cmd",
-          "text": "uvx smevals run eval/ -m gpt-5.5 -m claude-opus-4.6"
-        },
-        {
-          "type": "out",
-          "text": "Running 12 tasks \u00d7 2 configs \u2192 24 runs saved to eval/runs/"
-        },
-        {
-          "type": "cmd",
-          "text": "uvx smevals grade eval/"
-        },
-        {
-          "type": "out",
-          "text": "Grading complete. gpt-5.5: 9/12  claude-opus-4.6: 11/12"
-        },
-        {
-          "type": "cmd",
-          "text": "uvx smevals serve eval/"
-        },
-        {
-          "type": "out",
-          "text": "Serving results at http://localhost:8000"
-        },
-        {
-          "type": "cmd",
-          "text": "# Or export as static HTML:"
-        },
-        {
-          "type": "cmd",
-          "text": "uvx smevals build eval/"
-        },
-        {
-          "type": "out",
-          "text": "Static report written to eval/report/index.html"
-        }
-      ]
-    },
-    {
-      "id": "2026-07-31-datasette-agent-browser-task",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "Datasette Agent can now run JS in the browser",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Jul/31/datasette-agent/#atom-everything"
+        "url": "https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "An AI agent that reaches into your browser tab",
+          "head": "235 companies vs. 1,324 researchers \u2014 AI's biggest policy fight is now public",
           "cmd": null,
-          "sub": "Datasette Agent 0.4a0 ships a new primitive: agent tools can now execute arbitrary JavaScript directly inside the user's browser, not just on the server."
+          "sub": "Three open letters dropped in five days, each staking out a different position on open-weight models, distillation, and how fast AI should advance."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Datasette Agent wraps an LLM around your SQLite data",
+          "kicker": "LETTER 1",
+          "head": "Microsoft-led coalition: open weights are safer than closed ones",
           "cmd": null,
-          "sub": "The project lets you query, explore, and act on Datasette instances through a chat interface. Plugins expose 'tools' the model can invoke \u2014 until now those tools only ran server-side."
+          "sub": "Signed July 24th by NVIDIA, Amazon, Y Combinator, Linux Foundation, and eventually OpenAI, the letter argues closed models create concentrated single points of failure. It explicitly defends distillation as a legitimate training technique, not misappropriation."
         },
         {
-          "kicker": "THE CHANGE",
-          "head": "await context.browser_task() is the new primitive",
-          "cmd": "await context.browser_task(js_code)",
-          "sub": "Plugin authors call this method from any tool handler; the agent runtime serialises the JS payload and runs it in the active browser session. No separate browser-automation stack required."
+          "kicker": "LETTER 2",
+          "head": "Anthropic: distillation at industrial scale is the real threat",
+          "cmd": null,
+          "sub": "CEO Dario Amodei, writing three days later, stopped short of calling for an open-weights ban but pushed for cracking down on large-scale distillation operations and warned of authoritarian states building frontier models ahead of the US."
         },
         {
-          "kicker": "WHY IT MATTERS",
-          "head": "Client-side state is now fair game for agentic workflows",
+          "kicker": "LETTER 3",
+          "head": "1,324 frontier-lab employees ask for a deliberate slowdown",
           "cmd": null,
-          "sub": "Tools can now read DOM state, manipulate charts, trigger client-rendered UI, or export data the server never sees \u2014 closing the gap between 'chat with your data' and 'act on your data'."
+          "sub": "Signatories including Anthropic's Amodei and OpenAI's chief scientist argue that AI-accelerated AI research creates runaway competitive pressure. The timing is pointed: Anthropic reports Claude Code writes 80% of their code; OpenAI cut serving costs 20% with automated optimisation."
         },
         {
-          "kicker": "TAKEAWAY",
-          "head": "A low-friction pattern for browser-aware agent plugins",
+          "kicker": "SO WHAT",
+          "head": "Distillation and open weights are the two policy levers that will reshape model access",
           "cmd": null,
-          "sub": "If you're building internal data tools on Datasette, this is the cheapest path to agents that can both query a database and drive the front-end \u2014 worth tracking as the alpha stabilises."
+          "sub": "If regulators restrict distillation, fine-tuning pipelines that rely on synthetic data from frontier models get legally complicated. PMs building on open-weight models in regulated industries should track this debate \u2014 the rules of the stack could shift within a legislative cycle."
         }
       ]
     },
     {
-      "id": "2025-01-31-exact-match-search",
+      "id": "2025-01-30-afrl-blue-origin-p2p-cargo",
       "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Fuzzy search ate exact match \u2014 users are angry",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "AFRL adds $11.7M to Blue Origin rocket cargo study",
       "source": {
-        "name": "Hacker News",
-        "url": "https://news.ycombinator.com/item?id=49136990"
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/u-s-air-force-expands-blue-origin-rocket-cargo-contract/"
       },
       "panels": [
         {
-          "kicker": "THE PROBLEM",
-          "head": "\"Fuzzy search ate my exact result\"",
+          "kicker": "HOOK",
+          "head": "The Air Force wants to ship cargo anywhere on Earth in under an hour",
           "cmd": null,
-          "sub": "A 76-upvote HN thread: developers and power users are furious that exact-match search has been quietly removed or buried across tools, internal wikis, SaaS products, and community platforms."
+          "sub": "AFRL just added $11.7M to Blue Origin's existing contract to study whether orbital-class rockets can replace long-haul military cargo aircraft for time-critical deliveries."
         },
         {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone searching a large corpus by precise string",
+          "kicker": "CONTEXT",
+          "head": "Point-to-point rocket cargo has been a USAF concept for years",
           "cmd": null,
-          "sub": "Support agents looking up ticket IDs, engineers grepping docs, ops staff finding exact SKUs or error codes \u2014 fuzzy matching returns noise when you already know the term."
+          "sub": "The Rocket Cargo programme, launched around 2021, explores using commercial launch vehicles to deliver up to ~100 tonnes of supplies to any point on the globe in roughly 90 minutes \u2014 faster than any aircraft."
         },
         {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "A search widget that defaults to exact, degrades gracefully",
+          "kicker": "DETAIL",
+          "head": "Blue Origin joins SpaceX as a funded study partner",
           "cmd": null,
-          "sub": "Drop-in search component (JS library or SaaS API) that runs exact match first, shows fuzzy results in a collapsible secondary section. Integrates with existing backends \u2014 Elasticsearch, Typesense, Postgres full-text."
+          "sub": "The expanded contract likely covers New Glenn as the candidate vehicle. SpaceX has a parallel agreement studying Starship for the same mission; AFRL is keeping multiple providers in the running."
         },
         {
-          "kicker": "WHY EXISTING TOOLS FALL SHORT",
-          "head": "Algolia, Typesense, and friends bury exact-match controls",
+          "kicker": "WHY IT MATTERS",
+          "head": "Military demand could de-risk reusable heavy-lift for everyone",
           "cmd": null,
-          "sub": "Most libraries support exact matching via query flags, but the default UX exposes none of it. Operators have to hand-tune relevance weights and add custom UI \u2014 work most product teams skip."
+          "sub": "If AFRL moves toward operational contracts, it creates a guaranteed revenue base that accelerates reusability and turnaround-time improvements \u2014 benefits that spill directly into commercial launch economics."
         },
         {
-          "kicker": "CHEAP VALIDATION STEP",
-          "head": "Search HN and Reddit for \"exact match search\" frustration threads",
+          "kicker": "TAKEAWAY",
+          "head": "Watch for an AFRL feasibility report, not a launch contract \u2014 yet",
           "cmd": null,
-          "sub": "If duplicates are frequent and recent, build a one-page landing page targeting the query \"add exact match to site search\" and measure signups before writing a line of code."
+          "sub": "This is still a study phase. The key milestones to track are cost-per-kilogram estimates, basing logistics (rockets need launch infrastructure near conflict zones), and whether reuse rates can meet military surge demand."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-k2-space-laser-comms",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Space Force funds K2 laser comms demo at $22.9M",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/space-force-awards-k2-space-22-9-million-for-orbital-laser-communications-demonstration/"
+      },
+      "panels": [
+        {
+          "kicker": "CONTRACT",
+          "head": "Space Force hands K2 Space $22.9M to prove out laser links in orbit",
+          "cmd": null,
+          "sub": "The award funds a demonstration mission specifically targeting optical inter-satellite communications for military systems \u2014 not a study, an actual on-orbit test."
+        },
+        {
+          "kicker": "ARCHITECTURE",
+          "head": "Two satellites, two optical terminals",
+          "cmd": null,
+          "sub": "K2 will fly a pair of satellites each hosting a laser communications terminal, creating a real link to validate performance in the operational space environment."
+        },
+        {
+          "kicker": "WHY LASERS",
+          "head": "RF spectrum is congested and jammable; lasers are neither",
+          "cmd": null,
+          "sub": "Optical comms offer far higher bandwidth than radio, are harder to intercept or jam, and don't require spectrum licensing \u2014 three properties the military values heavily in contested environments."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Space Force is diversifying its comms bets beyond legacy GEO satellites",
+          "cmd": null,
+          "sub": "This fits a broader push to proliferate resilient LEO mesh networks. K2 is a relatively young hardware startup, making this award a notable vote of confidence in new commercial providers."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Watch for demo results as a readiness signal for optical ISL adoption",
+          "cmd": null,
+          "sub": "If K2's terminals hit latency and throughput targets on orbit, optical inter-satellite links become a near-term procurement option rather than a roadmap item \u2014 relevant to any edge compute or data-relay architecture tied to LEO."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-01-datasette-apps-agent-debug",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Datasette Agent can now smoke-test its own apps",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/1/datasette-apps/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "An AI agent that builds a web app and then tests it \u2014 without you lifting a finger",
+          "cmd": null,
+          "sub": "datasette-apps 0.2a0 ships two new tools that let Datasette Agent close its own feedback loop: build, inspect, fix."
+        },
+        {
+          "kicker": "MECHANISM",
+          "head": "The trick: an invisible iframe the agent drives with JavaScript",
+          "cmd": null,
+          "sub": "app_debug() renders the app in an opacity-0, pointer-events-none iframe \u2014 hidden from the user \u2014 then executes agent-supplied JS inside it. The agent can verify functionality and even measure element dimensions."
+        },
+        {
+          "kicker": "SECOND TOOL",
+          "head": "app_list() lets the agent find and edit apps it already owns",
+          "cmd": null,
+          "sub": "Rather than the user manually pointing the agent at an app, app_list() returns every app the current user has edit rights to \u2014 making iterative, multi-session editing practical."
+        },
+        {
+          "kicker": "PLUMBING",
+          "head": "Both tools rely on context.browser_task() from datasette-agent 0.4a0",
+          "cmd": null,
+          "sub": "browser_task() is a new primitive that lets tool authors schedule sandboxed browser-side work from the agent context \u2014 the debug tool is the first real consumer of this API."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Agentic coding loops just got a self-verification layer",
+          "cmd": null,
+          "sub": "The pattern \u2014 generate UI, render invisibly, run assertions, iterate \u2014 is one most AI coding tools skip entirely. Watching it land in an open-source data tool first is a useful proof-of-concept for any team building agent-driven front-end workflows."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-01-openai-math-proofs",
+      "format": "story",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "OpenAI's model cracks decade-old math problems",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "HOOK",
+          "head": "Under $2,000 per unsolved math problem",
+          "cmd": null,
+          "sub": "OpenAI tasked an internal pre-release model with ten mathematical problems that had seen zero progress for at least a decade \u2014 and claims each solution cost less than $2,000 at GPT-5.6 Sol token prices."
+        },
+        {
+          "kicker": "CONTEXT",
+          "head": "Lean 4 proofs published, paper included",
+          "cmd": null,
+          "sub": "The openai/ten-proofs repo contains formal Lean 4 verifications of the results, alongside a paper and an LLM-generated PDF reconstructing how each proof developed from unpublished reasoning traces."
+        },
+        {
+          "kicker": "DETAIL",
+          "head": "The scorecard has a blind spot",
+          "cmd": null,
+          "sub": "OpenAI reports cost-per-success but not cost-per-attempt. How many $2,000 runs ended without a solution? That denominator matters a lot for interpreting the headline figure."
+        },
+        {
+          "kicker": "WHY IT MATTERS",
+          "head": "Mathematicians are having their Deep Blue moment",
+          "cmd": null,
+          "sub": "Terence Tao frames this as a shift toward 'big mathematics' \u2014 humans claim creative direction, AI handles technical grunt work at scale. One mathematician published an essay calling it a 'profound spiritual crisis.'"
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "The frontier is formal verification, not just generation",
+          "cmd": null,
+          "sub": "For PMs building AI reasoning pipelines: the publishable credibility here comes from Lean 4 \u2014 machine-checkable proofs, not just model-generated text. Pairing generation with formal verification is the pattern worth watching."
         }
       ]
     }
