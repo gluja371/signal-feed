@@ -1,219 +1,305 @@
 {
   "version": 1,
-  "generated_at": "2026-08-02",
+  "generated_at": "2026-08-03",
   "cards": [
     {
-      "id": "2026-08-02-open-letters-ai-dev",
-      "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "Three AI letters, three competing visions for US policy",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "235 companies vs. 1,324 researchers \u2014 AI's biggest policy fight is now public",
-          "cmd": null,
-          "sub": "Three open letters dropped in five days, each staking out a different position on open-weight models, distillation, and how fast AI should advance."
-        },
-        {
-          "kicker": "LETTER 1",
-          "head": "Microsoft-led coalition: open weights are safer than closed ones",
-          "cmd": null,
-          "sub": "Signed July 24th by NVIDIA, Amazon, Y Combinator, Linux Foundation, and eventually OpenAI, the letter argues closed models create concentrated single points of failure. It explicitly defends distillation as a legitimate training technique, not misappropriation."
-        },
-        {
-          "kicker": "LETTER 2",
-          "head": "Anthropic: distillation at industrial scale is the real threat",
-          "cmd": null,
-          "sub": "CEO Dario Amodei, writing three days later, stopped short of calling for an open-weights ban but pushed for cracking down on large-scale distillation operations and warned of authoritarian states building frontier models ahead of the US."
-        },
-        {
-          "kicker": "LETTER 3",
-          "head": "1,324 frontier-lab employees ask for a deliberate slowdown",
-          "cmd": null,
-          "sub": "Signatories including Anthropic's Amodei and OpenAI's chief scientist argue that AI-accelerated AI research creates runaway competitive pressure. The timing is pointed: Anthropic reports Claude Code writes 80% of their code; OpenAI cut serving costs 20% with automated optimisation."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Distillation and open weights are the two policy levers that will reshape model access",
-          "cmd": null,
-          "sub": "If regulators restrict distillation, fine-tuning pipelines that rely on synthetic data from frontier models get legally complicated. PMs building on open-weight models in regulated industries should track this debate \u2014 the rules of the stack could shift within a legislative cycle."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-afrl-blue-origin-p2p-cargo",
+      "id": "2025-01-27-hughes-bankruptcy-starlink",
       "format": "story",
       "topic": "aerospace",
       "accent": "sky",
-      "title": "AFRL adds $11.7M to Blue Origin rocket cargo study",
+      "title": "Hughes GEO broadband files for bankruptcy",
       "source": {
         "name": "SpaceNews",
-        "url": "https://spacenews.com/u-s-air-force-expands-blue-origin-rocket-cargo-contract/"
+        "url": "https://spacenews.com/hughes-files-for-bankruptcy-after-geo-business-loses-ground-to-starlink/"
       },
       "panels": [
         {
-          "kicker": "HOOK",
-          "head": "The Air Force wants to ship cargo anywhere on Earth in under an hour",
+          "kicker": "MARKET SHIFT",
+          "head": "Hughes, once the dominant satellite ISP, has filed for bankruptcy",
           "cmd": null,
-          "sub": "AFRL just added $11.7M to Blue Origin's existing contract to study whether orbital-class rockets can replace long-haul military cargo aircraft for time-critical deliveries."
+          "sub": "EchoStar's Hughes division \u2014 which built its business on geostationary broadband \u2014 could not sustain operations against low-Earth-orbit competition."
         },
         {
           "kicker": "CONTEXT",
-          "head": "Point-to-point rocket cargo has been a USAF concept for years",
+          "head": "GEO broadband carries a structural latency penalty LEO doesn't",
           "cmd": null,
-          "sub": "The Rocket Cargo programme, launched around 2021, explores using commercial launch vehicles to deliver up to ~100 tonnes of supplies to any point on the globe in roughly 90 minutes \u2014 faster than any aircraft."
+          "sub": "Geostationary satellites sit ~35,800 km up, producing round-trip latency of 600 ms+. Starlink's LEO constellation operates at ~550 km, delivering sub-50 ms latency at comparable or lower price points."
         },
         {
-          "kicker": "DETAIL",
-          "head": "Blue Origin joins SpaceX as a funded study partner",
+          "kicker": "COMPETITIVE PRESSURE",
+          "head": "Starlink's subscriber growth directly eroded Hughes's rural customer base",
           "cmd": null,
-          "sub": "The expanded contract likely covers New Glenn as the candidate vehicle. SpaceX has a parallel agreement studying Starship for the same mission; AFRL is keeping multiple providers in the running."
+          "sub": "Hughes historically served rural and underserved markets with no wired alternative \u2014 exactly the segment Starlink targeted first. Once a credible LEO option existed, GEO value proposition collapsed."
         },
         {
-          "kicker": "WHY IT MATTERS",
-          "head": "Military demand could de-risk reusable heavy-lift for everyone",
+          "kicker": "INDUSTRY SIGNAL",
+          "head": "A legacy satellite operator falling is a datapoint, not an anomaly",
           "cmd": null,
-          "sub": "If AFRL moves toward operational contracts, it creates a guaranteed revenue base that accelerates reusability and turnaround-time improvements \u2014 benefits that spill directly into commercial launch economics."
+          "sub": "Viasat has also faced subscriber losses. The Hughes filing signals that purpose-built LEO constellations can unseat entrenched GEO infrastructure businesses faster than capital structures can adapt."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "Watch for an AFRL feasibility report, not a launch contract \u2014 yet",
+          "head": "LEO is now the default assumption for new satellite connectivity investment",
           "cmd": null,
-          "sub": "This is still a study phase. The key milestones to track are cost-per-kilogram estimates, basing logistics (rockets need launch infrastructure near conflict zones), and whether reuse rates can meet military surge demand."
+          "sub": "Any edge-compute or IoT connectivity architecture relying on satellite backhaul should be designed around LEO latency and pricing curves \u2014 GEO is a shrinking addressable market."
         }
       ]
     },
     {
-      "id": "2025-01-30-k2-space-laser-comms",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Space Force funds K2 laser comms demo at $22.9M",
-      "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/space-force-awards-k2-space-22-9-million-for-orbital-laser-communications-demonstration/"
-      },
-      "panels": [
-        {
-          "kicker": "CONTRACT",
-          "head": "Space Force hands K2 Space $22.9M to prove out laser links in orbit",
-          "cmd": null,
-          "sub": "The award funds a demonstration mission specifically targeting optical inter-satellite communications for military systems \u2014 not a study, an actual on-orbit test."
-        },
-        {
-          "kicker": "ARCHITECTURE",
-          "head": "Two satellites, two optical terminals",
-          "cmd": null,
-          "sub": "K2 will fly a pair of satellites each hosting a laser communications terminal, creating a real link to validate performance in the operational space environment."
-        },
-        {
-          "kicker": "WHY LASERS",
-          "head": "RF spectrum is congested and jammable; lasers are neither",
-          "cmd": null,
-          "sub": "Optical comms offer far higher bandwidth than radio, are harder to intercept or jam, and don't require spectrum licensing \u2014 three properties the military values heavily in contested environments."
-        },
-        {
-          "kicker": "CONTEXT",
-          "head": "Space Force is diversifying its comms bets beyond legacy GEO satellites",
-          "cmd": null,
-          "sub": "This fits a broader push to proliferate resilient LEO mesh networks. K2 is a relatively young hardware startup, making this award a notable vote of confidence in new commercial providers."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Watch for demo results as a readiness signal for optical ISL adoption",
-          "cmd": null,
-          "sub": "If K2's terminals hit latency and throughput targets on orbit, optical inter-satellite links become a near-term procurement option rather than a roadmap item \u2014 relevant to any edge compute or data-relay architecture tied to LEO."
-        }
-      ]
-    },
-    {
-      "id": "2026-08-01-datasette-apps-agent-debug",
+      "id": "2026-08-03-llms-unlock-open-source-promise",
       "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "Datasette Agent can now smoke-test its own apps",
+      "title": "LLMs finally make open source modifiable, not just readable",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/1/datasette-apps/#atom-everything"
+        "url": "https://simonwillison.net/2026/Aug/3/devtools-must-be-open-source-exedev/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "HOOK",
-          "head": "An AI agent that builds a web app and then tests it \u2014 without you lifting a finger",
+          "kicker": "THE FRICTION PROBLEM",
+          "head": "Open source's 'freedom to modify' was always theoretical for most devs",
           "cmd": null,
-          "sub": "datasette-apps 0.2a0 ships two new tools that let Datasette Agent close its own feedback loop: build, inspect, fix."
+          "sub": "Reading an unfamiliar codebase, getting it to compile, then safely patching it \u2014 that time cost meant even expert engineers rarely bothered."
         },
         {
-          "kicker": "MECHANISM",
-          "head": "The trick: an invisible iframe the agent drives with JavaScript",
+          "kicker": "THE SHIFT",
+          "head": "LLMs collapse the cost of understanding unfamiliar code to near zero",
           "cmd": null,
-          "sub": "app_debug() renders the app in an opacity-0, pointer-events-none iframe \u2014 hidden from the user \u2014 then executes agent-supplied JS inside it. The agent can verify functionality and even measure element dimensions."
+          "sub": "Simon Willison prompts Claude multiple times a day to clone a repo and explain how a specific part works \u2014 the same workflow that once took hours now takes a single message."
         },
         {
-          "kicker": "SECOND TOOL",
-          "head": "app_list() lets the agent find and edit apps it already owns",
+          "kicker": "IN PRACTICE",
+          "head": "\"Build this repo and come back in 10 minutes\" is now a real workflow",
           "cmd": null,
-          "sub": "Rather than the user manually pointing the agent at an app, app_list() returns every app the current user has edit rights to \u2014 making iterative, multi-session editing practical."
+          "sub": "Delegating the compile-and-run setup to Codex or Claude Code turns onboarding friction into a background task, not a decision point about whether to bother at all."
         },
         {
-          "kicker": "PLUMBING",
-          "head": "Both tools rely on context.browser_task() from datasette-agent 0.4a0",
+          "kicker": "WHY IT MATTERS",
+          "head": "Open devtools aren't just auditable \u2014 they're now actively hackable by their users",
           "cmd": null,
-          "sub": "browser_task() is a new primitive that lets tool authors schedule sandboxed browser-side work from the agent context \u2014 the debug tool is the first real consumer of this API."
+          "sub": "The argument for open-source devtools gets substantially stronger: LLMs let the average user actually exercise the modify freedom, not just delegate it to maintainers."
         },
         {
-          "kicker": "SO WHAT",
-          "head": "Agentic coding loops just got a self-verification layer",
+          "kicker": "TAKEAWAY",
+          "head": "When evaluating new dev tooling, open source is now a capability, not just a philosophy",
           "cmd": null,
-          "sub": "The pattern \u2014 generate UI, render invisibly, run assertions, iterate \u2014 is one most AI coding tools skip entirely. Watching it land in an open-source data tool first is a useful proof-of-concept for any team building agent-driven front-end workflows."
+          "sub": "For PMs, this changes the build-vs-buy calculus: open-source components your team can quickly fork and adapt with AI assistance may beat polished closed tools that can't be changed."
         }
       ]
     },
     {
-      "id": "2026-08-01-openai-math-proofs",
+      "id": "2025-07-21-hide-negative-content-plugin",
       "format": "story",
-      "topic": "ai-news",
-      "accent": "gold",
-      "title": "OpenAI's model cracks decade-old math problems",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Ad blocker, but for doomscroll bait",
       "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything"
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vecqhn/a_browser_plugin_that_hides_negative_elements/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "People want an ad blocker for negativity, not ads",
+          "cmd": null,
+          "sub": "The request is blunt: filter out distressing content across any site, the same way uBlock Origin strips ads \u2014 without manually curating every platform's mute/filter settings."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Anyone who's tried and failed to 'clean up' their browser",
+          "cmd": null,
+          "sub": "News readers, social media users, and people managing anxiety all hit the same wall: platform-level filters are shallow, opt-in, and reset when you switch sites or devices."
+        },
+        {
+          "kicker": "WHAT THE PRODUCT COULD BE",
+          "head": "A classifier layer sitting between the DOM and your eyes",
+          "cmd": null,
+          "sub": "A browser extension that runs a lightweight sentiment or topic classifier on rendered page text, then collapses or blurs elements scoring above a negativity threshold \u2014 configurable by category (violence, outrage, grief) rather than a single dial."
+        },
+        {
+          "kicker": "WHY EXISTING TOOLS FALL SHORT",
+          "head": "Today's options are blunt or broken",
+          "cmd": null,
+          "sub": "uBlock/AdGuard target ad domains, not emotional tone. Platform tools (Twitter mutes, Reddit filters) are keyword-only and siloed. News Feed Eradicator just nukes the feed entirely \u2014 too blunt for people who still want some content."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Hypothesis, not product \u2014 test it cheap first",
+          "cmd": null,
+          "sub": "Search r/SomebodyMakeThis and r/productivity for duplicate requests, then post a no-code landing page offering a waitlist. If 200+ sign up without paid promotion, the willingness-to-try signal is real."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-01-st-vl53l9cx-tof-lidar",
+      "format": "story",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "ST's VL53L9CX: 2,300-zone ToF lidar in one module",
+      "source": {
+        "name": "Edge AI and Vision Alliance",
+        "url": "https://www.edge-ai-vision.com/2026/08/vl53l9cx-live-sensing-demo-human-detection-application/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Under $2,000 per unsolved math problem",
+          "head": "2,300 depth zones at 100 Hz \u2014 in a single chip module",
           "cmd": null,
-          "sub": "OpenAI tasked an internal pre-release model with ten mathematical problems that had seen zero progress for at least a decade \u2014 and claims each solution cost less than $2,000 at GPT-5.6 Sol token prices."
+          "sub": "STMicroelectronics demoed the VL53L9CX at Embedded Vision, showing dense real-time 3D sensing that previously required bulkier, pricier setups."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Lean 4 proofs published, paper included",
+          "kicker": "WHAT IT IS",
+          "head": "Direct Time-of-Flight with SPAD sensing, all integrated",
           "cmd": null,
-          "sub": "The openai/ten-proofs repo contains formal Lean 4 verifications of the results, alongside a paper and an LLM-generated PDF reconstructing how each proof developed from unpublished reasoning traces."
+          "sub": "The module combines SPAD (single-photon avalanche diode) array, VCSEL emitter, and on-chip processing in one package \u2014 no external ranging IC needed. Range extends to just under 9 metres."
         },
         {
-          "kicker": "DETAIL",
-          "head": "The scorecard has a blind spot",
+          "kicker": "THE APPLICATION",
+          "head": "Human detection without a camera or ML inference load",
           "cmd": null,
-          "sub": "OpenAI reports cost-per-success but not cost-per-attempt. How many $2,000 runs ended without a solution? That denominator matters a lot for interpreting the headline figure."
+          "sub": "The demo used raw depth zone data to detect and track people in real time. Because it's pure depth \u2014 no RGB \u2014 it sidesteps privacy concerns that camera-based occupancy sensing raises in regulated spaces."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "Mathematicians are having their Deep Blue moment",
+          "head": "Edge occupancy sensing just got cheaper and privacy-safe",
           "cmd": null,
-          "sub": "Terence Tao frames this as a shift toward 'big mathematics' \u2014 humans claim creative direction, AI handles technical grunt work at scale. One mathematician published an essay calling it a 'profound spiritual crisis.'"
+          "sub": "At this zone density and frame rate, the VL53L9CX can feed lightweight on-device classifiers for presence, count, and coarse pose \u2014 without streaming video. That's a viable fit for GDPR-sensitive retail, healthcare, and building automation deployments."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "The frontier is formal verification, not just generation",
+          "head": "Worth prototyping if you're replacing camera-based occupancy",
           "cmd": null,
-          "sub": "For PMs building AI reasoning pipelines: the publishable credibility here comes from Lean 4 \u2014 machine-checkable proofs, not just model-generated text. Pairing generation with formal verification is the pattern worth watching."
+          "sub": "If your product uses a camera primarily for people-counting or zone detection, a depth-only module like this can cut both BOM cost and compliance friction. Check ST's eval kit against your minimum zone-resolution requirement before assuming the camera is necessary."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-02-condense-json-1-0",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "condense-json 1.0: dedupe repeated strings in JSON",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/2/condense-json/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "JSON blows up when the same strings repeat across a structure",
+          "cmd": null,
+          "sub": "LLM logs, API payloads, and SQLite-stored JSON often repeat field values verbatim \u2014 wasting space and making diffs noisy."
+        },
+        {
+          "kicker": "THE TOOL",
+          "head": "condense_json() swaps repeated substrings for reference tokens",
+          "cmd": "condense_json(input_json, replacements)",
+          "sub": "You supply a replacements dict mapping short keys to repeated strings. The library rewrites matching values as {\"$r\": [..., {\"$\": \"1\"}, ...]} inline references."
+        },
+        {
+          "kicker": "ROUND-TRIP",
+          "head": "uncondense_json() restores the original losslessly",
+          "cmd": "uncondense_json(condensed, replacements)",
+          "sub": "The transform is fully reversible \u2014 no data is lost, just encoded. Safe to store the condensed form and expand on read."
+        },
+        {
+          "kicker": "REAL USE CASE",
+          "head": "Simon uses it to shrink SQLite logs generated by his LLM CLI tool",
+          "cmd": null,
+          "sub": "Model names, system prompts, and repeated template fragments appear constantly in LLM run logs \u2014 exactly the kind of duplication condense-json targets."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Worth adding to any pipeline that stores structured AI outputs long-term",
+          "cmd": "pip install condense-json",
+          "sub": "If you're logging CV inference results, agent traces, or prompt/response pairs to SQLite or a flat store, this is a cheap way to cut repetition without changing your schema."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-14-yt-paid-promo-filter",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Filter paid-promo YouTube videos before you click",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vdcont/browser_plugin_or_alternative_youtube_client_to/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "You can skip sponsored segments \u2014 but you can't avoid sponsored videos entirely",
+          "cmd": null,
+          "sub": "YouTube flags 'includes paid promotion' on-screen, yet no tool removes those videos from your feed or search results before you ever click."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Power users who treat their feed as a signal, not an ad surface",
+          "cmd": null,
+          "sub": "Researchers, analysts, and heavy YouTube consumers who want unsponsored takes on products, tools, or news \u2014 and currently have no upstream filter to remove brand-deal content."
+        },
+        {
+          "kicker": "WHAT A PRODUCT COULD DO",
+          "head": "A browser extension that reads the paid-promotion flag and buries or hides matching cards",
+          "cmd": null,
+          "sub": "YouTube injects the notice via a known DOM element; a content script could intercept it at page-render time and collapse, grey-out, or label those video cards in feed and search views."
+        },
+        {
+          "kicker": "EXISTING GAPS",
+          "head": "SponsorBlock skips segments mid-video \u2014 it doesn't filter the feed",
+          "cmd": null,
+          "sub": "That's the closest tool, but it solves a downstream problem. No public extension targets the upstream feed-level disclosure flag as a filter criterion."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Search r/SponsorBlock and r/youtube for 'filter paid promotion feed' before writing a line of code",
+          "cmd": null,
+          "sub": "If duplicate requests exist and SponsorBlock maintainers have declined the feature, you have both demand evidence and a clear gap. A simple toggle extension with a waitlist page is a cheap first test."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-lts-clothing",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "\"Long-term support\" for everyday clothes",
+      "source": {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=49095601"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Your favourite T-shirt wears out. You reorder it. It's gone.",
+          "cmd": null,
+          "sub": "Discontinuation and silent reformulation are routine. Brands keep the name, change everything else. Customers have no recourse."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Anyone who buys on fit, not fashion",
+          "cmd": null,
+          "sub": "Uniforms, workwear, basics buyers, people with sensory sensitivities \u2014 anyone who needs exact repeatability, not novelty. It's a recurring frustration, not a one-off."
+        },
+        {
+          "kicker": "THE HYPOTHESIS",
+          "head": "Sell a SKU with a guaranteed spec, frozen for years",
+          "cmd": null,
+          "sub": "Fix the customer-facing spec \u2014 fabric weight, weave, cut, colour \u2014 and commit to it for a stated period (think 3\u20135 years minimum). Swap suppliers only if the output stays within tolerance. Software calls this LTS; clothing has no equivalent."
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Workwear brands and DTC basics get close, but don't commit",
+          "cmd": null,
+          "sub": "Carhartt, Merz b. Schwanen, and American Apparel-era basics built reputations on consistency \u2014 but none publish a spec freeze or a support window. The promise is implicit and breakable."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Before building anything, measure demand signal",
+          "cmd": null,
+          "sub": "Search HN, Reddit r/frugalmalefashion, and r/femalefashionadvice for 'discontinued' + 'same' \u2014 count posts, note categories. Then run a simple landing page: 'Notify me when [item] is in stock \u2014 guaranteed same spec.' Waitlist size tells you more than any survey."
         }
       ]
     }
