@@ -1,305 +1,233 @@
 {
   "version": 1,
-  "generated_at": "2026-08-03",
+  "generated_at": "2026-08-04",
   "cards": [
     {
-      "id": "2025-01-27-hughes-bankruptcy-starlink",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Hughes GEO broadband files for bankruptcy",
+      "id": "2026-08-04-minimax-h3-mlx",
+      "format": "replay",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Run MiniMax-H3 video gen locally on Apple Silicon",
       "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/hughes-files-for-bankruptcy-after-geo-business-loses-ground-to-starlink/"
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/4/minimax-h3-mlx/#atom-everything"
       },
-      "panels": [
+      "caption": "Two model downloads (~115 GB total), one uv run, ~45 min on M5 Max \u2192 a 15-second video with audio on-device.",
+      "terminal_title": "simon@m5max \u2014 zsh",
+      "script": [
         {
-          "kicker": "MARKET SHIFT",
-          "head": "Hughes, once the dominant satellite ISP, has filed for bankruptcy",
-          "cmd": null,
-          "sub": "EchoStar's Hughes division \u2014 which built its business on geostationary broadband \u2014 could not sustain operations against low-Earth-orbit competition."
+          "type": "cmd",
+          "text": "uvx --from huggingface_hub hf download MiniMaxAI/MiniMax-H3 \\"
         },
         {
-          "kicker": "CONTEXT",
-          "head": "GEO broadband carries a structural latency penalty LEO doesn't",
-          "cmd": null,
-          "sub": "Geostationary satellites sit ~35,800 km up, producing round-trip latency of 600 ms+. Starlink's LEO constellation operates at ~550 km, delivering sub-50 ms latency at comparable or lower price points."
+          "type": "cmd",
+          "text": "  --include 'FL2VA/*' --exclude 'FL2VA/transformer/*'"
         },
         {
-          "kicker": "COMPETITIVE PRESSURE",
-          "head": "Starlink's subscriber growth directly eroded Hughes's rural customer base",
-          "cmd": null,
-          "sub": "Hughes historically served rural and underserved markets with no wired alternative \u2014 exactly the segment Starlink targeted first. Once a credible LEO option existed, GEO value proposition collapsed."
+          "type": "out",
+          "text": "Downloading FL2VA shards... done (\u224880 GB)"
         },
         {
-          "kicker": "INDUSTRY SIGNAL",
-          "head": "A legacy satellite operator falling is a datapoint, not an anomaly",
-          "cmd": null,
-          "sub": "Viasat has also faced subscriber losses. The Hughes filing signals that purpose-built LEO constellations can unseat entrenched GEO infrastructure businesses faster than capital structures can adapt."
+          "type": "cmd",
+          "text": "uvx --from huggingface_hub hf download pipenetwork/MiniMax-H3-MLX-8bit"
         },
         {
-          "kicker": "TAKEAWAY",
-          "head": "LEO is now the default assumption for new satellite connectivity investment",
-          "cmd": null,
-          "sub": "Any edge-compute or IoT connectivity architecture relying on satellite backhaul should be designed around LEO latency and pricing curves \u2014 GEO is a shrinking addressable market."
+          "type": "out",
+          "text": "Downloading 8-bit MLX weights... done (\u224835 GB)"
+        },
+        {
+          "type": "cmd",
+          "text": "uv run --with mlx-vlm --with-requirements requirements.txt \\"
+        },
+        {
+          "type": "cmd",
+          "text": "  python scripts/generate.py \\"
+        },
+        {
+          "type": "cmd",
+          "text": "  'a rainbow colored skunk leaps over a mossy log in a supermarket' \\"
+        },
+        {
+          "type": "cmd",
+          "text": "  -o skunk.mp4 -c ~/.cache/.../MiniMax-H3/.../FL2VA \\"
+        },
+        {
+          "type": "cmd",
+          "text": "  -t ~/.cache/.../MiniMax-H3-MLX-8bit/.../snapshots/3ac52..."
+        },
+        {
+          "type": "out",
+          "text": "Generating frames... [\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588] 44m 51s"
+        },
+        {
+          "type": "out",
+          "text": "Saved \u2192 skunk.mp4  (15 s, 1080p, audio included)"
         }
       ]
     },
     {
-      "id": "2026-08-03-llms-unlock-open-source-promise",
+      "id": "2026-08-04-yegge-opus-tic",
       "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "LLMs finally make open source modifiable, not just readable",
+      "title": "Claude Opus 4.7 Broke a Working Agentic Codebase",
       "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/3/devtools-must-be-open-source-exedev/#atom-everything"
+        "name": "Simon Willison / Steve Yegge",
+        "url": "https://simonwillison.net/2026/Aug/4/steve-yegge/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "THE FRICTION PROBLEM",
-          "head": "Open source's 'freedom to modify' was always theoretical for most devs",
+          "kicker": "THE INCIDENT",
+          "head": "A model update killed a working agentic scaffold overnight",
           "cmd": null,
-          "sub": "Reading an unfamiliar codebase, getting it to compile, then safely patching it \u2014 that time cost meant even expert engineers rarely bothered."
+          "sub": "Steve Yegge's 'Gas Town' coding-agent framework ran well through Claude Opus 4.6. One version bump to 4.7 and the whole thing fell apart."
         },
         {
-          "kicker": "THE SHIFT",
-          "head": "LLMs collapse the cost of understanding unfamiliar code to near zero",
+          "kicker": "ROOT CAUSE",
+          "head": "Opus 4.7 developed a 'just two more things' loop",
           "cmd": null,
-          "sub": "Simon Willison prompts Claude multiple times a day to clone a repo and explain how a specific part works \u2014 the same workflow that once took hours now takes a single message."
+          "sub": "The model introduced a behavioural tic where it perpetually wanted to refine its own scaffolding instead of moving on to actual work \u2014 preventing convergence on any real task."
         },
         {
-          "kicker": "IN PRACTICE",
-          "head": "\"Build this repo and come back in 10 minutes\" is now a real workflow",
+          "kicker": "CONSEQUENCE",
+          "head": "Gas Town never recovered \u2014 it 'burned down'",
           "cmd": null,
-          "sub": "Delegating the compile-and-run setup to Codex or Claude Code turns onboarding friction into a background task, not a decision point about whether to bother at all."
+          "sub": "The framework had pre-existing fragilities, but the Opus 4.7 tic was the final straw. Because the tic never disappeared in subsequent releases, the project was abandoned."
         },
         {
-          "kicker": "WHY IT MATTERS",
-          "head": "Open devtools aren't just auditable \u2014 they're now actively hackable by their users",
+          "kicker": "SO WHAT",
+          "head": "Model version bumps are a hidden dependency risk for agentic systems",
           "cmd": null,
-          "sub": "The argument for open-source devtools gets substantially stronger: LLMs let the average user actually exercise the modify freedom, not just delegate it to maintainers."
+          "sub": "If your pipeline relies on specific agent behaviours \u2014 task convergence, stop conditions, tool-call patterns \u2014 a provider update can silently break it. Pin model versions in production and run behavioural regression tests, not just output quality checks."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "When evaluating new dev tooling, open source is now a capability, not just a philosophy",
+          "head": "Treat LLM behaviour as a versioned contract, not a stable API",
           "cmd": null,
-          "sub": "For PMs, this changes the build-vs-buy calculus: open-source components your team can quickly fork and adapt with AI assistance may beat polished closed tools that can't be changed."
+          "sub": "For PMs shipping agentic features: define explicit convergence criteria, log loop counts, and alert when an agent exceeds expected iteration depth \u2014 before a model update exposes the gap in the wild."
         }
       ]
     },
     {
-      "id": "2025-07-21-hide-negative-content-plugin",
+      "id": "2025-01-30-rubicon-ascent-thruster",
       "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Ad blocker, but for doomscroll bait",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Rubicon's 5N green thruster clears hot-fire, heads to production",
       "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vecqhn/a_browser_plugin_that_hides_negative_elements/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "People want an ad blocker for negativity, not ads",
-          "cmd": null,
-          "sub": "The request is blunt: filter out distressing content across any site, the same way uBlock Origin strips ads \u2014 without manually curating every platform's mute/filter settings."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone who's tried and failed to 'clean up' their browser",
-          "cmd": null,
-          "sub": "News readers, social media users, and people managing anxiety all hit the same wall: platform-level filters are shallow, opt-in, and reset when you switch sites or devices."
-        },
-        {
-          "kicker": "WHAT THE PRODUCT COULD BE",
-          "head": "A classifier layer sitting between the DOM and your eyes",
-          "cmd": null,
-          "sub": "A browser extension that runs a lightweight sentiment or topic classifier on rendered page text, then collapses or blurs elements scoring above a negativity threshold \u2014 configurable by category (violence, outrage, grief) rather than a single dial."
-        },
-        {
-          "kicker": "WHY EXISTING TOOLS FALL SHORT",
-          "head": "Today's options are blunt or broken",
-          "cmd": null,
-          "sub": "uBlock/AdGuard target ad domains, not emotional tone. Platform tools (Twitter mutes, Reddit filters) are keyword-only and siloed. News Feed Eradicator just nukes the feed entirely \u2014 too blunt for people who still want some content."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Hypothesis, not product \u2014 test it cheap first",
-          "cmd": null,
-          "sub": "Search r/SomebodyMakeThis and r/productivity for duplicate requests, then post a no-code landing page offering a waitlist. If 200+ sign up without paid promotion, the willingness-to-try signal is real."
-        }
-      ]
-    },
-    {
-      "id": "2026-08-01-st-vl53l9cx-tof-lidar",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "ST's VL53L9CX: 2,300-zone ToF lidar in one module",
-      "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/08/vl53l9cx-live-sensing-demo-human-detection-application/"
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/rubicon-ascent-thruster-moves-from-hot-fire-testing-to-production/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "2,300 depth zones at 100 Hz \u2014 in a single chip module",
+          "head": "A small thruster just crossed the hardest line in propulsion development",
           "cmd": null,
-          "sub": "STMicroelectronics demoed the VL53L9CX at Embedded Vision, showing dense real-time 3D sensing that previously required bulkier, pricier setups."
+          "sub": "Rubicon Space Systems has completed hot-fire testing of its Velox thruster \u2014 the phase where most propulsion programs stall or fail."
         },
         {
-          "kicker": "WHAT IT IS",
-          "head": "Direct Time-of-Flight with SPAD sensing, all integrated",
+          "kicker": "THE HARDWARE",
+          "head": "5 newtons of ASCENT monopropellant thrust",
           "cmd": null,
-          "sub": "The module combines SPAD (single-photon avalanche diode) array, VCSEL emitter, and on-chip processing in one package \u2014 no external ranging IC needed. Range extends to just under 9 metres."
+          "sub": "ASCENT (formerly AF-M315E) is a high-performance green propellant that delivers better specific impulse than hydrazine without the extreme toxicity \u2014 making ground handling and launch integration significantly cheaper."
         },
         {
-          "kicker": "THE APPLICATION",
-          "head": "Human detection without a camera or ML inference load",
+          "kicker": "THE RESULT",
+          "head": "Performance exceeded pre-test targets",
           "cmd": null,
-          "sub": "The demo used raw depth zone data to detect and track people in real time. Because it's pure depth \u2014 no RGB \u2014 it sidesteps privacy concerns that camera-based occupancy sensing raises in regulated spaces."
+          "sub": "Rubicon says measured output beat their own projections during the hot-fire campaign, though specific Isp or thrust-duration figures weren't disclosed in public reporting."
         },
         {
-          "kicker": "WHY IT MATTERS",
-          "head": "Edge occupancy sensing just got cheaper and privacy-safe",
+          "kicker": "TIMELINE",
+          "head": "Production begins now; on-orbit operations targeted for 2027",
           "cmd": null,
-          "sub": "At this zone density and frame rate, the VL53L9CX can feed lightweight on-device classifiers for presence, count, and coarse pose \u2014 without streaming video. That's a viable fit for GDPR-sensitive retail, healthcare, and building automation deployments."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Worth prototyping if you're replacing camera-based occupancy",
-          "cmd": null,
-          "sub": "If your product uses a camera primarily for people-counting or zone detection, a depth-only module like this can cut both BOM cost and compliance friction. Check ST's eval kit against your minimum zone-resolution requirement before assuming the camera is necessary."
-        }
-      ]
-    },
-    {
-      "id": "2026-08-02-condense-json-1-0",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "condense-json 1.0: dedupe repeated strings in JSON",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/2/condense-json/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "JSON blows up when the same strings repeat across a structure",
-          "cmd": null,
-          "sub": "LLM logs, API payloads, and SQLite-stored JSON often repeat field values verbatim \u2014 wasting space and making diffs noisy."
-        },
-        {
-          "kicker": "THE TOOL",
-          "head": "condense_json() swaps repeated substrings for reference tokens",
-          "cmd": "condense_json(input_json, replacements)",
-          "sub": "You supply a replacements dict mapping short keys to repeated strings. The library rewrites matching values as {\"$r\": [..., {\"$\": \"1\"}, ...]} inline references."
-        },
-        {
-          "kicker": "ROUND-TRIP",
-          "head": "uncondense_json() restores the original losslessly",
-          "cmd": "uncondense_json(condensed, replacements)",
-          "sub": "The transform is fully reversible \u2014 no data is lost, just encoded. Safe to store the condensed form and expand on read."
-        },
-        {
-          "kicker": "REAL USE CASE",
-          "head": "Simon uses it to shrink SQLite logs generated by his LLM CLI tool",
-          "cmd": null,
-          "sub": "Model names, system prompts, and repeated template fragments appear constantly in LLM run logs \u2014 exactly the kind of duplication condense-json targets."
+          "sub": "Moving from test articles to flight hardware is a meaningful commitment \u2014 it means customer manifests exist and the design is considered stable enough to build against."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Worth adding to any pipeline that stores structured AI outputs long-term",
-          "cmd": "pip install condense-json",
-          "sub": "If you're logging CV inference results, agent traces, or prompt/response pairs to SQLite or a flat store, this is a cheap way to cut repetition without changing your schema."
+          "head": "Green propulsion is becoming a real procurement option for smallsat operators",
+          "cmd": null,
+          "sub": "As ASCENT-based thrusters from multiple vendors reach production, smallsat PMs choosing propulsion in 2025\u201326 will have competitive green alternatives to heritage hydrazine systems \u2014 worth factoring into platform roadmaps now."
         }
       ]
     },
     {
-      "id": "2025-05-14-yt-paid-promo-filter",
+      "id": "2026-08-03-meat-proxy",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Don't be a meat proxy for your AI",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/3/dont-be-a-meat-proxy/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "NEW TERM",
+          "head": "A 'meat proxy' is a human who just forwards AI output without thinking",
+          "cmd": null,
+          "sub": "Coined by Niklas Gruhn: you prompted the model, got an answer, and passed it on unchanged. Congratulations \u2014 you're now a slower, less reliable API endpoint."
+        },
+        {
+          "kicker": "THE PATTERN",
+          "head": "It's surprisingly easy to slip into this mode",
+          "cmd": null,
+          "sub": "AI output feels authoritative and complete. The path of least resistance is copy \u2192 paste \u2192 send. But that's outsourcing your judgment, not augmenting it."
+        },
+        {
+          "kicker": "THE FIX",
+          "head": "Read it. Understand it. Validate it. Then write your own response.",
+          "cmd": null,
+          "sub": "Writing in your own words is a receipt showing you processed the output \u2014 not just relayed it. That synthesis step is where your actual value lives."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "For PMs shipping AI features, this applies to your users too",
+          "cmd": null,
+          "sub": "If your product makes it frictionless to forward raw model output \u2014 in a medical report, a code review, a compliance check \u2014 you may be building a meat-proxy factory. Design for comprehension, not just convenience."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-15-physical-phone-agent-device",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "Filter paid-promo YouTube videos before you click",
+      "title": "A USB device that operates your phone like a human",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vdcont/browser_plugin_or_alternative_youtube_client_to/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vf18lp/if_a_hardware_device_could_physically_control/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "You can skip sponsored segments \u2014 but you can't avoid sponsored videos entirely",
+          "head": "Apps are walled gardens. Automation keeps hitting the wall.",
           "cmd": null,
-          "sub": "YouTube flags 'includes paid promotion' on-screen, yet no tool removes those videos from your feed or search results before you ever click."
+          "sub": "Software agents get blocked by API rate limits, OS sandboxing, and anti-bot checks. The only layer nothing can block is the physical screen and touch \u2014 the same interface any human uses."
         },
         {
-          "kicker": "WHO FEELS THIS",
-          "head": "Power users who treat their feed as a signal, not an ad surface",
+          "kicker": "WHO NEEDS THIS",
+          "head": "Anyone stuck doing repetitive phone tasks that apps deliberately make hard to leave",
           "cmd": null,
-          "sub": "Researchers, analysts, and heavy YouTube consumers who want unsponsored takes on products, tools, or news \u2014 and currently have no upstream filter to remove brand-deal content."
+          "sub": "Gig workers timing offer acceptance to the millisecond, people cancelling subscriptions buried inside apps, customer-service hostages on 90-minute hold queues. The friction is intentional \u2014 and it recurs daily."
         },
         {
-          "kicker": "WHAT A PRODUCT COULD DO",
-          "head": "A browser extension that reads the paid-promotion flag and buries or hides matching cards",
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "A USB dongle with a camera + actuator layer: it sees the screen, taps on your behalf",
           "cmd": null,
-          "sub": "YouTube injects the notice via a known DOM element; a content script could intercept it at page-render time and collapse, grey-out, or label those video cards in feed and search views."
+          "sub": "No app integration, no jailbreak. The device reads pixels and injects touch events over USB or Bluetooth HID \u2014 legally ambiguous but technically equivalent to a stylus on a timer. A companion app lets you record and replay tap sequences with conditional logic."
         },
         {
-          "kicker": "EXISTING GAPS",
-          "head": "SponsorBlock skips segments mid-video \u2014 it doesn't filter the feed",
+          "kicker": "WHY EXISTING TOOLS FALL SHORT",
+          "head": "ADB scripts need developer mode. Screen recorders need root. Browser automation doesn't reach mobile-only apps.",
           "cmd": null,
-          "sub": "That's the closest tool, but it solves a downstream problem. No public extension targets the upstream feed-level disclosure flag as a filter criterion."
+          "sub": "Consumer solutions like iOS Shortcuts and Android Macros can't cross app boundaries or handle dynamic UIs. The hardware layer is the one gap none of them close."
         },
         {
-          "kicker": "VALIDATION STEP",
-          "head": "Search r/SponsorBlock and r/youtube for 'filter paid promotion feed' before writing a line of code",
+          "kicker": "CHEAP VALIDATION STEP",
+          "head": "Before building hardware, sell the workflow",
           "cmd": null,
-          "sub": "If duplicate requests exist and SponsorBlock maintainers have declined the feature, you have both demand evidence and a clear gap. A simple toggle extension with a waitlist page is a cheap first test."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-lts-clothing",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "\"Long-term support\" for everyday clothes",
-      "source": {
-        "name": "Hacker News",
-        "url": "https://news.ycombinator.com/item?id=49095601"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Your favourite T-shirt wears out. You reorder it. It's gone.",
-          "cmd": null,
-          "sub": "Discontinuation and silent reformulation are routine. Brands keep the name, change everything else. Customers have no recourse."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone who buys on fit, not fashion",
-          "cmd": null,
-          "sub": "Uniforms, workwear, basics buyers, people with sensory sensitivities \u2014 anyone who needs exact repeatability, not novelty. It's a recurring frustration, not a one-off."
-        },
-        {
-          "kicker": "THE HYPOTHESIS",
-          "head": "Sell a SKU with a guaranteed spec, frozen for years",
-          "cmd": null,
-          "sub": "Fix the customer-facing spec \u2014 fabric weight, weave, cut, colour \u2014 and commit to it for a stated period (think 3\u20135 years minimum). Swap suppliers only if the output stays within tolerance. Software calls this LTS; clothing has no equivalent."
-        },
-        {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Workwear brands and DTC basics get close, but don't commit",
-          "cmd": null,
-          "sub": "Carhartt, Merz b. Schwanen, and American Apparel-era basics built reputations on consistency \u2014 but none publish a spec freeze or a support window. The promise is implicit and breakable."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building anything, measure demand signal",
-          "cmd": null,
-          "sub": "Search HN, Reddit r/frugalmalefashion, and r/femalefashionadvice for 'discontinued' + 'same' \u2014 count posts, note categories. Then run a simple landing page: 'Notify me when [item] is in stock \u2014 guaranteed same spec.' Waitlist size tells you more than any survey."
+          "sub": "Post a Loom of someone manually cancelling a gym membership in 4 minutes, then again in 12 seconds with a scripted tap sequence on a rooted device. Collect emails on a waitlist page. If 200 sign up in a week, the pain is real enough to build for."
         }
       ]
     }
