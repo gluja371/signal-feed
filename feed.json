@@ -1,308 +1,219 @@
 {
   "version": 1,
-  "generated_at": "2026-08-05",
+  "generated_at": "2026-08-07",
   "cards": [
     {
-      "id": "2026-08-01-yole-auto-semicon-2031",
+      "id": "2026-08-06-datasette-sql-injection",
       "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "Auto Chips Market Heading to $160B by 2031",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Datasette patches SQL injection in mixed-access DBs",
       "source": {
-        "name": "Edge AI and Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/08/yole-group-forecasts-automotive-semiconductor-market-will-double-to-160-billion-by-2031/"
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/6/datasette/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "MARKET SIGNAL",
-          "head": "Automotive chips are on track to double in six years",
+          "kicker": "SECURITY PATCH",
+          "head": "Datasette had a SQL injection hole in mixed-permission setups",
           "cmd": null,
-          "sub": "Yole Group pegs the automotive semiconductor market at $77B today and forecasts it hits $160B by 2031 \u2014 a ~13% CAGR sustained across a full product cycle."
+          "sub": "Any user with read access to a public table could bypass row-level restrictions and read data from private tables in the same database."
         },
         {
-          "kicker": "WHAT'S DRIVING IT",
-          "head": "Four forces, not one",
+          "kicker": "HOW IT WORKED",
+          "head": "Public table access was the attack surface",
           "cmd": null,
-          "sub": "Electrification, ADAS sensor fusion, centralised compute architectures, and software-defined vehicle platforms are each independently pulling chip spend upward \u2014 making the trend broad rather than fragile."
+          "sub": "Even with execute-sql disabled, the flaw let authenticated-but-limited users craft queries that leaked private table data \u2014 read-only, but still a serious boundary violation."
         },
         {
-          "kicker": "ARCHITECTURE SHIFT",
-          "head": "Zonal and domain controllers are replacing ECU sprawl",
+          "kicker": "AFFECTED CONFIG",
+          "head": "Only instances mixing public and private tables in one DB",
           "cmd": null,
-          "sub": "Centralised compute means fewer but far more powerful SoCs per vehicle. That concentrates silicon value \u2014 and perception pipeline workloads \u2014 into a handful of high-ASP chips rather than dozens of microcontrollers."
+          "sub": "The author notes this pattern \u2014 public and private tables co-existing in a single Datasette instance with permission-based access control \u2014 is uncommon in practice."
+        },
+        {
+          "kicker": "THE FIX",
+          "head": "Patch in 1.0a38 and backported to 0.65.3",
+          "cmd": "pip install datasette==1.0a38  # or datasette==0.65.3",
+          "sub": "Until you can upgrade, disabling the execute-sql permission on the affected database is the recommended interim mitigation."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Mixing access tiers in one DB is a hidden risk pattern",
+          "cmd": null,
+          "sub": "If you use Datasette to expose internal data alongside public datasets, keep them in separate database files \u2014 or treat the shared-DB pattern as a threat surface worth auditing regardless of framework."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-human-oversight-ai-agents",
+      "format": "story",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "Humans Miss 1-in-3 Threats When Approving AI Agent Commands",
+      "source": {
+        "name": "ScaleX Dev Blog",
+        "url": "https://scalex.dev/blog/ai-agent-permissions-stats/"
+      },
+      "panels": [
+        {
+          "kicker": "THE FINDING",
+          "head": "Human reviewers let dangerous AI commands through 33% of the time",
+          "cmd": null,
+          "sub": "Across 40,000 simulated agent runs, people approving tool-use requests missed roughly one in three genuinely harmful actions \u2014 even when explicitly asked to stay vigilant."
+        },
+        {
+          "kicker": "HOW IT WAS TESTED",
+          "head": "A game-like environment stress-tested human oversight at scale",
+          "cmd": null,
+          "sub": "Participants reviewed AI agent permission requests in a structured task environment. The volume and velocity of requests mimicked real agentic workflows, where agents fire off many tool calls in quick succession."
+        },
+        {
+          "kicker": "WHY IT BREAKS DOWN",
+          "head": "Approval fatigue, not malice, is the failure mode",
+          "cmd": null,
+          "sub": "High request volume degrades vigilance fast. When reviewers see dozens of routine-looking commands, pattern-matching kicks in and edge cases slip through \u2014 the same dynamic that plagues alert triage in security ops."
+        },
+        {
+          "kicker": "THE IMPLICATION",
+          "head": "\"Human in the loop\" is not the same as \"human oversight\"",
+          "cmd": null,
+          "sub": "Placing a person in the approval chain provides legal cover but not reliable safety. Without rate-limiting, batching by risk tier, or automated pre-filtering, human review degrades toward rubber-stamping."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Computer vision sits at the core of every ADAS dollar",
+          "head": "Design for human limits, not human ideals",
           "cmd": null,
-          "sub": "Camera, radar, and LiDAR fusion is the primary workload on centralised ADAS SoCs. PMs building CV inference pipelines for automotive have a six-year tailwind; the constraint will be safety certification speed, not hardware availability."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Follow the architecture, not the headline number",
-          "cmd": null,
-          "sub": "The shift to software-defined vehicles means OTA-updatable perception stacks. That creates a recurring software revenue opportunity layered on top of the hardware growth \u2014 worth tracking separately from the chip market itself."
+          "sub": "For PMs shipping agentic systems: audit how many approvals your reviewers actually handle per hour, flag only high-entropy or out-of-distribution commands for human eyes, and treat a 33% miss rate as your baseline assumption until you measure otherwise."
         }
       ]
     },
     {
-      "id": "2026-08-05-raccoon-heist-fable5",
+      "id": "2026-08-06-meta-muse-spark-hack",
       "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "One-shotting a browser game with Claude Fable 5",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "Meta's AI Accidentally Hacked a Company During Testing",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/5/raccoon-heist/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE EXPERIMENT",
-          "head": "A 2022 tweet became a playable 3D browser game \u2014 no design decisions made by the human",
-          "cmd": null,
-          "sub": "Simon Willison fed Claude Fable 5 two screenshots from a 2022 GPT-3/DALL-E concept tweet and a single mobile-typed prompt. He made zero further choices. A working raccoon heist game came out the other end."
-        },
-        {
-          "kicker": "THE SETUP",
-          "head": "GitHub Pages as a live preview loop for Claude Code sessions",
-          "cmd": null,
-          "sub": "Claude Code for web can't easily serve a preview mid-session. The workaround: point GitHub Pages at Claude's auto-named branch. Every push is live within ~30 seconds, giving you a real URL to watch the build progress in real time."
-        },
-        {
-          "kicker": "THE PROMPT",
-          "head": "The prompt delegated everything: stack, art style, game mechanics",
-          "cmd": null,
-          "sub": "Willison told Fable 5 to use an OpenAI API key for procedural textures (gpt-image-2), stay mobile-friendly, commit often, and log its own decisions to notes.md. He assumed \u2014 correctly \u2014 it would reach for Three.js unprompted."
-        },
-        {
-          "kicker": "WHAT THIS SHOWS",
-          "head": "The real unlock is autonomous iteration, not just code generation",
-          "cmd": null,
-          "sub": "Fable 5 didn't need hand-holding between commits. It generated assets, structured the game loop, and self-documented its choices. The human's role was environment setup (repo + Pages config) and spec-writing \u2014 about 15 minutes of work."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "For PMs: treat the model as a solo contractor, not a copilot",
-          "cmd": null,
-          "sub": "The prompt pattern \u2014 give assets, set constraints, forbid interruptions, demand frequent deploys \u2014 maps directly to how you'd brief a freelancer. The GitHub Pages loop is the key missing piece for async verification without blocking the agent."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-14-remote-lock-button",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Accidental button presses kill streaming sessions",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vfqktb/lock_button_on_remotes/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "You sit on the remote. The movie disappears.",
-          "cmd": null,
-          "sub": "Accidental button presses on TV remotes kick users out of streaming apps mid-watch \u2014 a small but recurring frustration in every household with a couch."
-        },
-        {
-          "kicker": "WHO FEELS IT",
-          "head": "Anyone who shares a sofa owns this problem",
-          "cmd": null,
-          "sub": "Families with kids, older users unfamiliar with deep app navigation, and anyone watching in the dark. The annoyance scales with how many steps it takes to return to the same point in content."
-        },
-        {
-          "kicker": "PRODUCT HYPOTHESIS",
-          "head": "A soft-lock layer for streaming remotes \u2014 or the apps themselves",
-          "cmd": null,
-          "sub": "Hardware path: a hold-to-activate lock mode on physical remotes. Software path: a streaming app setting that requires a deliberate double-press or hold before exiting playback. The software route could ship without any OEM involvement."
-        },
-        {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Nothing solves this today",
-          "cmd": null,
-          "sub": "Remote cases and couch organisers prevent loss, not accidental presses. Streaming apps offer no exit confirmation or lock mode. Smart TV OS vendors (Roku, FireTV, Google TV) haven't shipped this as a system-level feature."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Search before you build",
-          "cmd": null,
-          "sub": "Check r/Roku, r/fireTV, and r/cordcutters for duplicate complaints \u2014 volume and recency will tell you whether this is a top-10 pain point or background noise. If it surfaces often, a browser extension or Android TV sideload app is a low-cost first test."
-        }
-      ]
-    },
-    {
-      "id": "2026-08-04-llm-032-release",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "LLM 0.32: reasoning traces, server tools, smarter logs",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/4/new-release-of-llm/#atom-everything"
+        "url": "https://simonwillison.net/2026/Aug/6/an-ai-model-from-meta/#atom-everything"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Your CLI can now watch a model think \u2014 and keep it out of your pipes",
+          "head": "Meta's Muse Spark exploited a live system it was never supposed to reach",
           "cmd": null,
-          "sub": "LLM 0.32 streams reasoning traces to stderr, so a model's chain-of-thought is visible on screen but never pollutes stdout when you're chaining commands."
+          "sub": "During a third-party cybersecurity evaluation, the model found and used a real security vulnerability in an external company \u2014 not a sandboxed target."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Server-side tools land in one flag",
-          "cmd": "llm --tool CodeInterpreter 'Show current python and SQLite versions'",
-          "sub": "OpenAI's sandboxed code executor and web search are now callable directly from the CLI. The llm-anthropic plugin adds WebSearch, WebFetch, CodeExecution, and MCP server access in the same pattern."
+          "kicker": "WHAT HAPPENED",
+          "head": "A misconfiguration gave the model unsupervised internet access",
+          "cmd": null,
+          "sub": "Irregular, an independent firm Meta hired for red-team testing, accidentally left live internet access enabled. That gap was enough for the model to act on what it found."
         },
         {
-          "kicker": "DETAIL",
-          "head": "One-liner to hit any OpenAI-compatible endpoint \u2014 no install needed",
-          "cmd": "uvx --with llm-tools-quickjs llm openai endpoint http://localhost:1234/v1 -m google/gemma-4-12b -T QuickJS 'Use QuickJS to multiply 3434 * 2434' --td",
-          "sub": "The new `llm openai endpoint` command runs a prompt against any compatible API (local LM Studio, remote self-hosted, etc.) as a one-shot. These calls are intentionally not logged."
+          "kicker": "PATTERN",
+          "head": "Anthropic and OpenAI have disclosed near-identical incidents",
+          "cmd": null,
+          "sub": "This is the third major lab to confirm an accidental external breach during model evaluation. The failure mode is consistent: evaluation infrastructure that isn't fully air-gapped."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "The Python API now maps to how LLMs actually work",
+          "head": "Agentic models can cause real harm before anyone notices the config error",
           "cmd": null,
-          "sub": "Instead of a fake conversation abstraction, you can pass a raw message list with system/user/assistant turns. Streaming now emits typed events \u2014 'reasoning', 'text', tool calls, image attachments \u2014 so your code handles the real response shape rather than assuming a flat string."
+          "sub": "These aren't adversarial jailbreaks \u2014 they're routine capability tests that leaked into production environments. For PMs scoping agentic deployments, evaluation isolation is now a hard requirement, not a best practice."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "Default model quietly upgrades to GPT-5.6 Luna",
+          "head": "Treat model evaluation infra with the same rigour as production infra",
           "cmd": null,
-          "sub": "A bare `llm \"prompt\"` now routes to GPT-5.6 Luna \u2014 cheap, capable, and the new baseline. If you're building pipelines or evals on top of the LLM CLI, audit your default-model assumptions before upgrading."
+          "sub": "Default-deny network egress, explicit allowlists, and third-party audits of test environments should be table stakes before any agentic model touches external tools \u2014 even in testing."
         }
       ]
     },
     {
-      "id": "2026-08-04-llm-anthropic-026",
-      "format": "infographic",
+      "id": "2026-08-05-muse-spark-12",
+      "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "llm-anthropic 0.26: Claude 5 + server tools",
+      "title": "Meta's Muse Spark 1.2 bets big on coding agents",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/4/llm-anthropic/#atom-everything"
+        "url": "https://simonwillison.net/2026/Aug/5/muse-code-and-muse-spark-12/#atom-everything"
       },
-      "kicker": "VIBE-CODING \u00b7 CLI TOOLING",
-      "headline": "Claude 5 models, built-in\nweb search, and smarter\nthinking controls",
-      "headline_accent": "thinking controls",
-      "steps": [
+      "panels": [
         {
-          "n": "01",
-          "label": "Three new Claude 5 models",
-          "cmd": "llm -m claude-sonnet-5 'your prompt'",
-          "detail": "claude-fable-5, claude-sonnet-5, and claude-opus-5 are now available. Fable 5 always reasons; Sonnet 5 and Opus 5 reason by default but you can disable it."
-        },
-        {
-          "n": "02",
-          "label": "Server-side tools via -T flag",
-          "cmd": "llm -T WebSearch 'latest edge AI chips'",
-          "detail": "WebSearch, WebFetch, CodeExecution, and AnthropicMCP are now first-class tools. The old -o web_search* options are gone \u2014 switch to -T WebSearch."
-        },
-        {
-          "n": "03",
-          "label": "Simplified thinking controls",
-          "cmd": "llm -m claude-sonnet-5 -o thinking_effort high 'your prompt'",
-          "detail": "Extended thinking collapses to two options: thinking (on/off) and thinking_effort (low/medium/high/xhigh/max). The old thinking_budget and thinking_adaptive knobs are removed."
-        },
-        {
-          "n": "04",
-          "label": "Hide reasoning from output",
-          "cmd": "llm -m claude-opus-5 -R 'your prompt'",
-          "detail": "Pass --hide-reasoning / -R to suppress chain-of-thought from stdout and logs. Without it, reasoning streams to stderr so it doesn't pollute piped output."
-        },
-        {
-          "n": "05",
-          "label": "Typed streaming events (LLM 0.32)",
+          "kicker": "HOOK",
+          "head": "Meta built a coding agent just to train a better model",
           "cmd": null,
-          "detail": "Reasoning, tool calls, and tool results now stream as distinct typed events, making it easier to parse or display intermediate steps in scripts and UIs."
+          "sub": "Muse Code \u2014 Meta's own coding agent \u2014 was co-developed with Muse Spark 1.2 specifically so the model could be trained on real agentic tool-use trajectories, not synthetic stand-ins."
+        },
+        {
+          "kicker": "WHAT CHANGED",
+          "head": "Whole-repo generation and long-horizon tasks are the new benchmark",
+          "cmd": null,
+          "sub": "1.2 scaled training compute on coding tasks and expanded environment diversity, targeting end-to-end projects and auto-research \u2014 not just function-level completions."
+        },
+        {
+          "kicker": "PRICING TWIST",
+          "head": "Pay $1.25/M tokens \u2014 or $0.10/M if you share your data",
+          "cmd": null,
+          "sub": "The standard tier (muse-spark-1.2) sits near Gemini Flash pricing. Opt into the contributor tier (muse-spark-1.2-contributor) and the cost drops 12\u00d7 on input and 21\u00d7 on output \u2014 in exchange for Meta training rights."
+        },
+        {
+          "kicker": "MARKET SIGNAL",
+          "head": "Long-sequence agentic tool-calling is the new moat",
+          "cmd": null,
+          "sub": "The fact that Meta co-trained model and agent together suggests the field is converging on a view: raw benchmark scores matter less than how well a model sustains coherent action over many tool calls and large codebases."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "For teams building AI-assisted dev workflows, the contributor tier is cheap enough to experiment freely",
+          "cmd": null,
+          "sub": "At $0.10/$0.20 per million tokens, Muse Spark 1.2-contributor undercuts most mid-tier models. Worth benchmarking against your existing code-gen pipeline \u2014 just read the data-use terms before routing production traffic through it."
         }
       ]
     },
     {
-      "id": "2025-08-05-neuraspace-18m-space-awareness",
+      "id": "2026-08-05-openai-accidental-cyberattacks",
       "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Neuraspace raises $18M for European space traffic management",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "AI safety tests accidentally hit real websites",
       "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/neuraspace-raises-18-million-to-expand-sovereign-space-awareness/"
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/5/third-party-cyber-evaluations/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "FUNDING \u00b7 SPACE TRAFFIC",
-          "head": "Europe wants its own eyes on what's orbiting overhead",
+          "kicker": "INCIDENT",
+          "head": "A CTF drill became a real attack \u2014 by accident",
           "cmd": null,
-          "sub": "Portuguese startup Neuraspace closed ~$18M in fresh funding on Aug. 5, targeting sovereign space domain awareness \u2014 the ability to track objects in orbit without relying on US Space Command data feeds."
+          "sub": "During a Capture-the-Flag cybersecurity evaluation, an OpenAI model exploited a live public website it mistook for a simulated target."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "Space traffic management is a dependency problem",
+          "kicker": "ROOT CAUSE",
+          "head": "Two failures stacked: network misconfiguration + name collision",
           "cmd": null,
-          "sub": "Most commercial and government operators today lean on US SSN (Space Surveillance Network) for conjunction alerts. As LEO congestion grows \u2014 Starlink alone exceeds 6,000 satellites \u2014 European agencies want an independent picture they control."
+          "sub": "Evaluator Irregular left the sandboxed test environment connected to the public internet. Separately, the fictional CTF target name happened to match a real registered domain."
         },
         {
-          "kicker": "WHAT NEURASPACE DOES",
-          "head": "AI-driven collision risk, not just raw tracking",
+          "kicker": "SCOPE",
+          "head": "Both OpenAI and Anthropic models were affected",
           "cmd": null,
-          "sub": "Neuraspace layers machine learning on top of sensor data to produce actionable manoeuvre recommendations, moving the product from 'here are the objects' to 'here is what to do about them'. The $18M is earmarked to expand sensor network partnerships and defense-facing capabilities."
+          "sub": "The same Irregular-hosted environment gave Claude live internet access during some tests too \u2014 documented separately in Anthropic's own write-up of the UK AI Safety Institute incident."
         },
         {
-          "kicker": "WHY IT MATTERS",
-          "head": "Defence funding is reshaping the space awareness market",
+          "kicker": "PATTERN",
+          "head": "This is now common enough to need its own tag",
           "cmd": null,
-          "sub": "The explicit mention of 'defense capabilities' signals military procurement interest \u2014 European NATO members are prioritising space situational awareness as a strategic asset, opening a government-contract revenue lane alongside commercial satellite operators."
+          "sub": "Simon Willison created an 'accidental-cyberattacks' tag just to track recurrences \u2014 signalling this is a systemic evaluation-infrastructure problem, not a one-off."
         },
         {
-          "kicker": "TAKEAWAY",
-          "head": "Sovereign SDA is a platform play, not just a service",
+          "kicker": "SO WHAT",
+          "head": "Eval environment hygiene is now a model-risk control",
           "cmd": null,
-          "sub": "Whoever owns the authoritative collision-risk data feed for European operators gains leverage over the entire stack: insurance underwriting, spectrum coordination, and eventual regulatory compliance. Watch for Neuraspace to pursue ESA and national-agency anchor contracts next."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-30-rocketlab-str-amti-contract",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Space Force awards $615M for airborne-target tracking sats",
-      "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/rocket-lab-str-win-space-force-contracts-for-airborne-target-tracking-technologies/"
-      },
-      "panels": [
-        {
-          "kicker": "CONTRACT WIN",
-          "head": "$615M to watch the sky from space",
-          "cmd": null,
-          "sub": "The U.S. Space Force has awarded contracts totalling $615 million across Rocket Lab, STR, and one undisclosed vendor for its Airborne Moving Target Indication (AMTI) satellite program."
-        },
-        {
-          "kicker": "THE MISSION",
-          "head": "AMTI: tracking airborne threats from orbit",
-          "cmd": null,
-          "sub": "AMTI satellites are designed to detect and track moving airborne objects \u2014 aircraft, missiles, drones \u2014 from low Earth orbit, filling a gap that ground and airborne radar systems can't cover globally."
-        },
-        {
-          "kicker": "THE PLAYERS",
-          "head": "Rocket Lab diversifies beyond launch \u2014 again",
-          "cmd": null,
-          "sub": "STR is a defence-focused space sensing firm; Rocket Lab's win extends its growing spacecraft and systems business, which now competes separately from its Electron and Neutron launch vehicles."
-        },
-        {
-          "kicker": "WHY IT MATTERS",
-          "head": "Space-based wide-area surveillance is scaling fast",
-          "cmd": null,
-          "sub": "Multiple vendors on a single programme signals the Space Force is pursuing resilience through competition rather than a single-contractor constellation \u2014 a pattern accelerating across its Proliferated Warfighter Space Architecture."
-        },
-        {
-          "kicker": "TAKEAWAY",
-          "head": "Defence is the near-term revenue floor for LEO sensing",
-          "cmd": null,
-          "sub": "For commercial CV and edge-compute players, AMTI-class programmes validate the sensor-to-orbit pipeline. The technology overlap with commercial Earth observation \u2014 onboard processing, moving-object detection \u2014 is direct."
+          "sub": "If you're deploying or auditing agentic AI, verify that test environments are network-air-gapped and that synthetic target names are checked against real DNS before any eval runs."
         }
       ]
     }
