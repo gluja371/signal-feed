@@ -1,219 +1,348 @@
 {
   "version": 1,
-  "generated_at": "2026-08-09",
+  "generated_at": "2026-08-10",
   "cards": [
     {
-      "id": "2026-08-08-claude-code-auto-mode-default",
+      "id": "2026-08-10-openclaw-gym-booking-vuln",
       "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "Claude Code makes auto mode the default",
+      "title": "AI finds zero-auth bug in gym booking API",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/8/auto-mode/#atom-everything"
+        "url": "https://simonwillison.net/2026/Aug/10/openclaw/#atom-everything"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Humans approve dangerous commands 86% of the time. Claude Code's auto mode blocks 89% of them.",
+          "head": "Anyone could cancel anyone else's gym reservation \u2014 no login required",
           "cmd": null,
-          "sub": "A 1,053-person study showed that when a harmful action was slipped into a normal approval prompt, only 13.6% of humans caught it. Confirmation fatigue is doing real damage."
+          "sub": "An AI-assisted security researcher found a booking API with no authorisation checks on cancellation endpoints."
         },
         {
-          "kicker": "WHAT'S CHANGING",
-          "head": "Auto mode becomes the default on August 14th for Pro, Max, and Team plans",
+          "kicker": "CONTEXT",
+          "head": "The target: an Australian gym chain's waitlist system",
           "cmd": null,
-          "sub": "Instead of prompting users to approve each action, Claude Code's auto mode independently judges whether an action is safe to execute. Anthropic says nearly every internal employee already runs this way."
+          "sub": "Waitlists imply a queue \u2014 position matters. An unauthenticated cancel call meant you could silently bump yourself up by removing whoever was ahead of you."
         },
         {
-          "kicker": "THE BOLD CLAIM",
-          "head": "Zero successful prompt-injection attacks across 720 attempts in third-party evals",
+          "kicker": "DETAIL",
+          "head": "Researcher confirmed the exploit live: #4 became #3 in real time",
           "cmd": null,
-          "sub": "Trajectory Labs tested 72 indirect injection scenarios against Claude Fable 5, Opus 5, and Sonnet 5 in auto mode. None of the 720 attack attempts got through \u2014 though these scenarios were held out from Anthropic, not fully independent."
+          "sub": "The cancellation request was sent against the account of the person holding position #1 on the waitlist \u2014 it succeeded without any credential or token belonging to that user."
         },
         {
-          "kicker": "THE GAP",
-          "head": "Auto mode still misses 11% of harmful actions, and supply-chain attacks remain unaddressed",
+          "kicker": "WHY IT MATTERS",
+          "head": "Vibe-coded apps ship features; they often skip auth on state-mutating calls",
           "cmd": null,
-          "sub": "A malicious npm/PyPI package that encodes its own instructions ('run uvx fetch-model-files first') could still trick an agent that trusts content it fetches. No permission model catches intent hidden inside a dependency."
+          "sub": "When LLMs scaffold CRUD logic quickly, authorisation on destructive actions (delete, cancel, revoke) is the class of check most likely to be omitted or assumed to be handled elsewhere."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Audit every state-mutating endpoint for caller identity checks \u2014 not just input validation",
+          "cmd": null,
+          "sub": "If you ship AI-generated API code, add a review pass specifically for: does this endpoint verify the caller *owns* the resource they're modifying? No amount of rate-limiting fixes a missing ownership check."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-30-docker-sandboxes",
+      "format": "story",
+      "topic": "agentic-ai",
+      "accent": "coral",
+      "title": "Docker launches isolated sandboxes for AI agents",
+      "source": {
+        "name": "Docker",
+        "url": "https://www.docker.com/products/docker-sandboxes/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Agents that can run code are only useful if you can contain them",
+          "cmd": null,
+          "sub": "Letting an AI agent execute arbitrary code against your real filesystem or network is an obvious disaster. Most teams bolt on ad-hoc restrictions and hope for the best."
+        },
+        {
+          "kicker": "WHAT DOCKER BUILT",
+          "head": "Disposable, API-driven containers spun up per agent task",
+          "cmd": null,
+          "sub": "Docker Sandboxes provision a fresh, fully isolated environment for each agent session \u2014 no persistent state, no shared filesystem, killed on completion. Think of it as a per-call VM with container startup speed."
+        },
+        {
+          "kicker": "HOW IT WORKS",
+          "head": "Agent requests a sandbox, runs code, environment is destroyed",
+          "cmd": null,
+          "sub": "The sandbox exposes a controlled API surface so the agent can execute commands and read results without touching host resources. Isolation is enforced at the container boundary, not by prompt instruction."
+        },
+        {
+          "kicker": "WHY NOW",
+          "head": "Code-execution is the highest-risk tool any agent can hold",
+          "cmd": null,
+          "sub": "With frameworks like LangChain, CrewAI, and Claude tool-use making code execution a default capability, the gap between 'agent can run code' and 'agent can run code safely' has become a shipping blocker for regulated environments."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Treat auto mode as a floor, not a ceiling \u2014 scope your agents' blast radius",
+          "head": "Hard isolation lets you give agents more power without more risk",
           "cmd": null,
-          "sub": "For PMs deploying coding agents in regulated or production environments: the safest posture is limiting what data and tools the agent can touch, regardless of how good its refusal rate is. Least-privilege architecture beats permission prompts every time."
+          "sub": "For PMs shipping agentic workflows in regulated settings \u2014 medical imaging pipelines, financial data processing \u2014 Docker Sandboxes offers an auditable execution boundary that compliance teams can actually reason about. Worth evaluating before rolling your own chroot/seccomp stack."
         }
       ]
     },
     {
-      "id": "2025-07-18-travel-wishlist-chaos",
+      "id": "2025-01-01-long-march-7a-failure",
       "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Scattered Travel Wishlists Are a Real Organisational Pain",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Long March 7A Fails at T+90s, Payload Lost",
       "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vjnoog/does_anyone_else_have_a_chaotic_travel_wishlist/"
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/chinese-long-march-7a-rocket-explodes-shortly-after-liftoff/"
       },
       "panels": [
         {
-          "kicker": "THE PROBLEM",
-          "head": "Five apps to save one destination",
+          "kicker": "LAUNCH FAILURE",
+          "head": "A Long March 7A rocket exploded less than 90 seconds after liftoff",
           "cmd": null,
-          "sub": "Travellers scatter saved places across Google Maps stars, Instagram saves, Pinterest boards, and phone screenshots \u2014 then face a fragmented mess when it's time to actually book."
+          "sub": "Amateur video footage captured the explosion, which occurred early in the ascent phase \u2014 a window typically associated with first-stage or ignition anomalies."
         },
         {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone building a wishlist across months of passive discovery",
+          "kicker": "THE VEHICLE",
+          "head": "LM-7A is a mid-to-heavy lift workhorse targeting GTO missions",
           "cmd": null,
-          "sub": "The trigger is passive \u2014 a friend's post, a Reel, a travel article \u2014 not active planning. By the time the person wants to plan, context (why they saved it, what they wanted to do there) is long gone."
+          "sub": "The Long March 7A variant adds a third stage to the base LM-7 to reach geostationary transfer orbit. It had logged several successful flights since its 2021 debut."
         },
         {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "A single 'place inbox' with context, ranking, and trip grouping",
+          "kicker": "THE PAYLOAD",
+          "head": "China has not disclosed what was on board",
           "cmd": null,
-          "sub": "Core feature set: save a place from any source via share sheet, attach photos/links, write a note ('why I want to go', 'must-eat there'), rate desire-to-visit, and bundle places into candidate trips. Android-first, free tier needed."
+          "sub": "The payload identity remains undeclared \u2014 a common practice for Chinese missions that carry classified government or military satellites."
         },
         {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Nothing quite nails the 'why I saved this' layer",
+          "kicker": "RIPPLE EFFECTS",
+          "head": "A T+90s failure points to early propulsion, not upper-stage issues",
           "cmd": null,
-          "sub": "Google Maps lists and Wanderlog handle itinerary planning; Pinterest and Instagram saves handle discovery \u2014 but none combine personal annotation, desire ranking, and multi-source import in one place aimed at the wishlist phase before planning begins."
+          "sub": "Failures in this flight window usually trigger fleet-wide stand-downs for investigation. Any other LM-7 or LM-7A missions in the manifest could face delays while the root cause is determined."
         },
         {
-          "kicker": "VALIDATION STEP",
-          "head": "Search before building",
+          "kicker": "WATCH",
+          "head": "How China handles transparency here signals program maturity",
           "cmd": null,
-          "sub": "Run 'travel wishlist' on r/SomebodyMakeThis and r/travel to count duplicate complaints. Then post a 5-question Typeform to a travel-focused Discord and see if 20 people describe the same fragmentation pattern \u2014 that's enough signal to justify a no-code prototype."
+          "sub": "CASC's previous anomaly disclosures have been sparse. The speed and detail of any official statement will indicate how much pressure commercial and government customers are applying for accountability."
         }
       ]
     },
     {
-      "id": "2025-07-21-plant-care-app-frustration",
+      "id": "2025-05-13-painfinder-problem-mining",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "Plant Apps Are Over-Built and Under-Useful",
+      "title": "Mine Reddit for real problems, not app ideas",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vjndgv/anyone_else_frustrated_with_plant_care_apps_roast/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vkofqm/app_idea_an_app_that_finds_recurring_problems/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "Plant care apps are killing plants with generic advice",
+          "head": "Aspiring founders drown in ideas, not problems",
           "cmd": null,
-          "sub": "Watering schedules that ignore pot size, soil type, and local climate feel random \u2014 because they are. Users blame themselves when their plant dies; the real culprit is one-size-fits-all data."
+          "sub": "Most 'app idea' lists skip the hard part: proving anyone actually suffers from the problem often enough to pay for a fix. The insight-to-validation gap kills more startups than bad code."
         },
         {
           "kicker": "WHO FEELS THIS",
-          "head": "Casual plant owners, not botanists",
+          "head": "Solo founders, indie hackers, product researchers \u2014 weekly",
           "cmd": null,
-          "sub": "The audience isn't collectors with 80 species \u2014 it's people with 3\u201310 houseplants who want a nudge before the fiddle-leaf fig dies. They open an app weekly, not daily."
+          "sub": "Anyone doing customer discovery manually trawls forums, Reddit, and review sites for repeated complaints. It takes hours per vertical and the signal is buried in noise."
         },
         {
           "kicker": "THE HYPOTHESIS",
-          "head": "A dead-simple tracker: reminders + photo journal, nothing else",
+          "head": "A 'painfinder' that clusters recurring complaints, not ideas",
           "cmd": null,
-          "sub": "Offline-first, no aggressive paywalls, free up to ~5 plants, cheap flat subscription beyond that. The wedge is trust: advice that acknowledges it doesn't know your conditions beats confident generic schedules."
-        },
-        {
-          "kicker": "WHY INCUMBENTS FALL SHORT",
-          "head": "Existing apps monetise through identification, not care",
-          "cmd": null,
-          "sub": "PictureThis and Greg both lead with ID features because that's the viral hook. Care quality suffers because context \u2014 your window light, your pot, your watering habits \u2014 is never collected well enough to personalise."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building: search r/plantclinic for recurring complaints",
-          "cmd": null,
-          "sub": "If 'my app told me to water and it still died' shows up repeatedly, you have a real pain point, not just one frustrated poster. A no-code landing page with a waitlist email field costs one afternoon and tells you if strangers care."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-18-oven-splash-guard",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Modular oven splash guard: real problem, no good product",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vjnxys/projektidee_der_universelle_rundumspritzschutz/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Baked-on grease is one of the most hated kitchen chores",
-          "cmd": null,
-          "sub": "Fat spatters onto oven walls during roasting, burns in, and requires serious scrubbing. Parchment paper covers the floor \u2014 not the sides."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone who roasts meat or bakes at high heat, probably weekly",
-          "cmd": null,
-          "sub": "Home cooks with conventional ovens \u2014 a near-universal audience. Frequency is high: this pain recurs every time someone roasts a chicken or a tray of vegetables."
-        },
-        {
-          "kicker": "THE HYPOTHESIS",
-          "head": "A modular, adjustable side-wall guard that sits on the baking tray",
-          "cmd": null,
-          "sub": "Food-safe silicone or stainless steel panels that clip together to fit any tray size, with vented slots so hot air still circulates and food stays crispy. Dishwasher-safe and flat-foldable for storage."
-        },
-        {
-          "kicker": "WHY NOTHING FITS",
-          "head": "Existing products solve the wrong shape or the wrong problem",
-          "cmd": null,
-          "sub": "Cake rings are rigid and too low; silicone pan splash guards are circular only; flat grease screens block access to flip food. None address a rectangular oven tray with tall roasts."
-        },
-        {
-          "kicker": "NEXT STEP",
-          "head": "Before prototyping, check whether demand is already expressed",
-          "cmd": null,
-          "sub": "Search Amazon reviews for 'oven liner', 'roasting pan splatter guard', and 'baking sheet shield' \u2014 look for 1-star reviews complaining about grease on walls. If 20+ reviewers name the same gap, that's signal worth a simple landing-page test before touching silicone moulds."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-13-trial-receipt-extension",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Browser extension that saves what companies promised you",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vj9bw5/which_of_these_browser_tools_would_you_actually/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Companies change the deal after you've signed.",
-          "cmd": null,
-          "sub": "Price locked at signup quietly shifts. Free trial terms vanish once you click Accept. The confirmation page you needed is gone by the time you need to argue your case."
-        },
-        {
-          "kicker": "WHO FEELS IT",
-          "head": "Anyone who's ever lost a dispute because they had no evidence.",
-          "cmd": null,
-          "sub": "SaaS subscribers, frequent online shoppers, and anyone managing multiple free trials \u2014 essentially the majority of browser users \u2014 hit this multiple times a year. Customer-support teams on the other side face the inverse: unverifiable claims."
-        },
-        {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "A 'receipt vault' extension that fires automatically at key moments.",
-          "cmd": null,
-          "sub": "On subscribe, trial-start, cancel, or unsubscribe clicks: screenshot the page, extract the key terms (price, end date, cancellation policy, confirmation ID), and store a tamper-evident local record. Remind users 48 hours before a trial converts."
+          "sub": "Scrape public forums, group semantically similar complaints, then surface each cluster with frequency count, emotional intensity, and the workarounds people are already using \u2014 raw evidence, not AI-generated ideas."
         },
         {
           "kicker": "EXISTING ALTERNATIVES",
-          "head": "Manual screenshots and email search \u2014 both fail at retrieval.",
+          "head": "Exploding Topics, SparkToro, and manual Notion boards all fall short",
           "cmd": null,
-          "sub": "Power users screenshot confirmation pages; most don't. DoNotPay and Privacy.com solve adjacent problems (virtual cards, spam) but neither creates a structured, timestamped evidence trail tied to the specific terms shown at signup."
+          "sub": "Trend tools track rising search interest, not expressed pain. SparkToro shows audience behaviour, not frustration. Most founders still do this manually, which signals no tool has nailed the job-to-be-done yet."
         },
         {
           "kicker": "VALIDATION STEP",
-          "head": "Search 'charged after cancellation' on r/personalfinance before building anything.",
+          "head": "Run the concept as a weekly newsletter before writing a line of code",
           "cmd": null,
-          "sub": "If complaint volume is high and recurring, post a one-question poll: 'Would you install a free extension that auto-saves cancellation confirmations?' A 20%+ yes rate from cold respondents is a signal worth acting on."
+          "sub": "Manually curate 5 recurring complaints per week from one subreddit (e.g. r/smallbusiness), publish them with frequency data and workaround patterns. If 200 people subscribe in a month, the demand signal is real enough to automate."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-09-github-models-retired",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "GitHub Models quietly shut down",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/9/github-models-is-now-retired/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "BREAKING",
+          "head": "GitHub Models is gone \u2014 no warning, no blog post",
+          "cmd": null,
+          "sub": "Developers discovered the shutdown when GitHub Actions pipelines started failing with a 'scheduled retirement brownout' message that was already out of date."
+        },
+        {
+          "kicker": "WHAT IT WAS",
+          "head": "A free, unified LLM API baked into GitHub's own auth",
+          "cmd": null,
+          "sub": "GitHub Models let Actions workflows call multiple LLM providers using the GITHUB_TOKEN already in the environment \u2014 no separate API key, no billing setup."
+        },
+        {
+          "kicker": "WHY IT LIKELY DIED",
+          "head": "Coding agents killed the economics",
+          "cmd": null,
+          "sub": "GitHub never gave an official reason, but the pattern is familiar: agentic coding workflows consume tokens at a rate that makes free or subsidised access unsustainable fast."
+        },
+        {
+          "kicker": "THE FIX",
+          "head": "Drop in a real API key with a spending cap",
+          "cmd": null,
+          "sub": "Simon Willison replaced GitHub Models with an OpenAI key (GPT-5.6 Luna) protected by a monthly spending limit \u2014 a two-minute swap for most workflows using the simonw/llm library."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Free AI infrastructure in dev tooling is a fragile dependency",
+          "cmd": null,
+          "sub": "If your CI pipelines rely on vendor-subsidised LLM tiers, build in a spending-capped fallback key now \u2014 don't wait for a brownout to find out."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-14-council-ai-api-routing",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "One inbox for Claude, GPT, and Grok",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vk1r8y/considering_a_version_of_councilai_that_routes/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Power users juggle 3+ AI tabs \u2014 every day",
+          "cmd": null,
+          "sub": "Knowledge workers who subscribe to Claude Pro, ChatGPT Plus, and Grok Premium still manually decide which tab to open for each task. That decision costs time and often ends in a wrong first pick."
+        },
+        {
+          "kicker": "WHO HAS IT",
+          "head": "The multi-subscription crowd is real and growing",
+          "cmd": null,
+          "sub": "Anyone paying for more than one frontier model likely has a routing problem \u2014 analysts, PMs, researchers, and developers who've learned each model has different strengths across coding, reasoning, and long-context tasks."
+        },
+        {
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "Bring your own keys, skip the tab-switching",
+          "cmd": null,
+          "sub": "A lightweight router sits in front of your existing API subscriptions: classify the query, pick the best-fit model, optionally fan out to two models in parallel for comparison. No new AI, just better plumbing on top of models you're already paying for."
+        },
+        {
+          "kicker": "WHY ALTERNATIVES FALL SHORT",
+          "head": "Chatbot aggregators exist but don't route \u2014 they just list",
+          "cmd": null,
+          "sub": "Tools like Nat.dev or OpenRouter let you switch models manually. They expose the complexity rather than abstracting it. The routing and deliberation layer \u2014 deciding for you, then surfacing disagreements \u2014 is still missing."
+        },
+        {
+          "kicker": "CHEAP VALIDATION STEP",
+          "head": "Test before building",
+          "cmd": null,
+          "sub": "Post a one-question survey to AI-power-user communities: 'How many frontier model subscriptions do you pay for, and do you have a decision rule for which to use?' If most respondents say 2+ subs and 'I just guess,' the pain is real. Then build a landing page with a waitlist before writing a line of code."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-09-sqlite-compressed-text-history",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "SQLite revision history: 20 MB \u2192 80 KB with zstd",
+      "source": {
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/2026/Aug/9/sqlite-text-history-prototype/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Storing every edit of a 20 KB doc costs 20 KB per save",
+          "cmd": null,
+          "sub": "Naive revision history \u2014 one row per version \u2014 balloons fast. A document edited 1,000 times generates ~20 MB of near-identical text with no deduplication."
+        },
+        {
+          "kicker": "THE IDEA",
+          "head": "Pack all versions into one compressed JSON blob",
+          "cmd": null,
+          "sub": "Simon Willison's dog-walk insight: store every prior version as a JSON array of strings, then compress the whole thing with zstd. Adjacent versions are almost identical, so compression ratios are extreme."
+        },
+        {
+          "kicker": "THE RESULT",
+          "head": "1,000 revisions: 20.4 MB raw \u2192 80.3 KB compressed",
+          "cmd": null,
+          "sub": "A GPT-5.6 Sol Pro session (38 minutes, one text prompt) built working Python prototypes. The 254\u00d7 compression ratio holds because zstd exploits repeated strings across the full array in one pass."
+        },
+        {
+          "kicker": "PRACTICAL TWEAK",
+          "head": "Chunk rows at 128 revisions or 3 MB to keep writes fast",
+          "cmd": null,
+          "sub": "Recompressing a single growing blob on every edit gets expensive. The model suggested splitting history into multiple rows with a size cap \u2014 each append only touches the latest chunk."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "A voice brainstorm + one prompt \u2192 shippable SQLite schema",
+          "cmd": null,
+          "sub": "For any app storing versioned text (notes, config files, form drafts), this pattern gives near-free history with zero external store. The workflow \u2014 narrate the idea aloud, then prompt for prototypes \u2014 is itself worth stealing."
+        }
+      ]
+    },
+    {
+      "id": "2025-05-13-eink-ui-framework",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "No e-ink UI toolkit exists. Someone should build one.",
+      "source": {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com/item?id=49213660"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "E-ink phones are real. Web UIs for them are a disaster.",
+          "cmd": null,
+          "sub": "A developer switches to a Bigme Hibreak Pro to escape the attention economy \u2014 then finds that every browser-based UI (HN, LLM chat, social feeds) is actively hostile to e-ink: ghosting, constant redraws, streaming text, dark gradients."
+        },
+        {
+          "kicker": "WHO HAS THIS PAIN",
+          "head": "E-ink smartphone owners are a small but growing niche with zero tailored tooling.",
+          "cmd": null,
+          "sub": "Onyx Boox, Hisense, Bigme, and others sell Android e-ink phones. Buyers are deliberate, privacy-minded, and technically capable \u2014 exactly the people who will pay for and contribute to a well-designed solution."
+        },
+        {
+          "kicker": "WHAT THE GAP LOOKS LIKE",
+          "head": "Three unsolved design problems: refresh control, pagination, and greyscale-only layout.",
+          "cmd": null,
+          "sub": "Streaming LLM output must be chunked and painted in bursts. Scrolling causes ghosting, so pagination must replace it cleanly. Typography and layout must carry the full UI \u2014 no colour, no shadows, no gradients. No existing CSS framework treats any of these as first-class concerns."
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Native e-ink apps exist; a reusable web layer does not.",
+          "cmd": null,
+          "sub": "KOReader handles e-reader content well, but it's a closed, document-centric app. Generic React/Tailwind sites ignore e-ink constraints entirely. There is no open CSS framework or component library built around refresh budgets and greyscale contrast."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Hypothesis, not a business \u2014 test it cheap before building it broad.",
+          "cmd": null,
+          "sub": "Search GitHub and the Onyx/Boox forums for e-ink CSS or UI conventions threads. If the same three questions keep appearing with no accepted answers, that's your signal. A single open-source component library with a live demo on an e-ink device would pull contributors fast."
         }
       ]
     }
