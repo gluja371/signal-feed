@@ -1,348 +1,305 @@
 {
   "version": 1,
-  "generated_at": "2026-08-10",
+  "generated_at": "2026-08-11",
   "cards": [
     {
-      "id": "2026-08-10-openclaw-gym-booking-vuln",
+      "id": "2026-08-10-muse-glimmer",
       "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "AI finds zero-auth bug in gym booking API",
+      "title": "Meta's Muse Glimmer: 30B local agent under Apache 2.0",
       "source": {
         "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/10/openclaw/#atom-everything"
+        "url": "https://simonwillison.net/2026/Aug/10/introducing-muse-glimmer/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "RELEASE",
+          "head": "Meta drops a genuinely open 30B agentic model",
+          "cmd": null,
+          "sub": "Muse Glimmer ships under Apache 2.0 \u2014 no Llama-style use restrictions \u2014 making it viable for commercial products built on local inference."
+        },
+        {
+          "kicker": "HARDWARE FIT",
+          "head": "32 GB RAM is enough; 128 GB leaves headroom",
+          "cmd": "llm -m lmstudio/meta/muse-glimmer -a image.jpg 'describe image'",
+          "sub": "The quantised LM Studio build weighs 18.16 GB, so machines with 32 GB+ RAM can run it alongside other workloads \u2014 no dedicated inference box needed."
+        },
+        {
+          "kicker": "CAPABILITIES",
+          "head": "Tool use, multi-step reasoning, and vision in one model",
+          "cmd": null,
+          "sub": "Glimmer posts competitive numbers on SWE-Bench and \u03c4-Bench, handles structured function calls across long workflows, and can describe images in detail \u2014 confirmed via hands-on codebase exploration with llm-coding-agent."
+        },
+        {
+          "kicker": "PRACTICAL TEST",
+          "head": "Asked to audit a real codebase auth flow \u2014 held up",
+          "cmd": null,
+          "sub": "Simon Willison ran it against Datasette with no scaffolding hints; it chained tool calls autonomously and produced a coherent end-to-end explanation of the auth system."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "A credible on-device agent for privacy-sensitive pipelines",
+          "cmd": null,
+          "sub": "For PMs shipping AI in regulated or air-gapped environments, a capable Apache-licensed model that runs on a workstation \u2014 with vision and tool use \u2014 removes the cloud-dependency blocker without sacrificing agentic ability."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-18-interactive-ebook-prompting",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Interactive Ebooks Where You Build, Not Just Read",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vlhl17/idea_an_interactive_ebook_you_buildtest_inside/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "You read a prompting guide, then open a separate tab to actually try it",
+          "cmd": null,
+          "sub": "Every how-to on AI prompting is passive text. The practice loop \u2014 read, switch context, test, forget what you read \u2014 kills retention and completion rates."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Anyone learning prompt engineering, AI workflows, or LLM tooling through written guides",
+          "cmd": null,
+          "sub": "The friction is highest for non-engineers: PMs, marketers, and ops folks who buy ebooks or courses but abandon them before the exercises."
+        },
+        {
+          "kicker": "THE PRODUCT HYPOTHESIS",
+          "head": "An ebook runtime where exercises execute inside the page \u2014 assemble a prompt, fire it, see output \u2014 without leaving the doc",
+          "cmd": null,
+          "sub": "Think Jupyter notebook UX merged with an O'Reilly-style book: prose explains a concept, then an embedded sandbox lets you build and test it live in the same scroll."
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Jupyter Book, Observable, and Scrimba come close but don't quite fit",
+          "cmd": null,
+          "sub": "Jupyter Book is code-first and intimidating to non-devs. Observable targets data viz. Scrimba is video-based, not prose-first. None are designed for selling a self-contained interactive ebook as a product."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Before building: search 'interactive prompt tutorial' on Gumroad and Lemon Squeezy",
+          "cmd": null,
+          "sub": "Check how many results exist, whether any show revenue signals (reviews, sales counts), and whether buyers complain about static content in the reviews. That data tells you if people will pay before you write a line of code."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-17-agent-for-non-technical-parents",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "A personal AI agent built for your parents",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vldzrp/i_want_to_build_a_simple_agent_for_my/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Non-technical adults are drowning in fragmented provider portals",
+          "cmd": null,
+          "sub": "Every utility, insurer, and GP surgery has its own login and workflow. The people who most need help navigating them are least equipped to automate it themselves."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Retirees and late-career adults \u2014 and the adult children managing it for them",
+          "cmd": null,
+          "sub": "The unpaid labour of helping aging parents with admin falls on family. It's recurring, low-skill, and deeply interruptive \u2014 a classic problem worth productising."
+        },
+        {
+          "kicker": "WHAT A PRODUCT COULD LOOK LIKE",
+          "head": "A curated agent: 5\u20136 tasks, human approval before anything is sent",
+          "cmd": null,
+          "sub": "Draft appointment requests, summarise insurance letters, flag bill anomalies, chase GP referrals \u2014 all queued for a single tap to approve or edit. No general chat, no open-ended prompts."
+        },
+        {
+          "kicker": "WHY EXISTING TOOLS FALL SHORT",
+          "head": "General AI assistants require the user to know what to ask",
+          "cmd": null,
+          "sub": "ChatGPT and similar tools assume intent; they don't proactively surface 'your utility bill is 40% higher than last quarter'. Carer apps focus on health, not administrative life."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Before building: search 'manage parents admin' across Reddit and Mumsnet",
+          "cmd": null,
+          "sub": "Hypothesis: family members would pay \u00a310\u201320/month for a white-glove setup they install on a parent's tablet. Test by posting a 3-question Typeform to relevant subreddits before writing a line of code."
+        }
+      ]
+    },
+    {
+      "id": "2025-07-22-long-video-to-shorts",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Auto-clip tool that makes Shorts feel human-cut",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vlfe6y/a_tool_that_turns_long_videos_into_viral_youtube/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Clipping a 2-hour podcast into 10 punchy Shorts takes a full editing day",
+          "cmd": null,
+          "sub": "Podcasters, educators, and streamers all sit on hours of footage they never repurpose \u2014 not because they don't want to, but because manual clipping is brutal."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Any creator posting long-form content weekly",
+          "cmd": null,
+          "sub": "Solo podcasters, interview channels, and Twitch streamers are the core sufferers. They typically post 1\u20134 long videos a week and produce zero short-form despite knowing it drives discovery."
+        },
+        {
+          "kicker": "PRODUCT HYPOTHESIS",
+          "head": "Upload long video \u2192 get 5\u201310 ready-to-post Shorts",
+          "cmd": null,
+          "sub": "The tool detects high-energy moments (laughter, strong statements, topic pivots), trims dead air, adds auto-captions, and crops to 9:16 \u2014 with outputs that don't look auto-generated."
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Opus Clip and Descript exist \u2014 but the 'AI feel' is a real complaint",
+          "cmd": null,
+          "sub": "Opus Clip already does moment detection; Descript adds editing polish. The gap the poster identifies is naturalness: cuts that match speech rhythm rather than arbitrary sentence boundaries."
+        },
+        {
+          "kicker": "CHEAP VALIDATION",
+          "head": "Search r/podcasting and r/NewTubers for 'shorts' or 'clipping' complaints",
+          "cmd": null,
+          "sub": "If duplicate frustration threads exist at volume, post a Typeform asking creators how many hours/week they spend clipping \u2014 and what they'd pay to eliminate that. 50 responses beats a year of guessing."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-01-nvidia-alpamayo-2-super",
+      "format": "story",
+      "topic": "computer-vision",
+      "accent": "teal",
+      "title": "NVIDIA Alpamayo 2 Super Opens AV Frontier Models",
+      "source": {
+        "name": "Edge AI & Vision Alliance",
+        "url": "https://www.edge-ai-vision.com/2026/08/nvidia-alpamayo-2-super-the-frontier-open-model-for-robotaxis-and-autonomous-vehicles-now-available-for-commercial-use/"
       },
       "panels": [
         {
           "kicker": "HOOK",
-          "head": "Anyone could cancel anyone else's gym reservation \u2014 no login required",
+          "head": "The hardest AV problems aren't rush-hour traffic \u2014 they're the weird edge cases no dataset fully covers.",
           "cmd": null,
-          "sub": "An AI-assisted security researcher found a booking API with no authorisation checks on cancellation endpoints."
+          "sub": "NVIDIA's Alpamayo 2 Super is built specifically to reason through rare, complex driving scenarios rather than just handle the common ones."
         },
         {
-          "kicker": "CONTEXT",
-          "head": "The target: an Australian gym chain's waitlist system",
+          "kicker": "ANNOUNCEMENT",
+          "head": "Alpamayo 2 Super is now available under an open commercial licence.",
           "cmd": null,
-          "sub": "Waitlists imply a queue \u2014 position matters. An unauthenticated cancel call meant you could silently bump yourself up by removing whoever was ahead of you."
+          "sub": "That means robotaxi operators and AV developers can deploy the model in production without the closed-API constraints typical of frontier driving models."
         },
         {
-          "kicker": "DETAIL",
-          "head": "Researcher confirmed the exploit live: #4 became #3 in real time",
+          "kicker": "KEY CAPABILITY",
+          "head": "Benchmark-leading reasoning paired with inspectable decision traces.",
           "cmd": null,
-          "sub": "The cancellation request was sent against the account of the person holding position #1 on the waitlist \u2014 it succeeded without any credential or token belonging to that user."
+          "sub": "Inspectable decisions matter in regulated transport: safety engineers can audit why the model chose a manoeuvre, not just what it chose \u2014 a prerequisite for many certification frameworks."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "Vibe-coded apps ship features; they often skip auth on state-mutating calls",
+          "head": "Open weights lower the barrier for fleets that can't afford bespoke model development.",
           "cmd": null,
-          "sub": "When LLMs scaffold CRUD logic quickly, authorisation on destructive actions (delete, cancel, revoke) is the class of check most likely to be omitted or assumed to be handled elsewhere."
+          "sub": "Smaller robotaxi operators and Tier-1 suppliers can fine-tune on proprietary route data rather than building perception-and-planning stacks from scratch."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "Audit every state-mutating endpoint for caller identity checks \u2014 not just input validation",
+          "head": "If you're evaluating AV perception stacks, add an explainability audit to your benchmark suite.",
           "cmd": null,
-          "sub": "If you ship AI-generated API code, add a review pass specifically for: does this endpoint verify the caller *owns* the resource they're modifying? No amount of rate-limiting fixes a missing ownership check."
+          "sub": "Inspectable reasoning is increasingly a regulator expectation; a model that logs its decision rationale shortens the safety-case documentation cycle significantly."
         }
       ]
     },
     {
-      "id": "2025-01-30-docker-sandboxes",
-      "format": "story",
-      "topic": "agentic-ai",
-      "accent": "coral",
-      "title": "Docker launches isolated sandboxes for AI agents",
-      "source": {
-        "name": "Docker",
-        "url": "https://www.docker.com/products/docker-sandboxes/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Agents that can run code are only useful if you can contain them",
-          "cmd": null,
-          "sub": "Letting an AI agent execute arbitrary code against your real filesystem or network is an obvious disaster. Most teams bolt on ad-hoc restrictions and hope for the best."
-        },
-        {
-          "kicker": "WHAT DOCKER BUILT",
-          "head": "Disposable, API-driven containers spun up per agent task",
-          "cmd": null,
-          "sub": "Docker Sandboxes provision a fresh, fully isolated environment for each agent session \u2014 no persistent state, no shared filesystem, killed on completion. Think of it as a per-call VM with container startup speed."
-        },
-        {
-          "kicker": "HOW IT WORKS",
-          "head": "Agent requests a sandbox, runs code, environment is destroyed",
-          "cmd": null,
-          "sub": "The sandbox exposes a controlled API surface so the agent can execute commands and read results without touching host resources. Isolation is enforced at the container boundary, not by prompt instruction."
-        },
-        {
-          "kicker": "WHY NOW",
-          "head": "Code-execution is the highest-risk tool any agent can hold",
-          "cmd": null,
-          "sub": "With frameworks like LangChain, CrewAI, and Claude tool-use making code execution a default capability, the gap between 'agent can run code' and 'agent can run code safely' has become a shipping blocker for regulated environments."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Hard isolation lets you give agents more power without more risk",
-          "cmd": null,
-          "sub": "For PMs shipping agentic workflows in regulated settings \u2014 medical imaging pipelines, financial data processing \u2014 Docker Sandboxes offers an auditable execution boundary that compliance teams can actually reason about. Worth evaluating before rolling your own chroot/seccomp stack."
-        }
-      ]
-    },
-    {
-      "id": "2025-01-01-long-march-7a-failure",
-      "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Long March 7A Fails at T+90s, Payload Lost",
-      "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/chinese-long-march-7a-rocket-explodes-shortly-after-liftoff/"
-      },
-      "panels": [
-        {
-          "kicker": "LAUNCH FAILURE",
-          "head": "A Long March 7A rocket exploded less than 90 seconds after liftoff",
-          "cmd": null,
-          "sub": "Amateur video footage captured the explosion, which occurred early in the ascent phase \u2014 a window typically associated with first-stage or ignition anomalies."
-        },
-        {
-          "kicker": "THE VEHICLE",
-          "head": "LM-7A is a mid-to-heavy lift workhorse targeting GTO missions",
-          "cmd": null,
-          "sub": "The Long March 7A variant adds a third stage to the base LM-7 to reach geostationary transfer orbit. It had logged several successful flights since its 2021 debut."
-        },
-        {
-          "kicker": "THE PAYLOAD",
-          "head": "China has not disclosed what was on board",
-          "cmd": null,
-          "sub": "The payload identity remains undeclared \u2014 a common practice for Chinese missions that carry classified government or military satellites."
-        },
-        {
-          "kicker": "RIPPLE EFFECTS",
-          "head": "A T+90s failure points to early propulsion, not upper-stage issues",
-          "cmd": null,
-          "sub": "Failures in this flight window usually trigger fleet-wide stand-downs for investigation. Any other LM-7 or LM-7A missions in the manifest could face delays while the root cause is determined."
-        },
-        {
-          "kicker": "WATCH",
-          "head": "How China handles transparency here signals program maturity",
-          "cmd": null,
-          "sub": "CASC's previous anomaly disclosures have been sparse. The speed and detail of any official statement will indicate how much pressure commercial and government customers are applying for accountability."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-13-painfinder-problem-mining",
+      "id": "2025-05-14-cofounder-matching-hypothesis",
       "format": "story",
       "topic": "startup-ideas",
       "accent": "lime",
-      "title": "Mine Reddit for real problems, not app ideas",
+      "title": "Co-founder matching: real gap or solved problem?",
       "source": {
         "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vkofqm/app_idea_an_app_that_finds_recurring_problems/"
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vl91gn/ever_had_a_great_idea_stall_out_just_because_you/"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "Aspiring founders drown in ideas, not problems",
+          "head": "Good ideas die because the right person isn't in the room",
           "cmd": null,
-          "sub": "Most 'app idea' lists skip the hard part: proving anyone actually suffers from the problem often enough to pay for a fix. The insight-to-validation gap kills more startups than bad code."
+          "sub": "Solo founders with strong ideas can't find a technical co-founder; skilled builders can't find a project worth their time. The mismatch kills momentum before a single line of code is written."
         },
         {
           "kicker": "WHO FEELS THIS",
-          "head": "Solo founders, indie hackers, product researchers \u2014 weekly",
+          "head": "First-time founders and domain experts leaving corporate roles",
           "cmd": null,
-          "sub": "Anyone doing customer discovery manually trawls forums, Reddit, and review sites for repeated complaints. It takes hours per vertical and the signal is buried in noise."
-        },
-        {
-          "kicker": "THE HYPOTHESIS",
-          "head": "A 'painfinder' that clusters recurring complaints, not ideas",
-          "cmd": null,
-          "sub": "Scrape public forums, group semantically similar complaints, then surface each cluster with frequency count, emotional intensity, and the workarounds people are already using \u2014 raw evidence, not AI-generated ideas."
-        },
-        {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Exploding Topics, SparkToro, and manual Notion boards all fall short",
-          "cmd": null,
-          "sub": "Trend tools track rising search interest, not expressed pain. SparkToro shows audience behaviour, not frustration. Most founders still do this manually, which signals no tool has nailed the job-to-be-done yet."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Run the concept as a weekly newsletter before writing a line of code",
-          "cmd": null,
-          "sub": "Manually curate 5 recurring complaints per week from one subreddit (e.g. r/smallbusiness), publish them with frequency data and workaround patterns. If 200 people subscribe in a month, the demand signal is real enough to automate."
-        }
-      ]
-    },
-    {
-      "id": "2026-08-09-github-models-retired",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "GitHub Models quietly shut down",
-      "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/9/github-models-is-now-retired/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "BREAKING",
-          "head": "GitHub Models is gone \u2014 no warning, no blog post",
-          "cmd": null,
-          "sub": "Developers discovered the shutdown when GitHub Actions pipelines started failing with a 'scheduled retirement brownout' message that was already out of date."
-        },
-        {
-          "kicker": "WHAT IT WAS",
-          "head": "A free, unified LLM API baked into GitHub's own auth",
-          "cmd": null,
-          "sub": "GitHub Models let Actions workflows call multiple LLM providers using the GITHUB_TOKEN already in the environment \u2014 no separate API key, no billing setup."
-        },
-        {
-          "kicker": "WHY IT LIKELY DIED",
-          "head": "Coding agents killed the economics",
-          "cmd": null,
-          "sub": "GitHub never gave an official reason, but the pattern is familiar: agentic coding workflows consume tokens at a rate that makes free or subsidised access unsustainable fast."
-        },
-        {
-          "kicker": "THE FIX",
-          "head": "Drop in a real API key with a spending cap",
-          "cmd": null,
-          "sub": "Simon Willison replaced GitHub Models with an OpenAI key (GPT-5.6 Luna) protected by a monthly spending limit \u2014 a two-minute swap for most workflows using the simonw/llm library."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "Free AI infrastructure in dev tooling is a fragile dependency",
-          "cmd": null,
-          "sub": "If your CI pipelines rely on vendor-subsidised LLM tiers, build in a spending-capped fallback key now \u2014 don't wait for a brownout to find out."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-14-council-ai-api-routing",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "One inbox for Claude, GPT, and Grok",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vk1r8y/considering_a_version_of_councilai_that_routes/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Power users juggle 3+ AI tabs \u2014 every day",
-          "cmd": null,
-          "sub": "Knowledge workers who subscribe to Claude Pro, ChatGPT Plus, and Grok Premium still manually decide which tab to open for each task. That decision costs time and often ends in a wrong first pick."
-        },
-        {
-          "kicker": "WHO HAS IT",
-          "head": "The multi-subscription crowd is real and growing",
-          "cmd": null,
-          "sub": "Anyone paying for more than one frontier model likely has a routing problem \u2014 analysts, PMs, researchers, and developers who've learned each model has different strengths across coding, reasoning, and long-context tasks."
+          "sub": "Recurring pain for people who have deep vertical knowledge (healthcare, logistics, construction) but no engineering network \u2014 and for early-career devs who want to build but lack a problem to anchor to."
         },
         {
           "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "Bring your own keys, skip the tab-switching",
+          "head": "A lightweight, intent-signal marketplace \u2014 not another r\u00e9sum\u00e9 dump",
           "cmd": null,
-          "sub": "A lightweight router sits in front of your existing API subscriptions: classify the query, pick the best-fit model, optionally fan out to two models in parallel for comparison. No new AI, just better plumbing on top of models you're already paying for."
+          "sub": "Profiles that expose what someone knows, what stage they want to join at, and what commitment level they can offer. Ideas listed with enough context to evaluate fit \u2014 not a pitch deck, just a structured brief."
         },
         {
           "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "Chatbot aggregators exist but don't route \u2014 they just list",
+          "head": "LinkedIn is passive; Discord is noisy; YC co-founder matching is gated",
           "cmd": null,
-          "sub": "Tools like Nat.dev or OpenRouter let you switch models manually. They expose the complexity rather than abstracting it. The routing and deliberation layer \u2014 deciding for you, then surfacing disagreements \u2014 is still missing."
-        },
-        {
-          "kicker": "CHEAP VALIDATION STEP",
-          "head": "Test before building",
-          "cmd": null,
-          "sub": "Post a one-question survey to AI-power-user communities: 'How many frontier model subscriptions do you pay for, and do you have a decision rule for which to use?' If most respondents say 2+ subs and 'I just guess,' the pain is real. Then build a landing page with a waitlist before writing a line of code."
-        }
-      ]
-    },
-    {
-      "id": "2026-08-09-sqlite-compressed-text-history",
-      "format": "story",
-      "topic": "vibe-coding",
-      "accent": "indigo",
-      "title": "SQLite revision history: 20 MB \u2192 80 KB with zstd",
-      "source": {
-        "name": "Simon Willison",
-        "url": "https://simonwillison.net/2026/Aug/9/sqlite-text-history-prototype/#atom-everything"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Storing every edit of a 20 KB doc costs 20 KB per save",
-          "cmd": null,
-          "sub": "Naive revision history \u2014 one row per version \u2014 balloons fast. A document edited 1,000 times generates ~20 MB of near-identical text with no deduplication."
-        },
-        {
-          "kicker": "THE IDEA",
-          "head": "Pack all versions into one compressed JSON blob",
-          "cmd": null,
-          "sub": "Simon Willison's dog-walk insight: store every prior version as a JSON array of strings, then compress the whole thing with zstd. Adjacent versions are almost identical, so compression ratios are extreme."
-        },
-        {
-          "kicker": "THE RESULT",
-          "head": "1,000 revisions: 20.4 MB raw \u2192 80.3 KB compressed",
-          "cmd": null,
-          "sub": "A GPT-5.6 Sol Pro session (38 minutes, one text prompt) built working Python prototypes. The 254\u00d7 compression ratio holds because zstd exploits repeated strings across the full array in one pass."
-        },
-        {
-          "kicker": "PRACTICAL TWEAK",
-          "head": "Chunk rows at 128 revisions or 3 MB to keep writes fast",
-          "cmd": null,
-          "sub": "Recompressing a single growing blob on every edit gets expensive. The model suggested splitting history into multiple rows with a size cap \u2014 each append only touches the latest chunk."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "A voice brainstorm + one prompt \u2192 shippable SQLite schema",
-          "cmd": null,
-          "sub": "For any app storing versioned text (notes, config files, form drafts), this pattern gives near-free history with zero external store. The workflow \u2014 narrate the idea aloud, then prompt for prototypes \u2014 is itself worth stealing."
-        }
-      ]
-    },
-    {
-      "id": "2025-05-13-eink-ui-framework",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "No e-ink UI toolkit exists. Someone should build one.",
-      "source": {
-        "name": "Hacker News",
-        "url": "https://news.ycombinator.com/item?id=49213660"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "E-ink phones are real. Web UIs for them are a disaster.",
-          "cmd": null,
-          "sub": "A developer switches to a Bigme Hibreak Pro to escape the attention economy \u2014 then finds that every browser-based UI (HN, LLM chat, social feeds) is actively hostile to e-ink: ghosting, constant redraws, streaming text, dark gradients."
-        },
-        {
-          "kicker": "WHO HAS THIS PAIN",
-          "head": "E-ink smartphone owners are a small but growing niche with zero tailored tooling.",
-          "cmd": null,
-          "sub": "Onyx Boox, Hisense, Bigme, and others sell Android e-ink phones. Buyers are deliberate, privacy-minded, and technically capable \u2014 exactly the people who will pay for and contribute to a well-designed solution."
-        },
-        {
-          "kicker": "WHAT THE GAP LOOKS LIKE",
-          "head": "Three unsolved design problems: refresh control, pagination, and greyscale-only layout.",
-          "cmd": null,
-          "sub": "Streaming LLM output must be chunked and painted in bursts. Scrolling causes ghosting, so pagination must replace it cleanly. Typography and layout must carry the full UI \u2014 no colour, no shadows, no gradients. No existing CSS framework treats any of these as first-class concerns."
-        },
-        {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Native e-ink apps exist; a reusable web layer does not.",
-          "cmd": null,
-          "sub": "KOReader handles e-reader content well, but it's a closed, document-centric app. Generic React/Tailwind sites ignore e-ink constraints entirely. There is no open CSS framework or component library built around refresh budgets and greyscale contrast."
+          "sub": "LinkedIn optimises for hiring, not equity partnerships. Discord servers are high-friction and ephemeral. YC's tool requires being in the YC ecosystem. None surfaces intent clearly or filters for commitment level."
         },
         {
           "kicker": "VALIDATION STEP",
-          "head": "Hypothesis, not a business \u2014 test it cheap before building it broad.",
+          "head": "Before building: count the corpses",
           "cmd": null,
-          "sub": "Search GitHub and the Onyx/Boox forums for e-ink CSS or UI conventions threads. If the same three questions keep appearing with no accepted answers, that's your signal. A single open-source component library with a live demo on an e-ink device would pull contributors fast."
+          "sub": "Search r/cofounder, r/SomebodyMakeThis, and IndieHackers for 'looking for co-founder' posts from the last 90 days. If dozens go unanswered or respondents report no match, the gap is real. Then post one fake 'idea looking for dev' listing on a relevant Discord and measure inbound \u2014 that's your signal before writing a line of code."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-31-neutron-slip-2027",
+      "format": "story",
+      "topic": "aerospace",
+      "accent": "sky",
+      "title": "Rocket Lab's Neutron First Launch May Slip to 2027",
+      "source": {
+        "name": "SpaceNews",
+        "url": "https://spacenews.com/first-neutron-launch-may-slip-to-2027/"
+      },
+      "panels": [
+        {
+          "kicker": "SCHEDULE RISK",
+          "head": "Neutron's 2026 debut window is closing",
+          "cmd": null,
+          "sub": "Rocket Lab has acknowledged the probability of a first Neutron launch before end of 2026 is shrinking, signalling a likely slip into 2027."
+        },
+        {
+          "kicker": "THE VEHICLE",
+          "head": "Neutron is Rocket Lab's reusable medium-lift play",
+          "cmd": null,
+          "sub": "Designed to carry roughly 13,000 kg to low Earth orbit with a reusable first stage, Neutron is Rocket Lab's bid to compete in the medium-lift market alongside Falcon 9 and Vulcan."
+        },
+        {
+          "kicker": "WHAT'S KNOWN",
+          "head": "Progress is real \u2014 but the timeline has always been tight",
+          "cmd": null,
+          "sub": "Rocket Lab has reported hardware development milestones, yet the article notes uncertainty remains high. The company has not disclosed which specific subsystem is driving the potential delay."
+        },
+        {
+          "kicker": "MARKET CONTEXT",
+          "head": "Every quarter of slip matters in a crowded launch market",
+          "cmd": null,
+          "sub": "New Shepard, Vulcan, and a maturing Starship are all competing for the same commercial and government manifests. A 2027 debut gives rivals more time to lock in multi-year contracts."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "Watch Rocket Lab's next earnings call for a revised target date",
+          "cmd": null,
+          "sub": "For teams planning rideshare or dedicated medium-lift missions in 2026\u20132027, treat Neutron availability as unconfirmed and maintain a backup manifest slot on an established vehicle."
         }
       ]
     }
