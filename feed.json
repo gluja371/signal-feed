@@ -1,305 +1,262 @@
 {
   "version": 1,
-  "generated_at": "2026-08-11",
+  "generated_at": "2026-08-12",
   "cards": [
     {
-      "id": "2026-08-10-muse-glimmer",
+      "id": "2026-08-12-cognitive-debt-vibe-coding",
       "format": "story",
       "topic": "vibe-coding",
       "accent": "indigo",
-      "title": "Meta's Muse Glimmer: 30B local agent under Apache 2.0",
+      "title": "When no one on the team knows how the code works",
       "source": {
-        "name": "Simon Willison's Weblog",
-        "url": "https://simonwillison.net/2026/Aug/10/introducing-muse-glimmer/#atom-everything"
+        "name": "Simon Willison / Florian Herrengt",
+        "url": "https://simonwillison.net/2026/Aug/12/florian-herrengt/#atom-everything"
       },
       "panels": [
         {
-          "kicker": "RELEASE",
-          "head": "Meta drops a genuinely open 30B agentic model",
+          "kicker": "THE SCENARIO",
+          "head": "A bug hits for the 4th time \u2014 and nobody can explain the code",
           "cmd": null,
-          "sub": "Muse Glimmer ships under Apache 2.0 \u2014 no Llama-style use restrictions \u2014 making it viable for commercial products built on local inference."
+          "sub": "The feature works, mostly. But when it breaks, the engineer who built it can't trace the data flow. The answer to every question is 'let me ask Claude.'"
         },
         {
-          "kicker": "HARDWARE FIT",
-          "head": "32 GB RAM is enough; 128 GB leaves headroom",
-          "cmd": "llm -m lmstudio/meta/muse-glimmer -a image.jpg 'describe image'",
-          "sub": "The quantised LM Studio build weighs 18.16 GB, so machines with 32 GB+ RAM can run it alongside other workloads \u2014 no dedicated inference box needed."
+          "kicker": "WHAT HAPPENED",
+          "head": "AI wrote the layers; humans skipped the understanding",
+          "cmd": null,
+          "sub": "Velocity looked great. PRs merged fast. But each AI-generated service added complexity no one internalised \u2014 and that debt compounded silently across sprints."
         },
         {
-          "kicker": "CAPABILITIES",
-          "head": "Tool use, multi-step reasoning, and vision in one model",
+          "kicker": "THE BREAKING POINT",
+          "head": "Confident output \u2260 correct output",
           "cmd": null,
-          "sub": "Glimmer posts competitive numbers on SWE-Bench and \u03c4-Bench, handles structured function calls across long workflows, and can describe images in detail \u2014 confirmed via hands-on codebase exploration with llm-coding-agent."
-        },
-        {
-          "kicker": "PRACTICAL TEST",
-          "head": "Asked to audit a real codebase auth flow \u2014 held up",
-          "cmd": null,
-          "sub": "Simon Willison ran it against Datasette with no scaffolding hints; it chained tool calls autonomously and produced a coherent end-to-end explanation of the auth system."
-        },
-        {
-          "kicker": "SO WHAT",
-          "head": "A credible on-device agent for privacy-sensitive pipelines",
-          "cmd": null,
-          "sub": "For PMs shipping AI in regulated or air-gapped environments, a capable Apache-licensed model that runs on a workstation \u2014 with vision and tool use \u2014 removes the cloud-dependency blocker without sacrificing agentic ability."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-18-interactive-ebook-prompting",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Interactive Ebooks Where You Build, Not Just Read",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vlhl17/idea_an_interactive_ebook_you_buildtest_inside/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "You read a prompting guide, then open a separate tab to actually try it",
-          "cmd": null,
-          "sub": "Every how-to on AI prompting is passive text. The practice loop \u2014 read, switch context, test, forget what you read \u2014 kills retention and completion rates."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Anyone learning prompt engineering, AI workflows, or LLM tooling through written guides",
-          "cmd": null,
-          "sub": "The friction is highest for non-engineers: PMs, marketers, and ops folks who buy ebooks or courses but abandon them before the exercises."
-        },
-        {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "An ebook runtime where exercises execute inside the page \u2014 assemble a prompt, fire it, see output \u2014 without leaving the doc",
-          "cmd": null,
-          "sub": "Think Jupyter notebook UX merged with an O'Reilly-style book: prose explains a concept, then an embedded sandbox lets you build and test it live in the same scroll."
-        },
-        {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Jupyter Book, Observable, and Scrimba come close but don't quite fit",
-          "cmd": null,
-          "sub": "Jupyter Book is code-first and intimidating to non-devs. Observable targets data viz. Scrimba is video-based, not prose-first. None are designed for selling a self-contained interactive ebook as a product."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building: search 'interactive prompt tutorial' on Gumroad and Lemon Squeezy",
-          "cmd": null,
-          "sub": "Check how many results exist, whether any show revenue signals (reviews, sales counts), and whether buyers complain about static content in the reviews. That data tells you if people will pay before you write a line of code."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-17-agent-for-non-technical-parents",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "A personal AI agent built for your parents",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vldzrp/i_want_to_build_a_simple_agent_for_my/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Non-technical adults are drowning in fragmented provider portals",
-          "cmd": null,
-          "sub": "Every utility, insurer, and GP surgery has its own login and workflow. The people who most need help navigating them are least equipped to automate it themselves."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Retirees and late-career adults \u2014 and the adult children managing it for them",
-          "cmd": null,
-          "sub": "The unpaid labour of helping aging parents with admin falls on family. It's recurring, low-skill, and deeply interruptive \u2014 a classic problem worth productising."
-        },
-        {
-          "kicker": "WHAT A PRODUCT COULD LOOK LIKE",
-          "head": "A curated agent: 5\u20136 tasks, human approval before anything is sent",
-          "cmd": null,
-          "sub": "Draft appointment requests, summarise insurance letters, flag bill anomalies, chase GP referrals \u2014 all queued for a single tap to approve or edit. No general chat, no open-ended prompts."
-        },
-        {
-          "kicker": "WHY EXISTING TOOLS FALL SHORT",
-          "head": "General AI assistants require the user to know what to ask",
-          "cmd": null,
-          "sub": "ChatGPT and similar tools assume intent; they don't proactively surface 'your utility bill is 40% higher than last quarter'. Carer apps focus on health, not administrative life."
-        },
-        {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building: search 'manage parents admin' across Reddit and Mumsnet",
-          "cmd": null,
-          "sub": "Hypothesis: family members would pay \u00a310\u201320/month for a white-glove setup they install on a parent's tablet. Test by posting a 3-question Typeform to relevant subreddits before writing a line of code."
-        }
-      ]
-    },
-    {
-      "id": "2025-07-22-long-video-to-shorts",
-      "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Auto-clip tool that makes Shorts feel human-cut",
-      "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vlfe6y/a_tool_that_turns_long_videos_into_viral_youtube/"
-      },
-      "panels": [
-        {
-          "kicker": "THE PROBLEM",
-          "head": "Clipping a 2-hour podcast into 10 punchy Shorts takes a full editing day",
-          "cmd": null,
-          "sub": "Podcasters, educators, and streamers all sit on hours of footage they never repurpose \u2014 not because they don't want to, but because manual clipping is brutal."
-        },
-        {
-          "kicker": "WHO FEELS THIS",
-          "head": "Any creator posting long-form content weekly",
-          "cmd": null,
-          "sub": "Solo podcasters, interview channels, and Twitch streamers are the core sufferers. They typically post 1\u20134 long videos a week and produce zero short-form despite knowing it drives discovery."
-        },
-        {
-          "kicker": "PRODUCT HYPOTHESIS",
-          "head": "Upload long video \u2192 get 5\u201310 ready-to-post Shorts",
-          "cmd": null,
-          "sub": "The tool detects high-energy moments (laughter, strong statements, topic pivots), trims dead air, adds auto-captions, and crops to 9:16 \u2014 with outputs that don't look auto-generated."
-        },
-        {
-          "kicker": "EXISTING ALTERNATIVES",
-          "head": "Opus Clip and Descript exist \u2014 but the 'AI feel' is a real complaint",
-          "cmd": null,
-          "sub": "Opus Clip already does moment detection; Descript adds editing polish. The gap the poster identifies is naturalness: cuts that match speech rhythm rather than arbitrary sentence boundaries."
-        },
-        {
-          "kicker": "CHEAP VALIDATION",
-          "head": "Search r/podcasting and r/NewTubers for 'shorts' or 'clipping' complaints",
-          "cmd": null,
-          "sub": "If duplicate frustration threads exist at volume, post a Typeform asking creators how many hours/week they spend clipping \u2014 and what they'd pay to eliminate that. 50 responses beats a year of guessing."
-        }
-      ]
-    },
-    {
-      "id": "2026-08-01-nvidia-alpamayo-2-super",
-      "format": "story",
-      "topic": "computer-vision",
-      "accent": "teal",
-      "title": "NVIDIA Alpamayo 2 Super Opens AV Frontier Models",
-      "source": {
-        "name": "Edge AI & Vision Alliance",
-        "url": "https://www.edge-ai-vision.com/2026/08/nvidia-alpamayo-2-super-the-frontier-open-model-for-robotaxis-and-autonomous-vehicles-now-available-for-commercial-use/"
-      },
-      "panels": [
-        {
-          "kicker": "HOOK",
-          "head": "The hardest AV problems aren't rush-hour traffic \u2014 they're the weird edge cases no dataset fully covers.",
-          "cmd": null,
-          "sub": "NVIDIA's Alpamayo 2 Super is built specifically to reason through rare, complex driving scenarios rather than just handle the common ones."
-        },
-        {
-          "kicker": "ANNOUNCEMENT",
-          "head": "Alpamayo 2 Super is now available under an open commercial licence.",
-          "cmd": null,
-          "sub": "That means robotaxi operators and AV developers can deploy the model in production without the closed-API constraints typical of frontier driving models."
-        },
-        {
-          "kicker": "KEY CAPABILITY",
-          "head": "Benchmark-leading reasoning paired with inspectable decision traces.",
-          "cmd": null,
-          "sub": "Inspectable decisions matter in regulated transport: safety engineers can audit why the model chose a manoeuvre, not just what it chose \u2014 a prerequisite for many certification frameworks."
+          "sub": "Two engineers sit together watching Claude generate an explanation of their own system. Neither can verify it. The codebase has outgrown the team's collective mental model."
         },
         {
           "kicker": "WHY IT MATTERS",
-          "head": "Open weights lower the barrier for fleets that can't afford bespoke model development.",
+          "head": "Cognitive debt is the new technical debt",
           "cmd": null,
-          "sub": "Smaller robotaxi operators and Tier-1 suppliers can fine-tune on proprietary route data rather than building perception-and-planning stacks from scratch."
+          "sub": "In regulated or safety-critical systems \u2014 medical imaging pipelines, edge inference on physical hardware \u2014 a team that can't reason about its own stack is an audit and incident risk, not just a productivity problem."
         },
         {
           "kicker": "TAKEAWAY",
-          "head": "If you're evaluating AV perception stacks, add an explainability audit to your benchmark suite.",
+          "head": "Ship with AI; own the architecture yourself",
           "cmd": null,
-          "sub": "Inspectable reasoning is increasingly a regulator expectation; a model that logs its decision rationale shortens the safety-case documentation cycle significantly."
+          "sub": "Set a team norm: every merged AI-generated component needs a human who can explain its data flow in plain language without asking the model. If no one can, it doesn't ship."
         }
       ]
     },
     {
-      "id": "2025-05-14-cofounder-matching-hypothesis",
+      "id": "2026-08-11-no-lossless-nlp-transforms",
       "format": "story",
-      "topic": "startup-ideas",
-      "accent": "lime",
-      "title": "Co-founder matching: real gap or solved problem?",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Every AI rewrite leaks meaning you didn't know you had",
       "source": {
-        "name": "r/SomebodyMakeThis",
-        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vl91gn/ever_had_a_great_idea_stall_out_just_because_you/"
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/11/there-are-no-lossless-transformations-of-natural-language-text/#atom-everything"
       },
       "panels": [
         {
           "kicker": "THE PROBLEM",
-          "head": "Good ideas die because the right person isn't in the room",
+          "head": "AI can polish your prose and quietly delete your point",
           "cmd": null,
-          "sub": "Solo founders with strong ideas can't find a technical co-founder; skilled builders can't find a project worth their time. The mismatch kills momentum before a single line of code is written."
+          "sub": "When an LLM rephrases your writing, it works from a statistical model of language \u2014 not from the specific mental model you had when you wrote the sentence. Something slips out in translation."
         },
         {
-          "kicker": "WHO FEELS THIS",
-          "head": "First-time founders and domain experts leaving corporate roles",
+          "kicker": "THE PRINCIPLE",
+          "head": "No natural-language transformation is lossless",
           "cmd": null,
-          "sub": "Recurring pain for people who have deep vertical knowledge (healthcare, logistics, construction) but no engineering network \u2014 and for early-career devs who want to build but lack a problem to anchor to."
+          "sub": "Every rewrite \u2014 by human or model \u2014 shifts meaning. The gap is widest when the rewriter lacks the context that made your original phrasing deliberate rather than accidental."
         },
         {
-          "kicker": "THE PRODUCT HYPOTHESIS",
-          "head": "A lightweight, intent-signal marketplace \u2014 not another r\u00e9sum\u00e9 dump",
+          "kicker": "THE RULE",
+          "head": "Own every sentence, or don't ship it",
           "cmd": null,
-          "sub": "Profiles that expose what someone knows, what stage they want to join at, and what commitment level they can offer. Ideas listed with enough context to evaluate fit \u2014 not a pitch deck, just a structured brief."
+          "sub": "Sophie Alpert's policy: if a reviewer asks what you meant by a line, 'AI wrote that' is not an answer. You must be able to defend every idea in a document before you put your name on it."
         },
         {
-          "kicker": "WHY ALTERNATIVES FALL SHORT",
-          "head": "LinkedIn is passive; Discord is noisy; YC co-founder matching is gated",
+          "kicker": "WHY IT MATTERS",
+          "head": "Specs and PRDs are load-bearing documents",
           "cmd": null,
-          "sub": "LinkedIn optimises for hiring, not equity partnerships. Discord servers are high-friction and ephemeral. YC's tool requires being in the YC ecosystem. None surfaces intent clearly or filters for commitment level."
+          "sub": "For PMs writing requirements that feed into model training pipelines, compliance docs, or edge-device logic, an AI-softened edge case or quietly reworded constraint can propagate into shipped behaviour. Vague docs cost more than blunt ones."
         },
         {
-          "kicker": "VALIDATION STEP",
-          "head": "Before building: count the corpses",
+          "kicker": "TAKEAWAY",
+          "head": "Use AI to find gaps, not to replace your voice",
           "cmd": null,
-          "sub": "Search r/cofounder, r/SomebodyMakeThis, and IndieHackers for 'looking for co-founder' posts from the last 90 days. If dozens go unanswered or respondents report no match, the gap is real. Then post one fake 'idea looking for dev' listing on a relevant Discord and measure inbound \u2014 that's your signal before writing a line of code."
+          "sub": "Ask the model 'what did I not say clearly?' rather than 'rewrite this'. You keep the meaning; the model surfaces where your mental model didn't make it onto the page."
         }
       ]
     },
     {
-      "id": "2025-01-31-neutron-slip-2027",
+      "id": "2025-01-31-ai-middle-class-engineers",
       "format": "story",
-      "topic": "aerospace",
-      "accent": "sky",
-      "title": "Rocket Lab's Neutron First Launch May Slip to 2027",
+      "topic": "ai-news",
+      "accent": "gold",
+      "title": "AI Is Hollowing Out Mid-Level Engineering Jobs",
       "source": {
-        "name": "SpaceNews",
-        "url": "https://spacenews.com/first-neutron-launch-may-slip-to-2027/"
+        "name": "florianherrengt.com",
+        "url": "https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html"
       },
       "panels": [
         {
-          "kicker": "SCHEDULE RISK",
-          "head": "Neutron's 2026 debut window is closing",
+          "kicker": "THE SHIFT",
+          "head": "Juniors get blocked. Seniors get leverage. The middle disappears.",
           "cmd": null,
-          "sub": "Rocket Lab has acknowledged the probability of a first Neutron launch before end of 2026 is shrinking, signalling a likely slip into 2027."
+          "sub": "AI coding tools are compressing the value curve in software teams \u2014 the roles hit hardest are the ones in between entry-level and principal."
         },
         {
-          "kicker": "THE VEHICLE",
-          "head": "Neutron is Rocket Lab's reusable medium-lift play",
+          "kicker": "WHAT'S HAPPENING",
+          "head": "Senior engineers now do what mid-levels used to do \u2014 faster",
           "cmd": null,
-          "sub": "Designed to carry roughly 13,000 kg to low Earth orbit with a reusable first stage, Neutron is Rocket Lab's bid to compete in the medium-lift market alongside Falcon 9 and Vulcan."
+          "sub": "A senior with AI tooling can scope, scaffold, and ship work that previously required delegating to a 2\u20135 year engineer. The delegation layer is shrinking."
         },
         {
-          "kicker": "WHAT'S KNOWN",
-          "head": "Progress is real \u2014 but the timeline has always been tight",
+          "kicker": "THE SQUEEZE",
+          "head": "Juniors can't climb the ladder if the rungs are gone",
           "cmd": null,
-          "sub": "Rocket Lab has reported hardware development milestones, yet the article notes uncertainty remains high. The company has not disclosed which specific subsystem is driving the potential delay."
+          "sub": "Mid-level work was how engineers built judgment \u2014 reading others' code, fixing real bugs, owning small features. If that volume of work evaporates, the apprenticeship model breaks."
         },
         {
-          "kicker": "MARKET CONTEXT",
-          "head": "Every quarter of slip matters in a crowded launch market",
+          "kicker": "WHY IT MATTERS",
+          "head": "Smaller teams shipping more raises the cost of hiring mistakes",
           "cmd": null,
-          "sub": "New Shepard, Vulcan, and a maturing Starship are all competing for the same commercial and government manifests. A 2027 debut gives rivals more time to lock in multi-year contracts."
+          "sub": "For a PM: fewer engineers means each headcount decision carries more risk, code review depth may drop, and domain knowledge concentrates in fewer people \u2014 a bus-factor problem at scale."
+        },
+        {
+          "kicker": "TAKEAWAY",
+          "head": "Audit your team's skill-building pipeline now, not after the reorg",
+          "cmd": null,
+          "sub": "If your org is trimming mid-level roles, identify explicitly how junior engineers will still accumulate judgment. Mentorship and code review cadences need to be deliberate, not incidental."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-11-stealing-reasoning-traces",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Researchers cracked open encrypted LLM reasoning traces",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/11/stealing-reasoning-traces/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "THE HOOK",
+          "head": "Frontier models encrypt their chain-of-thought \u2014 but shared keys broke that guarantee",
+          "cmd": null,
+          "sub": "Anthropic, OpenAI, and Google all return encrypted reasoning blocks via their APIs. Researchers found every model in the same family used the same encryption key."
+        },
+        {
+          "kicker": "THE EXPLOIT",
+          "head": "Feed a strong model's trace into its weakest sibling, then jailbreak",
+          "cmd": null,
+          "sub": "Because the key was shared family-wide, a reasoning block from GPT-5.5 or Claude Sonnet could be replayed into a cheaper, easier-to-jailbreak model. A simple prompt asking it to transcribe the attached reasoning verbatim was enough."
+        },
+        {
+          "kicker": "WHAT LEAKED",
+          "head": "Raw thinking tokens look nothing like polished output",
+          "cmd": null,
+          "sub": "Extracted traces from GPT-5.5 showed fragmented, imperative shorthand \u2014 'Need think architecture. Svelte 5. Components: Button.svelte\u2026' \u2014 clearly never intended as readable text. The appendix in the paper gives extensive real examples."
+        },
+        {
+          "kicker": "BONUS ATTACK",
+          "head": "Encrypted traces can carry prompt injections across model boundaries",
+          "cmd": null,
+          "sub": "Researchers found you can embed an instruction (e.g. exfiltrate a file) inside a model's thinking trace, then replay that encrypted block into a second model. Models treat incoming reasoning chunks as authoritative, making them unusually compliant with whatever was baked in."
         },
         {
           "kicker": "SO WHAT",
-          "head": "Watch Rocket Lab's next earnings call for a revised target date",
+          "head": "Patched now \u2014 but the attack surface matters for anyone building multi-model pipelines",
           "cmd": null,
-          "sub": "For teams planning rideshare or dedicated medium-lift missions in 2026\u20132027, treat Neutron availability as unconfirmed and maintain a backup manifest slot on an established vehicle."
+          "sub": "All three providers acknowledged and fixed the shared-key issue. For PMs deploying agentic systems that pass context between models, this is a reminder: encrypted \u2260 safe to trust. Treat replayed reasoning blocks as untrusted input, just like any other external content."
+        }
+      ]
+    },
+    {
+      "id": "2025-01-31-women-product-recs-app",
+      "format": "story",
+      "topic": "startup-ideas",
+      "accent": "lime",
+      "title": "Trusted product recs, women-only, no sponsors",
+      "source": {
+        "name": "r/SomebodyMakeThis",
+        "url": "https://www.reddit.com/r/SomebodyMakeThis/comments/1vm60wj/an_app_for_womenonly_product_recommendations/"
+      },
+      "panels": [
+        {
+          "kicker": "THE PROBLEM",
+          "head": "Sponsored reviews have poisoned product discovery for women",
+          "cmd": null,
+          "sub": "Influencer deals and algorithmic rankings make it hard to know if a shampoo, razor, or skincare product actually works \u2014 or just paid well."
+        },
+        {
+          "kicker": "WHO FEELS THIS",
+          "head": "Any woman buying personal-care or beauty products online",
+          "cmd": null,
+          "sub": "That's a broad, high-frequency purchase behaviour. Personal care is a $600B+ global market; trust is the chronic weak point."
+        },
+        {
+          "kicker": "THE HYPOTHESIS",
+          "head": "A closed, women-only product database built on real use, not ratings incentives",
+          "cmd": null,
+          "sub": "No negative reviews required \u2014 absence of endorsement is itself a signal. Categories span razors to vibrators to hair tools. Access gating (e.g. email verification or community vouching) is the core trust lever."
+        },
+        {
+          "kicker": "EXISTING ALTERNATIVES",
+          "head": "Sephora Beauty Insider, Reddit, and Amazon reviews all fall short",
+          "cmd": null,
+          "sub": "Sephora is retailer-owned and incentivised to push margin. Reddit is open and unstructured. Amazon reviews are gamed at scale. None combine gender-specific curation with a spam-resistant, endorsement-only model."
+        },
+        {
+          "kicker": "VALIDATION STEP",
+          "head": "Before building anything, run a 48-hour waitlist test",
+          "cmd": null,
+          "sub": "Post a simple landing page ('Women-only product recs \u2014 no sponsors, no ads') to r/TheGirlSurvivalGuide and r/SkincareAddiction. Count sign-ups. If 500+ in 48 hours, the pull is real enough to prototype."
+        }
+      ]
+    },
+    {
+      "id": "2026-08-11-datasette-upload-dbs-api",
+      "format": "story",
+      "topic": "vibe-coding",
+      "accent": "indigo",
+      "title": "Datasette gets atomic DB swap via curl",
+      "source": {
+        "name": "Simon Willison's Weblog",
+        "url": "https://simonwillison.net/2026/Aug/11/datasette-upload-dbs/#atom-everything"
+      },
+      "panels": [
+        {
+          "kicker": "THE HOOK",
+          "head": "Push a fresh SQLite DB to production in one curl call",
+          "cmd": null,
+          "sub": "datasette-upload-dbs 0.5a0 adds a formal HTTP API so any script or CI job can replace a live database without touching the server."
+        },
+        {
+          "kicker": "HOW IT WORKS",
+          "head": "Upload \u2192 verify \u2192 atomic swap",
+          "cmd": null,
+          "sub": "The plugin writes the uploaded file to disk, runs a verification step, then flips the pointer \u2014 so the old database keeps serving requests right up until the new one is ready."
+        },
+        {
+          "kicker": "THE CALL",
+          "head": "Three flags and a token are all you need",
+          "cmd": "curl -X POST -H \"Authorization: Bearer $API_TOKEN\" -H \"Accept: application/json\" -F \"db=@content.db\" -F \"db_name=content\" https://your-instance.example.com/-/upload-dbs",
+          "sub": "POST the file as multipart form data with a bearer token. The endpoint accepts both new databases and replacements for existing ones."
+        },
+        {
+          "kicker": "THE WORKFLOW",
+          "head": "Build in GitHub Actions, ship on merge",
+          "cmd": null,
+          "sub": "Spin up a data pipeline in CI \u2014 scrape, transform, output a SQLite file \u2014 then call this endpoint at the end. Production reflects the latest build within seconds of it finishing."
+        },
+        {
+          "kicker": "SO WHAT",
+          "head": "SQLite-backed read APIs just got a real deployment story",
+          "cmd": null,
+          "sub": "If you're serving reference data (model outputs, embeddings, lookup tables) via Datasette, you can now treat it like any other artifact in a CI pipeline \u2014 versioned, automated, zero-downtime."
         }
       ]
     }
